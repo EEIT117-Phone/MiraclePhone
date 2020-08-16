@@ -1,0 +1,129 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .shop-main {
+    
+    width:900px;
+    margin:auto;
+    margin-top: 100px;
+  }
+  .cart-header {
+    margin: auto;
+    margin-bottom: 10px;
+    width: 900px;
+
+  }
+  .cart-header thead th:nth-child(1) {
+    width: 60%;
+  }
+  .cart-header thead th:nth-child(2) {
+    width: 10%;
+  }
+  .cart-header thead th:nth-child(3) {
+    width: 10%;
+  }
+  .cart-header thead th:nth-child(4) {
+    width: 10%;
+  }
+  .cart-header thead th:nth-child(5) {
+    width: 10%;
+  }
+  
+  
+  .cart-main {
+    margin: auto;
+    margin-bottom: 30px;
+    width: 900px;
+
+  }
+
+  .cart-main tbody td:nth-child(1) {
+    width: 3%;
+  }
+
+  .cart-main tbody td:nth-child(2) {
+    width: 27%;
+  }
+
+  .cart-main tbody td:nth-child(3) {
+    width: 30%;
+  }
+
+  .cart-main tbody td:nth-child(4) {
+    width: 10%;
+  }
+
+  .cart-main tbody td:nth-child(5) {
+    width: 10%;
+  }
+  .cart-main tbody td:nth-child(6) {
+    width: 10%;
+  }
+  .cart-main tbody td:nth-child(7) {
+    width: 10%;
+  }
+  
+  /* .cart-main tbody td{
+    height:150px;
+  } */
+  .cart-main tbody tr img{
+    width:140px;
+    height:auto;
+    border: grey 1px solid;
+  }
+  .ship-text{
+    padding-top: 0px;
+    padding-bottom:40px;
+    padding-right: 1px;
+  }
+  
+  .cart-summary{
+    margin: auto;
+    width: 900px;
+    margin-bottom: 100px;
+  }
+  .cart-summary tbody{
+    background-color:lightblue;
+    border-top: gray 2px solid;
+  }
+  .cart-summary tbody td:nth-child(1) {
+    width: 60%;
+  }
+  .cart-summary tbody td:nth-child(2) {
+    width: 10%;
+  }
+  .cart-summary tbody td:nth-child(3) {
+    width: 15%;
+  }
+  .cart-summary tbody td:nth-child(4) {
+    width: 15%;
+  }
+  .ship-payment {
+    /* height: 100px; */
+    border-top: black 2px solid;
+  }
+  .ship-method{
+    /* height: 100px; */
+    border-top: black 2px solid;
+  }
+  
+  .ship-method td div{
+    margin-right: 50px;
+  }
+  .ship-address{
+    width:800px;
+    margin: auto;
+    display: none;
+  }
