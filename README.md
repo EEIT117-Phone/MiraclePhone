@@ -1,15 +1,15 @@
 # MiraclePhone
 
-### ©R¦W³W«h
-##### ¾m®p¦¡¤j¤p¼g¡]Camel-Case¡ACamel Case¡Acamel case¡^
-* ¤p¾m®p¦¡©R¦Wªk¡]lower camel case¡^
-> ²Ä¤@­Ó³æ¦r¥H¤p¼g¦r¥À¶}©l¡F²Ä¤G­Ó³æ¦rªº­º¦r¥À¤j¼g¡A¨Ò¦p¡GfirstName¡BlastName¡C
->> ¨Ï¥Î¦¹³W«h
->>> **Ãş§OÅÜ¼Æ¦WºÙ**¡B**¤èªk¦WºÙ**¡B**html**¡B**css**¡B**js**¡B**images**
-* ¤j¾m®p¦¡©R¦Wªk¡]upper camel case¡^
-> ¨C¤@­Ó³æ¦rªº­º¦r¥À³£±Ä¥Î¤j¼g¦r¥À¡A¨Ò¦p¡GFirstName¡BLastName¡BCamelCase¡A¤]³QºÙ¬°Pascal©R¦Wªk¡]­^»y¡GPascal Case¡^¡C
->> ¨Ï¥Î¦¹³W«h
->>> **Ãş§O¦WºÙ**
+### å‘½åè¦å‰‡
+##### é§å³°å¼å¤§å°å¯«ï¼ˆCamel-Caseï¼ŒCamel Caseï¼Œcamel caseï¼‰
+* å°é§å³°å¼å‘½åæ³•ï¼ˆlower camel caseï¼‰
+> ç¬¬ä¸€å€‹å–®å­—ä»¥å°å¯«å­—æ¯é–‹å§‹ï¼›ç¬¬äºŒå€‹å–®å­—çš„é¦–å­—æ¯å¤§å¯«ï¼Œä¾‹å¦‚ï¼šfirstNameã€lastNameã€‚
+>> ä½¿ç”¨æ­¤è¦å‰‡
+>>> **é¡åˆ¥è®Šæ•¸åç¨±**ã€**æ–¹æ³•åç¨±**ã€**html**ã€**css**ã€**js**ã€**images**
+* å¤§é§å³°å¼å‘½åæ³•ï¼ˆupper camel caseï¼‰
+> æ¯ä¸€å€‹å–®å­—çš„é¦–å­—æ¯éƒ½æ¡ç”¨å¤§å¯«å­—æ¯ï¼Œä¾‹å¦‚ï¼šFirstNameã€LastNameã€CamelCaseï¼Œä¹Ÿè¢«ç¨±ç‚ºPascalå‘½åæ³•ï¼ˆè‹±èªï¼šPascal Caseï¼‰ã€‚
+>> ä½¿ç”¨æ­¤è¦å‰‡
+>>> **é¡åˆ¥åç¨±**
 
 * * *
 
@@ -22,50 +22,50 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th>¥Ø¿ı</th>
-<th>»¡©ú</th>
+<th>ç›®éŒ„</th>
+<th>èªªæ˜</th>
 </tr>
 </thead>
 <tbody>
 
 <tr class="odd">
 <td><p>org.iii.eeit117.project.controller</p></td>
-<td><p>Servlet ©ñ¸m¦ì¸m<br />
+<td><p>Servlet æ”¾ç½®ä½ç½®<br />
 </p></td>
 </tr>
 
 <tr class="even">
 <td><p>org.iii.eeit117.project.model.service</p></td>
-<td><p>Service¤¶­±(interface) ©ñ¸m¦ì¸m</p></td>
+<td><p>Serviceä»‹é¢(interface) æ”¾ç½®ä½ç½®</p></td>
 </tr>
 
 <tr class="odd">
 <td><p>org.iii.eeit117.project.model.service.impl</p></td>
-<td><p>Service¹ê§@Ãş§O(class) ©ñ¸m¦ì¸m<br />
+<td><p>Serviceå¯¦ä½œé¡åˆ¥(class) æ”¾ç½®ä½ç½®<br />
 </p></td>
 </tr>
 
 <tr class="even">
 <td><p>org.iii.eeit117.project.model.dao</p></td>
-<td><p>DaoÃş§O ©ñ¸m¦ì¸m</p></td>
+<td><p>Daoé¡åˆ¥ æ”¾ç½®ä½ç½®</p></td>
 </tr>
 
 
 <tr class="odd">
 <td><p>org.iii.eeit117.project.model.data</p></td>
-<td><p>Enum ©ñ¸m¦ì¸m<br />
+<td><p>Enum æ”¾ç½®ä½ç½®<br />
 </p></td>
 </tr>
 
 <tr class="even">
 <td><p>org.iii.eeit117.project.model.vo</p></td>
-<td><p>ORM Object ©ñ¸m¦ì¸m(»P¸ê®Æ®w¸ê®Æªí¬Û¹ïÀ³¤§Ãş§O)<br />
+<td><p>ORM Object æ”¾ç½®ä½ç½®(èˆ‡è³‡æ–™åº«è³‡æ–™è¡¨ç›¸å°æ‡‰ä¹‹é¡åˆ¥)<br />
 </p></td>
 </tr>
 
 <tr class="odd">
 <td><p>org.iii.eeit117.project.model.util</p></td>
-<td><p>Util¤u¨ãÃş§O ©ñ¸m¦ì¸m<br />
+<td><p>Utilå·¥å…·é¡åˆ¥ æ”¾ç½®ä½ç½®<br />
 </p></td>
 </tr>
 
@@ -74,7 +74,7 @@
 
 * * *
 
-### ÀRºA¸ê·½¸ô®|
+### éœæ…‹è³‡æºè·¯å¾‘
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -82,17 +82,17 @@
 </colgroup>
 <thead>
 <tr class="header">
-<th>¥Ø¿ı</th>
-<th>»¡©ú</th>
+<th>ç›®éŒ„</th>
+<th>èªªæ˜</th>
 </tr>
 </thead>
 <tbody>
 
 <tr class="odd">
-<td><p>/WebContent/¼Ò²Õ¦WºÙ/</p></td>
-<td><p>html©ñ¸m¦ì¸m<br /></p>
-<p>(½Ğ¤j®a¨Ì¦Û¤vªº¼Ò²Õ¦WºÙ«Ø¥ß¥Ø¿ı¡A¨Ã©ñ¸m©Ò»İµe­±¤§html)<br /></p>
-<p>½d¨Ò<br /></p>
+<td><p>/WebContent/æ¨¡çµ„åç¨±/</p></td>
+<td><p>htmlæ”¾ç½®ä½ç½®<br /></p>
+<p>(è«‹å¤§å®¶ä¾è‡ªå·±çš„æ¨¡çµ„åç¨±å»ºç«‹ç›®éŒ„ï¼Œä¸¦æ”¾ç½®æ‰€éœ€ç•«é¢ä¹‹html)<br /></p>
+<p>ç¯„ä¾‹<br /></p>
 <p>/WebContent/cart/cart.html<br /></p>
 <p>/WebContent/cart/orderConfirm.html<br /></p>
 </td>
@@ -100,17 +100,17 @@
 
 <tr class="even">
 <td><p>/WebContent/css/</p></td>
-<td><p>css ©ñ¸m¥Ø¿ı(css¥]§t¦U¼Ò²Õ¤§css)</p></td>
+<td><p>css æ”¾ç½®ç›®éŒ„(cssåŒ…å«å„æ¨¡çµ„ä¹‹css)</p></td>
 </tr>
 
 <tr class="odd">
 <td><p>/WebContent/js/</p></td>
-<td><p>js ©ñ¸m¥Ø¿ı(js¥]§t¦U¼Ò²Õ¤§js)</p></td>
+<td><p>js æ”¾ç½®ç›®éŒ„(jsåŒ…å«å„æ¨¡çµ„ä¹‹js)</p></td>
 </tr>
 
 <tr class="even">
 <td><p>/WebContent/images/</p></td>
-<td><p>¹Ï¤ù©ñ¸m¦ì¸m</p></td>
+<td><p>åœ–ç‰‡æ”¾ç½®ä½ç½®</p></td>
 </tr>
 
 </tbody>
@@ -119,15 +119,15 @@
 * * *
 
 ### Commit Code
-#### [·s¼W|­×§ï|Bug|¦@¥Î][¼Ò²Õ¦WºÙ] Â²³æ´y­z
-#### ½d¨Ò
-* [·s¼W] ÁÊª«¨®(cart)
-* [­×§ï] ÁÊª«¨®(cart) ­×¥¿ÁÊª«¨®µe­±¶]ª©
-* [Bug] ÁÊª«¨®(cart)  ¨Ï¥ÎªÌ­«·s¾ã²zµe­±¡AÁÊª«¨®¸ê°T¤£¨£
-* [¦@¥Î] ·s¼WÀÉ®×¤W¶Ç¦@¥Î¼Ò²Õ
-* [¦@¥Î] ­×§ïweb.xml
+#### [æ–°å¢|ä¿®æ”¹|Bug|å…±ç”¨][æ¨¡çµ„åç¨±] ç°¡å–®æè¿°
+#### ç¯„ä¾‹
+* [æ–°å¢] è³¼ç‰©è»Š(cart)
+* [ä¿®æ”¹] è³¼ç‰©è»Š(cart) ä¿®æ­£è³¼ç‰©è»Šç•«é¢è·‘ç‰ˆ
+* [Bug] è³¼ç‰©è»Š(cart)  ä½¿ç”¨è€…é‡æ–°æ•´ç†ç•«é¢ï¼Œè³¼ç‰©è»Šè³‡è¨Šä¸è¦‹
+* [å…±ç”¨] æ–°å¢æª”æ¡ˆä¸Šå‚³å…±ç”¨æ¨¡çµ„
+* [å…±ç”¨] ä¿®æ”¹web.xml
 
 * * *
 
-### ¦@¥Î¼Ò²Õ
-#### «İ¸É¥R
+### å…±ç”¨æ¨¡çµ„
+#### å¾…è£œå……
