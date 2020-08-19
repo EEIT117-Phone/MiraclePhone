@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <title>銷售奇機</title>
+  <!-- @@ CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/tail.select@0.5.15/css/bootstrap4/tail.select-default.css" />
+    
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css">
+</link>
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css">
+</link>
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"> -->
+  <link rel=stylesheet type="text/css" href="/css/search.css">
+</head>
+
+<body>
+  <div class="card search-card">
+    <table class="search-card" border="0" cellpadding="20" cellspacing="0">
+      <tr>
+        <td style="text-align:left;"><a href="https://via.placeholder.com/420x180?text=New+link"><img
+              src="https://via.placeholder.com/420x180?text=New+link" class="card-img-top" alt="..."></a></td>
+        <td style="text-align:center;"><a href="https://via.placeholder.com/420x180?text=Secand+link"><img
+              src="https://via.placeholder.com/420x180?text=Secand+link" class="card-img-top" alt="..."></a></td>
+        <td style="text-align:right;"><a href="https://via.placeholder.com/420x180?text=Parts+link"><img
+              src="https://via.placeholder.com/420x180?text=Parts+link" class="card-img-top" alt="..."></a></td>
+      </tr>
+    </table>
+  </div>
+
+  <form>
+    <fieldset>
+      <legend>進階搜尋</legend>
+      <div class="text-center">
+      <label class="title">機型</label>
+      <select type="text" id="search-select" class="select-hooked" multiple>
+        <!-- <option>不限</option> -->
+        <option>iphone 6</option>
+        <option>iphone 6 Plus</option>
+        <option>iphone 6s</option>
+        <option>iphone 6s Plus</option>
+        <option>iphone 7</option>
+        <option>iphone 7 Plus</option>
+        <option>iphone 8</option>
+        <option>iphone 8 Plus</option>
+        <option>iphone X</option>
+        <option>iphone XR</option>
+        <option>iphone XS</option>
+        <option>iphone XS Max</option>
+        <option>iphone 11</option>
+        <option>iphone 11 Pro</option>
+        <option>iphone 11 Pro Max</option>
+        <option>iphone se</option>
+        <option>iphone se2</option>
+      </select>
+
+      <label class="title">容量</label>
+      <select type="text" id="search-select" class="select-hooked" multiple>
+        <!-- <option>不限</option> -->
+        <option>16 GB</option>
+        <option>32 GB</option>
+        <option>64 GB</option>
+        <option>128 GB</option>
+        <option>256 GB</option>
+        <option>512 GB</option>
+      </select>
+      <label class="title">顏色</label>
+      <select type="text" id="search-select" class="select-hooked" multiple>
+        <!--https://support.apple.com/zh-tw/HT201296-->
+        <!-- <option>不限</option> -->
+        <option>太空灰</option>
+        <option>銀</option>
+        <option>金</option>
+        <option>玫瑰金</option>
+        <option>黑</option>
+        <option>曜石黑</option>
+        <option>白</option>
+        <option>藍</option>
+        <option>黃</option>
+        <option>珊瑚</option>
+        <option>紅</option>
+        <option>紫</option>
+        <option>綠</option>
+        <option>夜幕綠</option>
+      </select>
+      <label class="title">價格區間</label>
+      <select type="text" id="search-select" class="select-hooked" multiple>
+        <!-- <option>不限</option> -->
+        <option>5,000元以下</option>
+        <option>10,000元以下</option>
+        <option>20,000元以下</option>
+        <option>30,000元以下</option>
+      </select>
+        <input type="text" class="form-control search-input" placeholder="或輸入關鍵字搜尋">
+        <button type="button" class="btn btn-secondary btn-lg search-main-buttom">搜尋</button>
+      </div>
+
+      <hr>
+
+      <label class="title">機型</label>
+      <div class="search-radio">
+        <label><input type="checkbox">不限</label>&nbsp;
+        <label><input type="checkbox">iphone 6</label>&nbsp;
+        <label><input type="checkbox">iphone 6 Plus</label>&nbsp;
+        <label><input type="checkbox">iphone 6s</label>&nbsp;
+        <label><input type="checkbox">iphone 6s Plus</label>&nbsp;
+        <label><input type="checkbox">iphone 7</label>&nbsp;
+        <label><input type="checkbox">iphone 7 Plus</label>&nbsp;
+        <label><input type="checkbox">iphone 8</label>&nbsp;
+        <label><input type="checkbox">iphone 8 Plus</label>&nbsp;<br>
+        <label><input type="checkbox">iphone X</label>&nbsp;
+        <label><input type="checkbox">iphone XR</label>&nbsp;
+        <label><input type="checkbox">iphone XS</label>&nbsp;
+        <label><input type="checkbox">iphone XS Max</label>&nbsp;
+        <label><input type="checkbox">iphone 11</label>&nbsp;
+        <label><input type="checkbox">iphone 11 Pro</label>&nbsp;
+        <label><input type="checkbox">iphone 11 Pro Max</label>&nbsp;
+        <label><input type="checkbox">iphone se</label>&nbsp;
+        <label><input type="checkbox">iphone se2</label>&nbsp;
+      </div>
+      <label class="title">容量</label>
+      <div class="search-radio">
+        <label><input type="checkbox">不限</label>&nbsp;
+        <label><input type="checkbox">16 GB</label>&nbsp;
+        <label><input type="checkbox">32 GB</label>&nbsp;
+        <label><input type="checkbox">64 GB</label>&nbsp;
+        <label><input type="checkbox">128 GB</label>&nbsp;
+        <label><input type="checkbox">256 GB</label>&nbsp;
+        <label><input type="checkbox">512 GB</label>&nbsp;
+      </div>
+      <label class="title">顏色</label>
+      <div class="search-radio">
+        <label><input type="checkbox">不限</label>&nbsp;
+        <label><input type="checkbox">太空灰</label>&nbsp;
+        <label><input type="checkbox">銀</label>&nbsp;
+        <label><input type="checkbox">金</label>&nbsp;
+        <label><input type="checkbox">玫瑰金</label>&nbsp;
+        <label><input type="checkbox">黑</label>&nbsp;
+        <label><input type="checkbox">曜石黑</label>&nbsp;
+        <label><input type="checkbox">白</label>&nbsp;
+        <label><input type="checkbox">藍</label>&nbsp;
+        <label><input type="checkbox">黃</label>&nbsp;
+        <label><input type="checkbox">珊瑚</label>&nbsp;
+        <label><input type="checkbox">紅</label>&nbsp;
+        <label><input type="checkbox">紫</label>&nbsp;
+        <label><input type="checkbox">綠</label>&nbsp;
+        <label><input type="checkbox">夜幕綠</label>&nbsp;
+      </div>
+      <label class="title">價格區間</label>
+      <div class="search-radio">
+        <label><input type="radio" name="price" checked="checked">不限</label>&nbsp;
+        <label><input type="radio" name="price">5,000元以下</label>&nbsp;
+        <label><input type="radio" name="price">10,000元以下</label>&nbsp;
+        <label><input type="radio" name="price">20,000元以下</label>&nbsp;
+        <label><input type="radio" name="price">30,000元以下</label>&nbsp;
+      </div>
+
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>精選推薦</legend>
+      <!-- <table style="width: 100%; border-spacing: 20px;"> -->
+        <div class="owl-carousel">
+          <div class="item">
+              <a target="_blank" href="https://via.placeholder.com/200x200?text=img1"><img
+                      src="https://via.placeholder.com/200x200?text=img1" /></a>
+          </div>
+          <div class="item">
+              <a target="_blank" href="https://via.placeholder.com/200x200?text=img2"><img
+                      src="https://via.placeholder.com/200x200?text=img2" /></a>
+          </div>
+          <div class="item">
+              <a target="_blank"
+                  href="https://via.placeholder.com/200x200?text=img3"><img
+                      src="https://via.placeholder.com/200x200?text=img3" /></a>
+          </div>
+          <div class="item">
+              <a target="_blank"
+                  href="https://via.placeholder.com/200x200?text=img4"><img
+                      src="https://via.placeholder.com/200x200?text=img4" /></a>
+          </div>
+          <div class="item">
+              <a target="_blank"
+                  href="https://via.placeholder.com/200x200?text=img5"><img
+                      src="https://via.placeholder.com/200x200?text=img5" /></a>
+          </div>
+          <div class="item">
+              <a target="_blank"
+                  href="https://via.placeholder.com/200x200?text=img6"><img
+                      src="https://via.placeholder.com/200x200?text=img6" /></a>
+          </div>
+          <div class="item">
+              <a target="_blank"
+                  href="https://via.placeholder.com/200x200?text=img7"><img
+                      src="https://via.placeholder.com/200x200?text=img7" /></a>
+          </div>
+          <div class="item">
+              <a target="_blank"
+                  href="https://via.placeholder.com/200x200?text=img8"><img
+                      src="https://via.placeholder.com/200x200?text=img8" /></a>
+          </div>
+      </div>
+    </fieldset>
+
+    <br>
+    <fieldset>
+      <legend>搜尋結果</legend>
+      <table style="width: 100%; border-spacing: 20px;">
+        <select style="float: right; margin-right: 20px; height: 100%;">
+          <option>默認更新時間排序</option>
+          <option>依價格(高到低)</option>
+          <option>依價格(低到高)</option>
+          <option>依瀏覽次數(多到少)</option>
+          <option>依瀏覽次數(少到多)</option>
+          <option>依刊登時間(新到舊)</option>
+          <option>依刊登時間(舊到新)</option>
+        </select>
+        <input type="button" value="刊登時間" style="float: right; height: 100%; margin: 0 10px 0 5px;">
+        <input type="button" value="瀏覽次數" style="float: right; height: 100%; margin: 0 5px 0 5px;">
+        <input type="button" value="價格排序" style="float: right; height: 100%; margin: 0 5px 0 5px;">
+        <tr>
+          　<td class="resulttdclass">img</td>
+          　<td class="resulttdclass">img</td>
+          　<td class="resulttdclass">img</td>
+          　<td class="resulttdclass">img</td>
+          　<td class="resulttdclass">img</td>
+        </tr>
+        <tr>
+          　<td class="resulttdclass">img</td>
+          　<td class="resulttdclass">img</td>
+          　<td class="resulttdclass">img</td>
+          　<td class="resulttdclass">img</td>
+          　<td class="resulttdclass">img</td>
+        </tr>
+      </table>
+      <br>
+      <nav>
+        <ul class="pagination justify-content-center">
+          <li class="page-item">
+            <a class="page-link text-secondary" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link text-secondary" href="#">1</a></li>
+          <li class="page-item"><a class="page-link text-secondary" href="#">2</a></li>
+          <li class="page-item"><a class="page-link text-secondary" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link text-secondary" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </fieldset>
+  </form>
+
+  <!-- @@ JS -->
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tail.select@0.5.15/js/tail.select.min.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="/js/tail-select.js"></script>
+  <script type="text/javascript" src="/js/owl.carousel.js"></script>
+</body>
+
+</html>
