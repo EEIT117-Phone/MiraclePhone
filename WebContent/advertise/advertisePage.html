@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0051)https://getbootstrap.com/docs/4.5/examples/product/ -->
-<html lang="en">
+<html lang="zh-Hans-TW">
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,13 +9,15 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v4.0.1">
-  <title>Product example · Bootstrap</title>
+  <title>賣家刊登頁面</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/product/">
 
   <!-- Bootstrap core CSS -->
-  <link href="../css/bootstrapWen.min.css" rel="stylesheet"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/product/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/apple-touch-icon.png"
@@ -30,7 +32,9 @@
   <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon.ico">
   <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
   <meta name="theme-color" content="#563d7c">
-
+  <link href="https://getbootstrap.com/docs/4.5/examples/product/product.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/4.5/examples/carousel/carousel.css" rel="stylesheet">
+  <!-- twZip -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
   <script type="text/javascript">
@@ -41,7 +45,7 @@
       var dd = document.getElementById("dd");
       dd.innerHTML = "";
       var fileList = docObj.files;
-      for (var i = 0; i < fileList.length; i++) {    
+      for (var i = 0; i < fileList.length; i++) {
         dd.innerHTML += "<div style='float:left' > <img id='img" + i + "'  /> </div>";
         var imgObjPreview = document.getElementById("img" + i);
 
@@ -49,7 +53,7 @@
           imgObjPreview.style.display = 'block';
           imgObjPreview.style.width = '200px';
           imgObjPreview.style.height = '180px';
-          imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]);   
+          imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]);
         }
         else {
           docObj.select();
@@ -62,7 +66,7 @@
             localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
           }
           catch (e) {
-            alert("您上传的图片格式不正确，请重新选择!");
+            alert("您上傳的圖片格式不正確，請重新選擇!");
             return false;
           }
           imgObjPreview.style.display = 'none';
@@ -118,29 +122,22 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2" href="https://getbootstrap.com/docs/4.5/examples/product/#" aria-label="Product">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-          stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img"
-          viewBox="0 0 24 24" focusable="false">
-          <title>Product</title>
-          <circle cx="12" cy="12" r="10"></circle>
-          <path
-            d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94">
-          </path>
-        </svg>
-      </a>
-      <a class="py-2 d-none d-md-inline-block" href="https://getbootstrap.com/docs/4.5/examples/product/#">Tour</a>
-      <a class="py-2 d-none d-md-inline-block" href="https://getbootstrap.com/docs/4.5/examples/product/#">Product</a>
-      <a class="py-2 d-none d-md-inline-block" href="https://getbootstrap.com/docs/4.5/examples/product/#">Features</a>
-      <a class="py-2 d-none d-md-inline-block"
-        href="https://getbootstrap.com/docs/4.5/examples/product/#">Enterprise</a>
-      <a class="py-2 d-none d-md-inline-block" href="https://getbootstrap.com/docs/4.5/examples/product/#">Support</a>
-      <a class="py-2 d-none d-md-inline-block" href="https://getbootstrap.com/docs/4.5/examples/product/#">Pricing</a>
-      <a class="py-2 d-none d-md-inline-block" href="https://getbootstrap.com/docs/4.5/examples/product/#">Cart</a>
-    </div>
-  </nav>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container d-flex flex-column flex-md-row justify-content-between"
+        style="position: sticky;top:0;left:0">
+        <a class="py-2" aria-label="Product" style="color:white">
+          銷售奇機
+        </a>
+        <a class="py-2 d-none d-md-inline-block"></a>
+        <a style="color:white">客服專區</a>
+        <a style="color:white">購物車</a>
+        <a style="color:white">會員專區</a>
+        <a style="color:white">登入</a>
+        <a style="color:white">註冊</a>
+      </div>
+    </nav>
+  </header>
   <hr>
 
 
@@ -239,7 +236,7 @@
         <br>
         <br>
         <label for="yearOfManufacture">出廠年份:</label>
-        <input id="yearOfManufacture" type="month" name="" min="2007-06" max="2020-10" value="2020-10" >
+        <input id="yearOfManufacture" type="month" name="" min="2007-06" max="2020-10" value="2020-10">
         <br>
         <label>
           <div id="twzipcode">交易地點:</div>
@@ -249,7 +246,8 @@
         <input type="number" max="50000" min="0" value="8000" step="100">
         <br>
         <label for="sellReason">銷售原因以及備註:</label><br>
-          <textarea placeholder="請輸入銷售原因&備註 (上限100字)" maxlength="100"  style="width: 300px; height: 200px;" id="sellReason"></textarea>
+        <textarea placeholder="請輸入銷售原因&備註 (上限100字)" maxlength="100" style="width: 300px; height: 200px;"
+          id="sellReason"></textarea>
         <br>
         <div style="margin :0px auto; width:400px ;height:600px;  position:absolute;top:0px;left:550px;">
           <input type="file" name="file" id="doc" multiple="multiple" style="width:150px;"
