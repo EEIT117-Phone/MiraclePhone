@@ -1,6 +1,7 @@
 package org.iii.eeit117.project.model.service.impl;
 
 import org.iii.eeit117.project.model.dao.HelloDao;
+import org.iii.eeit117.project.model.data.HelloTypeEnum;
 import org.iii.eeit117.project.model.service.HelloService;
 import org.iii.eeit117.project.model.vo.HelloVo;
 

@@ -2,6 +2,7 @@ package org.iii.eeit117.project.controller;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.iii.eeit117.project.model.service.HelloService;
 import org.iii.eeit117.project.model.service.impl.HelloServiceImpl;
 import org.iii.eeit117.project.model.util.StringUtil;
+import org.iii.eeit117.project.model.vo.HelloVo;
 
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
@@ -25,6 +27,9 @@ public class HelloServlet extends HttpServlet {
 		if (StringUtil.isEmpty(name)) {
 			name = "無名氏";
 		}
+		req.getRequestDispatcher("/hello.jsp").forward(req, resp);
+		
+		req.setAttribute("hello", new HelloVo());
 		resp.setContentType("text/html; charset=UTF-8");
 		resp.getOutputStream().write(helloService.sayHello(name).getBytes());
 	
