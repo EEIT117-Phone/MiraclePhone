@@ -1,0 +1,135 @@
+*{margin:0px;padding:0px;}
+
+.head1 {
+    margin: auto;
+    background-color: gray;
+    width: 900px;
+    height: 80px;
+}
+a {
+    text-decoration:none;
+    
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+.small{
+    width: 55px;
+    height:55px;
+    border: gray 1px solid;
+    float: left;
+    margin-left:23px ;
+    margin-top:10px ;
+
+}
+.stl1{
+    font-size: 14px;margin-left: 5px;
+    width: 400px; height:240px;
+}
+.stl1 p{
+    margin-top: 8px;
+}
+.down{
+    width: 500px;
+    height: 10px;
+    margin: auto;
+    margin-top: 130px;
+}
+.down li{
+    font-size: 20px;
+    font-weight: bolder;
+    list-style: none;
+    float: left;
+    width: 150px;
+    height: 30px;
+    background-color: lightcyan;
+    margin-left: 8px;
+    text-align: center;
+    border-radius: 4px;
+    line-height: 28px;
+}
+.quest{
+    margin: auto;
+    width:80%;
+    background-color: ivory;
+    margin-top:50px;
+    display: block;
+}
+.quest1 img{
+    margin: 5px;
+}
+#quest2 {
+    display: none;
+}
+#quest3 {
+    display: none;
+}
+
+.link1{
+    margin: auto;
+    width: 1200px;
+    height: 1000px;
+    position: relative;
+}
+
+.link2{
+    margin-top:80px;
+}
+
+h3{
+    margin-top:40px;
+}
+
+.link3{
+    width: 600px; height: 400px;border: gray 1px solid; margin-top: 60px
+}
+
+.img1{
+    width: 560px;
+    height:300px;
+    border: gray 1px solid;
+    margin-top: 10px;
+    margin-left:18px;
+    overflow: hidden;
+}
+
+.salse{
+    width: 600px;
+    height: 350px; 
+    background-color:white;
+    position: absolute;
+    top: 175px;left:620px;
+    border: gray 1px solid;
+}
+
+.salse2{
+    font-size: 18px;
+    color: gray;
+    width: 96%;
+    height: 80px;
+    background-color:lightcyan;
+    margin:9px;
+    border-radius:10px;
+}
+
+.span1{
+    font-size: 28px;color: red;font-weight:bold;
+}
+
+.link4{
+    width: 180px; height: 180px;border: gray 1px solid;position: absolute;top:100px;left: 400px;
+}
+
+.p1{
+    width: 100%;
+    height: 30px;
+    background-color: rgba(220,220,220,0.4);
+    font-weight: bolder;line-height:28px;
+    color: gray;
+}
+
+.p2{
+    margin-top:10px;margin-left: 10px;
+}
