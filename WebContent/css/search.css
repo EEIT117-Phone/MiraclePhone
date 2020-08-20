@@ -1,0 +1,78 @@
+body {
+	font-family: "蘋果儷中黑", Microsoft JhengHei, "微軟正黑體", sans-serif;
+	margin: 50px auto;
+}
+
+form {
+	margin: 0 auto;
+	width: 90%;
+}
+
+legend {
+	color: gray;
+	font-size: 1.5em;
+}
+
+select {
+	font-family: "蘋果儷中黑", Microsoft JhengHei, "微軟正黑體", sans-serif;
+}
+
+fieldset {
+	border: lightgray 2px solid;
+	border-radius: 15px;
+	padding: 20px;
+}
+
+.title {
+	font-weight: bold;
+	font-size: 22px;
+	margin: 0 30px;
+}
+
+.search-radio {
+	margin-left: 30px;
+}
+
+.resulttdclass, .viptdclass {
+	height: 200px;
+	border: solid 2px;
+	margin: 0 auto;
+}
+
+.search-main-buttom {
+	width: 500px;
+}
+
+.search-input {
+	width: 500px;
+	margin: 10px auto;
+}
+
+.carousel .carousel-item {
+	height: 200px;
+}
+
+.carousel .carousel-item img {
+	min-height: 200px;
+	max-height: 200px;
+	object-fit: cover;
+}
+
+.search-card {
+	margin: 0 auto;
+	border-style: none;
+}
+
+.card-img-top {
+	width: 100%;
+}
+
+.owl-carousel .search-vip-img {
+	margin: 3px;
+}
+
+.owl-carousel .search-vip-img {
+	display: block;
+	height: 200px;
+	width: 200px;
+}
