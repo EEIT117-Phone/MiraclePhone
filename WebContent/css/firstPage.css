@@ -1,0 +1,87 @@
+.bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .cobtainer {
+      position: relative;
+      width: 1002px;
+      height: 500px;
+    
+      margin-bottom: 10px;
+      overflow: hidden;
+
+
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+
+    ul.pictureslides {
+      width: 4008px;
+     
+      left: 0px;
+      transition: all .5s;
+
+    }
+
+    ul.pictureslides li {
+      width: 1002px;
+      height: 500px;
+   
+      overflow: hidden;
+      float: left;
+    }
+
+
+    ul.pictureslides li img {
+      width: 100%;
+      height: 100%;
+  
+    }
+
+
+
+
+     .cobtainer #inputarea {
+      position: absolute;
+      top: 200px;
+      left: 300px;
+      
+
+    } 
+
+
+    .cobtainer h2 {
+   
+      color:white;
+      font-family: NSimSun;
+    
+     
+    }
+
+   
+    .dot li {
+      border: 1px solid "transparent";
+    
+    }

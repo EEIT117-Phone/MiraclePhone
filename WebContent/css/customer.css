@@ -1,0 +1,37 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .server-main {
+    
+    width:800px;
+    /* float: 50%; */
+    margin:0 auto;
+    margin-top: 150px;
+    float: unset;
+  }
+  #al{
+    background: #5555FF;
+  }
+  #a2{
+    background: #99BBFF;
+  }
+ .position1{
+   width: 600px;
+   position:relative;
+   margin-right: 5px;
+ }
+ .position2{
+   margin-right: 100px;
+ }
