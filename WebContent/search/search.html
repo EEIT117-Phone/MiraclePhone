@@ -9,11 +9,8 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/tail.select@0.5.15/css/bootstrap4/tail.select-default.css" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.carousel.min.css"/>
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/assets/owl.theme.default.min.css"/>
-
+  <link rel=stylesheet type="text/css" href="../css/owl.carousel.min.css">
+  <link rel=stylesheet type="text/css" href="../css/owl.theme.default.min.css">
   <link rel=stylesheet type="text/css" href="../css/search.css">
 </head>
 
@@ -21,12 +18,12 @@
   <div class="card search-card">
     <table class="search-card" border="0" cellpadding="20" cellspacing="0">
       <tr>
-        <td style="text-align:left;"><a href="https://via.placeholder.com/420x180?text=New+link"><img
-              src="https://via.placeholder.com/420x180?text=New+link" class="card-img-top" alt="..."></a></td>
-        <td style="text-align:center;"><a href="https://via.placeholder.com/420x180?text=Secand+link"><img
-              src="https://via.placeholder.com/420x180?text=Secand+link" class="card-img-top" alt="..."></a></td>
-        <td style="text-align:right;"><a href="https://via.placeholder.com/420x180?text=Parts+link"><img
-              src="https://via.placeholder.com/420x180?text=Parts+link" class="card-img-top" alt="..."></a></td>
+        <td style="text-align:left;"><a href="https://via.placeholder.com/350x150?text=New+link"><img
+              src="https://via.placeholder.com/350x150?text=New+link" class="card-img-top" alt="..."></a></td>
+        <td style="text-align:center;"><a href="https://via.placeholder.com/350x150?text=Secand+link"><img
+              src="https://via.placeholder.com/350x150?text=Secand+link" class="card-img-top" alt="..."></a></td>
+        <td style="text-align:right;"><a href="https://via.placeholder.com/350x150?text=Parts+link"><img
+              src="https://via.placeholder.com/350x150?text=Parts+link" class="card-img-top" alt="..."></a></td>
       </tr>
     </table>
   </div>
@@ -35,29 +32,30 @@
     <fieldset>
       <legend>進階搜尋</legend>
       <div class="text-center">
-        <label class="title">機型</label>
+        <label class="title">機型
         <select type="text" id="search-select" class="select-hooked" multiple>
           <!-- <option>不限</option> -->
-          <option>iphone 6</option>
-          <option>iphone 6 Plus</option>
-          <option>iphone 6s</option>
-          <option>iphone 6s Plus</option>
-          <option>iphone 7</option>
-          <option>iphone 7 Plus</option>
-          <option>iphone 8</option>
-          <option>iphone 8 Plus</option>
-          <option>iphone X</option>
-          <option>iphone XR</option>
-          <option>iphone XS</option>
-          <option>iphone XS Max</option>
-          <option>iphone 11</option>
-          <option>iphone 11 Pro</option>
-          <option>iphone 11 Pro Max</option>
-          <option>iphone se</option>
-          <option>iphone se2</option>
+          <option>iPhone 6</option>
+          <option>iPhone 6 Plus</option>
+          <option>iPhone 6s</option>
+          <option>iPhone 6s Plus</option>
+          <option>iPhone 7</option>
+          <option>iPhone 7 Plus</option>
+          <option>iPhone 8</option>
+          <option>iPhone 8 Plus</option>
+          <option>iPhone X</option>
+          <option>iPhone XR</option>
+          <option>iPhone XS</option>
+          <option>iPhone XS Max</option>
+          <option>iPhone 11</option>
+          <option>iPhone 11 Pro</option>
+          <option>iPhone 11 Pro Max</option>
+          <option>iPhone se</option>
+          <option>iPhone se2</option>
         </select>
+        </label>
 
-        <label class="title">容量</label>
+        <label class="title">容量
         <select type="text" id="search-select" class="select-hooked" multiple>
           <!-- <option>不限</option> -->
           <option>16 GB</option>
@@ -67,7 +65,11 @@
           <option>256 GB</option>
           <option>512 GB</option>
         </select>
-        <label class="title">顏色</label>
+		</label>
+		
+		<br>
+		
+        <label class="title">顏色
         <select type="text" id="search-select" class="select-hooked" multiple>
           <!--https://support.apple.com/zh-tw/HT201296-->
           <!-- <option>不限</option> -->
@@ -86,7 +88,9 @@
           <option>綠</option>
           <option>夜幕綠</option>
         </select>
-        <label class="title">價格區間</label>
+        </label>
+
+        <label class="title">價格
         <select type="text" id="search-select" class="select-hooked" multiple>
           <!-- <option>不限</option> -->
           <option>5,000元以下</option>
@@ -94,32 +98,43 @@
           <option>20,000元以下</option>
           <option>30,000元以下</option>
         </select>
+        </label>
+      </div>
+      <div class="text-center">
+      <button type="button" class="btn btn-secondary btn-lg search-main-buttom">搜尋</button>
+      </div>
+      
+      <br>
+      <hr>
+      <br>
+      
+      <div class="text-center">
         <input type="text" class="form-control search-input" placeholder="或輸入關鍵字搜尋">
         <button type="button" class="btn btn-secondary btn-lg search-main-buttom">搜尋</button>
       </div>
 
-      <hr>
+<!--       <hr> -->
 
-      <label class="title">機型</label>
+<!--       <label class="title">機型</label>
       <div class="search-radio">
         <label><input type="checkbox">不限</label>&nbsp;
-        <label><input type="checkbox">iphone 6</label>&nbsp;
-        <label><input type="checkbox">iphone 6 Plus</label>&nbsp;
-        <label><input type="checkbox">iphone 6s</label>&nbsp;
-        <label><input type="checkbox">iphone 6s Plus</label>&nbsp;
-        <label><input type="checkbox">iphone 7</label>&nbsp;
-        <label><input type="checkbox">iphone 7 Plus</label>&nbsp;
-        <label><input type="checkbox">iphone 8</label>&nbsp;
-        <label><input type="checkbox">iphone 8 Plus</label>&nbsp;<br>
-        <label><input type="checkbox">iphone X</label>&nbsp;
-        <label><input type="checkbox">iphone XR</label>&nbsp;
-        <label><input type="checkbox">iphone XS</label>&nbsp;
-        <label><input type="checkbox">iphone XS Max</label>&nbsp;
-        <label><input type="checkbox">iphone 11</label>&nbsp;
-        <label><input type="checkbox">iphone 11 Pro</label>&nbsp;
-        <label><input type="checkbox">iphone 11 Pro Max</label>&nbsp;
-        <label><input type="checkbox">iphone se</label>&nbsp;
-        <label><input type="checkbox">iphone se2</label>&nbsp;
+        <label><input type="checkbox">iPhone 6</label>&nbsp;
+        <label><input type="checkbox">iPhone 6 Plus</label>&nbsp;
+        <label><input type="checkbox">iPhone 6s</label>&nbsp;
+        <label><input type="checkbox">iPhone 6s Plus</label>&nbsp;
+        <label><input type="checkbox">iPhone 7</label>&nbsp;
+        <label><input type="checkbox">iPhone 7 Plus</label>&nbsp;
+        <label><input type="checkbox">iPhone 8</label>&nbsp;
+        <label><input type="checkbox">iPhone 8 Plus</label>&nbsp;<br>
+        <label><input type="checkbox">iPhone X</label>&nbsp;
+        <label><input type="checkbox">iPhone XR</label>&nbsp;
+        <label><input type="checkbox">iPhone XS</label>&nbsp;
+        <label><input type="checkbox">iPhone XS Max</label>&nbsp;
+        <label><input type="checkbox">iPhone 11</label>&nbsp;
+        <label><input type="checkbox">iPhone 11 Pro</label>&nbsp;
+        <label><input type="checkbox">iPhone 11 Pro Max</label>&nbsp;
+        <label><input type="checkbox">iPhone se</label>&nbsp;
+        <label><input type="checkbox">iPhone se2</label>&nbsp;
       </div>
       <label class="title">容量</label>
       <div class="search-radio">
@@ -157,7 +172,7 @@
         <label><input type="radio" name="price">20,000元以下</label>&nbsp;
         <label><input type="radio" name="price">30,000元以下</label>&nbsp;
       </div>
-
+ -->
     </fieldset>
     <br>
     <fieldset>
@@ -241,6 +256,8 @@
           <li class="page-item"><a class="page-link text-secondary" href="#">1</a></li>
           <li class="page-item"><a class="page-link text-secondary" href="#">2</a></li>
           <li class="page-item"><a class="page-link text-secondary" href="#">3</a></li>
+          <li class="page-item"><a class="page-link text-secondary" href="#">4</a></li>
+          <li class="page-item"><a class="page-link text-secondary" href="#">5</a></li>
           <li class="page-item">
             <a class="page-link text-secondary" href="#" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
@@ -262,10 +279,11 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tail.select@0.5.15/js/tail.select.min.js"></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-beta.2.4/owl.carousel.min.js"></script>
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/owl.carousel.2.0.0-beta.2.4.min.js"></script>
+  <script src="../js/owl.carousel.setting.js"></script>
   <script type="text/javascript" src="../js/tail-select.js"></script>
-  <script type="text/javascript" src="../js/owl.carousel.js"></script>
+  <script type="text/javascript" src="../js/owl.carousel.setting.js"></script>
 </body>
 
 </html>
