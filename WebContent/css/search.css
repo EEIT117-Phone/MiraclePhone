@@ -1,32 +1,66 @@
+.main {
+	/* border: 2px yellow solid; */
+	width: 100%;
+	padding: 30px 60px 0px 60px;
+}
+
+.main-body-and-filter {
+	/* border: 3px blue solid; */
+	width: 100%;
+	height: 1350px;
+}
+
+.main-body {
+	/* border: 2px black solid; */
+	width: 80%;
+	float:left;
+	height: 100%;
+	padding: 20px;
+}
+
+.filter {
+	/* border: 2px red solid; */
+	width: 20%;
+	float:right;
+	height: 100%;
+	padding: 20px 20px 0px 0px;
+}
+
+.main-toplink {
+	/* border: 2px green solid; */
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	border-style: none;
+	/* padding: 20px; */
+	/* width: 90%; */
+}
+
 body {
 	font-family: "蘋果儷中黑", Microsoft JhengHei, "微軟正黑體", sans-serif;
-	margin: 50px auto;
+	margin: 30px auto;
 }
 
 form {
 	margin: 0 auto;
-	width: 90%;
+	width: 100%;
 }
 
-legend {
+legend, .filter-legend {
 	color: gray;
 	font-size: 1.5em;
-}
-
-select {
-	font-family: "蘋果儷中黑", Microsoft JhengHei, "微軟正黑體", sans-serif;
 }
 
 fieldset {
 	border: lightgray 2px solid;
 	border-radius: 15px;
-	padding: 20px;
+	padding: 10px;
 }
 
 .title {
 	font-weight: bold;
-	font-size: 22px;
-	margin: 0 30px;
+	font-size: 130%;
+	margin: 0 1%;
 }
 
 .search-radio {
@@ -40,12 +74,17 @@ fieldset {
 }
 
 .search-main-buttom {
+	width: 200px;
+}
+
+.search-main-buttom-keyword {
 	width: 500px;
 }
 
 .search-input {
 	width: 500px;
 	margin: 10px auto;
+	text-align:center;
 }
 
 .carousel .carousel-item {
@@ -58,10 +97,12 @@ fieldset {
 	object-fit: cover;
 }
 
-.search-card {
+/* .search-card {
 	margin: 0 auto;
 	border-style: none;
-}
+	padding: 20px;
+	width: 90%;
+} */
 
 .card-img-top {
 	width: 100%;

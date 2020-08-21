@@ -14,31 +14,30 @@
 
 <body>
   <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-          
-      <div class="container d-flex flex-column flex-md-row justify-content-between" style="position: sticky;top:0;left:0">
-              <a class="py-2" aria-label="Product" style="color:white">
-                  銷售奇機
-                </a>
-              <a class="py-2 d-none d-md-inline-block"  ></a>
-              <a  style="color:white">客服專區</a>
-              <a  style="color:white">購物車</a>
-              <a  style="color:white">會員專區</a>
-              <a style="color:white">登入</a>
-              <a  style="color:white">註冊</a>
-            </div>
-        </nav>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container d-flex flex-column flex-md-row justify-content-between" style="position: sticky;top:0;left:0">
+        <a class="py-2" aria-label="Product" style="color:white">
+          銷售奇機
+        </a>
+        <a class="py-2 d-none d-md-inline-block"  ></a>
+        <a  style="color:white">客服專區</a>
+        <a  style="color:white">購物車</a>
+        <a  style="color:white">會員專區</a>
+        <a style="color:white">登入</a>
+        <a  style="color:white">註冊</a>
+      </div>
+    </nav>
   </header>
 
   <div class="card search-card">
-    <table class="search-card" border="0" cellpadding="20" cellspacing="0">
+    <table border="0" cellpadding="20" cellspacing="0">
       <tr>
-        <td style="text-align:left;"><a href="https://via.placeholder.com/350x150?text=New+link"><img
-              src="https://via.placeholder.com/350x150?text=New+link" class="card-img-top" alt="..."></a></td>
-        <td style="text-align:center;"><a href="https://via.placeholder.com/350x150?text=Secand+link"><img
-              src="https://via.placeholder.com/350x150?text=Secand+link" class="card-img-top" alt="..."></a></td>
-        <td style="text-align:right;"><a href="https://via.placeholder.com/350x150?text=Parts+link"><img
-              src="https://via.placeholder.com/350x150?text=Parts+link" class="card-img-top" alt="..."></a></td>
+        <td style="text-align:left;"><a href="https://via.placeholder.com/420x180?text=New+link"><img
+              src="https://via.placeholder.com/420x180?text=New+link" class="card-img-top" alt="..."></a></td>
+        <td style="text-align:center;"><a href="https://via.placeholder.com/420x180?text=Secand+link"><img
+              src="https://via.placeholder.com/420x180?text=Secand+link" class="card-img-top" alt="..."></a></td>
+        <td style="text-align:right;"><a href="https://via.placeholder.com/420x180?text=Parts+link"><img
+              src="https://via.placeholder.com/420x180?text=Parts+link" class="card-img-top" alt="..."></a></td>
       </tr>
     </table>
   </div>
@@ -82,7 +81,7 @@
           </select>
         </label>
 
-        <br>
+
 
         <label class="title">顏色
           <select type="text" id="search-select" class="select-hooked" multiple>
@@ -115,19 +114,17 @@
           </select>
         </label>
       </div>
-      <div class="text-center">
-        <button type="button" class="btn btn-secondary btn-lg search-main-buttom">搜尋</button>
-      </div>
+      <div>
+        <button type="button" class="btn btn-secondary btn-lg search-main-buttom rounded mx-auto d-block">搜尋</button>
+
 
       <br>
       <hr>
       <br>
 
-      <div class="text-center">
         <input type="text" class="form-control search-input" placeholder="或輸入關鍵字搜尋">
-        <button type="button" class="btn btn-secondary btn-lg search-main-buttom">搜尋</button>
+        <button type="button" class="btn btn-secondary btn-lg search-main-buttom-keyword rounded mx-auto d-block">搜尋</button>
       </div>
-
       <!--       <hr> -->
 
       <!--       <label class="title">機型</label>
@@ -282,12 +279,53 @@
     </fieldset>
   </form>
 
-  <!-- FOOTER -->
-  <footer class="container">
-    <p class="float-right"><a href="https://getbootstrap.com/docs/4.5/examples/carousel/#">Back to top</a></p>
-    <p>© 2017-2020 Company, Inc. · <a href="https://getbootstrap.com/docs/4.5/examples/carousel/#">Privacy</a> · <a
-        href="https://getbootstrap.com/docs/4.5/examples/carousel/#">Terms</a></p>
-  </footer>
+<!-- //下方為footer -->
+<footer class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
+      <small class="d-block mb-3 text-muted">© 2017-2020</small>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Features</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Cool stuff</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Random feature</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Team feature</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Stuff for developers</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Another one</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Last time</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Resources</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Resource</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Resource name</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Another resource</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Final resource</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>Resources</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Business</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Education</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Government</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Gaming</a></li>
+      </ul>
+    </div>
+    <div class="col-6 col-md">
+      <h5>About</h5>
+      <ul class="list-unstyled text-small">
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Team</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Locations</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Privacy</a></li>
+        <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
 
   <!-- @@ JS -->
   <script src="../js/jquery-3.5.1.slim.min.js"></script>
@@ -299,6 +337,7 @@
   <script src="../js/owl.carousel.setting.js"></script>
   <script src="../js/tail-select.setting.js"></script>
   <script src="../js/owl.carousel.setting.js"></script>
+
 </body>
 
 </html>
