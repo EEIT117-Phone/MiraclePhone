@@ -1,7 +1,8 @@
 package org.iii.eeit117.project.model.service.impl;
 
+import java.util.List;
+
 import org.iii.eeit117.project.model.dao.HelloDao;
-import org.iii.eeit117.project.model.data.HelloTypeEnum;
 import org.iii.eeit117.project.model.service.HelloService;
 import org.iii.eeit117.project.model.vo.HelloVo;
 
@@ -14,14 +15,8 @@ public class HelloServiceImpl implements HelloService {
 	}
 	
 	@Override
-	public String sayHello(String name) {
-		HelloVo hello = helloDao.getOne(name);
-		
-		return String.format("%s your name is %s， english name is %s, age is %s"
-				, hello.getType().getMsg()
-				, hello.getName()
-				, hello.getEnName()
-				, hello.getAge());
+	public List<HelloVo> search(String name) {
+		return helloDao.findAll(name);
 	}
 
 }
