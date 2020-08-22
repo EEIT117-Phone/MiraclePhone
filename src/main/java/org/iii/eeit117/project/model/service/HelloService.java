@@ -6,5 +6,5 @@ import org.iii.eeit117.project.model.vo.HelloVo;
 
 public interface HelloService {
 
-	public List<HelloVo> search(String name);
+	public List<HelloVo> listAll() throws Exception;
 }

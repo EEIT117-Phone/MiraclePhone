@@ -15,8 +15,8 @@ public class HelloServiceImpl implements HelloService {
 	}
 	
 	@Override
-	public List<HelloVo> search(String name) {
-		return helloDao.findAll(name);
+	public List<HelloVo> listAll() throws Exception {
+		return helloDao.findAll();
 	}
 
 }
