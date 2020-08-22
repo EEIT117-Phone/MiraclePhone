@@ -44,15 +44,15 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between"
         style="position: sticky;top:0;left:0">
-        <a class="py-2" aria-label="Product" style="color:white">
+        <a href="http://localhost:8080/MiraclePhone/Jsp/firstPage/firstPage.jsp" class="py-2" aria-label="Product" style="color:white">
           銷售奇機
         </a>
         <a class="py-2 d-none d-md-inline-block"></a>
-        <a style="color:white">客服專區</a>
-        <a style="color:white">購物車</a>
+         <a href="http://localhost:8080/MiraclePhone/customer.msg/costomerService.html" style="color:white">客服專區</a>
+        <a href="http://localhost:8080/MiraclePhone/cart/cart.html" style="color:white">購物車</a>
         <a style="color:white">會員專區</a>
-        <a style="color:white">登入</a>
-        <a style="color:white">註冊</a>
+         <a href="http://localhost:8080/MiraclePhone/Jsp/userLogin/userLogin.html" style="color:white">登入</a>
+       <a href="http://localhost:8080/MiraclePhone/Jsp/userLogin/userMake.html" style="color:white">註冊</a>
       </div>
     </nav>
   </header>
