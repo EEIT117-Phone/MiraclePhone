@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UserMake</title>
+</head>
+<style>
+p{
+border:1px solid black;
+}
+</style>
+<body>
+	<h1>會員註冊</h1>
+	<form id="userform" action="../UsermakeServlet" method="post">
+		<p>
+			帳號<input id="account" type="text" name="account" placeholder="電子郵件" value="ken1234@yahoo.com">
+			密碼<input id="password" type="text" name="password" value="Kk@12345656"
+				placeholder="4~16位含數字、特殊符號、大小寫英文" size="35">
+		<span id="pwdsure"></span>
+		
+			身分證字號<input id="idnumber" type="text" name="idnumber" value="A177806520">
+		
+		<span id="sureidnumber" ></span>
+		
+			中文姓名<input id="chinesename" type="text" name="chinesename" value="卓卓">
+		
+		
+			性別<select id="sexchoose" name="sexchoose">
+				<option value="man">男</option>
+				<option value="woman">女</option>
+				<option value="othersex">其他</option>
+			</select>
+		
+		
+			生日<input id="birth" type="date" name="birth" value="2002-08-11">
+			年齡:<input id="age" name="age" value="">
+		</p>
+	
+		
+		<p>
+		<select name="county"></select>
+      		<label>縣市</label>
+      
+      	
+      	<select name="district"></select>
+      	<label>鄉鎮市區</label>	
+      	
+      	
+      	 <input id="zipcode" name="zipcode" type="text" value="">
+      		<label for="zipcode">郵遞區號</label>
+      
+      		
+		
+			詳細地址<input type="text" id="address" name="address">
+		</p>
+		<br>
+<p>
+	<h3>買賣權限</h3>
+	<input type="checkbox"  id="buyer" name="buyer" value="buyer">買家
+	
+	<input type="checkbox"   id="seller" name="seller" value="seller"><span id="seller_word">賣家</span>
+	<p>
+	<input type="file" id="file-photo" name="file-photo" accept="image/*" multiple="multiple"/><span id="photo_word">照片</span>
+	<input type="button" id="checkphoto" name="checkphoto" value="checkphoto" />
+	</p>
+	<h3>免責聲明</h3>
+	<input type="checkbox" value="免責聲明">我已看過免責聲明<br/>
+	<input type="submit" id="submit" name="submit" value="繳交">
+
+	</form>
+
+	
+
+</body>
+<script src="JQfile/JQuery3.5.1.js"></script>
+<script src="JQfile/jquery.twzipcode.min.js"></script>
+<script src="JQfile/er.twzipcode.js"></script>
+<script src="JQfile/er.twzipcode.data.js"></script>
+<script>
+	$("#checkphoto").click(function(){
+		let photo=document.getElementById("file-photo");
+		console.log(document.getElementById("file-photo").files);
+		
+	});
+	
+
+	$("#birth").blur(function() { //自動計算年齡
+		userbirth = document.getElementById("birth").value;
+		let today = new Date();
+		let tyear = today.getFullYear();
+		let uyear = userbirth.split("-")[0]
+		document.getElementById("age").value=(tyear-uyear);
+		console.log(document.getElementById("age").value);
+		
+		if(document.getElementById("age").value<20) //年齡不滿20歲隱藏當買家資格
+		{                               
+		document.getElementById("seller").hidden=true;
+		document.getElementById("seller_word").hidden=true;
+		}
+		else{
+			document.getElementById("seller").hidden=false;
+			document.getElementById("seller_word").hidden=false;
+		}
+	})
+	
+	$("#password")
+			.blur(
+					function() { //驗證密碼
+						let pwdrule = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+`\-={}\[\]:";'<>?,.\/]).{4,16}$/;
+						;
+						let result = pwdrule.test($("#password").val());
+						console.log($("#password").val());
+						if (result == false) {
+							$("#pwdsure").html("格式不符或空白")
+						} else {
+							$("#pwdsure").html("成功")
+						}
+
+					})
+
+	$("#idnumber").blur(function() {
+		if (checkID(this.value)) {
+			$("#sureidnumber").text("正確");
+		} else {
+			$("#sureidnumber").text("驗證錯誤");
+		}
+	})
+
+	function checkID(id) { //驗證身分證字號
+		tab = "ABCDEFGHJKLMNPQRSTUVXYWZIO"
+		A1 = new Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2,
+				2, 3, 3, 3, 3, 3, 3);
+		A2 = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8,
+				9, 0, 1, 2, 3, 4, 5);
+		Mx = new Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 1);
+
+		if (id.length != 10)
+			return false;
+		i = tab.indexOf(id.charAt(0));
+		if (i == -1)
+			return false;
+		sum = A1[i] + A2[i] * 9;
+
+		for (i = 1; i < 10; i++) {
+			v = parseInt(id.charAt(i));
+			if (isNaN(v))
+				return false;
+			sum = sum + v * Mx[i];
+		}
+		if (sum % 10 != 0)
+			return false;
+		return true;
+	}
+	
+	var userData={
+			"useraccount":document.getElementById("account").value,
+			"userpassword":document.getElementById("password").value,
+			"useridnumber":document.getElementById("idnumber").value,
+			"userchinesename":document.getElementById("chinesename").value,
+			"usersexchoose":document.getElementById("sexchoose").value,
+			"userbirth":document.getElementById("birth").value,
+			"userage":document.getElementById("age").value,
+			"show":function(){
+				alert("useraccount:"+this.useraccount+","+
+					"userpassword:"+this.userpassword+","+
+					"useridnumber:"+this.useridnumber+","+
+					"userchinesename:"+this.userchinesename+","+
+					"usersexchoose:"+this.usersexchoose+","+
+					"userbirth:"+this.userbirth)
+			}
+	}
+	
+
+	
+	$("#submit").click(function() {
+		
+	});
+	
+erTWZipcode({
+		   defaultCountyText: "請選擇",
+		    defaultDistrictText: "請選擇"
+		  });
+$.ajax({
+	url:"userLogin/usermake.html",
+	type:"Post",
+	async:false,
+	data:JSON.stringify(userData),
+	contentType:"application/json;charset=UTF-8",
+	dataType:"json",
+})		
+	
+</script>
+
+
+</html>
