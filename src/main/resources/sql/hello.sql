@@ -1,4 +1,9 @@
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HELLO]') AND type in (N'U'))
+DROP TABLE [dbo].[HELLO]
+GO
+
 CREATE TABLE [dbo].[HELLO](
+	[ID] int IDENTITY (1,1) NOT NULL,
 	[NAME] [nvarchar](10) NULL,
 	[EN_NAME] [nvarchar](10) NULL,
 	[AGE] [int] NULL,
