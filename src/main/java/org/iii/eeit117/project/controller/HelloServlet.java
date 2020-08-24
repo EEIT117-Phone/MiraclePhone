@@ -25,9 +25,15 @@ public class HelloServlet extends HttpServlet {
 		if (StringUtil.isEmpty(name)) {
 			name = "無名氏";
 		}
-		// 將jsp所需要的資料，塞到request attribute。供jsp存取s
-		req.setAttribute("hellos", helloService.search(name));
-		req.getRequestDispatcher("/WEB-INF/jsp/hello/hello.jsp").forward(req, resp);
+		try {
+			// 將jsp所需要的資料，塞到request attribute。供jsp存取
+			req.setAttribute("name", name);
+			req.setAttribute("hellos", helloService.listAll());
+			req.getRequestDispatcher("/WEB-INF/jsp/hello/hello.jsp").forward(req, resp);
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.getRequestDispatcher("/WEB-INF/jsp/error/error.jsp").forward(req, resp);
+		}
 	}
 
 	@Override

@@ -89,27 +89,37 @@
 <tbody>
 
 <tr class="odd">
-<td><p>/WebContent/模組名稱/</p></td>
+<td><p>src/main/webapp/模組名稱/</p></td>
 <td><p>html放置位置<br /></p>
 <p>(請大家依自己的模組名稱建立目錄，並放置所需畫面之html)<br /></p>
 <p>範例<br /></p>
-<p>/WebContent/cart/cart.html<br /></p>
-<p>/WebContent/cart/orderConfirm.html<br /></p>
+<p>src/main/webapp/cart/cart.html<br /></p>
+<p>src/main/webapp/cart/orderConfirm.html<br /></p>
 </td>
 </tr>
 
 <tr class="even">
-<td><p>/WebContent/css/</p></td>
-<td><p>css 放置目錄(css包含各模組之css)</p></td>
+<td><p>src/main/webapp/WEB-INF/jsp/模組名稱/</p></td>
+<td><p>jsp放置位置<br /></p>
+<p>(請大家依自己的模組名稱建立目錄，並放置所需畫面之jsp)<br /></p>
+<p>範例<br /></p>
+<p>src/main/webapp/WEB-INF/jsp/cart/cart.jsp<br /></p>
+<p>src/main/webapp/WEB-INF/jsp/cart/orderConfirm.jsp<br /></p>
+</td>
 </tr>
 
 <tr class="odd">
-<td><p>/WebContent/js/</p></td>
-<td><p>js 放置目錄(js包含各模組之js)</p></td>
+<td><p>src/main/webapp/css/</p></td>
+<td><p>css 放置目錄(css包含各模組之css)</p></td>
 </tr>
 
 <tr class="even">
-<td><p>/WebContent/images/</p></td>
+<td><p>src/main/webapp/js/</p></td>
+<td><p>js 放置目錄(js包含各模組之js)</p></td>
+</tr>
+
+<tr class="odd">
+<td><p>src/main/webapp/images/</p></td>
 <td><p>圖片放置位置</p></td>
 </tr>
 
@@ -118,7 +128,7 @@
 
 * * *
 
-### Commit Code
+### Commit Message
 #### [新增|修改|Bug|共用][模組名稱] 簡單描述
 #### 範例
 * [新增] 購物車(cart)

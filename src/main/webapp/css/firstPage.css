@@ -1,4 +1,4 @@
-.bd-placeholder-img {
+ .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
       -webkit-user-select: none;
@@ -17,7 +17,8 @@
       position: relative;
       width: 1002px;
       height: 500px;
-    
+      /* background-color:lightcyan; */
+      /* top:100px; */
       margin-bottom: 10px;
       overflow: hidden;
 
@@ -39,7 +40,7 @@
 
     ul.pictureslides {
       width: 4008px;
-     
+      /* 透過3200來裝載這個照片四張 */
       left: 0px;
       transition: all .5s;
 
@@ -48,7 +49,7 @@
     ul.pictureslides li {
       width: 1002px;
       height: 500px;
-   
+      /* 這裡指的是每張投影片的寬度為800然後高度為300和外框剛好呼應 */
       overflow: hidden;
       float: left;
     }
@@ -57,7 +58,9 @@
     ul.pictureslides li img {
       width: 100%;
       height: 100%;
-  
+      /* li下面的圖片為和其li寬度和高度100%相符合 */
+      /* object-fit: cover; */
+      /* 這個是什麼效果，老師好像有大概講到 */
     }
 
 
@@ -80,7 +83,8 @@
      
     }
 
-   
+
+
     .dot li {
       border: 1px solid "transparent";
     

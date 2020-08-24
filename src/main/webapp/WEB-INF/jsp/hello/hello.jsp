@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>這是一個DEMO的JSP</h1>
+		<h1>${name}這是一個DEMO的JSP</h1>
 		<br/>
 		<h6>使用jstl c:url 與 c:forEach</h6>
 		<br/>
