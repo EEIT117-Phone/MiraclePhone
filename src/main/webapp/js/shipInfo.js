@@ -31,7 +31,7 @@ $(document).ready(function () {
         $("#pic1").attr("src", "../images/cartPic1.jpg");
         $("#pic2").attr("src", "../images/cartPic2.jpg");
     }
-
+	
 });
 
 
