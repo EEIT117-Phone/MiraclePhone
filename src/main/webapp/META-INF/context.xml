@@ -3,7 +3,7 @@
 	<Resource name="jdbc/phone"
 		type="javax.sql.DataSource" 
 		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
-		url="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=MiraclePhone" 
+		url="jdbc:sqlserver://192.168.8.100:1433;DatabaseName=MiraclePhone" 
 		username="sa"
 		password="P@ssw0rd" 
 		maxActive="20" 

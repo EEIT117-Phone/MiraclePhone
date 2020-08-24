@@ -4,6 +4,8 @@ import org.iii.eeit117.project.model.data.HelloTypeEnum;
 
 public class HelloVo {
 
+	private Integer id;
+	
 	private String name;
 	
 	private String enName;
@@ -11,6 +13,14 @@ public class HelloVo {
 	private Integer age;
 	
 	private HelloTypeEnum type;
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
