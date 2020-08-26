@@ -1,15 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>UserSignUp</title>
+	<title>註冊</title>
+ 	<jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
+    <!--     customize script css     -->
+    <link href="<c:url value='css/signup.css' />" rel="stylesheet">
+	<script src="<c:url value='js/signup.js' />"></script>
+	
+	<script src="<c:url value='js/er.twzipcode.js' />"></script>
+	<!-- 地址表單外嵌 -->
+	<script src="<c:url value='js/er.twzipcode.data.js' />"></script>
 </head>
 <body>
 <body>
+	<!--     共用表頭匯入     -->
+	<jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
+	<!--     content     -->
 	<h1>會員註冊</h1>
-	<form id="userform" action="MiraclePhone/UserSignUpServlet"
+	<form id="userform" action="<c:url value='signup' />"
 		method="post">
 		<p>
 			帳號<input id="account" type="text" name="account" placeholder="電子郵件"
@@ -45,8 +56,8 @@
 			id="seller_word">賣家</span>
 		<p>
 			<input type="file" id="file-photo" name="file-photo" accept="image/*"
-				multiple="multiple" /><span id="photo_word">照片</span> 
-				
+				multiple="multiple" /><span id="photo_word">照片</span>
+
 		</p>
 		<h3>免責聲明</h3>
 		<p id="disclaimer">本網頁所載的所有資料、商標、標誌、圖像、短片、聲音檔案、連結及其他資料等（以下簡稱「資料」），只供參考之用，信興電器貿易有限公司（以下簡稱「本公司」）將會隨時更改資料，並由本公司決定而不作另行通知。雖然本公司已盡力確保本網頁的資料準確性，但本公司不會明示或隱含保證該等資料均為準確無誤。本公司不會對任何錯誤或遺漏承擔責任。
@@ -54,86 +65,8 @@
 		<input type="checkbox" value="免責聲明">我已看過免責聲明<br /> <input
 			type="submit" id="submit" name="submit" value="繳交">
 	</form>
-	<script src="js/jquery-3.5.1.slim.min"></script>
-	<script src="js/er.twzipcode.js"></script>      	<!-- 地址表單外嵌 -->
-	<script src="js/er.twzipcode.data.js"></script>		<!-- 地址表單外嵌 -->
-	<script>
-		
-		$("#birth").blur(function() { //自動計算年齡
-			userbirth = document.getElementById("birth").value;
-			let today = new Date();
-			let tyear = today.getFullYear();
-			let uyear = userbirth.split("-")[0]
-			document.getElementById("age").value = (tyear - uyear);
-			console.log(document.getElementById("age").value);
-
-			if (document.getElementById("age").value < 20) //年齡不滿20歲隱藏當買家資格
-			{
-				document.getElementById("seller").hidden = true;
-				document.getElementById("seller_word").hidden = true;
-			} else {
-				document.getElementById("seller").hidden = false;
-				document.getElementById("seller_word").hidden = false;
-			}
-		})
-
-		$("#password")
-				.blur(
-						function() { //驗證密碼
-							let pwdrule = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+`\-={}\[\]:";'<>?,.\/]).{4,16}$/;
-							;
-							let result = pwdrule.test($("#password").val());
-							console.log($("#password").val());
-							if (result == false) {
-								$("#pwdsure").html("格式不符或空白")
-							} else {
-								$("#pwdsure").html("成功")
-							}
-
-						})
-
-		$("#idnumber").blur(function() {
-			if (checkID(this.value)) {
-				$("#sureidnumber").text("正確");
-			} else {
-				$("#sureidnumber").text("驗證錯誤");
-			}
-		})
-
-		function checkID(id) { //驗證身分證字號
-		tab = "ABCDEFGHJKLMNPQRSTUVXYWZIO"
-		A1 = new Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-				2, 3, 3, 3, 3, 3, 3);
-		A2 = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8,
-				9, 0, 1, 2, 3, 4, 5);
-		Mx = new Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 1);
-
-		if (id.length != 10)
-			return false;
-		i = tab.indexOf(id.charAt(0));
-		if (i == -1)
-			return false;
-		sum = A1[i] + A2[i] * 9;
-
-		for (i = 1; i < 10; i++) {
-			v = parseInt(id.charAt(i));
-			if (isNaN(v))
-				return false;
-			sum = sum + v * Mx[i];
-		}
-		if (sum % 10 != 0)
-			return false;
-		return true;
-	}
-		$("#submit").click(function() {
-
-		});
-
-		erTWZipcode({
-			defaultCountyText : "請選擇",
-			defaultDistrictText : "請選擇"
-		});
-	</script>
+	<!--     共用頁尾匯入     -->
+	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
 </body>
 
 </html>

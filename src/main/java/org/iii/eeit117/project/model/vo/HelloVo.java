@@ -44,16 +44,4 @@ public class HelloVo {
 		this.type = type;
 	}
 	
-	public static void main(String[] args) {
-		HelloVo hello = new HelloVo();
-		hello.setType(HelloTypeEnum.HELLO_MAN);
-		
-		
-		if (hello.getType() == HelloTypeEnum.HELLO_MAN) {
-			System.out.println("1");
-		} else if (hello.getType() == HelloTypeEnum.HELLO_WOMAN) {
-			System.out.println("2");
-		}
-	}
-	
 }
