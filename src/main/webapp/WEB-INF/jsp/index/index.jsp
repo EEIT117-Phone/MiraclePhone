@@ -4,17 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#563d7c">
     <title>銷售奇機</title>
-    
-    <link href="<c:url value='css/product.css' />" rel="stylesheet">
-    <link href="<c:url value='css/carousel.css' />" rel="stylesheet">
-    
 	<!--     共用script css     -->
     <jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
-    
     <!--     customize script css     -->
     <link href="<c:url value='css/index.css' />" rel="stylesheet">
 	<script src="<c:url value='js/index.js' />"></script>

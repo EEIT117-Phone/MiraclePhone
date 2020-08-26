@@ -7,10 +7,10 @@
             style="position: sticky;top:0;left:0">
             <a href="<c:url value='index' />"  class="py-2" aria-label="Product"
                 style="color:white">
-                銷售奇機1
+                銷售奇機
             </a>
             <a class="py-2 d-none d-md-inline-block"></a>
-            <a href="<c:url value='customer.msg/costomerService.html' />" style="color:white">客服專區</a>
+            <a href="<c:url value='contact' />" style="color:white">客服專區</a>
             <a href="<c:url value='cart/cart.html' />" style="color:white">購物車</a>
             <a style="color:white">會員專區</a>
             <a href="<c:url value='Jsp/userLogin/userLogin.html' />" style="color:white">登入</a>
