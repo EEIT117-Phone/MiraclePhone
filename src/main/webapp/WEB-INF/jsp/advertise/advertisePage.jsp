@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <!-- saved from url=(0051)https://getbootstrap.com/docs/4.5/examples/product/ -->
 <html lang="zh-Hans-TW">
@@ -7,35 +8,11 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Jekyll v4.0.1">
   <title>賣家刊登頁面</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/product/">
-
-  <!-- Bootstrap core CSS -->
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/product/">
-
-  <!-- Bootstrap core CSS -->
-  <link href="https://getbootstrap.com/docs/4.5/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/apple-touch-icon.png"
-    sizes="180x180">
-  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32"
-    type="image/png">
-  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16"
-    type="image/png">
-  <link rel="manifest" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/safari-pinned-tab.svg"
-    color="#563d7c">
-  <link rel="icon" href="https://getbootstrap.com/docs/4.5/assets/img/favicons/favicon.ico">
-  <meta name="msapplication-config" content="/docs/4.5/assets/img/favicons/browserconfig.xml">
-  <meta name="theme-color" content="#563d7c">
-  <link href="https://getbootstrap.com/docs/4.5/examples/product/product.css" rel="stylesheet">
-  <link href="https://getbootstrap.com/docs/4.5/examples/carousel/carousel.css" rel="stylesheet">
+	<jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
+	<link href="/MiraclePhone/css/advertise.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+    <link href="../css/productWen.css" rel="stylesheet">
   <!-- twZip -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
@@ -81,65 +58,15 @@
   </script>
 
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-    form {
-      border-left: black 2px solid;
-      border-right: black 2px solid;
-      background-color: wheat;
-      margin: 0px 350px 0px 350px;
-      padding: 5px;
-      position: relative;
-    }
-
-    hr {
-      border: black 1px solid;
-      padding: 0px;
-      margin: 0px;
-    }
-
-    .img {
-      max-width: 150px;
-      max-height: 150px;
-      margin: 5px;
-    }
-  </style>
-  <!-- Custom styles for this template -->
-  <link href="../css/productWen.css" rel="stylesheet">
+  
+  
 
 </head>
 
 <body>
-  <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between"
-        style="position: sticky;top:0;left:0">
-        <a class="py-2" aria-label="Product" style="color:white">
-          銷售奇機
-        </a>
-        <a class="py-2 d-none d-md-inline-block"></a>
-        <a style="color:white">客服專區</a>
-        <a style="color:white">購物車</a>
-        <a style="color:white">會員專區</a>
-        <a style="color:white">登入</a>
-        <a style="color:white">註冊</a>
-      </div>
-    </nav>
-  </header>
+  <!--     共用表頭匯入     -->
+    <jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
+  <!--     content     -->
   <hr>
 
 
@@ -263,62 +190,7 @@
     </form>
   </div>
   <hr>
-  <footer class="container py-5">
-    <div class="row">
-      <div class="col-12 col-md">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-          stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img"
-          viewBox="0 0 24 24" focusable="false">
-          <title>Product</title>
-          <circle cx="12" cy="12" r="10"></circle>
-          <path
-            d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94">
-          </path>
-        </svg>
-        <small class="d-block mb-3 text-muted">© 2017-2020</small>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Features</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Cool stuff</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Random feature</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Team feature</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Stuff for developers</a>
-          </li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Another one</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Last time</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Resources</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Resource</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Resource name</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Another resource</a>
-          </li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Final resource</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>Resources</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Business</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Education</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Government</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Gaming</a></li>
-        </ul>
-      </div>
-      <div class="col-6 col-md">
-        <h5>About</h5>
-        <ul class="list-unstyled text-small">
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Team</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Locations</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Privacy</a></li>
-          <li><a class="text-muted" href="https://getbootstrap.com/docs/4.5/examples/product/#">Terms</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
+  
   <script>
     $("#twzipcode").twzipcode();
   </script>
@@ -329,6 +201,8 @@
   <script src="../js/bootstrapWen.bundle.min.js"
     integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd"
     crossorigin="anonymous"></script>
+<!--     共用頁尾匯入     -->
+	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
 
 </body>
 
