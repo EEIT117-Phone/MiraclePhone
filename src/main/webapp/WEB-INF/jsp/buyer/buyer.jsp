@@ -7,8 +7,12 @@
 <head>
 <title>Document</title>
 <jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="/MiraclePhone/css/buyer.css" />
-<script src="/MiraclePhone/js/buyer.js"></script>
+<link href="<c:url value='css/owl.carousel.css' />" rel="stylesheet">
+<link href="<c:url value='css/buyer.css' />" rel="stylesheet">
+<link href="<c:url value='css/owl.carousel.min.css' />" rel="stylesheet">
+<link href="<c:url value='css/owl.theme.default.min.css' />" rel="stylesheet">
+<link href="<c:url value='css/bootstrap.min.css' />" rel="stylesheet">
+<script src="<c:url value='js/buyer.js' />"></script>
 </head>
 
 
@@ -67,10 +71,7 @@
 		</ul>
 		<div>
 			<div id="quest1" class="quest">
-				<img src="https://via.placeholder.com/200x200?text=img1"></br> <img
-					src="https://via.placeholder.com/200x200?text=img2"></br> <img
-					src="https://via.placeholder.com/200x200?text=img3"></br> <img
-					src="https://via.placeholder.com/200x200?text=img4"></br>
+			
 			</div>
 			<div id="quest2" class="quest">
 				<p>哈哈哈</p>
@@ -128,12 +129,12 @@
 			</div>
 		</div>
 	</div>
-	<script src="../js/jquery-2.1.1.min.js"></script>
-	<script src="../js/owl.carousel.2.0.0-beta.2.4.min.js"></script>
-	<script type="text/javascript" src="../js/owl.carouselyin.js"></script>
 <!--     共用頁尾匯入     -->
 	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
 </body>
-<script src="js/jquery-3.5.1.min.js"></script>
+<script src="<c:url value='js/jquery-2.1.1.min.js' />"></script>
+<script src="<c:url value='js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
+<script src="<c:url value='js/owl.carouselyin.js' />"></script>
+<script src="<c:url value='js/jquery-3.5.1.min.js' />"></script>
 
 </html>
