@@ -26,17 +26,19 @@
 			<span><a href="連結網址">Nokia></a></span> <span><a href="連結網址">3310</a></span>
 		</div>
 		<h3>◢ 簡便宜 ◣ 二手 Nokia 諾基亞 3310 藍色手機</h3>
-		<div class="link3">
-			<a target="_self" href="/img/3310.jpg" id="photockick"> <img
-				src="img/3310.jpg" id="photo" class="img1"></a> <img
-				src="https://via.placeholder.com/200x200?text=img1" class="small">
-			<img src="https://via.placeholder.com/200x200?text=img2"
-				class="small"> <img
-				src="https://via.placeholder.com/200x200?text=img3" class="small">
-			<img src="https://via.placeholder.com/200x200?text=img4"
-				class="small"> <img
-				src="https://via.placeholder.com/200x200?text=img5" class="small">
-		</div>
+    <div class="link3">
+      <img id="myImg" class="img1" src="https://via.placeholder.com/200x200?text=img8">
+      <img src="https://via.placeholder.com/200x200?text=img1" class="small">
+      <img src="https://via.placeholder.com/200x200?text=img2" class="small">
+      <img src="https://via.placeholder.com/200x200?text=img3" class="small">
+      <img src="https://via.placeholder.com/200x200?text=img4" class="small">
+      <img src="https://via.placeholder.com/200x200?text=img5" class="small">
+    </div>
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01">
+      <div id="caption"></div>
+    </div>
 		<div class="salse">
 			<div class="salse2">
 				直購價:<span class="span1"> $50</span>
@@ -71,7 +73,7 @@
 		</ul>
 		<div>
 			<div id="quest1" class="quest">
-			
+				<p>商品說明</p>
 			</div>
 			<div id="quest2" class="quest">
 				<p>哈哈哈</p>
