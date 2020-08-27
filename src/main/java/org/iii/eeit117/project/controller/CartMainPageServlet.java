@@ -17,13 +17,13 @@ import javax.servlet.http.HttpSession;
 import org.iii.eeit117.project.model.service.impl.CartServiceImpl;
 import org.iii.eeit117.project.model.vo.OrderInfo;
 
-@WebServlet("/CartMainPageServlet")
+@WebServlet("/cart")
 public class CartMainPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     PrintWriter out;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		processAction(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/cart/cart.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,7 +43,7 @@ public class CartMainPageServlet extends HttpServlet {
 		session.setAttribute("orderInfo", cartList);
 		//OrderInfo order = addOrder.cartInfo("a1");
 		//session.setAttribute("orderInfo", Arrays.asList(order));
-		request.getRequestDispatcher("/cart/CartFirstPage.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/jsp/cart/cart.jsp").forward(request, response);
 		//response.getOutputStream().write(map.toString().getBytes());
 		
 	}
