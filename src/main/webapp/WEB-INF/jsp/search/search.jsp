@@ -5,7 +5,11 @@
 <html>
 <head>
     <title>銷售奇機</title>
+          <!-- @@ CSS -->
     <jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
+    <link href="<c:url value='css/tail.select-default.min.css' />" rel="stylesheet">
+  	<link href="<c:url value='css/owl.carousel.min.css' />" rel="stylesheet">
+  	<link href="<c:url value='css/owl.theme.default.min.css' />" rel="stylesheet">
   	<link href="<c:url value='css/search.css' />" rel="stylesheet">
 </head>
 

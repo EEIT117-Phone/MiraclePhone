@@ -12,7 +12,7 @@
 <jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
 <link href="/MiraclePhone/css/advertise.css" rel="stylesheet">
 <!-- Custom styles for this template -->
-<link href="../css/productWen.css" rel="stylesheet">
+
 
 <!-- twZip -->
 <script
@@ -84,6 +84,28 @@
 					<option>iPhone 11 Pro</option>
 					<option>iPhone 11 Pro Max</option>
 					<option>iPhone SE (第二代)</option>
+				</select> <label for="phoneMemory">容量:</label> <select id="phoneMemory">
+					<option>16G</option>
+					<option>32G</option>
+					<option>64G</option>
+					<option>128G</option>
+					<option>256G</option>
+					<option>512G</option>
+				</select> <label for="phoneColor">顏色:</label> <select id="phoneColor">
+					<option>太空灰</option>
+					<option>銀</option>
+					<option>金</option>
+					<option>玫瑰金</option>
+					<option>黑</option>
+					<option>曜石黑</option>
+					<option>白</option>
+					<option>藍</option>
+					<option>黃</option>
+					<option>珊瑚</option>
+					<option>紅</option>
+					<option>紫</option>
+					<option>綠</option>
+					<option>夜幕綠</option>
 				</select> <br> <label for="phoneSort">分類:</label> <select id="phoneSort">
 					<option>全新機</option>
 					<option>二手機</option>
@@ -102,53 +124,41 @@
 				</select> <br> <label>配件:</label>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						id="inlineCheckboxHeadphone" name="headphone" value="耳機">
-					<label class="form-check-label" for="inlineCheckboxHeadphone">耳機</label>
+						id="inlineCheckboxHeadphone" name="headphone" value="1"> <label
+						class="form-check-label" for="inlineCheckboxHeadphone">耳機</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						id="inlineCheckboxSocket" name="socket" value="插座"> <label
-						class="form-check-label" for="inlineCheckboxSocket">插座</label>
+						id="inlineCheckboxLine" name="line" value="1"> <label
+						class="form-check-label" for="inlineCheckboxLine">線</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						id="inlineCheckboxPlug" name="plug" value="插頭"> <label
+						id="inlineCheckboxPlug" name="plug" value="1"> <label
 						class="form-check-label" for="inlineCheckboxPlug">插頭</label>
 				</div>
 				<br /> <label>交易方式(複選):</label><br>
+
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						id="inlineCheckboxOK" name="ok" value="OK"> <label
-						class="form-check-label" for="inlineCheckboxOK">OK</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						id="inlineCheckbox7-11" name="seven" value="7-11"> <label
+						id="inlineCheckbox7-11" name="seven" value="1"> <label
 						class="form-check-label" for="inlineCheckbox7-11">7-11</label>
 				</div>
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						id="inlineCheckboxFamily" name="family" value="全家"> <label
+						id="inlineCheckboxFamily" name="family" value="1"> <label
 						class="form-check-label" for="inlineCheckboxFamily">全家</label>
 				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						id="inlineCheckboxLife" name="life" value="萊爾富"> <label
-						class="form-check-label" for="inlineCheckboxLife">萊爾富</label>
-				</div>
+
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
 						id="inlineCheckboxPost" name="post" value="郵寄"> <label
 						class="form-check-label" for="inlineCheckboxPost">郵寄</label>
 				</div>
+
 				<div class="form-check form-check-inline">
 					<input class="form-check-input" type="checkbox"
-						id="inlineCheckboxDelivery" name="delivery" value="宅配"> <label
-						class="form-check-label" for="inlineCheckboxDelivery">宅配</label>
-				</div>
-				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox"
-						id="inlineCheckboxFace" name="face" value="面交"> <label
+						id="inlineCheckboxFace" name="face" value="1"> <label
 						class="form-check-label" for="inlineCheckboxFace">面交</label>
 				</div>
 				<br> <br> <label for="yearOfManufacture">出廠年份:</label> <input
@@ -169,27 +179,24 @@
 					<div id="dd"
 						style="width: 450px; position: relative; top: 0x; left: 0px;"></div>
 				</div>
+				
 				<label> <input type="submit"><input type="reset">
 				</label>
 			</fieldset>
 		</form>
 	</div>
 	<hr>
-	
+
 	<script>
 		$("#twzipcode").twzipcode();
 	</script>
-	<script src="../js/jquery-3.5.1Wen.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
+
 	<script>
 		window.jQuery
 				|| document
 						.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')
 	</script>
-	<script src="../js/bootstrapWen.bundle.min.js"
-		integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd"
-		crossorigin="anonymous"></script>
+
 	<!--     共用頁尾匯入     -->
 	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
 
