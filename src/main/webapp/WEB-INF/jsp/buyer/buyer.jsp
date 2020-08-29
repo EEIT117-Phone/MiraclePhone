@@ -41,8 +41,8 @@
     </div>
 		<div class="salse">
 			<div class="salse2">
-				直購價:<span class="span1"> $50</span>
-				<p>刊登日期: 2020/20/20</p>
+				直購價:<span class="span1"> $${info.amount}</span>
+				<p>刊登日期:</p>
 			</div>
 			<div class="stl1">
 				<p>付款方式：PChomePay支付連 現金 (ATM、餘額、銀行支付)</p>
@@ -59,7 +59,7 @@
 			</div>
 			<div class="link4">
 				<p class="p1">賣家資訊</p>
-				<a href="連結網址" class="p2">asd26818030</a> <br> <a href="連結網址"
+				<a href="連結網址" class="p2">${info.productId}</a> <br> <a href="連結網址"
 					class="p2">賣場首頁</a> <br> <a href="連結網址" class="p2">加入最愛</a> <br>
 				<a href="連結網址" class="p2">所有商品</a> <br> <a href="連結網址"
 					class="p2"">賣家評價</a>
@@ -73,7 +73,18 @@
 		</ul>
 		<div>
 			<div id="quest1" class="quest">
-				<p>商品說明</p>
+				<p>手機型號:${info.phoneType}</p>
+				<p>容量:${info.memory}</p>
+				<p>顏色:${info.color}</p>
+				<p>機況:${info.phoneCondition}</p>
+				<p>保固:${info.phoneWarranty}</p>
+				<p>耳機:${info.headPhone}</p>
+				<p>充電線:</p>
+				<p>種類:${info.phoneSort}</p>
+				<p>插頭:${info.socket}</p>
+				<p>付款方式:</p>
+				<p>出廠日期:${info.yearOfManufacture}</p>
+				<p>販售原因:${info.sellReason}</p>
 			</div>
 			<div id="quest2" class="quest">
 				<p>哈哈哈</p>
