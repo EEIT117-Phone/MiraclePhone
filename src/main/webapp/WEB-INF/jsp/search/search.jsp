@@ -10,6 +10,7 @@
     <link href="<c:url value='css/tail.select-default.min.css' />" rel="stylesheet">
   	<link href="<c:url value='css/owl.carousel.min.css' />" rel="stylesheet">
   	<link href="<c:url value='css/owl.theme.default.min.css' />" rel="stylesheet">
+  	<link href="<c:url value='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' />" rel="stylesheet">
   	<link href="<c:url value='css/search.css' />" rel="stylesheet">
 </head>
 
@@ -21,251 +22,287 @@
     <div class="main-toplink card">
       <table cellpadding="20" cellspacing="0">
         <tr>
-          <td style="text-align:left;"><a href="https://via.placeholder.com/420x180?text=New+link"><img
+          <td class="text-left""><a href="https://via.placeholder.com/420x180?text=New+link"><img
                 src="https://via.placeholder.com/420x180?text=New+link" class="card-img-top" alt="..."></a></td>
-          <td style="text-align:center;"><a href="https://via.placeholder.com/420x180?text=Secand+link"><img
+          <td class="text-center""><a href="https://via.placeholder.com/420x180?text=Secand+link"><img
                 src="https://via.placeholder.com/420x180?text=Secand+link" class="card-img-top" alt="..."></a></td>
-          <td style="text-align:right;"><a href="https://via.placeholder.com/420x180?text=Parts+link"><img
-                src="https://via.placeholder.com/420x180?text=Parts+link" class="card-img-top" alt="..."></a></td>
+          <td class="text-center""><a href="https://via.placeholder.com/420x180?text=Secand+link"><img
+                src="https://via.placeholder.com/420x180?text=Secand+link" class="card-img-top" alt="..."></a></td>
         </tr>
       </table>
     </div>
 
     <div class="main-body-and-filter">
       <div class="main-body">
-        <form>
-          <fieldset>
-            <legend>進階搜尋</legend>
-            <div class="text-center">
-            <!-- <div class="text-center">
-              <label class="title">機型</label>
-              <select type="text" id="search-select" class="select-hooked" multiple>
-                <option>不限</option>
-                <option>iPhone 6</option>
-                <option>iPhone 6 Plus</option>
-                <option>iPhone 6s</option>
-                <option>iPhone 6s Plus</option>
-                <option>iPhone 7</option>
-                <option>iPhone 7 Plus</option>
-                <option>iPhone 8</option>
-                <option>iPhone 8 Plus</option>
-                <option>iPhone X</option>
-                <option>iPhone XR</option>
-                <option>iPhone XS</option>
-                <option>iPhone XS Max</option>
-                <option>iPhone 11</option>
-                <option>iPhone 11 Pro</option>
-                <option>iPhone 11 Pro Max</option>
-                <option>iPhone se</option>
-                <option>iPhone se2</option>
-              </select>
-
-              <label class="title">容量</label>
-              <select type="text" id="search-select" class="select-hooked" multiple>
-                <option>不限</option>
-                <option>16 GB</option>
-                <option>32 GB</option>
-                <option>64 GB</option>
-                <option>128 GB</option>
-                <option>256 GB</option>
-                <option>512 GB</option>
-              </select>
-
-              <label class="title">顏色</label>
-              <select type="text" id="search-select" class="select-hooked" multiple>
-                https://support.apple.com/zh-tw/HT201296
-                <option>不限</option>
-                <option>太空灰</option>
-                <option>銀</option>
-                <option>金</option>
-                <option>玫瑰金</option>
-                <option>黑</option>
-                <option>曜石黑</option>
-                <option>白</option>
-                <option>藍</option>
-                <option>黃</option>
-                <option>珊瑚</option>
-                <option>紅</option>
-                <option>紫</option>
-                <option>綠</option>
-                <option>夜幕綠</option>
-              </select>
-
-              <label class="title">價格</label>
-              <select type="text" id="search-select" class="select-hooked" multiple>
-                <option>不限</option>
-                <option>5,000元以下</option>
-                <option>10,000元以下</option>
-                <option>20,000元以下</option>
-                <option>30,000元以下</option>
-                <option>40,000元以下</option>
-              </select>
-
-            </div> -->
-              <!-- <button type="button"
-                class="btn btn-secondary btn-lg search-main-buttom rounded mx-auto d-block">搜尋</button>
-
-              <hr>
-              <br>
- -->
-              <input type="text" class="form-control search-input" placeholder="輸入關鍵字搜尋">
-              <button type="button"
-                class="btn btn-secondary btn-lg search-main-buttom-keyword rounded mx-auto d-block">搜尋</button>
-            </div>
-
-          </fieldset>
-          <br>
-          <fieldset>
-            <legend>精選推薦</legend>
+	<!-- 	VIP輪播		 -->
+            <h4>精選推薦</h4>
             <div class="owl-carousel">
-              <div class="item">
-                <a target="_blank" href="https://via.placeholder.com/200x200?text=img1"><img
-                    src="https://via.placeholder.com/200x200?text=img1" /></a>
-              </div>
-              <div class="item">
-                <a target="_blank" href="https://via.placeholder.com/200x200?text=img2"><img
-                    src="https://via.placeholder.com/200x200?text=img2" /></a>
-              </div>
-              <div class="item">
-                <a target="_blank" href="https://via.placeholder.com/200x200?text=img3"><img
-                    src="https://via.placeholder.com/200x200?text=img3" /></a>
-              </div>
-              <div class="item">
-                <a target="_blank" href="https://via.placeholder.com/200x200?text=img4"><img
-                    src="https://via.placeholder.com/200x200?text=img4" /></a>
-              </div>
-              <div class="item">
-                <a target="_blank" href="https://via.placeholder.com/200x200?text=img5"><img
-                    src="https://via.placeholder.com/200x200?text=img5" /></a>
-              </div>
-              <div class="item">
-                <a target="_blank" href="https://via.placeholder.com/200x200?text=img6"><img
-                    src="https://via.placeholder.com/200x200?text=img6" /></a>
-              </div>
-              <div class="item">
-                <a target="_blank" href="https://via.placeholder.com/200x200?text=img7"><img
-                    src="https://via.placeholder.com/200x200?text=img7" /></a>
-              </div>
-              <div class="item">
-                <a target="_blank" href="https://via.placeholder.com/200x200?text=img8"><img
-                    src="https://via.placeholder.com/200x200?text=img8" /></a>
-              </div>
+                <a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="item card">
+            		<img class="card-img-top" src="images/iPhone6s.jpeg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone 6s 128G 銀色 7成新</p>
+            		<p class="card-text">$ 1,500</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="item card">
+            		<img class="card-img-top" src="images/iPhoneSE.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone SE	32G	太空灰 7成新</p>
+            		<p class="card-text">$ 12,000</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="item card">
+            		<img class="card-img-top" src="images/iPhoneXR.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone XR	256G 白色 9成新</p>
+            		<p class="card-text">$ 22,500</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="item card">
+            		<img class="card-img-top" src="images/iPhone11.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[全新機] iPhone 11	64G	珊瑚色</p>
+            		<p class="card-text">$ 30,000</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="item card">
+            		<img class="card-img-top" src="images/iPhone6sPlus.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone 6s Plus	 32G 玫瑰金 6成新</p>
+            		<p class="card-text">$ 5,000</p>
+        			</div>
+    			</div>
+    			</a>        
             </div>
-          </fieldset>
 
-          <br>
-          <fieldset>
-            <legend>搜尋結果</legend>
-            <table style="width: 100%; border-spacing: 20px;">
-              <select style="float: right; margin-right: 20px; height: 100%;">
-                <option>默認更新時間排序</option>
-                <option>依價格(高到低)</option>
-                <option>依價格(低到高)</option>
-                <option>依瀏覽次數(多到少)</option>
-                <option>依瀏覽次數(少到多)</option>
-                <option>依刊登時間(新到舊)</option>
-                <option>依刊登時間(舊到新)</option>
+            <h4>搜尋結果</h4>
+            <form class="w-100" style="border-spacing: 20px;">
+            	
+            	<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhoneSE.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone SE	32G	太空灰 7成新</p>
+            		<p class="card-text">$ 12,000</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhone11.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[全新機] iPhone 11	64G	珊瑚色</p>
+            		<p class="card-text">$ 30,000</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhone6sPlus.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone 6s Plus	 32G 玫瑰金 6成新</p>
+            		<p class="card-text">$ 5,000</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhoneXR.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone XR	256G 白色 9成新</p>
+            		<p class="card-text">$ 22,500</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhone11.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[全新機] iPhone 11	64G	珊瑚色</p>
+            		<p class="card-text">$ 30,000</p>
+        			</div>
+    			</div>
+    			</a>
+            	
+                <a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhone6s.jpeg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone 6s 128G 銀色 7成新</p>
+            		<p class="card-text">$ 1,500</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhoneSE.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone SE	32G	太空灰 7成新</p>
+            		<p class="card-text">$ 12,000</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhoneXR.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone XR	256G 白色 9成新</p>
+            		<p class="card-text">$ 22,500</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhone11.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[全新機] iPhone 11	64G	珊瑚色</p>
+            		<p class="card-text">$ 30,000</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhone6sPlus.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone 6s Plus	 32G 玫瑰金 6成新</p>
+            		<p class="card-text">$ 5,000</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhoneXR.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone XR	256G 白色 9成新</p>
+            		<p class="card-text">$ 22,500</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhone6s.jpeg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone 6s 128G 銀色 7成新</p>
+            		<p class="card-text">$ 1,500</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhone6sPlus.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone 6s Plus	 32G 玫瑰金 6成新</p>
+            		<p class="card-text">$ 5,000</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhoneSE.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone SE	32G	太空灰 7成新</p>
+            		<p class="card-text">$ 12,000</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			<a target="_blank" href="https://via.placeholder.com/150x150?text=img1" class="text-dark text-decoration-none">
+            	<div class="card card-result">
+            		<img class="card-img-top" src="images/iPhoneXR.jpg" alt="Card image cap">
+        			<div class="card-body search-card-body">
+            		<p class="card-title">[二手機] iPhone XR	256G 白色 9成新</p>
+            		<p class="card-text">$ 22,500</p>
+        			</div>
+    			</div>
+    			</a>
+    			
+    			       
+<!--               <select class="float-right h-100" style="margin-right: 20px;">
+                <option>價格(高到低)</option>
+                <option>價格(低到高)</option>
               </select>
-              <input type="button" value="刊登時間" style="float: right; height: 100%; margin: 0 10px 0 5px;">
-              <input type="button" value="瀏覽次數" style="float: right; height: 100%; margin: 0 5px 0 5px;">
-              <input type="button" value="價格排序" style="float: right; height: 100%; margin: 0 5px 0 5px;">
-              <div>
-              <tr>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-              </tr>
-              <tr>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-              </tr>
-              <tr>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-              </tr>
-              <tr>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-                　<td class="resulttdclass">img</td>
-              </tr>
-              </div>
-            </table>
-            <br>
-            <nav>
-              <ul class="pagination justify-content-center">
-                <li class="page-item">
-                  <a class="page-link text-secondary" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link text-secondary" href="#">1</a></li>
-                <li class="page-item"><a class="page-link text-secondary" href="#">2</a></li>
-                <li class="page-item"><a class="page-link text-secondary" href="#">3</a></li>
-                <li class="page-item"><a class="page-link text-secondary" href="#">4</a></li>
-                <li class="page-item"><a class="page-link text-secondary" href="#">5</a></li>
-                <li class="page-item">
-                  <a class="page-link text-secondary" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </fieldset>
+              <input type="button" value="最新" class="float-right h-100" style="width:100px; margin: 0 10px 15px 5px;">
+              <input type="button" value="最熱門" class="float-right h-100" style="width:100px; margin: 0 5px 15px 5px;"> -->
         </form>
       </div>
 
       <!-- Filter -->
       <div class="filter col-sm-4">
-        <div class="filter-legend">快速篩選</div>
+      
+	    <div class="wrap">
+	        <div class="search">
+	            <input type="text" class="searchTerm" placeholder="請輸入關鍵字搜尋">
+ 	            <button type="submit" class="searchButton">
+	                <i class="fa fa-search"></i>
+	            </button>
+	        </div>
+	    </div>
+		
+        <h4>快速篩選</h4>
         <div class="card">
           <article class="card-group-item">
             <header class="card-header">
-              <label class="title">機種</label>
+              <label class="filter-title">機種</label>
             </header>
             <div class="filter-content">
               <div class="card-body">
                 <form>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxFace" value="Face">
-                    <label class="form-check-label" for="inlineCheckboxFace">不限</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxTypeAll" value="TypeAll" checked>
+                    <label class="form-check-label" for="inlineCheckboxTypeAll">不限</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxFace" value="Face">
-                    <label class="form-check-label" for="inlineCheckboxFace">iPhone 6系列</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone6" value="iphone6">
+                    <label class="form-check-label" for="inlineCheckboxiphone6">iPhone 6系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxDelivery" value="elivery">
-                    <label class="form-check-label" for="inlineCheckboxDelivery">iPhone 7系列</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone7" value="iphone7">
+                    <label class="form-check-label" for="inlineCheckboxiphone7">iPhone 7系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxPost" value="Post">
-                    <label class="form-check-label" for="inlineCheckboxPost">iPhone 8系列</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone8" value="iphone8">
+                    <label class="form-check-label" for="inlineCheckboxiphone8">iPhone 8系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxOK" value="OK">
-                    <label class="form-check-label" for="inlineCheckboxOK">iPhone SE系列</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonese" value="iphonese">
+                    <label class="form-check-label" for="inlineCheckboxiphonese">iPhone SE系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox7-11" value="7-11">
-                    <label class="form-check-label" for="inlineCheckbox7-11">iPhone X系列</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonex" value="iphonex">
+                    <label class="form-check-label" for="inlineCheckboxiphonex">iPhone X系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxFamily" value="Family">
-                    <label class="form-check-label" for="inlineCheckboxFamily">iPhone 11系列</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone11" value="iphone11">
+                    <label class="form-check-label" for="inlineCheckboxiphone11">iPhone 11系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxLife" value="Life">
-                    <label class="form-check-label" for="inlineCheckboxLife">iPhone SE2系列</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonese2" value="iphonese2">
+                    <label class="form-check-label" for="inlineCheckboxiphonese2">iPhone SE2系列</label>
                   </div><br>
                 </form>
 
@@ -275,38 +312,38 @@
 
           <article class="card-group-item">
             <header class="card-header">
-              <label class="title">容量</label>
+              <label class="filter-title">容量</label>
             </header>
             <div class="filter-content">
               <div class="card-body">
                 <form>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxFace" value="Face">
-                    <label class="form-check-label" for="inlineCheckboxFace">不限</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxMemoryAll" value="MemoryAll" checked>
+                    <label class="form-check-label" for="inlineCheckboxMemoryAll">不限</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxFace" value="Face">
-                    <label class="form-check-label" for="inlineCheckboxFace">16 GB</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox16GB" value="16GB">
+                    <label class="form-check-label" for="inlineCheckbox16GB">16 GB</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxDelivery" value="elivery">
-                    <label class="form-check-label" for="inlineCheckboxDelivery">32 GB</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox32GB" value="32GB">
+                    <label class="form-check-label" for="inlineCheckbox32GB">32 GB</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxPost" value="Post">
-                    <label class="form-check-label" for="inlineCheckboxPost">64 GB</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox64GB" value="64GB">
+                    <label class="form-check-label" for="inlineCheckbox64GB">64 GB</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxOK" value="OK">
-                    <label class="form-check-label" for="inlineCheckboxOK">128 GB</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox128GB" value="128GB">
+                    <label class="form-check-label" for="inlineCheckbox128GB">128 GB</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox7-11" value="7-11">
-                    <label class="form-check-label" for="inlineCheckbox7-11">256 GB</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox256GB" value="256GB">
+                    <label class="form-check-label" for="inlineCheckbox256GB">256 GB</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox7-11" value="7-11">
-                    <label class="form-check-label" for="inlineCheckbox7-11">512 GB</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox512GB" value="512GB">
+                    <label class="form-check-label" for="inlineCheckbox512GB">512 GB</label>
                   </div><br>
                 </form>
               </div>
@@ -315,34 +352,34 @@
 
           <article class="card-group-item">
             <header class="card-header">
-              <label class="title">價格區間</label>
+              <label class="filter-title">價格區間</label>
             </header>
             <div class="filter-content">
               <div class="card-body">
                 <form>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxFace" value="Face">
-                    <label class="form-check-label" for="inlineCheckboxFace">不限</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxPriceAll" value="PriceAll" checked>
+                    <label class="form-check-label" for="inlineCheckboxPriceAll">不限</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxFace" value="Face">
-                    <label class="form-check-label" for="inlineCheckboxFace">5,000元以下</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder5000" value="Under5000">
+                    <label class="form-check-label" for="inlineCheckboxUnder5000">5,000元以下</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxDelivery" value="elivery">
-                    <label class="form-check-label" for="inlineCheckboxDelivery">10,000元以下</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder10000" value="Under10000">
+                    <label class="form-check-label" for="inlineCheckboxUnder10000">10,000元以下</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxPost" value="Post">
-                    <label class="form-check-label" for="inlineCheckboxPost">20,000元以下</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder20000" value="Under20000">
+                    <label class="form-check-label" for="inlineCheckboxUnder20000">20,000元以下</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxOK" value="OK">
-                    <label class="form-check-label" for="inlineCheckboxOK">30,000元以下</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder30000" value="Under30000">
+                    <label class="form-check-label" for="inlineCheckboxUnder30000">30,000元以下</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox7-11" value="7-11">
-                    <label class="form-check-label" for="inlineCheckbox7-11">40,000元以下</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder40000" value="inlineCheckboxUnder40000">
+                    <label class="form-check-label" for="inlineCheckboxUnder40000">40,000元以下</label>
                   </div><br>
                 </form>
               </div>
@@ -351,22 +388,22 @@
 
           <article class="card-group-item">
             <header class="card-header">
-              <label class="title">交易方式</label>
+              <label class="filter-title">交易方式</label>
             </header>
             <div class="filter-content">
               <div class="card-body">
                 <form>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxFace" value="Face">
-                    <label class="form-check-label" for="inlineCheckboxFace">不限</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxDeliveryAll" value="DeliveryAll" checked>
+                    <label class="form-check-label" for="inlineCheckboxDeliveryAll">不限</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxFace" value="Face">
-                    <label class="form-check-label" for="inlineCheckboxFace">面交</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxDeliveryFTF" value="DeliveryFTF">
+                    <label class="form-check-label" for="inlineCheckboxDeliveryFTF">面交</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxDelivery" value="elivery">
-                    <label class="form-check-label" for="inlineCheckboxDelivery">宅配物流</label>
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxDeliveryHome" value="DeliveryHome">
+                    <label class="form-check-label" for="inlineCheckboxDeliveryHome">宅配物流</label>
                   </div><br>
                   <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" id="inlineCheckboxPost" value="Post">
@@ -407,6 +444,7 @@
   <script src="<c:url value='js/owl.carousel.setting.js' />"></script>
   <script src="<c:url value='js/tail-select.setting.js' />"></script>
   <script src="<c:url value='js/owl.carousel.setting.js' />"></script>
+  <script src="<c:url value='js/search.js' />"></script>
   
 	<!--     共用頁尾匯入     -->
 	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
