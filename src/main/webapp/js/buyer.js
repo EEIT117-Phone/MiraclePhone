@@ -7,18 +7,20 @@ $(document).ready(function () {
 		$("#quest1").show();
 		$("#quest2").hide();
 		$("#quest3").hide();
+		$("#QAA").hide();
 	});
 
 	$("#bbb").click(function() {
 		$("#quest2").show();
 		$("#quest1").hide();
-		$("#quest3").hide();
+		$("#QAA").show();
 	});
 
 	$("#ccc").click(function() {
 		$("#quest3").show();
 		$("#quest2").hide();
 		$("#quest1").hide();
+		$("#QAA").hide();
 	});
 
 	$('#addShopCart').click(function() {

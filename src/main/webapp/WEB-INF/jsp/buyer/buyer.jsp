@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="javax.servlet.http.HttpServlet" %>
+<%@ page import="javax.servlet.http.HttpServletRequest" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,9 +91,15 @@
 				<p>販售原因:${info.sellReason}</p>
 			</div>
 			<div id="quest2" class="quest">
-				<p>哈哈哈</p>
-				<p>哈哈哈</p>
-				<p>哈哈哈</p>
+				<% 
+				ResultSet rs = (ResultSet)request.getAttribute("rs");
+				if(rs!=null){
+				while(rs.next()){
+					out.write("<p>" + rs.getString(2) + "<p><br>");
+				}
+				}
+				%>
+				
 			</div>
 			<div id="quest3" class="quest">
 				<p>1</p>
@@ -97,6 +107,12 @@
 				<p>3</p>
 			</div>
 		</div>
+		
+		<form id="QAA" action="/MiraclePhone/buyer" method="post">
+			<textarea rows="5" cols="50" name="textarea"></textarea><br>
+			<input type="submit" value="提交">
+		</form>
+	
 		<br>
 		<p>按鍵輪播</p>
 		<div class="owl-carousel">

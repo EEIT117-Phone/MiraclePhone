@@ -15,6 +15,7 @@ public class BuyerVo {
 	private int amount;
 	private String sellReason;
 	private Date yearOfManufacture;
+	private String textqa;
 	
 	public int getProductId() {
 		return productId;
@@ -87,6 +88,12 @@ public class BuyerVo {
 	}
 	public void setYearOfManufacture(Date yearOfManufacture) {
 		this.yearOfManufacture = yearOfManufacture;
+	}
+	public String getTextqa() {
+		return textqa;
+	}
+	public void setTextqa(String textqa) {
+		this.textqa = textqa;
 	}
 	
 	

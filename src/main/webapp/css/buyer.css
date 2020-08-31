@@ -50,7 +50,9 @@ a:hover{
     border-radius: 4px;
     line-height: 28px;
 }
-
+ #QAA{
+	display: none;
+}
 .link1{
     margin: auto;
     width: 1200px;
