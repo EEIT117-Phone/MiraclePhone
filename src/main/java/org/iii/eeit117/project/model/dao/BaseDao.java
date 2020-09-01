@@ -1,21 +1,44 @@
 package org.iii.eeit117.project.model.dao;
 
-import java.sql.Connection;
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
+import javax.persistence.criteria.CriteriaQuery;
 
-public abstract class BaseDao {
+import org.hibernate.Session;
+import org.iii.eeit117.project.model.util.HibernateUtil;
+import org.iii.eeit117.project.search.BaseSearchBean;
+
+public abstract class BaseDao<T, E extends Serializable> {
 	
-	protected String jndiName = "java:comp/env/jdbc/phone";
-
-	protected Connection getConnection() throws Exception {
-		Context ctx = new InitialContext();
-		DataSource ds = (DataSource) ctx.lookup(jndiName);
-		return ds.getConnection();
+	protected Session getSession() {
+		return HibernateUtil.getSessionFactory().getCurrentSession();
 	}
 	
+	public T findOne(E id) {
+		return getSession().get(getTypeParameterClass(), id);
+	}
 	
+	public List<T> findBy(CriteriaQuery<T> query) {
+		return getSession().createQuery(query).getResultList();
+	}
 	
+	public List<T> findAll() {
+		return getSession().createQuery(new BaseSearchBean<T>().getCriteriaQuery()).getResultList();
+	}
+	
+	public void save(T obj) {
+		getSession().saveOrUpdate(obj);
+	}
+	
+	public void delete(T obj) {
+		getSession().delete(obj);
+	}
+	
+	@SuppressWarnings("unchecked")
+	private Class<T> getTypeParameterClass() {
+		ParameterizedType paramType = (ParameterizedType) getClass().getGenericSuperclass();
+		return (Class<T>) paramType.getActualTypeArguments()[0];
+	}
 }

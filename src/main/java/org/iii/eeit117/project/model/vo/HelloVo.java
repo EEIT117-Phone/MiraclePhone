@@ -1,16 +1,50 @@
 package org.iii.eeit117.project.model.vo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.iii.eeit117.project.model.data.HelloTypeEnum;
 
+@Entity
+@Table(name="HELLO")
 public class HelloVo {
 
+	public static final String ID = "id";
+	
+	public static final String NAME = "name";
+	
+	public static final String EN_NAME = "enName";
+	
+	public static final String AGE = "age";
+	
+	@Id
+	@Column(name = "ID", nullable = false)
+	private Integer id;
+	
+	@Column(name = "NAME")
 	private String name;
 	
+	@Column(name = "EN_NAME")
 	private String enName;
 	
+	@Column(name = "AGE")
 	private Integer age;
 	
+	@Column(name = "TYPE")
+	@Enumerated(EnumType.STRING)
 	private HelloTypeEnum type;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;

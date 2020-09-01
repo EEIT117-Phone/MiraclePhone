@@ -28,7 +28,7 @@ public class HelloServlet extends HttpServlet {
 		try {
 			// 將jsp所需要的資料，塞到request attribute。供jsp存取
 			req.setAttribute("name", name);
-			req.setAttribute("hellos", helloService.listAll());
+			req.setAttribute("hellos", helloService.findAll());
 			req.getRequestDispatcher("/WEB-INF/jsp/hello/hello.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();
