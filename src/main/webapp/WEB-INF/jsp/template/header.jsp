@@ -5,7 +5,7 @@
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container d-flex flex-column flex-md-row justify-content-between"
             style="position: sticky;top:0;left:0">
-            <a href="<c:url value='index' />"  class="py-2" aria-label="Product"
+            <a href="<c:url value='/index' />"  class="py-2" aria-label="Product"
                 style="color:white">
                 銷售奇機
             </a>

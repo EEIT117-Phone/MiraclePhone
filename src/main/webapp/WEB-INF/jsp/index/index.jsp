@@ -8,8 +8,8 @@
 	<!--     共用script css     -->
     <jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
     <!--     customize script css     -->
-    <link href="<c:url value='css/index.css' />" rel="stylesheet">
-	<script src="<c:url value='js/index.js' />"></script>
+    <link href="<c:url value='/css/index.css' />" rel="stylesheet">
+	<script src="<c:url value='/js/index.js' />"></script>
 
 </head>
 <body>
@@ -18,10 +18,10 @@
     <!--     content     -->
     <div class="cobtainer">
         <ul class="pictureslides">
-            <li><img src="<c:url value='images/iphone.jpg' />" alt=""></li>
-            <li><img src="<c:url value='images/iPhone11.jpg' />" alt=""></li>
-            <li><img src="<c:url value='images/iphonelots.jpg' />" alt=""></li>
-            <li><img src="<c:url value='images/iphoneseconds.jpg' />" alt=""></li>
+            <li><img src="<c:url value='/images/iphone.jpg' />" alt=""></li>
+            <li><img src="<c:url value='/images/iPhone11.jpg' />" alt=""></li>
+            <li><img src="<c:url value='/images/iphonelots.jpg' />" alt=""></li>
+            <li><img src="<c:url value='/images/iphoneseconds.jpg' />" alt=""></li>
         </ul>
         <div id="inputarea">
             <div id="test">
