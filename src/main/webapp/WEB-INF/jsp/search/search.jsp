@@ -277,31 +277,31 @@
                     <label class="form-check-label" for="inlineCheckboxTypeAll">不限</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone6" value="iphone6">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone6" value="iphone 6">
                     <label class="form-check-label" for="inlineCheckboxiphone6">iPhone 6系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone7" value="iphone7">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone7" value="iphone 7">
                     <label class="form-check-label" for="inlineCheckboxiphone7">iPhone 7系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone8" value="iphone8">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone8" value="iphone 8">
                     <label class="form-check-label" for="inlineCheckboxiphone8">iPhone 8系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonese" value="iphonese">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonese" value="iphone se">
                     <label class="form-check-label" for="inlineCheckboxiphonese">iPhone SE系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonex" value="iphonex">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonex" value="iphone x">
                     <label class="form-check-label" for="inlineCheckboxiphonex">iPhone X系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone11" value="iphone11">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone11" value="iphone 11">
                     <label class="form-check-label" for="inlineCheckboxiphone11">iPhone 11系列</label>
                   </div><br>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonese2" value="iphonese2">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonese2" value="iphone se2">
                     <label class="form-check-label" for="inlineCheckboxiphonese2">iPhone SE2系列</label>
                   </div><br>
                 </form>
