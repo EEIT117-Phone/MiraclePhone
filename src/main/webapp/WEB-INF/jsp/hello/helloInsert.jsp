@@ -15,7 +15,35 @@
     <jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
     <!--     content     -->
 	<div id="content" class="container">
-		helloInsert
-	</div>
+        <form action="<c:url value='hello' />" method="post" enctype="application/x-www-form-urlencoded">
+        	<input type="hidden" name="action" value="insert" />
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>中文姓名</label>
+                    <input type="text" name="name" class="form-control" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label>英文姓名</label>
+                    <input type="text" name="enName" class="form-control" >
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>年紀</label>
+                    <input type="number" name="age" class="form-control" >
+                </div>
+                <div class="form-group col-md-6">
+                    <label>訊息</label>
+                    <div class="form-check">
+                    	<c:forEach varStatus="status"  var="type"  items="${types}" >
+							<input type="radio" class="form-check-input" name="type" value="${type}"><label class="form-check-label">${type.msg}</label>
+							<br/>
+						</c:forEach>
+                    </div>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary" value="新增"/>
+        </form>
+    </div>
 </body>
 </html>
