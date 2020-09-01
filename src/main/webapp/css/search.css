@@ -1,90 +1,58 @@
-.main {
-	/* border: 2px yellow solid; */
-	width: 100%;
-	padding: 30px 60px 0px 60px;
-}
-
-.main-body-and-filter {
-	/* border: 3px blue solid; */
-	width: 100%;
-	height: 1350px;
-}
-
-.main-body {
-	/* border: 2px black solid; */
-	width: 80%;
-	float:left;
-	height: 100%;
-	padding: 20px;
-}
-
-.filter {
-	/* border: 2px red solid; */
-	width: 20%;
-	float:right;
-	height: 100%;
-	padding: 20px 20px 0px 0px;
-}
-
-.main-toplink {
-	/* border: 2px green solid; */
-	height: 100%;
-	width: 100%;
-	margin: 0 auto;
-	border-style: none;
-	/* padding: 20px; */
-	/* width: 90%; */
-}
-
 body {
 	font-family: "蘋果儷中黑", Microsoft JhengHei, "微軟正黑體", sans-serif;
 	margin: 30px auto;
 }
 
-form {
-	margin: 0 auto;
+.main {
+	/* 	border: 2px yellow solid; */
 	width: 100%;
+	padding: 0px 60px 0px 60px;
 }
 
-legend, .filter-legend {
+.main-body-and-filter {
+	/* 		border: 3px blue solid; */
+	width: 100%;
+	height: 1500px;
+}
+
+.main-body {
+	/* 	border: 2px black solid; */
+	width: 80%;
+	float: right;
+	height: 100%;
+	padding: 0 20px;
+}
+
+.filter {
+	/* 	border: 2px red solid; */
+	width: 20%;
+	float: left;
+	height: 100%;
+	padding: 0px 0px 0px 20px;
+}
+
+.main-toplink {
+	/* 	border: 2px green solid; */
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	border-style: none;
+}
+
+h4 {
 	color: gray;
-	font-size: 1.5em;
 }
 
-fieldset {
-	border: lightgray 2px solid;
-	border-radius: 15px;
-	padding: 10px;
-}
-
-.title {
+.filter-title {
 	font-weight: bold;
 	font-size: 130%;
 	margin: 0 1%;
-}
-
-.search-radio {
-	margin-left: 30px;
 }
 
 .resulttdclass, .viptdclass {
 	height: 200px;
 	border: solid 2px;
 	margin: 0 auto;
-}
-
-.search-main-buttom {
-	width: 200px;
-}
-
-.search-main-buttom-keyword {
-	width: 500px;
-}
-
-.search-input {
-	width: 500px;
-	margin: 10px auto;
-	text-align:center;
 }
 
 .carousel .carousel-item {
@@ -97,23 +65,84 @@ fieldset {
 	object-fit: cover;
 }
 
-/* .search-card {
-	margin: 0 auto;
-	border-style: none;
-	padding: 20px;
-	width: 90%;
-} */
-
-.card-img-top {
-	width: 100%;
-}
-
 .owl-carousel .search-vip-img {
 	margin: 3px;
-}
-
-.owl-carousel .search-vip-img {
 	display: block;
 	height: 200px;
 	width: 200px;
+}
+
+.card-img-top {
+	width: 100%;
+	height: 13vw;
+	object-fit: cover;
+}
+
+.top-link {
+	width: 35%;
+	height: 15%;
+	object-fit: cover;
+}
+
+.card-title {
+	font-size: .9rem;
+	font-weight: bold;
+	margin-bottom: .25rem;
+	height: 3.5rem;
+}
+
+.card-text {
+	color: #FF5733;
+}
+
+.card-result {
+	width: 10.5rem;
+	display: inline-block;
+	margin: 0.3rem 0.2rem;
+}
+
+.search-card-body {
+	padding: 0.5rem;
+}
+
+.search {
+	width: 100%;
+ 	display: flex;
+ 	padding-bottom: 10px;
+}
+
+.searchTerm {
+	width: 100%;
+	border: 3px solid #6c757d;
+	padding: 5px;
+	height: 36px;
+	border-radius: 5px 0 0 5px;
+	outline: none;
+	color: #6c757d;
+	font-size: 1rem;
+	border-right: 0;
+}
+
+.searchTerm:focus {
+	color: #6c757d;
+}
+
+.searchButton {
+	width: 36px;
+	height: 36px;
+	border: 1px solid #6c757d;
+	background: #6c757d;
+	text-align: center;
+	color: #fff;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.wrap {
+	width: 100%;
+}
+
+.searchButton:hover {
+	background: #6c757dd2;
 }
