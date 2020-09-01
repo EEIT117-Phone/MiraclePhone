@@ -38,13 +38,15 @@
                     <label>訊息</label>
                     <div class="form-check">
                     	<c:forEach varStatus="status"  var="type"  items="${types}" >
-							<input type="radio" class="form-check-input" name="type" value="${type}" checked="${result.type == type}"><label class="form-check-label">${type.msg}</label>
+							<input type="radio" class="form-check-input" name="type" value="${type}" ${result.type eq type ? 'checked' : ''}><label class="form-check-label">${type.msg}</label>
 							<br/>
 						</c:forEach>
                     </div>
                 </div>
             </div>
-            <input type="submit" class="btn btn-primary" value="修改"/>
+            <div class="form-row float-right">
+            	<input type="submit" class="btn btn-primary" value="修改"/>
+            </div>
         </form>
     </div>
 </body>

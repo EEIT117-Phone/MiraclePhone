@@ -42,8 +42,10 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" class="btn btn-primary" value="查詢"/>
-            <input type="button" class="btn btn-primary" value="新增" onclick="javascript: location.href = '<c:url value='hello?page=insert' />'"/>
+            <div class="form-row float-right">
+	            <input type="submit" class="btn btn-primary" value="查詢"/>
+	            <input type="button" class="btn btn-primary" value="新增" onclick="javascript: location.href = '<c:url value='hello?page=insert' />'"/>
+            </div>
         </form>
         <table class="table">
 			<thead>

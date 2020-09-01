@@ -42,7 +42,9 @@
                     </div>
                 </div>
             </div>
-            <input type="submit" class="btn btn-primary" value="新增"/>
+            <div class="form-row float-right">
+            	<input type="submit" class="btn btn-primary" value="新增"/>
+            </div>
         </form>
     </div>
 </body>
