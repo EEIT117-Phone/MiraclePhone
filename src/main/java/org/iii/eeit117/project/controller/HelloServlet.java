@@ -19,6 +19,26 @@ public class HelloServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String page = (String) req.getParameter("page");
+		
+		String pageName = "/WEB-INF/jsp/hello/hello.jsp";
+		
+		if ("search".equals(page)) {
+			pageName = "/WEB-INF/jsp/hello/helloSearch.jsp";
+		} else if ("findOne".equals(page)) {
+			pageName = "/WEB-INF/jsp/hello/helloFindOne.jsp";
+		} else if ("insert".equals(page)) {
+			pageName = "/WEB-INF/jsp/hello/helloInsert.jsp";
+		} else if ("update".equals(page)) {
+			pageName = "/WEB-INF/jsp/hello/helloUpdate.jsp";
+		} else if ("delete".equals(page)) {
+			pageName = "/WEB-INF/jsp/hello/helloDelete.jsp";
+		}
+		req.getRequestDispatcher(pageName).forward(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String name = (String) req.getParameter("name");
 		HelloService helloService = new HelloServiceImpl();
 		
@@ -34,11 +54,6 @@ public class HelloServlet extends HttpServlet {
 			e.printStackTrace();
 			req.getRequestDispatcher("/WEB-INF/jsp/error/error.jsp").forward(req, resp);
 		}
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doGet(req, resp);
 	}
 	
 }
