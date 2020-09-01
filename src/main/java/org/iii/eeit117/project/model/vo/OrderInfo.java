@@ -1,5 +1,9 @@
 package org.iii.eeit117.project.model.vo;
 
+import java.sql.SQLException;
+
+import org.iii.eeit117.project.model.dao.OrderInfoDao;
+
 public class OrderInfo {
 	private String productId;
 	private String productName;
@@ -55,5 +59,7 @@ public class OrderInfo {
 	public void setShipInfo(String shipInfo) {
 		this.shipInfo = shipInfo;
 	}
+	
+	
 	
 }

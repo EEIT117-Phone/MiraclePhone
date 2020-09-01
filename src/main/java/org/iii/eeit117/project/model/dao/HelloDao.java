@@ -11,7 +11,7 @@ import org.iii.eeit117.project.model.data.HelloTypeEnum;
 import org.iii.eeit117.project.model.vo.HelloVo;
 
 public class HelloDao extends BaseDao {
-
+	
 	public List<HelloVo> findAll() throws Exception {
 		List<HelloVo> result = new ArrayList<>();
 		String sql = "SELECT * FROM HELLO";
