@@ -10,11 +10,11 @@
                 銷售奇機
             </a>
             <a class="py-2 d-none d-md-inline-block"></a>
-            <a href="<c:url value='contact' />" style="color:white">客服專區</a>
-            <a href="<c:url value='cart' />" style="color:white">購物車</a>
+            <a href="<c:url value='/contact' />" style="color:white">客服專區</a>
+            <a href="<c:url value='/cart' />" style="color:white">購物車</a>
             <a style="color:white">會員專區</a>
-            <a href="<c:url value='login' />" style="color:white">登入</a>
-            <a href="<c:url value='signup' />" style="color:white">註冊</a>
+            <a href="<c:url value='/login' />" style="color:white">登入</a>
+            <a href="<c:url value='/signup' />" style="color:white">註冊</a>
         </div>
     </nav>
 </header>
