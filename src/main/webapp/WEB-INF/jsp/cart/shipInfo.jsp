@@ -6,14 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>shipInfo</title>
-<jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
 <link href="/MiraclePhone/css/shiping.css" rel="stylesheet">
 <script src="/MiraclePhone/js/shipInfo.js"></script>
 </head>
 <body>
-	<!--     共用表頭匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
-	<!--     content     -->
 	<main role="main">
 		<div class="shop-main">
 			<h3>Order Information</h3>
@@ -159,8 +155,5 @@
 			</tbody>
 		</table>
 	</main>
-	<!--     共用頁尾匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
-
 </body>
 </html>

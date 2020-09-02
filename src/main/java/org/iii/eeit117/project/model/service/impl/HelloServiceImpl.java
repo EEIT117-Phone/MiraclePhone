@@ -1,25 +1,21 @@
 package org.iii.eeit117.project.model.service.impl;
 
-import java.util.List;
-
+import org.iii.eeit117.project.model.dao.BaseDao;
 import org.iii.eeit117.project.model.dao.HelloDao;
 import org.iii.eeit117.project.model.service.HelloService;
 import org.iii.eeit117.project.model.vo.HelloVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class HelloServiceImpl implements HelloService {
+@Service
+public class HelloServiceImpl extends BaseServiceImpl<HelloVo, Integer> implements HelloService {
 
+	@Autowired
 	private HelloDao helloDao;
-	
-	public HelloServiceImpl() {
-		helloDao = new HelloDao();
-	}
-	
+
 	@Override
-	public List<HelloVo> listAll() throws Exception {
-		return helloDao.findAll();
+	public BaseDao<HelloVo, Integer> getDao() {
+		return helloDao;
 	}
 
 }
-
-
-

@@ -7,14 +7,10 @@
 <html>
 <head>
 	<title>Cart</title>
-	<jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
   	<link href="/MiraclePhone/css/cart.css" rel="stylesheet">
   	<script src="/MiraclePhone/js/cart.js"></script>
 </head>
 <body>
-  <!--     共用表頭匯入     -->
-    <jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
-    <!--     content     -->
   <main role="main">
     <div class="shop-main">
       <h3>Shopping List</h3>
@@ -70,9 +66,6 @@
         </tbody>
       </table>
     </div>
-<!--     共用頁尾匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
-
   </main>
 
 

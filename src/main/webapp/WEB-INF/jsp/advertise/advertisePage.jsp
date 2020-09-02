@@ -8,7 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <title>賣家刊登頁面</title>
-<jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
 <link href="/MiraclePhone/css/advertise.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 
@@ -17,11 +16,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 <body>
-	<!--     共用表頭匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
-	<!--     content     -->
-
-
 	<div>
 		<form method="GET" class="form1" action="">
 			<fieldset>
@@ -185,10 +179,6 @@
 				|| document
 						.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')
 	</script>
-
-	<!--     共用頁尾匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
-
 
 </body>
 

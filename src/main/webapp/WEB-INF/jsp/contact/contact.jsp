@@ -5,15 +5,11 @@
 <html>
 <head>
     <title>客服專區</title>
-    <jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
     <link href="<c:url value='css/contact.css' />" rel="stylesheet">
     <script src="<c:url value='js/contact.js' />"></script>
 </head>
 
 <body>
-	<!--     共用表頭匯入     -->
-    <jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
-    <!--     content     -->
     <main role="main">
         <div class="server-main" style="font-size: 16px;">
             <div class="col-4" style="position: relative; left:-250px;">
@@ -290,8 +286,6 @@
             <hr>
             <br>
     </main>
-	<!--     共用頁尾匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
 </body>
 
 </html>
