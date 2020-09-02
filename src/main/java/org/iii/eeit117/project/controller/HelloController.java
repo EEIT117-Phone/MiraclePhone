@@ -1,5 +1,7 @@
 package org.iii.eeit117.project.controller;
 
+import java.util.List;
+
 import org.iii.eeit117.project.model.data.HelloTypeEnum;
 import org.iii.eeit117.project.model.service.HelloService;
 import org.iii.eeit117.project.model.vo.HelloVo;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/" + HelloController.MODULE_NAME)
@@ -63,6 +66,12 @@ public class HelloController {
 	public String insert(HelloVo helloVo) {
 		helloService.save(helloVo);
 		return MAIN_PAGE;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "test", method = RequestMethod.GET)
+	public List<HelloVo> test() {
+		return helloService.findAll();
 	}
 
 }

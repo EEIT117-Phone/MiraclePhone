@@ -16,5 +16,5 @@ public class IndexController {
 	public String index() {
 		return MAIN_PAGE;
 	}
-	
+
 }

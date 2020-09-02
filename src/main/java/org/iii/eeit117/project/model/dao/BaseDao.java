@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
 import org.hibernate.Session;
 import org.iii.eeit117.project.model.util.HibernateUtil;
-import org.iii.eeit117.project.search.BaseSearchBean;
 
 public abstract class BaseDao<T, E extends Serializable> {
 	
@@ -25,7 +25,11 @@ public abstract class BaseDao<T, E extends Serializable> {
 	}
 	
 	public List<T> findAll() {
-		return getSession().createQuery(new BaseSearchBean<T>().getCriteriaQuery()).getResultList();
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+		CriteriaQuery<T> query = builder.createQuery(getTypeParameterClass());
+		query.from(getTypeParameterClass());
+		return session.createQuery(query).getResultList();
 	}
 	
 	public void save(T obj) {
