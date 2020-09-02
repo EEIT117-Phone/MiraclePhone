@@ -5,17 +5,11 @@
 <html>
 <head>
     <title>銷售奇機</title>
-	<!--     共用script css     -->
-    <jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
-    <!--     customize script css     -->
     <link href="<c:url value='/css/index.css' />" rel="stylesheet">
 	<script src="<c:url value='/js/index.js' />"></script>
 
 </head>
 <body>
-	<!--     共用表頭匯入     -->
-    <jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
-    <!--     content     -->
     <div class="cobtainer">
         <ul class="pictureslides">
             <li><img src="<c:url value='/images/iphone.jpg' />" alt=""></li>
@@ -149,7 +143,5 @@
         <hr class="featurette-divider">
         <!-- /END THE FEATURETTES -->
     </div><!-- /.container -->
-    <!--     共用頁尾匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
 </body>
 </html>

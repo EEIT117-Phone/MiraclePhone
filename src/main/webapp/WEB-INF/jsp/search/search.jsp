@@ -6,7 +6,6 @@
 <head>
     <title>銷售奇機</title>
           <!-- @@ CSS -->
-    <jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
     <link href="<c:url value='css/tail.select-default.min.css' />" rel="stylesheet">
   	<link href="<c:url value='css/owl.carousel.min.css' />" rel="stylesheet">
   	<link href="<c:url value='css/owl.theme.default.min.css' />" rel="stylesheet">
@@ -15,9 +14,6 @@
 </head>
 
 <body>
-	<!--     共用表頭匯入     -->
-    <jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
-    <!--     content     -->
 	  <div class="main">
     <div class="main-toplink card">
       <table cellpadding="20" cellspacing="0">
@@ -445,9 +441,6 @@
   <script src="<c:url value='js/tail-select.setting.js' />"></script>
   <script src="<c:url value='js/owl.carousel.setting.js' />"></script>
   <script src="<c:url value='js/search.js' />"></script>
-  
-	<!--     共用頁尾匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
 </body>
 
 </html>

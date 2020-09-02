@@ -6,15 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>OrderConfirm</title>
-<jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
 <link href="/MiraclePhone/css/orderConfirm.css" rel="stylesheet">
 <script src="/MiraclePhone/js/orderConfirm.js"></script>
 </head>
 <body>
-	<!--     共用表頭匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
-	<!--     content     -->
-
 	<main role="main">
 		<div class="shop-main">
 			<h3>Order Confirmation</h3>
@@ -89,7 +84,5 @@
 		</div>
 
 	</main>
-	<!--     共用頁尾匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
 </body>
 </html>

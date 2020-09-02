@@ -5,7 +5,6 @@
 <html>
 <head>
 	<title>註冊</title>
- 	<jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
     <!--     customize script css     -->
     <link href="<c:url value='css/signup.css' />" rel="stylesheet">
 	<script src="<c:url value='js/signup.js' />"></script>
@@ -16,9 +15,6 @@
 </head>
 <body>
 <body>
-	<!--     共用表頭匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
-	<!--     content     -->
 	<h1>會員註冊</h1>
 	<form id="userform" action="<c:url value='signup' />"
 		method="post">
@@ -65,8 +61,6 @@
 		<input type="checkbox" value="免責聲明">我已看過免責聲明<br /> <input
 			type="submit" id="submit" name="submit" value="繳交">
 	</form>
-	<!--     共用頁尾匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
-</body>
+s</body>
 
 </html>

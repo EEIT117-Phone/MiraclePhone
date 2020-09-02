@@ -10,7 +10,6 @@
 
 <head>
 <title>Document</title>
-<jsp:include page="/WEB-INF/jsp/template/common.jsp"></jsp:include>
 <link href="<c:url value='css/owl.carousel.css' />" rel="stylesheet">
 <link href="<c:url value='css/buyer.css' />" rel="stylesheet">
 <link href="<c:url value='css/owl.carousel.min.css' />" rel="stylesheet">
@@ -21,9 +20,6 @@
 
 
 <body>
-	<!--     共用表頭匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/header.jsp"></jsp:include>
-	<!--     content     -->
 	<div class="link1">
 		<div class="link2">
 			<span><a href="連結網址">首頁></a></span> <span><a href="連結網址">新機></a></span>
@@ -158,8 +154,6 @@
 			</div>
 		</div>
 	</div>
-<!--     共用頁尾匯入     -->
-	<jsp:include page="/WEB-INF/jsp/template/footer.jsp"></jsp:include>
 </body>
 <script src="<c:url value='js/jquery-2.1.1.min.js' />"></script>
 <script src="<c:url value='js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
