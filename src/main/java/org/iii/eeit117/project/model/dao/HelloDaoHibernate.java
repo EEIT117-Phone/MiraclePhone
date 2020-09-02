@@ -6,12 +6,13 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.iii.eeit117.project.model.util.HibernateUtil;
 import org.iii.eeit117.project.model.vo.HelloVo;
-import org.iii.eeit117.project.util.HibernateSessionFactory;
 
 
 public class HelloDaoHibernate{
-	SessionFactory factory = HibernateSessionFactory.getSessionFactory();
+	
+	SessionFactory factory = HibernateUtil.getSessionFactory();
 	Session session= factory.getCurrentSession();
 
 	public List<HelloVo> findAll() throws Exception {
