@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,31 +11,29 @@
 <body>
     <!--     content     -->
 	<div id="content" class="container">
-        <form action="<c:url value='/hello/update' />" method="post" enctype="application/x-www-form-urlencoded">
+        <form:form servletRelativeAction="/hello/update" method="post" enctype="application/x-www-form-urlencoded"
+        	modelAttribute="result">
         	<!--     記得將物件的id參數帶到後端     -->
-        	<input type="hidden" name="id" value="${result.id}" />
+        	<form:hidden path="id" />
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label>中文姓名</label>
-                    <input type="text" name="name" class="form-control" value="${result.name}">
+                    <form:label path="name">中文姓名</form:label>
+                    <form:input path="name" class="form-control"/>
                 </div>
                 <div class="form-group col-md-6">
-                    <label>英文姓名</label>
-                    <input type="text" name="enName" class="form-control" value="${result.enName}">
+                    <form:label path="enName">英文姓名</form:label>
+                    <form:input path="enName" class="form-control"/>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label>年紀</label>
-                    <input type="number" name="age" class="form-control" value="${result.age}">
+                    <form:label path="age">年紀</form:label>
+                    <form:input type="number" path="age" class="form-control"/>
                 </div>
                 <div class="form-group col-md-6">
-                    <label>訊息</label>
+                   <form:label path="type">訊息</form:label>
                     <div class="form-check">
-                    	<c:forEach varStatus="status"  var="type"  items="${types}" >
-							<input type="radio" class="form-check-input" name="type" value="${type}" ${result.type eq type ? 'checked' : ''}><label class="form-check-label">${type.msg}</label>
-							<br/>
-						</c:forEach>
+                    	<form:radiobuttons class="form-check-input" items="${types}" path="type" itemLabel="msg" element="div"/>
                     </div>
                 </div>
             </div>
@@ -44,7 +43,7 @@
 	            	<input type="button" class="btn btn-primary" value="返回" onclick="javascript: location.href = '<c:url value='/hello' />'"/>
             	</div>
             </div>
-        </form>
+        </form:form>
     </div>
 </body>
 </html>

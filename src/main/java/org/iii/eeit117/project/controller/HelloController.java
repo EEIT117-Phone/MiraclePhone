@@ -30,12 +30,14 @@ public class HelloController {
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String index(Model model) {
+		model.addAttribute("searchBean", new HelloSearchBean());
 		model.addAttribute("types", HelloTypeEnum.values());
 		return MAIN_PAGE;
 	}
 
 	@RequestMapping(value = "/preInsert", method = RequestMethod.GET)
 	public String preInsert(Model model) {
+		model.addAttribute("result", new HelloVo());
 		model.addAttribute("types", HelloTypeEnum.values());
 		return INSERT_PAGE;
 	}
@@ -52,11 +54,12 @@ public class HelloController {
 		HelloVo helloVo = new HelloVo();
 		helloVo.setId(id);
 		helloService.delete(helloVo);
-		return MAIN_PAGE;
+		return "redirect:/" + MODULE_NAME;
 	}
 
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
 	public String search(HelloSearchBean searchBean, Model model) {
+		model.addAttribute("searchBean", searchBean);
 		model.addAttribute("types", HelloTypeEnum.values());
 		model.addAttribute("results", helloService.search(searchBean));
 		return MAIN_PAGE;
@@ -65,7 +68,7 @@ public class HelloController {
 	@RequestMapping(value = { "/insert", "/update" }, method = RequestMethod.POST)
 	public String insert(HelloVo helloVo) {
 		helloService.save(helloVo);
-		return MAIN_PAGE;
+		return "redirect:/" + MODULE_NAME;
 	}
 	
 	@ResponseBody

@@ -46,7 +46,7 @@ public class HelloSearchBean extends BaseSearchBean<HelloVo> {
 			restrictions.add(builder.ge(root.get(HelloVo.AGE), age));
 		}
 		// in condiction
-		if (StringUtil.isNonEmpty(types)) {
+		if (StringUtil.isNonEmpty(types) && types.length != 0) {
 			restrictions.add(root.get(HelloVo.TYPE).in(types));
 		}
 		return query.where(builder.and(restrictions.toArray(new Predicate[] {})));
