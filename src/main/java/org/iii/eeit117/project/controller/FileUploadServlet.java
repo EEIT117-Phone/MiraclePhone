@@ -1,4 +1,4 @@
-package org.iii.eeit117.project.util;
+package org.iii.eeit117.project.controller;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -19,20 +19,18 @@ public class FileUploadServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.setCharacterEncoding("UTF-8"); 
+		req.setCharacterEncoding("UTF-8");
 		String productId = "10001";
-		//String productId = request.getAttribute("productId", productId);;
-		
+
 		Integer i = 0;
 		for (Part part : req.getParts()) {
 			try {
-				part.write(productId+"_"+String.valueOf(++i));
+				part.write(productId + "_" + String.valueOf(++i));
 			} catch (IOException ex) {
 				throw new UncheckedIOException(ex);
 			}
 		}
 		req.getRequestDispatcher("/FileUpload.jsp").forward(req, resp);
 	}
-	
 
 }
