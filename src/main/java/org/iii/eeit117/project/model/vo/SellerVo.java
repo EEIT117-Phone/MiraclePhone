@@ -106,22 +106,22 @@ public class SellerVo {
 	private String sellReason;
 
 	@Column(name = "FILE1")
-	private byte[] file1;
+	private Byte[] file1;
 
 	@Column(name = "FILE2")
-	private byte[] file2;
+	private Byte[] file2;
 
 	@Column(name = "FILE3")
-	private byte[] file3;
+	private Byte[] file3;
 
 	@Column(name = "FILE4")
-	private byte[] file4;
+	private Byte[] file4;
 
 	@Column(name = "FILE5")
-	private byte[] file5;
+	private Byte[] file5;
 
 	@Column(name = "FILE6")
-	private byte[] file6;
+	private Byte[] file6;
 
 	public int getProductId() {
 		return productId;
