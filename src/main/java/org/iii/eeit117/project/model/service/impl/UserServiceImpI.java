@@ -1,7 +1,9 @@
 package org.iii.eeit117.project.model.service.impl;
 
+import java.util.Collections;
 import java.util.List;
 
+import org.iii.eeit117.project.model.dao.BaseDao;
 import org.iii.eeit117.project.model.dao.UserDao;
 import org.iii.eeit117.project.model.service.UserService;
 import org.iii.eeit117.project.model.vo.UserVo;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpI implements UserService  {
+	
 	
 	@Autowired
 	private UserDao dao;
@@ -31,15 +34,19 @@ public class UserServiceImpI implements UserService  {
 		
 		
 	}
-
+	
+	public BaseDao<UserVo, String> getDao() {
+		return dao;
+	}
 	
 	
 	@Override
 	public List<UserVo> search(BaseSearchBean<UserVo> searchBean) {
-		List<UserVo> list=dao.findBy(searchBean);
-		return list;
+		if (searchBean.getCriteriaQuery() != null) {
+			return getDao().findBy(searchBean.getCriteriaQuery());
+		}
+		return Collections.emptyList();
 	}
-
 	@Override
 	public List<UserVo> findAll() {
 		List<UserVo> list=dao.findAll();
