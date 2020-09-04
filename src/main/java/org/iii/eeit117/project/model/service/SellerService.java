@@ -1,8 +1,6 @@
 package org.iii.eeit117.project.model.service;
 
-import org.iii.eeit117.project.model.vo.SellerProductVo;
+import org.iii.eeit117.project.model.vo.SellerVo;
 
-public interface SellerService {
-
-	public SellerProductVo insert(SellerProductVo spv);
+public interface SellerService extends BaseService<SellerVo,Integer> {
 }
