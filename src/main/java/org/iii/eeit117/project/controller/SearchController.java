@@ -1,7 +1,5 @@
 package org.iii.eeit117.project.controller;
 
-import java.util.List;
-
 import org.iii.eeit117.project.model.data.HelloTypeEnum;
 import org.iii.eeit117.project.model.service.SearchService;
 import org.iii.eeit117.project.model.vo.SearchVo;
@@ -12,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/" + SearchController.MODULE_NAME)
@@ -37,11 +34,5 @@ public class SearchController {
 		model.addAttribute("results", searchService.search(searchBean));
 		return MODULE_NAME;
 	}
-	
-//	@ResponseBody
-//	@RequestMapping(value = "test", method = RequestMethod.GET)
-//	public List<SearchVo> test() {
-//		return searchService.findAll();
-//	}
 
 }
