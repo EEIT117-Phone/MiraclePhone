@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.iii.eeit117.project.model.vo.SellerProductVo;
+import org.iii.eeit117.project.model.vo.SellerVo;
 
 public class SearchDao {
 	private Connection conn;
@@ -26,7 +26,7 @@ public class SearchDao {
 		}
 	}
 
-	public ResultSet searchPhoneSort(SellerProductVo sv) throws SQLException {
+	public ResultSet searchPhoneSort(SellerVo sv) throws SQLException {
 		String sqlstr = "Select * from Advertise Where phoneSort='?'";
 		PreparedStatement state = conn.prepareStatement(sqlstr);
 		state.setString(1, sv.getPhoneSort());
