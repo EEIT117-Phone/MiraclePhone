@@ -43,7 +43,7 @@ public class SellerVo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PRODUCTID", nullable = false)
-	private int productId;
+	private Integer productId;
 
 	@Column(name = "ACCOUNT")
 	private String account;
