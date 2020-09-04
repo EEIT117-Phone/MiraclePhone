@@ -100,7 +100,7 @@ public class SellerVo {
 	private String twZipCode;
 
 	@Column(name = "AMOUNT")
-	private int amount;
+	private Integer amount;
 
 	@Column(name = "SELLREASON")
 	private String sellReason;
@@ -123,11 +123,11 @@ public class SellerVo {
 	@Column(name = "FILE6")
 	private Byte[] file6;
 
-	public int getProductId() {
+	public Integer getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 
@@ -275,11 +275,11 @@ public class SellerVo {
 		this.twZipCode = twZipCode;
 	}
 
-	public int getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
