@@ -291,51 +291,51 @@ public class SellerVo {
 		this.sellReason = sellReason;
 	}
 
-	public byte[] getFile1() {
+	public Byte[] getFile1() {
 		return file1;
 	}
 
-	public void setFile1(byte[] file1) {
+	public void setFile1(Byte[] file1) {
 		this.file1 = file1;
 	}
 
-	public byte[] getFile2() {
+	public Byte[] getFile2() {
 		return file2;
 	}
 
-	public void setFile2(byte[] file2) {
+	public void setFile2(Byte[] file2) {
 		this.file2 = file2;
 	}
 
-	public byte[] getFile3() {
+	public Byte[] getFile3() {
 		return file3;
 	}
 
-	public void setFile3(byte[] file3) {
+	public void setFile3(Byte[] file3) {
 		this.file3 = file3;
 	}
 
-	public byte[] getFile4() {
+	public Byte[] getFile4() {
 		return file4;
 	}
 
-	public void setFile4(byte[] file4) {
+	public void setFile4(Byte[] file4) {
 		this.file4 = file4;
 	}
 
-	public byte[] getFile5() {
+	public Byte[] getFile5() {
 		return file5;
 	}
 
-	public void setFile5(byte[] file5) {
+	public void setFile5(Byte[] file5) {
 		this.file5 = file5;
 	}
 
-	public byte[] getFile6() {
+	public Byte[] getFile6() {
 		return file6;
 	}
 
-	public void setFile6(byte[] file6) {
+	public void setFile6(Byte[] file6) {
 		this.file6 = file6;
 	}
 
