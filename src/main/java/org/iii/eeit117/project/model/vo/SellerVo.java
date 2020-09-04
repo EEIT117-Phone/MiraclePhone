@@ -43,7 +43,7 @@ public class SellerVo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PRODUCTID", nullable = false)
-	private int productId;
+	private Integer productId;
 
 	@Column(name = "ACCOUNT")
 	private String account;
@@ -100,34 +100,34 @@ public class SellerVo {
 	private String twZipCode;
 
 	@Column(name = "AMOUNT")
-	private int amount;
+	private Integer amount;
 
 	@Column(name = "SELLREASON")
 	private String sellReason;
 
 	@Column(name = "FILE1")
-	private byte[] file1;
+	private Byte[] file1;
 
 	@Column(name = "FILE2")
-	private byte[] file2;
+	private Byte[] file2;
 
 	@Column(name = "FILE3")
-	private byte[] file3;
+	private Byte[] file3;
 
 	@Column(name = "FILE4")
-	private byte[] file4;
+	private Byte[] file4;
 
 	@Column(name = "FILE5")
-	private byte[] file5;
+	private Byte[] file5;
 
 	@Column(name = "FILE6")
-	private byte[] file6;
+	private Byte[] file6;
 
-	public int getProductId() {
+	public Integer getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 
@@ -275,11 +275,11 @@ public class SellerVo {
 		this.twZipCode = twZipCode;
 	}
 
-	public int getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
@@ -291,51 +291,51 @@ public class SellerVo {
 		this.sellReason = sellReason;
 	}
 
-	public byte[] getFile1() {
+	public Byte[] getFile1() {
 		return file1;
 	}
 
-	public void setFile1(byte[] file1) {
+	public void setFile1(Byte[] file1) {
 		this.file1 = file1;
 	}
 
-	public byte[] getFile2() {
+	public Byte[] getFile2() {
 		return file2;
 	}
 
-	public void setFile2(byte[] file2) {
+	public void setFile2(Byte[] file2) {
 		this.file2 = file2;
 	}
 
-	public byte[] getFile3() {
+	public Byte[] getFile3() {
 		return file3;
 	}
 
-	public void setFile3(byte[] file3) {
+	public void setFile3(Byte[] file3) {
 		this.file3 = file3;
 	}
 
-	public byte[] getFile4() {
+	public Byte[] getFile4() {
 		return file4;
 	}
 
-	public void setFile4(byte[] file4) {
+	public void setFile4(Byte[] file4) {
 		this.file4 = file4;
 	}
 
-	public byte[] getFile5() {
+	public Byte[] getFile5() {
 		return file5;
 	}
 
-	public void setFile5(byte[] file5) {
+	public void setFile5(Byte[] file5) {
 		this.file5 = file5;
 	}
 
-	public byte[] getFile6() {
+	public Byte[] getFile6() {
 		return file6;
 	}
 
-	public void setFile6(byte[] file6) {
+	public void setFile6(Byte[] file6) {
 		this.file6 = file6;
 	}
 
