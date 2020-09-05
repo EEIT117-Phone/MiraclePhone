@@ -98,7 +98,7 @@
 				<br>
 				<label>配件:</label>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" id="inlineCheckboxHeadphone" name="headphone" value="1">
+					<input class="form-check-input" type="checkbox" id="inlineCheckboxHeadphone" name="headPhone" value="1">
 					<label class="form-check-label" for="inlineCheckboxHeadphone">耳機</label>
 				</div>
 				<div class="form-check form-check-inline">

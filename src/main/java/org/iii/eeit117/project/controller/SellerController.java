@@ -18,9 +18,9 @@ public class SellerController {
 
 	public static final String MODULE_NAME = "seller";
 
-	public static final String MAIN_PAGE = MODULE_NAME + "";
-
-	public static final String INSERT_PAGE = MODULE_NAME + "Insert";
+	public static final String MAIN_PAGE = MODULE_NAME;
+	
+	public static final String SalesPrice_PAGE = "salesPrice";
 
 	public static final String UPDATE_PAGE = MODULE_NAME + "Update";
 
@@ -34,14 +34,13 @@ public class SellerController {
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String index(Model model) {
 		model.addAttribute("seller", new SellerVo());
-//		model.addAttribute("types", HelloTypeEnum.values());
 		return MAIN_PAGE;
 	}
 
 	@RequestMapping(value = { "/insert", "/update" }, method = RequestMethod.POST)
 	public String insert(SellerVo SellerVo) {
 		SellerService.save(SellerVo);
-		return "redirect:/" + INSERT_PAGE;
+		return "redirect:/" + SalesPrice_PAGE;
 	}
 	
 	@ResponseBody

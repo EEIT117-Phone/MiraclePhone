@@ -1,6 +1,6 @@
 package org.iii.eeit117.project.model.vo;
 
-import java.text.SimpleDateFormat;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -25,7 +25,7 @@ public class SellerVo {
 	public static final String PHONECONDITION = "phoneCondition";
 	public static final String PHONEWARRANTY = "phoneWarranty";
 	public static final String HEADPHONE = "headPhone";
-	public static final String SOCKET = "socket";
+	public static final String LINE = "line";
 	public static final String PLUG = "plug";
 	public static final String SEVEN = "seven";
 	public static final String FAMILY = "family";
@@ -73,8 +73,8 @@ public class SellerVo {
 	@Column(name = "HEADPHONE")
 	private String headPhone;
 
-	@Column(name = "SOCKET")
-	private String socket;
+	@Column(name = "LINE")
+	private String line;
 
 	@Column(name = "PLUG")
 	private String plug;
@@ -199,12 +199,12 @@ public class SellerVo {
 		this.headPhone = headPhone;
 	}
 
-	public String getSocket() {
-		return socket;
+	public String getLine() {
+		return line;
 	}
 
-	public void setSocket(String socket) {
-		this.socket = socket;
+	public void setLine(String line) {
+		this.line = line;
 	}
 
 	public String getPlug() {
