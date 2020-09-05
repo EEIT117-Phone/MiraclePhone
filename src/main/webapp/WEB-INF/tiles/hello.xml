@@ -14,4 +14,8 @@
     <definition name="helloUpdate" extends="template-def">  
         <put-attribute name="body"  value="/WEB-INF/jsp/hello/helloUpdate.jsp" />  
     </definition>    
+    
+    <definition name="buyer" extends="template-def">  
+    	<put-attribute name="body"  value="/WEB-INF/jsp/buyer/buyer.jsp" />  
+    </definition>  
 </tiles-definitions>
