@@ -19,4 +19,7 @@
     	<put-attribute name="body"  value="/WEB-INF/jsp/search/search.jsp" />  
     </definition>
     
+    <definition name="header" extends="template-def">  
+    	<put-attribute name="body"  value="/WEB-INF/jsp/template/header.jsp" />  
+    </definition>   
 </tiles-definitions>

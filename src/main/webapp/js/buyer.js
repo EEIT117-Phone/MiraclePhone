@@ -26,8 +26,8 @@ $(document).ready(function () {
 	$('#addShopCart').click(function() {
 		let id = $('input[name="phoneId"]').val();
 		$.ajax({
-			url : 'http://localhost:8080/MiraclePhone/CartAddServlet',
-			method : 'POST',
+			url : 'http://localhost:8080/MiraclePhone/cart/OrderInfoServlet',
+			method : 'GET',
 			data : {
 				productId : id
 			},

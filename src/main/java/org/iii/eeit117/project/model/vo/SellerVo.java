@@ -1,11 +1,14 @@
 package org.iii.eeit117.project.model.vo;
 
 import java.text.SimpleDateFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -122,6 +125,10 @@ public class SellerVo {
 
 	@Column(name = "FILE6")
 	private Byte[] file6;
+	
+	@ManyToOne
+    @JoinColumn(name="ORDER_ID")
+	private OrderInfoVo orderInfoVO;
 
 	public Integer getProductId() {
 		return productId;
@@ -337,6 +344,14 @@ public class SellerVo {
 
 	public void setFile6(Byte[] file6) {
 		this.file6 = file6;
+	}
+
+	public OrderInfoVo getOrderInfoVO() {
+		return orderInfoVO;
+	}
+
+	public void setOrderInfoVO(OrderInfoVo orderInfoVO) {
+		this.orderInfoVO = orderInfoVO;
 	}
 
 }
