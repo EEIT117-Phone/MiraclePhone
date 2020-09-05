@@ -105,7 +105,7 @@
 			</div>
 		</div>
 		
-		<form id="QAA" action="<c:url value="/massagepage"/>" method="post">
+		<form id="QAA" action="<c:url value="/buyer/massagepage"/>" method="post">
 			<textarea rows="5" cols="50" name="textarea"></textarea><br>
 			<input type="submit" value="提交">
 		</form>
