@@ -13,7 +13,7 @@ public class QaDao {
 	public boolean createConn() throws SQLException {
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			String urlstr = "jdbc:sqlserver://180.176.235.31;databaseName=MiraclePhone;user=sa;password=P@ssw0rd";
+			String urlstr = "jdbc:sqlserver://180.176.235.31;databaseName=MiraclePhone;user=sa;password=MiraclePhone";
 			conn = DriverManager.getConnection(urlstr);
 
 			boolean status = !conn.isClosed();

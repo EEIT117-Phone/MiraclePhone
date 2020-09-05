@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <!-- saved from url=(0051)https://getbootstrap.com/docs/4.5/examples/product/ -->
@@ -17,11 +18,12 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 <body>
 	<div>
-		<form method="GET" class="form1" action="">
+		<form:form servletRelativeAction="/seller/insert" method="post" enctype="application/x-www-form-urlencoded"
+        	modelAttribute="seller">
 			<fieldset>
-				<legend>手機刊登</legend>
+				<legend>手機刊登</legend>					
 				<label for="phoneType">機種:</label>
-				<select id="phoneType">
+				<form:select path="phoneType" >
 					<option>iPhone 6</option>
 					<option>iPhone 6 Plus</option>
 					<option>iPhone 6s</option>
@@ -39,18 +41,21 @@
 					<option>iPhone 11 Pro</option>
 					<option>iPhone 11 Pro Max</option>
 					<option>iPhone SE (第二代)</option>
-				</select>
-				<label for="phoneMemory">容量:</label>
-				<select id="phoneMemory">
+				</form:select>	
+				<br>			
+				<label for="memory">容量:</label>
+				<form:select path="memory">
 					<option>16G</option>
 					<option>32G</option>
 					<option>64G</option>
 					<option>128G</option>
 					<option>256G</option>
 					<option>512G</option>
-				</select>
-				<label for="phoneColor">顏色:</label>
-				<select id="phoneColor">
+				</form:select>
+				
+				
+				<label for="color">顏色:</label>
+				<form:select path="color">
 					<option>太空灰</option>
 					<option>銀</option>
 					<option>金</option>
@@ -65,33 +70,35 @@
 					<option>紫</option>
 					<option>綠</option>
 					<option>夜幕綠</option>
-				</select>
+				</form:select>
 				<br>
 				<label for="phoneSort">分類:</label>
-				<select id="phoneSort">
+				<form:select path="phoneSort">
 					<option>全新機</option>
 					<option>二手機</option>
 					<option>零件機</option>
-				</select>
+				</form:select>
 				<br>
 				<label for="phoneCondition">機況:</label>
-				<select id="phoneCondition">
+				<form:select path="phoneCondition">
 					<option>整新機</option>
 					<option>9成新</option>
 					<option>7成新</option>
 					<option>6成新</option>
-				</select>
+				</form:select>
 				<br>
+				
 				<label for="phoneWarranty">保固狀況:</label>
-				<select id=phoneWarranty>
+				<form:select path="phoneWarranty">
 					<option>無保固</option>
 					<option>一年保固</option>
 					<option>保固未滿一年</option>
-				</select>
+				</form:select>
+				
 				<br>
 				<label>配件:</label>
 				<div class="form-check form-check-inline">
-					<input class="form-check-input" type="checkbox" id="inlineCheckboxHeadphone" name="headphone" value="1">
+					<input class="form-check-input" type="checkbox" id="inlineCheckboxHeadphone" name="headPhone" value="1">
 					<label class="form-check-label" for="inlineCheckboxHeadphone">耳機</label>
 				</div>
 				<div class="form-check form-check-inline">
@@ -127,38 +134,19 @@
 				<br>
 				<br>
 				<label for="yearOfManufacture">出廠年份:</label>
-				<input id="yearOfManufacture" type="month" name="" min="2007-06" max="2020-10" value="2020-10">
+				<form:input path="yearOfManufacture" type="month" name="yearOfManufacture" min="2007-06" max="2020-10" value="2020-10"/>
 				<br>
 				<label>
 					<div id="twzipcode">交易地點:</div>
 				</label>
 				<br>
 				<label for="amount">銷售金額:</label>
-				<input type="number" max="50000" min="0" value="8000" step="100" required="required">
+				<form:input type="number" max="50000" min="0" value="8000" step="100" required="required" path="amount"/>
 				<br>
 				<label for="sellReason">銷售原因以及備註:</label>
 				<br>
-				<textarea placeholder="請輸入銷售原因&備註 (上限100字)" rows=10 cols="50px" maxlength="109" maxrows="10" id="sellReason" required="required"></textarea>
-				<br>
-				<label for="file1">正面:</label>
-				<input type="file" name=file1 accept="image/*" required="required">
-				<br>
-				<label for="file2">反面:</label>
-				<input type="file" name=file2 accept="image/*" required="required">
-				<br>
-				<label for="file3">左側:</label>
-				<input type="file" name=file3 accept="image/*" required="required">
-				<br>
-				<label for="file4">右側:</label>
-				<input type="file" name=file4 accept="image/*" required="required">
-				<br>
-				<label for="file5">上面:</label>
-				<input type="file" name=file5 accept="image/*" required="required">
-				<br>
-				<label for="file6">下面:</label>
-				<input type="file" name=file6 accept="image/*" required="required">
-				<br>
-				<br>
+				<textarea placeholder="請輸入銷售原因&備註 (上限100字)" rows=10 cols="50px" maxlength="109" maxrows="10" id="sellReason" name="sellReason" required="required"></textarea>
+				<br>	
 				<center>
 				<label>
 					<input type="submit">
@@ -166,7 +154,7 @@
 				</label>
 				</center>
 			</fieldset>
-		</form>
+		</form:form>
 	</div>
 	<hr>
 
