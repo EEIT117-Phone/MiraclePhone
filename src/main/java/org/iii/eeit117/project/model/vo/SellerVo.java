@@ -1,9 +1,8 @@
 package org.iii.eeit117.project.model.vo;
 
-<<<<<<< HEAD
-=======
-import java.text.SimpleDateFormat;
->>>>>>> f99cd5ef2212bff2ce0a39f843e08936f022b3f2
+
+
+
 
 import java.util.Date;
 
