@@ -1,41 +1,133 @@
 package org.iii.eeit117.project.model.vo;
 
 import java.text.SimpleDateFormat;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class SellerProductVo{
-	private int productId;
+@Entity
+@Table(name = "SELLER")
+public class SellerVo {
+
+	public static final String PRODUCTID = "productId";
+	public static final String ACCOUNT = "account";
+	public static final String PHONETYPE = "phoneType";
+	public static final String MEMORY = "memory";
+	public static final String COLOR = "color";
+	public static final String PHONESORT = "phoneSort";
+	public static final String PHONECONDITION = "phoneCondition";
+	public static final String PHONEWARRANTY = "phoneWarranty";
+	public static final String HEADPHONE = "headPhone";
+	public static final String SOCKET = "socket";
+	public static final String PLUG = "plug";
+	public static final String SEVEN = "seven";
+	public static final String FAMILY = "family";
+	public static final String POST = "post";
+	public static final String FACE = "face";
+	public static final String YEAROFMANUFACTURE = "yearOfManufacture";
+	public static final String COUNTY = "county";
+	public static final String DISTRICT = "district";
+	public static final String TWZIPCODE = "twZipCode";
+	public static final String AMOUNT = "amount";
+	public static final String SELLREASON = "sellReason";
+	public static final String FILE1 = "file1";
+	public static final String FILE2 = "file2";
+	public static final String FILE3 = "file3";
+	public static final String FILE4 = "file4";
+	public static final String FILE5 = "file5";
+	public static final String FILE6 = "file6";
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "PRODUCTID", nullable = false)
+	private Integer productId;
+
+	@Column(name = "ACCOUNT")
 	private String account;
-	private String phoneType;
-	private String memory;
-	private String color;
-	private String phoneSort;
-	private String phoneCondition;
-	private String phoneWarranty;
-	private String headPhone;
-	private String socket;
-	private String plug;
-	private String seven;
-	private String family;
-	private String post;
-	private String face;
-	private SimpleDateFormat yearOfManufacture;
-	private String county;
-	private String district;
-	private String twZipCode;
-	private int amount;
-	private String sellReason;
-	private byte[] file1;
-	private byte[] file2;
-	private byte[] file3;
-	private byte[] file4;
-	private byte[] file5;
-	private byte[] file6;
 
-	public int getProductId() {
+	@Column(name = "PHONETYPE")
+	private String phoneType;
+
+	@Column(name = "MEMORY")
+	private String memory;
+
+	@Column(name = "COLOR")
+	private String color;
+
+	@Column(name = "PHONESORT")
+	private String phoneSort;
+
+	@Column(name = "PHONECONDITION")
+	private String phoneCondition;
+
+	@Column(name = "PHONEWARRANTY")
+	private String phoneWarranty;
+
+	@Column(name = "HEADPHONE")
+	private String headPhone;
+
+	@Column(name = "SOCKET")
+	private String socket;
+
+	@Column(name = "PLUG")
+	private String plug;
+
+	@Column(name = "SEVEN")
+	private String seven;
+
+	@Column(name = "FAMILY")
+	private String family;
+
+	@Column(name = "POST")
+	private String post;
+
+	@Column(name = "FACE")
+	private String face;
+
+	@Column(name = "YEAROFMANUFACTURE")
+	private SimpleDateFormat yearOfManufacture;
+
+	@Column(name = "COUNTY")
+	private String county;
+
+	@Column(name = "DISTRICT")
+	private String district;
+
+	@Column(name = "TWZIPCODE")
+	private String twZipCode;
+
+	@Column(name = "AMOUNT")
+	private Integer amount;
+
+	@Column(name = "SELLREASON")
+	private String sellReason;
+
+	@Column(name = "FILE1")
+	private Byte[] file1;
+
+	@Column(name = "FILE2")
+	private Byte[] file2;
+
+	@Column(name = "FILE3")
+	private Byte[] file3;
+
+	@Column(name = "FILE4")
+	private Byte[] file4;
+
+	@Column(name = "FILE5")
+	private Byte[] file5;
+
+	@Column(name = "FILE6")
+	private Byte[] file6;
+
+	public Integer getProductId() {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 
@@ -183,11 +275,11 @@ public class SellerProductVo{
 		this.twZipCode = twZipCode;
 	}
 
-	public int getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(int amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
@@ -199,51 +291,51 @@ public class SellerProductVo{
 		this.sellReason = sellReason;
 	}
 
-	public byte[] getFile1() {
+	public Byte[] getFile1() {
 		return file1;
 	}
 
-	public void setFile1(byte[] file1) {
+	public void setFile1(Byte[] file1) {
 		this.file1 = file1;
 	}
 
-	public byte[] getFile2() {
+	public Byte[] getFile2() {
 		return file2;
 	}
 
-	public void setFile2(byte[] file2) {
+	public void setFile2(Byte[] file2) {
 		this.file2 = file2;
 	}
 
-	public byte[] getFile3() {
+	public Byte[] getFile3() {
 		return file3;
 	}
 
-	public void setFile3(byte[] file3) {
+	public void setFile3(Byte[] file3) {
 		this.file3 = file3;
 	}
 
-	public byte[] getFile4() {
+	public Byte[] getFile4() {
 		return file4;
 	}
 
-	public void setFile4(byte[] file4) {
+	public void setFile4(Byte[] file4) {
 		this.file4 = file4;
 	}
 
-	public byte[] getFile5() {
+	public Byte[] getFile5() {
 		return file5;
 	}
 
-	public void setFile5(byte[] file5) {
+	public void setFile5(Byte[] file5) {
 		this.file5 = file5;
 	}
 
-	public byte[] getFile6() {
+	public Byte[] getFile6() {
 		return file6;
 	}
 
-	public void setFile6(byte[] file6) {
+	public void setFile6(Byte[] file6) {
 		this.file6 = file6;
 	}
 

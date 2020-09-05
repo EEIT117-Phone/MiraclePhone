@@ -1,23 +1,21 @@
 package org.iii.eeit117.project.model.service.impl;
 
-import org.hibernate.Session;
-
-import org.iii.eeit117.project.model.dao.SellerProductDao;
+import org.iii.eeit117.project.model.dao.BaseDao;
+import org.iii.eeit117.project.model.dao.SellerDao;
 import org.iii.eeit117.project.model.service.SellerService;
+import org.iii.eeit117.project.model.vo.SellerVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import org.iii.eeit117.project.model.vo.SellerProductVo;
+@Service
+public class SellerServiceImpl extends BaseServiceImpl<SellerVo, Integer> implements SellerService {
 
-public class SellerServiceImpl implements SellerService {
-
-	private SellerProductDao sellerProductDao;
-
-	public SellerServiceImpl(Session session) {
-		sellerProductDao = new SellerProductDao(session);
-	}
+	@Autowired
+	private SellerDao sellerDao;
 
 	@Override
-	public SellerProductVo insert(SellerProductVo spv) {
-		return sellerProductDao.insert(spv);
+	public BaseDao<SellerVo, Integer> getDao() {
+		return sellerDao;
 	}
 
 }
