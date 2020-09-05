@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.io.PrintWriter" %>
@@ -10,6 +10,7 @@
 
 <head>
 <title>Document</title>
+
 <link href="<c:url value='/css/owl.carousel.css' />" rel="stylesheet">
 <link href="<c:url value='/css/buyer.css' />" rel="stylesheet">
 <link href="<c:url value='/css/owl.carousel.min.css' />" rel="stylesheet">
@@ -51,7 +52,7 @@
 				<p>面交取貨付款</p>
 				<p>運送方式：7-11取貨 60 元</p>
 				<p>郵寄寄送 40 元</p>
-				<input type='hidden' name='phoneId' value="a1">
+				<input type='hidden' name='phoneId' value="10008">
 				<!-- 				<input type='hidden' name='phoneId' value="a2"> -->
 				<p>
 					<input id='addShopCart' type='button' value='加入購物車' />
@@ -104,7 +105,7 @@
 			</div>
 		</div>
 		
-		<form id="QAA" action="<c:url value="/massagepage"/>" method="post">
+		<form id="QAA" action="<c:url value="/buyer/massagepage"/>" method="post">
 			<textarea rows="5" cols="50" name="textarea"></textarea><br>
 			<input type="submit" value="提交">
 		</form>

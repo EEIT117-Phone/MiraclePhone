@@ -1,5 +1,9 @@
 package org.iii.eeit117.project.model.vo;
 
+<<<<<<< HEAD
+=======
+import java.text.SimpleDateFormat;
+>>>>>>> f99cd5ef2212bff2ce0a39f843e08936f022b3f2
 
 import java.util.Date;
 
@@ -8,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -90,6 +96,7 @@ public class SellerVo {
 
 	@Column(name = "FACE")
 	private String face;
+
 	@DateTimeFormat(pattern="yyyy-MM")
 	@Column(name = "YEAROFMANUFACTURE")
 	private Date yearOfManufacture;
@@ -126,6 +133,10 @@ public class SellerVo {
 
 	@Column(name = "FILE6")
 	private Byte[] file6;
+	
+	@ManyToOne
+    @JoinColumn(name="ORDER_ID")
+	private OrderInfoVo orderInfoVO;
 
 	public Integer getProductId() {
 		return productId;
@@ -341,6 +352,14 @@ public class SellerVo {
 
 	public void setFile6(Byte[] file6) {
 		this.file6 = file6;
+	}
+
+	public OrderInfoVo getOrderInfoVO() {
+		return orderInfoVO;
+	}
+
+	public void setOrderInfoVO(OrderInfoVo orderInfoVO) {
+		this.orderInfoVO = orderInfoVO;
 	}
 
 }

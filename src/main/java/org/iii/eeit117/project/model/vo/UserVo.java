@@ -1,8 +1,14 @@
 package org.iii.eeit117.project.model.vo;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -48,6 +54,10 @@ private String buyer;
 
 @Column(name="photo")
 private byte[] photo;
+
+@OneToMany(fetch=FetchType.LAZY,mappedBy="orderId")
+private Set<OrderInfoVo> orderInfoVos;
+
 
 public String getAccount() {
 	return account;
@@ -152,6 +162,16 @@ public byte[] getPhoto() {
 public void setPhoto(byte[] photo) {
 	this.photo = photo;
 }
+
+public Set<OrderInfoVo> getOrderInfoVo() {
+	return orderInfoVos;
+}
+
+public void setOrderInfoVo(Set<OrderInfoVo> orderInfoVo) {
+	this.orderInfoVos = orderInfoVo;
+}
+
+
 
 
 }
