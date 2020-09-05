@@ -13,16 +13,13 @@
     
     <definition name="helloUpdate" extends="template-def">  
         <put-attribute name="body"  value="/WEB-INF/jsp/hello/helloUpdate.jsp" />  
-<<<<<<< HEAD
     </definition>    
     
     <definition name="buyer" extends="template-def">  
     	<put-attribute name="body"  value="/WEB-INF/jsp/buyer/buyer.jsp" />  
-=======
     </definition>
     
     <definition name="search" extends="template-def">  
     	<put-attribute name="body"  value="/WEB-INF/jsp/search/search.jsp" />  
->>>>>>> 281fbf82587449789682d89b94979498f7f4278e
     </definition>  
 </tiles-definitions>
