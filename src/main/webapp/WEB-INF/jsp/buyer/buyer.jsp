@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.io.PrintWriter" %>
@@ -10,12 +10,12 @@
 
 <head>
 <title>Document</title>
-<link href="<c:url value='css/owl.carousel.css' />" rel="stylesheet">
-<link href="<c:url value='css/buyer.css' />" rel="stylesheet">
-<link href="<c:url value='css/owl.carousel.min.css' />" rel="stylesheet">
-<link href="<c:url value='css/owl.theme.default.min.css' />" rel="stylesheet">
-<link href="<c:url value='css/bootstrap.min.css' />" rel="stylesheet">
-<script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
+
+<link href="<c:url value='/css/owl.carousel.css' />" rel="stylesheet">
+<link href="<c:url value='/css/buyer.css' />" rel="stylesheet">
+<link href="<c:url value='/css/owl.carousel.min.css' />" rel="stylesheet">
+<link href="<c:url value='/css/owl.theme.default.min.css' />" rel="stylesheet">
+<link href="<c:url value='/css/bootstrap.min.css' />" rel="stylesheet">
 <script src="<c:url value='/js/buyer.js' />"></script>
 </head>
 
@@ -105,7 +105,7 @@
 			</div>
 		</div>
 		
-		<form id="QAA" action="/MiraclePhone/buyer" method="post">
+		<form id="QAA" action="<c:url value="/massagepage"/>" method="post">
 			<textarea rows="5" cols="50" name="textarea"></textarea><br>
 			<input type="submit" value="提交">
 		</form>
@@ -156,9 +156,9 @@
 		</div>
 	</div>
 </body>
-<script src="<c:url value='js/jquery-2.1.1.min.js' />"></script>
-<script src="<c:url value='js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
-<script src="<c:url value='js/owl.carouselyin.js' />"></script>
-<script src="<c:url value='js/jquery-3.5.1.min.js' />"></script>
+<script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
+<script src="<c:url value='/js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
+<script src="<c:url value='/js/owl.carouselyin.js' />"></script>
+<script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
 
 </html>

@@ -2,6 +2,8 @@ package org.iii.eeit117.project.model.vo;
 
 import java.text.SimpleDateFormat;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "SELLER")
@@ -33,7 +37,7 @@ public class SellerVo {
 	public static final String YEAROFMANUFACTURE = "yearOfManufacture";
 	public static final String COUNTY = "county";
 	public static final String DISTRICT = "district";
-	public static final String TWZIPCODE = "twZipCode";
+	public static final String ZIPCODE = "zipcode";
 	public static final String AMOUNT = "amount";
 	public static final String SELLREASON = "sellReason";
 	public static final String FILE1 = "file1";
@@ -90,8 +94,9 @@ public class SellerVo {
 	@Column(name = "FACE")
 	private String face;
 
+	@DateTimeFormat(pattern="yyyy-MM")
 	@Column(name = "YEAROFMANUFACTURE")
-	private SimpleDateFormat yearOfManufacture;
+	private Date yearOfManufacture;
 
 	@Column(name = "COUNTY")
 	private String county;
@@ -99,8 +104,8 @@ public class SellerVo {
 	@Column(name = "DISTRICT")
 	private String district;
 
-	@Column(name = "TWZIPCODE")
-	private String twZipCode;
+	@Column(name = "ZIPCODE")
+	private String zipcode;
 
 	@Column(name = "AMOUNT")
 	private Integer amount;
@@ -250,11 +255,11 @@ public class SellerVo {
 		this.face = face;
 	}
 
-	public SimpleDateFormat getYearOfManufacture() {
+	public Date getYearOfManufacture() {
 		return yearOfManufacture;
 	}
 
-	public void setYearOfManufacture(SimpleDateFormat yearOfManufacture) {
+	public void setYearOfManufacture(Date yearOfManufacture) {
 		this.yearOfManufacture = yearOfManufacture;
 	}
 
@@ -275,11 +280,11 @@ public class SellerVo {
 	}
 
 	public String getTwZipCode() {
-		return twZipCode;
+		return zipcode;
 	}
 
-	public void setTwZipCode(String twZipCode) {
-		this.twZipCode = twZipCode;
+	public void setTwZipCode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 
 	public Integer getAmount() {

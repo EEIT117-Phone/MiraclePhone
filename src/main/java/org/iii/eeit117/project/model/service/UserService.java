@@ -8,7 +8,7 @@ import org.iii.eeit117.project.model.vo.UserVo;
 
 public interface UserService extends BaseService<UserVo, String> {
 
-	public boolean checkLogin(String account); //檢查UserTable中是否有該會員
+	public String checkLogin(String account,String password); //檢查UserTable中是否有該會員
 	
 	
 	
