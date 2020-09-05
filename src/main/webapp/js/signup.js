@@ -1,4 +1,3 @@
-
 $(function () {
     $("#birth").blur(function () { //自動計算年齡
         userbirth = document.getElementById("birth").value;
@@ -24,7 +23,7 @@ $(function () {
                 let pwdrule = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+`\-={}\[\]:";'<>?,.\/]).{4,16}$/;
                 ;
                 let result = pwdrule.test($("#password").val());
-                console.log($("#password").val());
+                
                 if (result == false) {
                     $("#pwdsure").html("格式不符或空白")
                 } else {
@@ -43,34 +42,30 @@ $(function () {
 
     function checkID(id) { //驗證身分證字號
         tab = "ABCDEFGHJKLMNPQRSTUVXYWZIO"
-        A1 = new Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2,
-            2, 3, 3, 3, 3, 3, 3);
-        A2 = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8,
-            9, 0, 1, 2, 3, 4, 5);
-        Mx = new Array(9, 8, 7, 6, 5, 4, 3, 2, 1, 1);
+		tabchange1=[1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3]
+		tabchange2=[0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5]
+        verif=[0,8,7,6,5,4,3,2,1,1]
 
-        if (id.length != 10)
+        if (id.length != 10){
             return false;
-        i = tab.indexOf(id.charAt(0));
-        if (i == -1)
-            return false;
-        sum = A1[i] + A2[i] * 9;
-
-        for (i = 1; i < 10; i++) {
-            v = parseInt(id.charAt(i));
-            if (isNaN(v))
-                return false;
-            sum = sum + v * Mx[i];
-        }
-        if (sum % 10 != 0)
-            return false;
-        return true;
-    }
-    $("#submit").click(function () {
-
-    });
-    erTWZipcode({
-        defaultCountyText: "請選擇",
-        defaultDistrictText: "請選擇"
-    });
-});
+		}
+		firstChar=id.charAt(0) //第一個英文字
+        firstChartIndex = tab.indexOf(id.charAt(0)) //輸入身分證第一個字母在tab內的index
+		firstnum=tabchange1[firstChartIndex] //第一個數字
+		secondnum=tabchange2[firstChartIndex] //第二個數字
+		sum=firstnum*1+secondnum*9 //先將頭兩位數相加
+       for(a=1;a<9;a++){ //將後九位數字與驗證碼放在同一個index，再相加
+		sum=sum+id[a]*verif[a]
+		}
+	if(sum%10!=0){
+	return false 
+	}
+	return true
+	
+	
+  }
+	erTWZipcode();  //地址
+	
+	
+	
+	})

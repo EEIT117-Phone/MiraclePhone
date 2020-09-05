@@ -5,7 +5,7 @@
 		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		url="jdbc:sqlserver://180.176.235.31:1433;DatabaseName=MiraclePhone" 
 		username="sa"
-		password="P@ssw0rd" 
+		password="MiraclePhone" 
 		maxActive="20" 
 		maxIdle="10" 
 		maxWait="10000" />

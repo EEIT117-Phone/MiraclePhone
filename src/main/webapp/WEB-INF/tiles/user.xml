@@ -8,7 +8,7 @@
     </definition>
     
     <definition name="userMakeUser" extends="template-def">  
-        <put-attribute name="body"  value="/WEB-INF/jsp/hello/signUp.jsp" />  
+        <put-attribute name="body"  value="/WEB-INF/jsp/login/signup.jsp" />  
     </definition>  
 
 </tiles-definitions>

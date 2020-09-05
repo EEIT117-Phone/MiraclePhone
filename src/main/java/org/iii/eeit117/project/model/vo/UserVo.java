@@ -53,6 +53,9 @@ public String getAccount() {
 	return account;
 }
 
+public UserVo() {
+	
+}
 public void setAccount(String account) {
 	this.account = account;
 }
