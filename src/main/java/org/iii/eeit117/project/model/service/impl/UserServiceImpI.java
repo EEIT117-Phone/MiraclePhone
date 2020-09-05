@@ -12,24 +12,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpI implements UserService  {
+public class UserServiceImpI extends BaseServiceImpl<UserVo, String> implements UserService  {
 	
 	
 	@Autowired
 	private UserDao dao;
 	
 	@Override
-	public boolean checkLogin(String account) {
+	public String checkLogin(String account,String password) {
 		try {
 			UserVo dataCheck=dao.findOne(account);
-			String checkAccount=dataCheck.getAccount();
-			if(checkAccount.equals(account)) { //若從資料庫有成功撈出同筆帳號，回傳true值
-				return true;
+			if(dataCheck==null) {
+				return "this account had not been registered";
 			}
-			return false; //失敗回傳false值
+			String checkpwd=dataCheck.getPassword();
+			if(checkpwd.equals(password)) { //若從資料庫有成功撈出同筆帳號，回傳成功字串
+				return "acc&&pwd are corrected";
+			}
+			return "pwd is not correct";
+			
 		}catch(Exception e){
 			e.getStackTrace();
-			return false; //發生錯誤也回傳false值
+			return "system has error"; //發生錯誤也回傳系統錯誤值
 		}
 		
 		
@@ -40,36 +44,7 @@ public class UserServiceImpI implements UserService  {
 	}
 	
 	
-	@Override
-	public List<UserVo> search(BaseSearchBean<UserVo> searchBean) {
-		if (searchBean.getCriteriaQuery() != null) {
-			return getDao().findBy(searchBean.getCriteriaQuery());
-		}
-		return Collections.emptyList();
-	}
-	@Override
-	public List<UserVo> findAll() {
-		List<UserVo> list=dao.findAll();
-		return list;
-	}
-
-	@Override
-	public UserVo findOne(String id) {
-		return dao.findOne(id);
-	}
-
-	@Override
-	public void save(UserVo obj) {
-		dao.save(obj);
-		
-	}
-
-	@Override
-	public void delete(UserVo obj) {
-		dao.delete(obj);
-		
-	}
-
+	
 	
 	
 }
