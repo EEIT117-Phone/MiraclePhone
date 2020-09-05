@@ -15,7 +15,8 @@
 <link href="<c:url value='css/owl.carousel.min.css' />" rel="stylesheet">
 <link href="<c:url value='css/owl.theme.default.min.css' />" rel="stylesheet">
 <link href="<c:url value='css/bootstrap.min.css' />" rel="stylesheet">
-<script src="<c:url value='js/buyer.js' />"></script>
+<script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
+<script src="<c:url value='/js/buyer.js' />"></script>
 </head>
 
 
@@ -51,7 +52,7 @@
 				<p>面交取貨付款</p>
 				<p>運送方式：7-11取貨 60 元</p>
 				<p>郵寄寄送 40 元</p>
-				<input type='hidden' name='phoneId' value="a1">
+				<input type='hidden' name='phoneId' value="10008">
 				<!-- 				<input type='hidden' name='phoneId' value="a2"> -->
 				<p>
 					<input id='addShopCart' type='button' value='加入購物車' />
