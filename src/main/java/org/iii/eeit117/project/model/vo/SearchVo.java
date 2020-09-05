@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Advertise")
+@Table(name = "SELLER")
 public class SearchVo {
 
 	public static final String PRODUCTID = "productId";
@@ -40,25 +40,25 @@ public class SearchVo {
 	private String memory;
 
 	@Column(name = "COLOR")
-	private Integer color;
+	private String color;
 
 	@Column(name = "PHONESORT")
-	private Integer phoneSort;
+	private String phoneSort;
 
 	@Column(name = "PHONECONDITION")
-	private Integer phoneCondition;
+	private String phoneCondition;
 
 	@Column(name = "COUNTY")
-	private Integer county;
+	private String county;
 
 	@Column(name = "DISTRICT")
-	private Integer district;
+	private String district;
 
 	@Column(name = "AMOUNT")
-	private Integer amount;
+	private String amount;
 
 	@Column(name = "FILE1")
-	private Integer file1;
+	private String file1;
 
 	public Integer getProductId() {
 		return productId;
@@ -84,59 +84,59 @@ public class SearchVo {
 		this.memory = memory;
 	}
 
-	public Integer getColor() {
+	public String getColor() {
 		return color;
 	}
 
-	public void setColor(Integer color) {
+	public void setColor(String color) {
 		this.color = color;
 	}
 
-	public Integer getPhoneSort() {
+	public String getPhoneSort() {
 		return phoneSort;
 	}
 
-	public void setPhoneSort(Integer phoneSort) {
+	public void setPhoneSort(String phoneSort) {
 		this.phoneSort = phoneSort;
 	}
 
-	public Integer getPhoneCondition() {
+	public String getPhoneCondition() {
 		return phoneCondition;
 	}
 
-	public void setPhoneCondition(Integer phoneCondition) {
+	public void setPhoneCondition(String phoneCondition) {
 		this.phoneCondition = phoneCondition;
 	}
 
-	public Integer getCounty() {
+	public String getCounty() {
 		return county;
 	}
 
-	public void setCounty(Integer county) {
+	public void setCounty(String county) {
 		this.county = county;
 	}
 
-	public Integer getDistrict() {
+	public String getDistrict() {
 		return district;
 	}
 
-	public void setDistrict(Integer district) {
+	public void setDistrict(String district) {
 		this.district = district;
 	}
 
-	public Integer getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Integer amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 
-	public Integer getFile1() {
+	public String getFile1() {
 		return file1;
 	}
 
-	public void setFile1(Integer file1) {
+	public void setFile1(String file1) {
 		this.file1 = file1;
 	}
 

@@ -2,20 +2,19 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<% String path = request.getContextPath();%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>銷售奇機</title>
 <!-- @@ CSS -->
-<link href="<c:url value='css/tail.select-default.min.css' />"
-	rel="stylesheet">
-<link href="<c:url value='css/owl.carousel.min.css' />" rel="stylesheet">
-<link href="<c:url value='css/owl.theme.default.min.css' />"
-	rel="stylesheet">
+<link rel="stylesheet" href="<%=path%>/css/tail.select-default.min.css"/>
+<link rel="stylesheet" href="<%=path%>/css/owl.carousel.min.css"/>
+<link rel="stylesheet" href="<%=path%>/css/owl.theme.default.min.css"/>
 <link
 	href="<c:url value='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' />"
 	rel="stylesheet">
-<link href="<c:url value='css/search.css' />" rel="stylesheet">
+<link rel="stylesheet" href="<%=path%>/css/search.css"/>
 </head>
 
 <body>
@@ -26,15 +25,15 @@
 					<td class="text-center"><a href="#"
 						class="text-decoration-none"><label
 							class="h4 w-75 bg-secondary text-white rounded">點我快速搜全新機</label><img
-							src="images/iPhoneSeries.png" class="img-top rounded" alt="..."></a></td>
+							src="<%=path%>/images/iPhoneSeries.png" class="img-top rounded" alt="..."></a></td>
 					<td class="text-center"><a href="#"
 						class="text-decoration-none"><label
 							class="h4 w-75 bg-secondary text-white rounded">點我快速搜二手機</label><img
-							src="images/iPhoneSecand.jpeg" class="img-top rounded" alt="..."></a></td>
+							src="<%=path%>/images/iPhoneSecand.jpeg" class="img-top rounded" alt="..."></a></td>
 					<td class="text-center"><a href="#"
 						class="text-decoration-none"><label
 							class="h4 w-75 bg-secondary text-white rounded">點我快速搜零件機</label><img
-							src="images/iPhoneParts.jpeg" class="img-top rounded" alt="..."></a></td>
+							src="<%=path%>/images/iPhoneParts.jpeg" class="img-top rounded" alt="..."></a></td>
 				</tr>
 			</table>
 		</div>
@@ -48,7 +47,7 @@
 						href="https://via.placeholder.com/150x150?text=img1"
 						class="text-dark text-decoration-none">
 						<div class="item card">
-							<img class="card-img" src="images/iPhone6s.jpeg"
+							<img class="card-img" src="<%=path%>/images/iPhone6s.jpeg"
 								alt="Card image cap">
 							<div class="card-body search-card-body">
 								<p class="card-title">[二手機] iPhone 6s 128G 銀色 7成新</p>
@@ -59,7 +58,7 @@
 						href="https://via.placeholder.com/150x150?text=img1"
 						class="text-dark text-decoration-none">
 						<div class="item card">
-							<img class="card-img" src="images/iPhoneSE.jpg"
+							<img class="card-img" src="<%=path%>/images/iPhoneSE.jpg"
 								alt="Card image cap">
 							<div class="card-body search-card-body">
 								<p class="card-title">[二手機] iPhone SE 32G 太空灰 7成新</p>
@@ -70,7 +69,7 @@
 						href="https://via.placeholder.com/150x150?text=img1"
 						class="text-dark text-decoration-none">
 						<div class="item card">
-							<img class="card-img" src="images/iPhoneXR.jpg"
+							<img class="card-img" src="<%=path%>/images/iPhoneXR.jpg"
 								alt="Card image cap">
 							<div class="card-body search-card-body">
 								<p class="card-title">[二手機] iPhone XR 256G 白色 9成新</p>
@@ -81,7 +80,7 @@
 						href="https://via.placeholder.com/150x150?text=img1"
 						class="text-dark text-decoration-none">
 						<div class="item card">
-							<img class="card-img" src="images/iPhone11.jpg"
+							<img class="card-img" src="<%=path%>/images/iPhone11.jpg"
 								alt="Card image cap">
 							<div class="card-body search-card-body">
 								<p class="card-title">[全新機] iPhone 11 64G 珊瑚色</p>
@@ -92,7 +91,7 @@
 						href="https://via.placeholder.com/150x150?text=img1"
 						class="text-dark text-decoration-none">
 						<div class="item card">
-							<img class="card-img" src="images/iPhone6sPlus.jpg"
+							<img class="card-img" src="<%=path%>/images/iPhone6sPlus.jpg"
 								alt="Card image cap">
 							<div class="card-body search-card-body">
 								<p class="card-title">[二手機] iPhone 6s Plus 32G 玫瑰金 6成新</p>
@@ -104,173 +103,20 @@
 
 				<h4>搜尋結果</h4>
 				<form class="w-100" style="border-spacing: 20px;">
-
-					<a target="_blank"
+				<c:forEach varStatus="status"  var="result"  items="${results}" >
+				<a target="_blank"
 						href="https://via.placeholder.com/150x150?text=img1"
 						class="text-dark text-decoration-none">
 						<div class="card card-result">
-							<img class="card-img" src="images/iPhoneSE.jpg"
+ 							<img class="card-img" src="<%=path%>/images/iPhone11.jpg"
 								alt="Card image cap">
 							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone SE 32G 太空灰 7成新</p>
-								<p class="card-text">$ 12,000</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhone11.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[全新機] iPhone 11 64G 珊瑚色</p>
-								<p class="card-text">$ 30,000</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhone6sPlus.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone 6s Plus 32G 玫瑰金 6成新</p>
-								<p class="card-text">$ 5,000</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhoneXR.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone XR 256G 白色 9成新</p>
-								<p class="card-text">$ 22,500</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhone11.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[全新機] iPhone 11 64G 珊瑚色</p>
-								<p class="card-text">$ 30,000</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhone6s.jpeg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone 6s 128G 銀色 7成新</p>
-								<p class="card-text">$ 1,500</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhoneSE.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone SE 32G 太空灰 7成新</p>
-								<p class="card-text">$ 12,000</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhoneXR.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone XR 256G 白色 9成新</p>
-								<p class="card-text">$ 22,500</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhone11.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[全新機] iPhone 11 64G 珊瑚色</p>
-								<p class="card-text">$ 30,000</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhone6sPlus.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone 6s Plus 32G 玫瑰金 6成新</p>
-								<p class="card-text">$ 5,000</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhoneXR.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone XR 256G 白色 9成新</p>
-								<p class="card-text">$ 22,500</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhone6s.jpeg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone 6s 128G 銀色 7成新</p>
-								<p class="card-text">$ 1,500</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhone6sPlus.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone 6s Plus 32G 玫瑰金 6成新</p>
-								<p class="card-text">$ 5,000</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhoneSE.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone SE 32G 太空灰 7成新</p>
-								<p class="card-text">$ 12,000</p>
-							</div>
-						</div>
-					</a> <a target="_blank"
-						href="https://via.placeholder.com/150x150?text=img1"
-						class="text-dark text-decoration-none">
-						<div class="card card-result">
-							<img class="card-img" src="images/iPhoneXR.jpg"
-								alt="Card image cap">
-							<div class="card-body search-card-body">
-								<p class="card-title">[二手機] iPhone XR 256G 白色 9成新</p>
-								<p class="card-text">$ 22,500</p>
+								<p class="card-title">[${result.phoneSort}] ${result.phoneType} ${result.memory} ${result.color}</p>
+								<p class="card-text">$ ${result.amount}</p>
 							</div>
 						</div>
 					</a>
+				</c:forEach>
 
 
 					<!--               <select class="float-right h-100" style="margin-right: 20px;">
@@ -287,13 +133,12 @@
 
 				<div class="wrap">
 					<div class="search">
-						<form:form servletRelativeAction="/search" method="post"
+						<form:form servletRelativeAction="/search/result" method="post"
 							enctype="application/x-www-form-urlencoded"
 							modelAttribute="searchBean">
-							<input type="text" class="searchTerm" placeholder="請輸入關鍵字搜尋">
-<!-- 1111111111111111111111111111111111改到這 --><form:button type="submit" class="searchButton">
-								<i class="fa fa-search"></i>
-							</form:button>
+							<form:input path="searchInput" class="searchTerm" placeholder="請輸入關鍵字搜尋"/>
+								<button type="submit" class="searchButton"><i class="fa fa-search"></i>
+							</button>
 						</form:form>
 					</div>
 				</div>
@@ -545,16 +390,17 @@
 		</div>
 	</div>
 	<!-- @@ JS -->
-	<script src="<c:url value='js/jquery-3.5.1.slim.min.js' />"></script>
-	<script src="<c:url value='js/popper.js' />"></script>
-	<script src="<c:url value='js/bootstrap.bundle.min.js' />"></script>
-	<script src="<c:url value='js/tail.select.min.js' />"></script>
-	<script src="<c:url value='js/jquery-2.1.1.min.js' />"></script>
-	<script src="<c:url value='js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
-	<script src="<c:url value='js/owl.carousel.setting.js' />"></script>
-	<script src="<c:url value='js/tail-select.setting.js' />"></script>
-	<script src="<c:url value='js/owl.carousel.setting.js' />"></script>
-	<script src="<c:url value='js/search.js' />"></script>
+	<script src="<%=path %>/js/jquery-3.5.1.slim.min.js"></script>
+	<script src="<%=path %>/js/popper.js"></script>
+	<script src="<%=path %>/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=path %>/js/tail.select.min.js"></script>
+	<script src="<%=path %>/js/jquery-2.1.1.min.js"></script>
+	<script src="<%=path %>/js/owl.carousel.2.0.0-beta.2.4.min.js"></script>
+	<script src="<%=path %>/js/popper.js"></script>
+	<script src="<%=path %>/js/owl.carousel.setting.js"></script>
+	<script src="<%=path %>/js/tail-select.setting.js"></script>
+	<script src="<%=path %>/js/owl.carousel.setting.js"></script>
+	<script src="<%=path %>/js/search.js"></script>
 </body>
 
 </html>

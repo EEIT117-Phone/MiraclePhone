@@ -15,8 +15,4 @@
         <put-attribute name="body"  value="/WEB-INF/jsp/hello/helloUpdate.jsp" />  
     </definition>    
     
-    <definition name="search" extends="template-def">  
-    	<put-attribute name="body"  value="/WEB-INF/jsp/search/search.jsp" />  
-    </definition>
-    
 </tiles-definitions>

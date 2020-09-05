@@ -1,10 +1,7 @@
 package org.iii.eeit117.project.controller;
 
-import org.iii.eeit117.project.model.data.HelloTypeEnum;
 import org.iii.eeit117.project.model.service.SearchService;
-import org.iii.eeit117.project.model.vo.SearchVo;
-import org.iii.eeit117.project.search.BaseSearchBean;
-import org.iii.eeit117.project.search.HelloSearchBean;
+import org.iii.eeit117.project.search.SearchBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,15 +19,13 @@ public class SearchController {
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String index(Model model) {
-		model.addAttribute("searchBean", new HelloSearchBean());
-		model.addAttribute("types", HelloTypeEnum.values());
+		model.addAttribute("searchBean", new SearchBean());
 		return MODULE_NAME;
 	}
 
-	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public String search(BaseSearchBean<SearchVo> searchBean, Model model) {
+	@RequestMapping(value = "/result", method = RequestMethod.POST)
+	public String search(SearchBean searchBean, Model model) {
 		model.addAttribute("searchBean", searchBean);
-		model.addAttribute("types", HelloTypeEnum.values());
 		model.addAttribute("results", searchService.search(searchBean));
 		return MODULE_NAME;
 	}
