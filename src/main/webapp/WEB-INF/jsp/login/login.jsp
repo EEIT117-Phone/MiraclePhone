@@ -7,16 +7,16 @@
 <head>
 <title>登入</title>
 <!--     customize script css     -->
-<link href="<c:url value='css/login.css' />" rel="stylesheet">
-<script src="<c:url value='js/login.js' />"></script>
+<link href="/MiraclePhone/css/login.css" rel="stylesheet">
+<script src="/MiraclePhone/js/login.js"></script>
 
 </head>
 <body>
 	<div>
-		<form:form action="/MiraclePhone/user/userLogin" method="post">
-			會員帳號:<input type="text" name="useraccount" value="ken1234@yahoo.com"><br />
-			會員密碼:<input type="text" name="userpassword" value="Kk@12345656"><br />
-			<input type="submit" value="提交">
+		<form:form action="/MiraclePhone/user/userLogin" method="post" class="form-signin">
+			<input type="email" name="useraccount" value="" placeholder="會員帳號" class="form-control"><br />
+			<input type="password" name="userpassword" value="" placeholder="會員密碼" class="form-control"><br />
+			<button type="submit" class="btn btn-lg btn-primary btn-block">提交</button>
 		</form:form>
 	</div>
 	<div>
