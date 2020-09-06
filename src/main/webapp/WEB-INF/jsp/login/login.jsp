@@ -12,16 +12,17 @@
 </head>
 
 <body>
-    <div>
-        <form:form servletRelativeAction="/user/userLogin" method="post">
-            會員帳號:<input type="text" name="useraccount" value="ken1234@yahoo.com"><br />
-            會員密碼:<input type="text" name="userpassword" value="Kk@12345656"><br />
-            <input type="submit" value="提交">
+
+  <div class="body-login">
+  		<h1 class="form-signin">請輸入帳號資訊</h1>
+        <form:form servletRelativeAction="/user/userLogin" method="post" class="form-signin">
+        <input type="text" name="useraccount" placeholder="會員帳號" class="form-control"><br/>
+         <input type="text" name="userpassword" placeholder="會員密碼" class="form-control"><br/>
+         <button type="submit" class="btn btn-lg btn-primary btn-block">提交</button><br/>
+       	<label>登陸狀態:${loginstatus}</label> 
         </form:form>
-    </div>
-    <div>
-        登陸狀態 <span>${loginstatus}</span>
-    </div>
+       </div>  	 
+    
 </body>
 
 </html>
