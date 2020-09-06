@@ -12,169 +12,166 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Users")
+@Table(name = "Users")
 public class UserVo {
 
-@Id
-@Column(name="account")
-private String account;
+	@Id
+	@Column(name = "account")
+	private String account;
 
-@Column(name="password")
-private String password;
+	@Column(name = "password")
+	private String password;
 
-@Column(name="name")
-private String name;
+	@Column(name = "name")
+	private String name;
 
-@Column(name="idnumber")
-private String idnumber;
+	@Column(name = "idnumber")
+	private String idnumber;
 
-@Column(name="sex")
-private String sex;
+	@Column(name = "sex")
+	private String sex;
 
-@Column(name="age")
-private int age;
+	@Column(name = "age")
+	private int age;
 
-@Column(name="birth")
-private String birth;
+	@Column(name = "birth")
+	private String birth;
 
-@Column(name="county")
-private String county;
+	@Column(name = "county")
+	private String county;
 
-@Column(name="district")
-private String district;
+	@Column(name = "district")
+	private String district;
 
-@Column(name="zipcode")
-private String zipcode;
+	@Column(name = "zipcode")
+	private String zipcode;
 
-@Column(name="seller")
-private String seller;
+	@Column(name = "seller")
+	private String seller;
 
-@Column(name="buyer")
-private String buyer;
+	@Column(name = "buyer")
+	private String buyer;
 
-@Column(name="photo")
-private byte[] photo;
+	@Column(name = "photo")
+	private byte[] photo;
 
-@OneToMany(fetch=FetchType.LAZY,mappedBy="orderId")
-private Set<OrderInfoVo> orderInfoVos;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orderId")
+	private Set<OrderInfoVo> orderInfoVos;
 
+	public String getAccount() {
+		return account;
+	}
 
-public String getAccount() {
-	return account;
-}
+	public UserVo() {
 
-public UserVo() {
-	
-}
-public void setAccount(String account) {
-	this.account = account;
-}
+	}
 
-public String getPassword() {
-	return password;
-}
+	public void setAccount(String account) {
+		this.account = account;
+	}
 
-public void setPassword(String password) {
-	this.password = password;
-}
+	public String getPassword() {
+		return password;
+	}
 
-public String getName() {
-	return name;
-}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-public void setName(String name) {
-	this.name = name;
-}
+	public String getName() {
+		return name;
+	}
 
-public String getIdnumber() {
-	return idnumber;
-}
+	public void setName(String name) {
+		this.name = name;
+	}
 
-public void setIdnumber(String idnumber) {
-	this.idnumber = idnumber;
-}
+	public String getIdnumber() {
+		return idnumber;
+	}
 
-public String getSex() {
-	return sex;
-}
+	public void setIdnumber(String idnumber) {
+		this.idnumber = idnumber;
+	}
 
-public void setSex(String sex) {
-	this.sex = sex;
-}
+	public String getSex() {
+		return sex;
+	}
 
-public int getAge() {
-	return age;
-}
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
 
-public void setAge(int age) {
-	this.age = age;
-}
+	public int getAge() {
+		return age;
+	}
 
-public String getBirth() {
-	return birth;
-}
+	public void setAge(int age) {
+		this.age = age;
+	}
 
-public void setBirth(String birth) {
-	this.birth = birth;
-}
+	public String getBirth() {
+		return birth;
+	}
 
-public String getCounty() {
-	return county;
-}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
 
-public void setCounty(String county) {
-	this.county = county;
-}
+	public String getCounty() {
+		return county;
+	}
 
-public String getDistrict() {
-	return district;
-}
+	public void setCounty(String county) {
+		this.county = county;
+	}
 
-public void setDistrict(String district) {
-	this.district = district;
-}
+	public String getDistrict() {
+		return district;
+	}
 
-public String getZipcode() {
-	return zipcode;
-}
+	public void setDistrict(String district) {
+		this.district = district;
+	}
 
-public void setZipcode(String zipcode) {
-	this.zipcode = zipcode;
-}
+	public String getZipcode() {
+		return zipcode;
+	}
 
-public String getSeller() {
-	return seller;
-}
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
 
-public void setSeller(String seller) {
-	this.seller = seller;
-}
+	public String getSeller() {
+		return seller;
+	}
 
-public String getBuyer() {
-	return buyer;
-}
+	public void setSeller(String seller) {
+		this.seller = seller;
+	}
 
-public void setBuyer(String buyer) {
-	this.buyer = buyer;
-}
+	public String getBuyer() {
+		return buyer;
+	}
 
-public byte[] getPhoto() {
-	return photo;
-}
+	public void setBuyer(String buyer) {
+		this.buyer = buyer;
+	}
 
-public void setPhoto(byte[] photo) {
-	this.photo = photo;
-}
+	public byte[] getPhoto() {
+		return photo;
+	}
 
-public Set<OrderInfoVo> getOrderInfoVo() {
-	return orderInfoVos;
-}
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
 
-public void setOrderInfoVo(Set<OrderInfoVo> orderInfoVo) {
-	this.orderInfoVos = orderInfoVo;
-}
+	public Set<OrderInfoVo> getOrderInfoVo() {
+		return orderInfoVos;
+	}
 
-
-
+	public void setOrderInfoVo(Set<OrderInfoVo> orderInfoVo) {
+		this.orderInfoVos = orderInfoVo;
+	}
 
 }
