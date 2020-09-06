@@ -29,5 +29,12 @@ public class SearchController {
 		model.addAttribute("results", searchService.search(searchBean));
 		return MODULE_NAME;
 	}
+	
+	@RequestMapping(value = "/result", method = RequestMethod.GET)
+	public String phoneTypeChk(SearchBean searchBean, Model model) {
+		model.addAttribute("phoneType", searchBean);
+		model.addAttribute("results", searchService.search(searchBean));
+		return MODULE_NAME;
+	}
 
 }

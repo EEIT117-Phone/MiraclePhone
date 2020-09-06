@@ -10,9 +10,8 @@ body {
 }
 
 .main-body-and-filter {
-	/* 		border: 3px blue solid; */
+/* 	border: 3px blue solid; */
 	width: 100%;
-	height: 1500px;
 }
 
 .main-body {
@@ -105,6 +104,10 @@ h4 {
 	width: 10.5rem;
 	display: inline-block;
 	margin: 0.3rem 0.2rem;
+}
+
+.card-city {
+	font-size: 0.2rem;
 }
 
 .search-card-body {

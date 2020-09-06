@@ -20,23 +20,29 @@
         <div class="main-toplink card">
             <table cellpadding="20" cellspacing="0">
                 <tr>
-                    <td class="text-center"><a href="#" class="text-decoration-none"><label
-                                class="h4 w-75 bg-secondary text-white rounded">點我快速搜全新機</label><img
-                                src="<c:url value='/images/iPhoneSeries.png' />" class="img-top rounded" alt="..."></a>
+                    <td class="text-center">
+                    	<a href="<c:url value='/search/result?phoneSort=全新機' />" class="text-decoration-none">
+                    		<label class="h4 w-75 bg-secondary text-white rounded">點我快速搜全新機</label>
+                    		<img src="<c:url value='/images/iPhoneSeries.png' />" class="img-top rounded" alt="...">
+                    	</a>
                     </td>
-                    <td class="text-center"><a href="#" class="text-decoration-none"><label
-                                class="h4 w-75 bg-secondary text-white rounded">點我快速搜二手機</label><img
-                                src="<c:url value='/images/iPhoneSecand.jpeg' />" class="img-top rounded" alt="..."></a>
+                    <td class="text-center">
+                    	<a href="<c:url value='/search/result?phoneSort=二手機' />" class="text-decoration-none">
+                    		<label class="h4 w-75 bg-secondary text-white rounded">點我快速搜二手機</label>
+                            <img src="<c:url value='/images/iPhoneSecand.jpeg' />" class="img-top rounded" alt="...">
+                        </a>
                     </td>
-                    <td class="text-center"><a href="#" class="text-decoration-none"><label
-                                class="h4 w-75 bg-secondary text-white rounded">點我快速搜零件機</label><img
-                                src="<c:url value='/images/iPhoneParts.jpeg' />" class="img-top rounded" alt="..."></a>
+                    <td class="text-center">
+                    	<a href="<c:url value='/search/result?phoneSort=零件機' />" class="text-decoration-none">
+                    		<label class="h4 w-75 bg-secondary text-white rounded">點我快速搜零件機</label>
+                            <img src="<c:url value='/images/iPhoneParts.jpeg' />" class="img-top rounded" alt="...">
+                        </a>
                     </td>
                 </tr>
             </table>
         </div>
 
-        <div class="main-body-and-filter">
+        <div class="main-body-and-filter h-100">
             <div class="main-body">
                 <!--    VIP輪播        -->
                 <h4>精選推薦</h4>
@@ -90,6 +96,7 @@
                 </div>
 
                 <h4>搜尋結果</h4>
+                <div class="h-100 mb-5">
                 <form class="w-100" style="border-spacing: 20px;">
                     <c:forEach varStatus="status" var="result" items="${results}">
                     
@@ -99,11 +106,12 @@
                                 <div class="card-body search-card-body">
                                     <p class="card-title">[${result.phoneSort}] ${result.phoneType} ${result.memory}
                                         ${result.color}</p>
-                                    <p class="card-text">$ ${result.amount}</p>
+                                    <span class="card-text">$ ${result.amount} </span><span class="card-city">${result.county}${result.district}</span>
                                 </div>
                             </div>
                         </a>
                     </c:forEach>
+                    </div>
 
 
                     <!--               <select class="float-right h-100" style="margin-right: 20px;">
@@ -129,7 +137,7 @@
                     </div>
                 </div>
 
-                <h4>快速篩選</h4>
+                <h4>進階篩選</h4>
                 <div class="card">
                     <article class="card-group-item">
                         <header class="card-header">

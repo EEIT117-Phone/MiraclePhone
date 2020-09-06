@@ -23,7 +23,7 @@ public class SearchBean extends BaseSearchBean<SearchVo> {
 	private String phoneCondition;
 	private String county;
 	private String district;
-	private String amount;
+	private Integer amount;
 	private String file1;
 
 	@Override
@@ -34,10 +34,49 @@ public class SearchBean extends BaseSearchBean<SearchVo> {
 		Root<SearchVo> root = query.from(SearchVo.class);
 		query.select(root);
 		List<Predicate> restrictions = new ArrayList<>();
-
+		
+		//	快速找全新/二手/零件
+		if (StringUtil.isNonEmpty(phoneSort)) {
+			restrictions.add(builder.equal(root.get(SearchVo.PHONESORT), phoneSort));
+			System.out.println(phoneSort);
+		}
+		
+		//	搜尋框
 		if (StringUtil.isNonEmpty(searchInput)) {
+			System.out.println("searchInput: " + searchInput);
+			String[] searchInputList= searchInput.split(" ");
+			Predicate id1nameA1 = null;
+			Predicate id1nameA2 = null;
+			for(String oneWord:searchInputList) {
+				System.out.println("oneWord: " + oneWord);
+				Predicate phonetype1 = builder.like(root.get(SearchVo.PHONETYPE), "%" + oneWord + "%");
+				Predicate memory1 = builder.like(root.get(SearchVo.MEMORY), "%" + oneWord + "%");
+				Predicate color1 = builder.like(root.get(SearchVo.COLOR), "%" + oneWord + "%");
+				Predicate phonesort1 = builder.like(root.get(SearchVo.PHONESORT), "%" + oneWord + "%");
+				Predicate phonecondition1 = builder.like(root.get(SearchVo.PHONECONDITION), "%" + oneWord + "%");
+				Predicate county1 = builder.like(root.get(SearchVo.COUNTY), "%" + oneWord + "%");
+				Predicate district1 = builder.like(root.get(SearchVo.DISTRICT), "%" + oneWord + "%");
+				
+//			restrictions.add(builder.like(root.get(SearchVo.PHONETYPE), "%" + oneWord + "%"));
+//			restrictions.add(builder.like(root.get(SearchVo.MEMORY), "%" + oneWord + "%"));
+//			restrictions.add(builder.like(root.get(SearchVo.COLOR), "%" + oneWord + "%"));
+//			restrictions.add(builder.like(root.get(SearchVo.PHONESORT), "%" + oneWord + "%"));
+//			restrictions.add(builder.like(root.get(SearchVo.PHONECONDITION), "%" + oneWord + "%"));
+//			restrictions.add(builder.like(root.get(SearchVo.COUNTY), "%" + oneWord + "%"));
+//			restrictions.add(builder.like(root.get(SearchVo.DISTRICT), "%" + oneWord + "%"));
 			
-			
+				id1nameA1 = builder.or(phonetype1,memory1,color1,phonesort1,phonecondition1,county1,district1);
+				restrictions.add(id1nameA1);
+				id1nameA2 = builder.and(phonetype1,memory1,color1,phonesort1,phonecondition1,county1,district1);
+			}
+			restrictions.add(id1nameA2);
+		}
+		
+		
+		//	root.get(SearchVo.PHONETYPE),root.get(SearchVo.MEMORY),root.get(SearchVo.COLOR),root.get(SearchVo.PHONESORT),root.get(SearchVo.PHONECONDITION),root.get(SearchVo.COUNTY),root.get(SearchVo.DISTRICT)
+		
+		//	搜尋框未輸入則全顯示
+		if (StringUtil.isEmpty(searchInput)) {
 			restrictions.add(builder.like(root.get(SearchVo.PHONETYPE), "%" + searchInput + "%"));
 			restrictions.add(builder.like(root.get(SearchVo.MEMORY), "%" + searchInput + "%"));
 			restrictions.add(builder.like(root.get(SearchVo.COLOR), "%" + searchInput + "%"));
@@ -121,11 +160,11 @@ public class SearchBean extends BaseSearchBean<SearchVo> {
 		this.district = district;
 	}
 
-	public String getAmount() {
+	public Integer getAmount() {
 		return amount;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
