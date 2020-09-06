@@ -4,23 +4,24 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
-<head>
-<title>登入</title>
-<!--     customize script css     -->
-<link href="<c:url value='css/login.css' />" rel="stylesheet">
-<script src="<c:url value='js/login.js' />"></script>
 
+<head>
+    <title>登入</title>
+    <link href="<c:url value='/css/login.css' />" rel="stylesheet">
+    <script src="<c:url value='/js/login.js' />"></script>
 </head>
+
 <body>
-	<div>
-		<form:form action="/MiraclePhone/user/userLogin" method="post">
-			會員帳號:<input type="text" name="useraccount" value="ken1234@yahoo.com"><br />
-			會員密碼:<input type="text" name="userpassword" value="Kk@12345656"><br />
-			<input type="submit" value="提交">
-		</form:form>
-	</div>
-	<div>
-		登陸狀態 <span>${loginstatus}</span>
-	</div>
+    <div>
+        <form:form servletRelativeAction="/user/userLogin" method="post">
+            會員帳號:<input type="text" name="useraccount" value="ken1234@yahoo.com"><br />
+            會員密碼:<input type="text" name="userpassword" value="Kk@12345656"><br />
+            <input type="submit" value="提交">
+        </form:form>
+    </div>
+    <div>
+        登陸狀態 <span>${loginstatus}</span>
+    </div>
 </body>
+
 </html>

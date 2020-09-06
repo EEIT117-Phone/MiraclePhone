@@ -2,22 +2,19 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
 <title>註冊</title>
-<!--     customize script css     -->
-<
-<script src="/MiraclePhone/js/signup.js"></script>
+<script src="<c:url value='/js/signup.js' />"></script>
 <!-- 地址表單外嵌 -->
-<script src="/MiraclePhone/js/er.twzipcode.js"></script>
-<script src="/MiraclePhone/js/er.twzipcode.data.js"></script>
+<script src="<c:url value='/js/er.twzipcode.js' />"></script>
+<script src="<c:url value='/js/er.twzipcode.data.js' />"></script>
 </head>
 <body>
 	<h1>會員註冊</h1>
 	<div>
-		<form:form action="/MiraclePhone/user/userMakeUser" method="post" id="makeUser">
+		<form:form servletRelativeAction="/user/userMakeUser" method="post" id="makeUser">
 			<div>
 				帳號<input id="account" type="text" name="account" placeholder="電子郵件"
 					value="ken1234@yahoo.com" />
