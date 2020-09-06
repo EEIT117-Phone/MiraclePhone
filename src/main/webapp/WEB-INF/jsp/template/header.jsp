@@ -21,7 +21,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<c:url value='/cart' />" style="color:white">
                             <img src="<c:url value='/images/icon/shoppingCartIcon.png' />" width="25" height="25" />
-                        	<div id="amount">${cart.size()}</div>
+                        	<span id="amount">${cart.size()}</span>
                         </a>
                     </li>
                     <li class="nav-item">
