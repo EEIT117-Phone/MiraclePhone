@@ -44,7 +44,7 @@ public class IndexSearchBean extends BaseSearchBean<SearchVo> {
 			
 			restrictions.add(builder.like(root.get(SearchVo.DISTRICT ), "%" + indexSearch + "%"));
 			
-			restrictions.add(builder.like(root.get(SearchVo.AMOUNT ), "%" + indexSearch + "%"));
+			restrictions.add(builder.lt(root.get(SearchVo.AMOUNT), Integer.parseInt(indexSearch)));
 		
 		}
 		
