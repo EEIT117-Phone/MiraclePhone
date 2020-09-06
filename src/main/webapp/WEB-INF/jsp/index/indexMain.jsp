@@ -18,12 +18,12 @@
             <li><img src="<c:url value='/images/iphoneseconds.jpg' />" alt=""></li>
         </ul>
         <div id="inputarea">
-            <div id="test">
+            <form id="test" action="<c:url value='/search/result' />" method="POST">
                 <h2>快速找到您的手機</h2>
-                <input id="search" type="text" size=50 autofocus placeholder="請輸入關鍵字(iphone機種，預算，容量)">
+                <input id="search" type="text" name="searchInput" size=50 autofocus placeholder="請輸入關鍵字(iphone機種，預算，容量)">
                 <br>
-                <input id="button" type="button" value="Search" style="background-color:	#019858;font-family:cursive ;">
-            </div>
+                <input type="submit" value="Search" style="background-color:	#019858;font-family:cursive ;">
+            </form>
         </div>
         <ul class="dot">
             <li id="1"></li>
