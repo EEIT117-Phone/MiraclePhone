@@ -33,7 +33,7 @@ public class IndexController {
 	public String search(BaseSearchBean<SearchVo> searchBean, Model model) {
 		model.addAttribute("searchBean", searchBean);
 		model.addAttribute("results", searchService.search(searchBean));
-		return MODULE_NAME;
+		return MAIN_PAGE;
 	}
 	
 
