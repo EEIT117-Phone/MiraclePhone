@@ -41,7 +41,7 @@
                 <!--    VIP輪播        -->
                 <h4>精選推薦</h4>
                 <div class="owl-carousel">
-                    <a target="_blank" href="https://via.placeholder.com/150x150?text=img1"
+                    <a target="_blank" href="<c:url value='/buyer' />"
                         class="text-dark text-decoration-none">
                         <div class="item card">
                             <img class="card-img" src="<c:url value='/images/iPhone6s.jpeg' />" alt="Card image cap">
@@ -50,7 +50,7 @@
                                 <p class="card-text">$ 1,500</p>
                             </div>
                         </div>
-                    </a> <a target="_blank" href="https://via.placeholder.com/150x150?text=img1"
+                    </a> <a target="_blank" href="<c:url value='/buyer' />"
                         class="text-dark text-decoration-none">
                         <div class="item card">
                             <img class="card-img" src="<c:url value='/images/iPhoneSE.jpg' />" alt="Card image cap">
@@ -59,7 +59,7 @@
                                 <p class="card-text">$ 12,000</p>
                             </div>
                         </div>
-                    </a> <a target="_blank" href="https://via.placeholder.com/150x150?text=img1"
+                    </a> <a target="_blank" href="<c:url value='/buyer' />"
                         class="text-dark text-decoration-none">
                         <div class="item card">
                             <img class="card-img" src="<c:url value='/images/iPhoneXR.jpg' />" alt="Card image cap">
@@ -68,7 +68,7 @@
                                 <p class="card-text">$ 22,500</p>
                             </div>
                         </div>
-                    </a> <a target="_blank" href="https://via.placeholder.com/150x150?text=img1"
+                    </a> <a target="_blank" href="<c:url value='/buyer' />"
                         class="text-dark text-decoration-none">
                         <div class="item card">
                             <img class="card-img" src="<c:url value='/images/iPhone11.jpg' />" alt="Card image cap">
@@ -77,7 +77,7 @@
                                 <p class="card-text">$ 30,000</p>
                             </div>
                         </div>
-                    </a> <a target="_blank" href="https://via.placeholder.com/150x150?text=img1"
+                    </a> <a target="_blank" href="<c:url value='/buyer' />"
                         class="text-dark text-decoration-none">
                         <div class="item card">
                             <img class="card-img" src="<c:url value='/images/iPhone6sPlus.jpg' />" alt="Card image cap">
@@ -92,8 +92,8 @@
                 <h4>搜尋結果</h4>
                 <form class="w-100" style="border-spacing: 20px;">
                     <c:forEach varStatus="status" var="result" items="${results}">
-                        <a target="_blank" href="https://via.placeholder.com/150x150?text=img1"
-                            class="text-dark text-decoration-none">
+                    
+                        <a target="_blank" href="<c:url value='/buyer' />" class="text-dark text-decoration-none">
                             <div class="card card-result">
                                 <img class="card-img" src="<c:url value='/images/iPhone11.jpg' />" alt="Card image cap">
                                 <div class="card-body search-card-body">
