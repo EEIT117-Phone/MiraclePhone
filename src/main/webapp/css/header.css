@@ -4,3 +4,10 @@
 .module-link {
 	margin-right: 15%;
 }
+
+#amount {
+	background-color:red;
+	padding-left: 6px;
+	padding-right: 6px;
+	border-radius: 50%;
+}
