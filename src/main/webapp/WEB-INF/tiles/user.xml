@@ -9,6 +9,10 @@
     
     <definition name="userMakeUser" extends="template-def">  
         <put-attribute name="body"  value="/WEB-INF/jsp/login/signup.jsp" />  
+    </definition> 
+    
+    <definition name="usermain" extends="template-def">  
+        <put-attribute name="body"  value="/WEB-INF/jsp/user/usermain.jsp" />  
     </definition>  
 
 </tiles-definitions>

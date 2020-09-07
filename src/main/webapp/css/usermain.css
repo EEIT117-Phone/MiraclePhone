@@ -1,0 +1,17 @@
+@charset "UTF-8";
+body{
+	padding-top:100px;
+	text-align:center
+}
+.userDataTable{
+	border:1px solid black;
+	align:center;
+	margin:auto;
+}
+tr{
+	border:1px solid black;
+}
+
+td{
+	border:1px solid black;
+}
