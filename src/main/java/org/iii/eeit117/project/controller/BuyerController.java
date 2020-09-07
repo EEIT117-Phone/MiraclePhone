@@ -1,7 +1,6 @@
 package org.iii.eeit117.project.controller;
 
 import java.text.SimpleDateFormat;
-import java.util.Iterator;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -23,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BuyerController {
 
 	public static final String MODULE_NAME = "buyer";
-
+	private int id;
 	private Session session;
 	@Autowired
 	private BuyerService buyerService;
@@ -32,14 +31,17 @@ public class BuyerController {
 	private MassageService massageService;
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
-	public String sellerInfo(Model model) {
+	public String sellerInfo(Model model,int productId) {
 		 session = HibernateUtil.getSessionFactory().getCurrentSession();
 		Query<MassageVo> query = session.createQuery("from MassageVo where productId=:pid"
 													, MassageVo.class);
-		query.setParameter("pid", 10015);
+		
+		id=productId;
+		query.setParameter("pid", id);
 		List<MassageVo> list = query.getResultList();
+		model.addAttribute("size", list.size());
 		model.addAttribute("qa", list);
-		model.addAttribute("info", buyerService.findOne(10015));
+		model.addAttribute("info", buyerService.findOne(id));
 
 		return "buyer";
 	}
@@ -50,7 +52,7 @@ public class BuyerController {
 		SimpleDateFormat nowdate = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		nowdate.setTimeZone(TimeZone.getTimeZone("GMT+8"));
 		String sdate = nowdate.format(new java.util.Date());
-		mv.setProductId(10015);
+		mv.setProductId(id);
 		mv.setMassage(massage);
 		mv.setLeaveTime(sdate);
 		session.save(mv);
