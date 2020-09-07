@@ -100,7 +100,7 @@
                 <form class="w-100" style="border-spacing: 20px;">
                     <c:forEach varStatus="status" var="result" items="${results}">
                     
-                        <a target="_blank" href="<c:url value='/buyer' />" class="text-dark text-decoration-none">
+                        <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
                             <div class="card card-result">
                                 <img class="card-img" src="<c:url value='/images/iPhone11.jpg' />" alt="Card image cap">
                                 <div class="card-body search-card-body">
@@ -128,7 +128,7 @@
 
                 <div class="wrap">
                     <div class="search">
-                        <form:form servletRelativeAction="/search/result" method="post"
+                        <form:form servletRelativeAction="/search/result" method="get"
                             enctype="application/x-www-form-urlencoded" modelAttribute="searchBean">
                             <form:input path="searchInput" class="searchTerm" placeholder="請輸入關鍵字搜尋" />
                             <button type="submit" class="searchButton"><i class="fa fa-search"></i>
