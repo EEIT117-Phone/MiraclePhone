@@ -1,6 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="javax.servlet.http.HttpServlet" %>
@@ -63,7 +63,7 @@
 				<a href="連結網址" class="p2">${info.productId}</a> <br> <a href="連結網址"
 					class="p2">賣場首頁</a> <br> <a href="連結網址" class="p2">加入最愛</a> <br>
 				<a href="連結網址" class="p2">所有商品</a> <br> <a href="連結網址"
-					class="p2"">賣家評價</a>
+					class="p2">賣家評價</a>
 			</div>
 		</div>
 
@@ -88,14 +88,10 @@
 				<p>販售原因:${info.sellReason}</p>
 			</div>
 			<div id="quest2" class="quest">
-				<% 
-				ResultSet rs = (ResultSet)request.getAttribute("rs");
-				if(rs!=null){
-				while(rs.next()){
-					out.write("<p>" + rs.getString(2) + "<p><br>");
-				}
-				}
-				%>
+				<c:forEach varStatus="status" var="li" items="${qa}">
+					<p>${li.massage}</p>
+				
+				</c:forEach>
 				
 			</div>
 			<div id="quest3" class="quest">

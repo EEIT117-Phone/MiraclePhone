@@ -5,4 +5,5 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class  MassageDao extends BaseDao<MassageVo, Integer> {
+	
 }
