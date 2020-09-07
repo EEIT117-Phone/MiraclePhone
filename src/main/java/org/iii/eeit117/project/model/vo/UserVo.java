@@ -6,8 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -54,8 +54,11 @@ public class UserVo {
 
 	@Column(name = "photo")
 	private byte[] photo;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	private Set<SellerVo> sellerVos;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orderId")
+	@OneToMany(fetch = FetchType.LAZY)
 	private Set<OrderInfoVo> orderInfoVos;
 
 	public String getAccount() {
