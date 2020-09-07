@@ -43,3 +43,15 @@ body-login {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.MakeUser{
+	width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.MakeUserButton{
+	btn:btn-lg btn-primary;
+	background-color:#2A52BE;
+	color:white;
+}
