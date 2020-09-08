@@ -12,8 +12,8 @@
     <script src="<c:url value='/js/jquery.twzipcode.min.js' />"></script>
 <body>
     <div>
-        <form:form servletRelativeAction="/seller/insert" method="post" enctype="application/x-www-form-urlencoded"
-            modelAttribute="seller">
+        <form:form servletRelativeAction="/product/insert" method="post" enctype="application/x-www-form-urlencoded"
+            modelAttribute="product">
             <fieldset>
                 <legend>手機刊登</legend>
                 <label for="phoneType">機種:</label>

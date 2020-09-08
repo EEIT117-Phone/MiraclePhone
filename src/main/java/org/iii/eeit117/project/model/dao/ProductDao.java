@@ -4,5 +4,5 @@ import org.iii.eeit117.project.model.vo.ProductVo;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SellerDao extends BaseDao<ProductVo, Integer> {
+public class ProductDao extends BaseDao<ProductVo, Integer> {
 }

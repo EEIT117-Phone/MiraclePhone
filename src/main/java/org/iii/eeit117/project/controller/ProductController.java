@@ -2,8 +2,7 @@ package org.iii.eeit117.project.controller;
 
 import java.util.List;
 
-
-import org.iii.eeit117.project.model.service.SellerService;
+import org.iii.eeit117.project.model.service.ProductService;
 import org.iii.eeit117.project.model.vo.ProductVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/" + SellerController.MODULE_NAME)
-public class SellerController {
+@RequestMapping(value = "/" + ProductController.MODULE_NAME)
+public class ProductController {
 
-	public static final String MODULE_NAME = "seller";
+	public static final String MODULE_NAME = "product";
 
 	public static final String MAIN_PAGE = MODULE_NAME;
 	
@@ -27,26 +26,26 @@ public class SellerController {
 
 
 	@Autowired
-	private SellerService SellerService;
+	private ProductService productService;
 
 
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String index(Model model) {
-		model.addAttribute("seller", new ProductVo());
+		model.addAttribute("product", new ProductVo());
 		return MAIN_PAGE;
 	}
 
 	@RequestMapping(value = { "/insert", "/update" }, method = RequestMethod.POST)
-	public String insert(ProductVo ProductVo) {
-		SellerService.save(ProductVo);
+	public String insert(ProductVo productVo) {
+		productService.save(productVo);
 		return "redirect:/" + SalesPrice_PAGE;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "test", method = RequestMethod.GET)
 	public List<ProductVo> test() {
-		return SellerService.findAll();
+		return productService.findAll();
 	}
 
 }
