@@ -1,3 +1,4 @@
+
 $(function() {
     let slideNum = 0;
 
@@ -55,7 +56,5 @@ $(function() {
 
 
 
- $(".usersmenu").click(function(){
-                $(this).toggleClass("active");
-            })
+ 
 });

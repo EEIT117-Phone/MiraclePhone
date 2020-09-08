@@ -1,13 +1,47 @@
 .prject-link {
 	margin-left: 15%;
 }
+
 .module-link {
 	margin-right: 15%;
 }
 
-#amount {
-	background-color:red;
-	padding-left: 6px;
-	padding-right: 6px;
-	border-radius: 50%;
+.usersmenu {
+	display: inline-block;
+	/* display: block; */
+	cursor: pointer;
+	position: relative;
+	padding: 0 0 0 2px;
+	/* background:red; */
+}
+
+.usersmenu ul {
+	position: relative;
+	left: 0;
+	top: 0;
+	background: rgba(255, 255, 255, .8);
+	width: 80px;
+	opacity: 0;
+	max-height: 0;
+	/* overflow: hidden; */
+}
+
+.usersmenu.active ul {
+	opacity: 100;
+	max-height: 0px;
+}
+
+.usersmenu ul li a {
+	display: block;
+	background: white;
+}
+
+.usersmenu ul li a:hover {
+	background: lightblue;
+}
+
+.usersmenu ul, li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }

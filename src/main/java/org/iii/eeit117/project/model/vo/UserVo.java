@@ -1,5 +1,7 @@
 package org.iii.eeit117.project.model.vo;
 
+
+
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -176,5 +178,7 @@ public class UserVo {
 	public void setOrderInfoVo(Set<OrderInfoVo> orderInfoVo) {
 		this.orderInfoVos = orderInfoVo;
 	}
+	
+	
 
 }

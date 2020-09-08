@@ -59,9 +59,11 @@ public class UserServiceImpI extends BaseServiceImpl<UserVo, String> implements 
 		Session session=factory.getCurrentSession();
 		Query query=session.createNativeQuery(sql);
 		list=(ArrayList<String>)query.getResultList();
-		
 		return list;
 	}
+
+
+
 	
 	
 	

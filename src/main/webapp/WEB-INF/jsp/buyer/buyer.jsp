@@ -1,23 +1,18 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="java.io.PrintWriter"%>
-<%@ page import="java.sql.ResultSet"%>
-<%@ page import="javax.servlet.http.HttpServlet"%>
-<%@ page import="javax.servlet.http.HttpServletRequest"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 <title>Document</title>
-
-<link href="<c:url value='/css/owl.carousel.css' />" rel="stylesheet">
-<link href="<c:url value='/css/buyer.css' />" rel="stylesheet">
 <link href="<c:url value='/css/owl.carousel.min.css' />"
 	rel="stylesheet">
 <link href="<c:url value='/css/owl.theme.default.min.css' />"
 	rel="stylesheet">
 <link href="<c:url value='/css/bootstrap.min.css' />" rel="stylesheet">
+<link rel="stylesheet" href="<c:url value='/css/buyer.css' />" />
 <script src="<c:url value='/js/buyer.js' />"></script>
 </head>
 
@@ -65,9 +60,8 @@
 			</div>
 			<div class="link4">
 				<p class="p1">賣家資訊</p>
-				<a href="連結網址" class="p2">${info.account}</a>
-				<br> <a href="連結網址" class="p2">聯絡賣家</a> <br> <a
-					href="連結網址" class="p2">賣家評價</a>
+				<a href="連結網址" class="p2">${info.account}</a> <br> <a
+					href="連結網址" class="p2">聯絡賣家</a> <br> <a href="連結網址" class="p2">賣家評價</a>
 			</div>
 		</div>
 
@@ -92,8 +86,11 @@
 			</div>
 			<div id="quest2" class="quest">
 				<c:forEach varStatus="status" var="li" items="${qa}">
-					<p>${li.massage}</p>
-
+					<div>
+						<p>${info.account}(${li.leaveTime})</p><br>
+						<p>${li.massage}</p>
+						<hr>
+					</div>
 				</c:forEach>
 
 			</div>
@@ -150,10 +147,10 @@
 			</div>
 		</div>
 	</div>
+	<script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
+	<script src="<c:url value='/js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
+	<script src="<c:url value='/js/owl.carouselyin.js' />"></script>
+	<script src="<c:url value='/js/jquery-3.5.1.slim.min.js' />"></script>
 </body>
-<script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
-<script src="<c:url value='/js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
-<script src="<c:url value='/js/owl.carouselyin.js' />"></script>
-<script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
 
 </html>

@@ -1,8 +1,8 @@
 package org.iii.eeit117.project.controller;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.TimeZone;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -31,17 +31,16 @@ public class BuyerController {
 	private MassageService massageService;
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
-	public String sellerInfo(Model model,int productId) {
-		 session = HibernateUtil.getSessionFactory().getCurrentSession();
-		Query<MassageVo> query = session.createQuery("from MassageVo where productId=:pid"
-													, MassageVo.class);
-		
-		id=productId;
-		query.setParameter("pid", id);
+	public String sellerInfo(Model model) {
+		session = HibernateUtil.getSessionFactory().getCurrentSession();
+		Query<MassageVo> query = session.createQuery("from MassageVo where productId=:pid", MassageVo.class);
+
+//		id=productId;
+		query.setParameter("pid", 10025);
 		List<MassageVo> list = query.getResultList();
 		model.addAttribute("size", list.size());
 		model.addAttribute("qa", list);
-		model.addAttribute("info", buyerService.findOne(id));
+		model.addAttribute("info", buyerService.findOne(10025));
 
 		return "buyer";
 	}
@@ -49,12 +48,13 @@ public class BuyerController {
 	@RequestMapping(value = "/massagepage", method = RequestMethod.POST)
 	public String massageInfo(MassageVo mv, @RequestParam(name = "textarea") String massage) {
 		session = HibernateUtil.getSessionFactory().getCurrentSession();
-		SimpleDateFormat nowdate = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		nowdate.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-		String sdate = nowdate.format(new java.util.Date());
-		mv.setProductId(id);
+
+		Timestamp time = new Timestamp(System.currentTimeMillis());
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String timeStr = df.format(time);
+		mv.setProductId(10025);
 		mv.setMassage(massage);
-		mv.setLeaveTime(sdate);
+		mv.setLeaveTime(timeStr);
 		session.save(mv);
 		return "redirect:/" + MODULE_NAME;
 	}
