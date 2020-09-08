@@ -2,7 +2,7 @@ package org.iii.eeit117.project.controller;
 
 
 import org.iii.eeit117.project.model.service.SearchService;
-import org.iii.eeit117.project.model.vo.SearchVo;
+import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.search.BaseSearchBean;
 import org.iii.eeit117.project.search.IndexSearchBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +30,7 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value = "/search", method = RequestMethod.POST)
-	public String search(BaseSearchBean<SearchVo> searchBean, Model model) {
+	public String search(BaseSearchBean<ProductVo> searchBean, Model model) {
 		model.addAttribute("searchBean", searchBean);
 		model.addAttribute("results", searchService.search(searchBean));
 		return MAIN_PAGE;
