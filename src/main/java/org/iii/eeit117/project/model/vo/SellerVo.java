@@ -55,8 +55,9 @@ public class SellerVo {
 	@Column(name = "PRODUCTID", nullable = false)
 	private Integer productId;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="Account")
+//	@ManyToOne(fetch=FetchType.LAZY)
+//    @JoinColumn(name="Account")
+	@Column(name = "ACCOUNT")
 
 	private String account;
 

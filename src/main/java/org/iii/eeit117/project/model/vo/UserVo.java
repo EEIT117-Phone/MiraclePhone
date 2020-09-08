@@ -55,10 +55,10 @@ public class UserVo {
 	@Column(name = "photo")
 	private byte[] photo;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	private Set<SellerVo> sellerVos;
+//	@OneToMany(fetch = FetchType.LAZY)
+//	private Set<SellerVo> sellerVos;
 
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orderId")
 	private Set<OrderInfoVo> orderInfoVos;
 
 	public String getAccount() {

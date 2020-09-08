@@ -46,12 +46,14 @@ public class OrderInfoVo {
 	@Column(name = "SHIP_ADDRESS")
 	private String shipAddress;
 	
-	
-	@OneToMany(fetch=FetchType.LAZY,mappedBy="orderInfoVO",cascade=CascadeType.MERGE) 
+	@Column(name = "SELLER_VO")
+	@OneToMany(fetch=FetchType.LAZY,mappedBy="orderInfoVO") 
+//	@OneToMany(fetch=FetchType.LAZY,mappedBy="orderInfoVO",cascade=CascadeType.MERGE) 
+
 	private Set<SellerVo> sellerVos;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="account") 
+	@ManyToOne(cascade=CascadeType.MERGE,fetch=FetchType.LAZY)
+	@JoinColumn(name="orderInfoVos") 
 	private UserVo userVo;
 
 	public String getOrderId() {
