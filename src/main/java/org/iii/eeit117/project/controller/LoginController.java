@@ -21,9 +21,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/" + LoginController.MODULE_NAME)
 public class LoginController {
 	public static final String MODULE_NAME = "user";
-	public static final String MAIN_PAGE = MODULE_NAME + "Login";
-	public static final String MAKEUSER_PAGE = MODULE_NAME + "MakeUser";
+	public static final String MAIN_PAGE = MODULE_NAME + "login";
+	public static final String SIGNUP_PAGE = MODULE_NAME + "signup";
 	public static final String USERMAIN_PAGE=MODULE_NAME+"main";
+	public static final String USERMODIFICATION_PAGE=MODULE_NAME+"modification";
 	@Autowired
 	private UserService userService;
 	
@@ -34,7 +35,7 @@ public class LoginController {
 	}
 	@RequestMapping(value = "/1", method = RequestMethod.GET) //前往創建會員畫面捷徑
 	public String GomakeUser(Model model) {
-		return MAKEUSER_PAGE;
+		return SIGNUP_PAGE;
 	}
 	@RequestMapping(value = "/2", method = RequestMethod.GET) //前往會員資料畫面捷徑
 	public String GoUserMain(Model model) {
@@ -59,10 +60,36 @@ public class LoginController {
 		model.addAttribute("loginstatus",loginStatus);
 		return MAIN_PAGE;
 	}
-	@RequestMapping(value = "/"+MAKEUSER_PAGE, method = RequestMethod.POST)
-	public String makeUser(@ModelAttribute("makeUser")UserVo userVo) {
+	@RequestMapping(value = "/"+SIGNUP_PAGE, method = RequestMethod.POST)
+	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo) {
 		userService.save(userVo);
-		return MAKEUSER_PAGE;
+		return SIGNUP_PAGE;
+	}
+	
+	@RequestMapping(value="/"+USERMODIFICATION_PAGE,method=RequestMethod.POST)
+	public String userModification(HttpServletRequest request,Model model) {
+		String account=request.getParameter("account"); //取得欲修改的使用者帳號
+		System.out.println(account);
+		UserVo orginaccount=userService.findOne(account); //找在資料庫已存在的使用者資料(用帳號找)
+		String password=request.getParameter("password");
+		String name=request.getParameter("name");
+		String idnumber=request.getParameter("idnumber");
+		String birth=request.getParameter("birth");
+		String age=request.getParameter("age");
+		String county=request.getParameter("county");
+		String district=request.getParameter("district");
+		String zipcode=request.getParameter("zipcode");
+		orginaccount.setPassword(password);
+		orginaccount.setName(name);
+		orginaccount.setIdnumber(idnumber);
+		orginaccount.setBirth(birth);
+		orginaccount.setAge(age);
+		orginaccount.setCounty(county);
+		orginaccount.setDistrict(district);
+		orginaccount.setZipcode(zipcode);
+		System.out.println(orginaccount.getAccount());
+		userService.save(orginaccount);
+		return USERMAIN_PAGE;
 	}
 	
 	

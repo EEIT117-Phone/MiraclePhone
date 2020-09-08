@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="all-form">
-		<form:form servletRelativeAction="/user/userMakeUser" method="post" id="makeUser" class="form-writein">
+		<form:form servletRelativeAction="/user/usersignup" method="post" id="makeUser" class="form-writein">
 			<div class="form-writein">
 			<input id="account" type="text" name="account" placeholder="電子郵件"
 					value="" class="form-input"  placeholder="帳號"  />

@@ -10,6 +10,20 @@ function hideform(){
 	modifybutton_area.style.display="none"  //將修改使用者按鈕消失
 }
 
+erTWZipcode();  //地址
+
+function countage(){ //計算年齡
+	var birth=document.getElementById("birth").value;
+	var today=new Date();
+	var birthyear=birth.split("-")[0];
+	var todayyear=today.getFullYear();
+	var age=todayyear-birthyear;
+	console.log(age);
+	birth=age;
+}
+
+birth.addEventListener("blur",countage);
+
 
 
 

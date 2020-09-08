@@ -34,7 +34,7 @@ public class UserVo {
 	private String sex;
 
 	@Column(name = "age")
-	private int age;
+	private String age;
 
 	@Column(name = "birth")
 	private String birth;
@@ -107,11 +107,11 @@ public class UserVo {
 		this.sex = sex;
 	}
 
-	public int getAge() {
+	public  String getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge( String age) {
 		this.age = age;
 	}
 

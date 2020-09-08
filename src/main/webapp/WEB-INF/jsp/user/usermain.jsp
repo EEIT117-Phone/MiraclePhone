@@ -10,7 +10,8 @@
 </head>
 <body>
 <script type="text/javascript"></script>
-
+<script src="<c:url value='/js/er.twzipcode.js' />"></script>
+<script src="<c:url value='/js/er.twzipcode.data.js' />"></script>
 <div class="welcome">
 <h1>歡迎回來,${user.account}</h1>
 </div>
@@ -39,15 +40,17 @@
 <input id="userdata" type="hidden" value="${user}">
 
 <div id="modifyarea" style="display:none">
-<form action="/MiraclePhone/user/" method="post">
-<span>密碼</span><input id="password" name="password" value="${user.password}" >
+<form action="/MiraclePhone/user/usermodification" method="post">
+<input id="account" name="account" type="hidden" value="${user.account}" >
+<span>密碼</span><input id="password" name="password" type="password" value="${user.password}" >
 <span>姓名</span><input id="name" name="name" value="${user.name}" >
 <span>身分證字號</span><input id="idnumber" name="idnumber" value="${user.idnumber}" >
-<span>性別</span><input id="sex" name="sex" value="${user.sex}" >
-<span>生日</span><input id="birth" name="birth" value="${user.birth}" >
-
+<span>生日</span><input id="birth" name="birth" type="date" value="${user.birth}" >
+<input id="age" type="hidden" name="age" value="">
+<select class="col-lg-1" name="county" aria-describedby="form-county" required=""></select> 
+<select class="col-lg-1" name="district" aria-describedby="form-district" required=""></select>
+<input class="d-none" name="zipcode" />
 <input type="submit" value="提交修改" >
-
 </form>
 </div>
 <div id="modifybutton-area">
