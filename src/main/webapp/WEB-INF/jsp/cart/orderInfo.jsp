@@ -132,11 +132,9 @@
 						<div class="form-group">
 							<div id="twzipcode"></div>
 							<label for="inputAddress">地址</label>
-							<input type="text" class="form-control">
+							<input type="text" class="form-control" id="address">
 						</div>
-						<script>
-        					$("#twzipcode").twzipcode();
-    					</script>
+
 				</div>
 
 		<table class="cart-summary table">

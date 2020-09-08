@@ -10,11 +10,12 @@ import java.util.Set;
 import javax.servlet.http.HttpSession;
 
 import org.iii.eeit117.project.model.data.HelloTypeEnum;
-import org.iii.eeit117.project.model.service.BuyerService;
 import org.iii.eeit117.project.model.service.OrderInfoService;
-import org.iii.eeit117.project.model.vo.BuyerVo;
+import org.iii.eeit117.project.model.service.SellerService;
+import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.model.vo.HelloVo;
 import org.iii.eeit117.project.model.vo.OrderInfoVo;
+import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.search.HelloSearchBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +42,7 @@ public class CartController {
 	private OrderInfoService orderinfoService;
 	
 	@Autowired
-	private BuyerService buyerService;
+	private SellerService sellerService;
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String cartItems(HttpSession httpSession, Model model, Integer deleteId) {
@@ -50,10 +51,10 @@ public class CartController {
 			return MAIN_PAGE;
 		} else {
 			Set<Integer> productIds = (Set<Integer>) httpSession.getAttribute("cart");
-			List<BuyerVo> cartItems = new LinkedList<>(); // javaBean List
+			List<ProductVo> cartItems = new LinkedList<>(); // javaBean List
 			productIds.remove(deleteId);
 			for (Integer id : productIds) {
-				cartItems.add(buyerService.findOne(id));
+				cartItems.add(sellerService.findOne(id));
 			}
 			httpSession.setAttribute("cartItem", cartItems);
 			return MAIN_PAGE;
@@ -73,14 +74,14 @@ public class CartController {
 	}
 
 	@RequestMapping(value = "/orderInfo", method = RequestMethod.GET)
-	public String orderInfo(HttpSession httpSession, BuyerVo cartItems, Model model, String address, OrderInfoVo orderInfo) {
-		List<BuyerVo> buyerVos = (List<BuyerVo>) httpSession.getAttribute("cartItem");
+	public String orderInfo(HttpSession httpSession, Model model, OrderInfoVo orderInfo) {
+		List<ProductVo> ProductVos = (List<ProductVo>) httpSession.getAttribute("cartItem");
 		Integer totalAmount = 0;
-		for (BuyerVo Vo : buyerVos) {
+		for (ProductVo Vo : ProductVos) {
 			totalAmount+=Vo.getAmount();
 		}
 		model.addAttribute("totalAmount", totalAmount);
-		model.addAttribute("address", address);
+		//model.addAttribute("address", address);
 		model.addAttribute("orderInfo", orderInfo);
 		return ORDERINFO_PAGE;
 	}
@@ -88,10 +89,14 @@ public class CartController {
 	@RequestMapping(value = "/orderConfirm", method = RequestMethod.POST)
 	public String orderConfirm(HttpSession httpSession, OrderInfoVo orderInfo, Model model) {
 		model.addAttribute("orderInfo", orderInfo);
-		
+		List<ProductVo> ProductVos = (List<ProductVo>) httpSession.getAttribute("cartItem");
 		String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 		orderInfo.setDate(date);
-		orderInfo.setAmount(amount);
+		Integer totalAmount = 0;
+		for (ProductVo Vo : ProductVos) {
+			totalAmount+=Vo.getAmount();
+		}
+		orderInfo.setAmount(totalAmount);
 		
 		//Test 加入account
 		httpSession.setAttribute("account", "ken001@yahoo.com");

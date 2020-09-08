@@ -24,6 +24,7 @@
 	 
 	<!-- Jquery js -->
 	<script src="<c:url value='/js/jquery-3.5.1.slim.min.js' />"></script>
+	<script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
 	<!-- Bootstrap js -->
 	<script src="<c:url value='/js/bootstrap.bundle.min.js' />"></script>
 </head>
