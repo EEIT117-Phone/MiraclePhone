@@ -52,9 +52,8 @@ public class LoginController {
 		if(loginStatus.equals("acc&&pwd are corrected")) {
 			System.out.println(loginStatus);
 			UserVo userVo=userService.findOne(account);
-			model.addAttribute("user",userVo);
-			model.addAttribute("useraccount",account);
-			model.addAttribute("usercolumn",list);
+			model.addAttribute("user",userVo); //傳送使用者的資料
+			model.addAttribute("usercolumn",list);//傳送Users表單的欄位名
 			return  USERMAIN_PAGE;
 		}
 		model.addAttribute("loginstatus",loginStatus);
