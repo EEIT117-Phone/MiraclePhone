@@ -54,7 +54,7 @@ public class LoginController {
 			UserVo userVo=userService.findOne(account);
 			model.addAttribute("user",userVo);
 			model.addAttribute("useraccount",account);
-			model.addAttribute("test","<h1>哈哈</h1>");
+			model.addAttribute("usercolumn",list);
 			return  USERMAIN_PAGE;
 		}
 		model.addAttribute("loginstatus",loginStatus);

@@ -36,6 +36,14 @@
 <td>${user.seller}</td>
 </tr>
 </table>
+<table class="userDataTable">
+<tr>
+<c:out value="欄位名稱:" />
+<c:forEach items="${usercolumn}" var="column" begin="0" end="12">
+<td><c:out value="${column}"/>:${user}</td>
+<tr>
+</c:forEach>
+</table>
 
 <input id="usercounty" type="hidden" value="${user.county}">
 <input id="userdistrict" type="hidden" value="${user.district}">
