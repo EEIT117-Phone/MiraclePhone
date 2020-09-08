@@ -18,8 +18,8 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "SELLER")
-public class SellerVo {
+@Table(name = "PRODUCT")
+public class ProductVo {
 
 	public static final String PRODUCTID = "productId";
 	public static final String ACCOUNT = "account";
@@ -53,8 +53,11 @@ public class SellerVo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PRODUCTID", nullable = false)
 	private Integer productId;
-
+	
+//	@ManyToOne(fetch=FetchType.LAZY)
+//    @JoinColumn(name="Account")
 	@Column(name = "ACCOUNT")
+
 	private String account;
 
 	@Column(name = "PHONETYPE")
@@ -132,6 +135,8 @@ public class SellerVo {
 
 	@Column(name = "FILE6")
 	private Byte[] file6;
+	
+	
 	
 	@ManyToOne
     @JoinColumn(name="ORDER_ID")

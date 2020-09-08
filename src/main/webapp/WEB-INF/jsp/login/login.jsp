@@ -21,7 +21,12 @@
          <button type="submit" class="btn btn-lg btn-primary btn-block">提交</button><br/>
        	<label>登陸狀態:${loginstatus}</label> 
         </form:form>
-       </div>  	 
+       </div >  	
+       <div class="MakeUser">
+  <button class="MakeUserButton"
+   onclick="javascript:location.href='http://localhost:8080/MiraclePhone/user/1'">會員註冊
+   </button>
+       </div> 
     
 </body>
 

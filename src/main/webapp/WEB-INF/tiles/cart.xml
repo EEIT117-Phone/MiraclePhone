@@ -3,23 +3,16 @@
         "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<definition name="helloMain" extends="template-def">  
-        <put-attribute name="body"  value="/WEB-INF/jsp/hello/helloMain.jsp" />  
+	<definition name="cartMain" extends="template-def">  
+        <put-attribute name="body"  value="/WEB-INF/jsp/cart/cart.jsp" />  
     </definition>
     
-    <definition name="helloInsert" extends="template-def">  
-        <put-attribute name="body"  value="/WEB-INF/jsp/hello/helloInsert.jsp" />  
+    <definition name="cartOrderInfo" extends="template-def">  
+        <put-attribute name="body"  value="/WEB-INF/jsp/cart/orderInfo.jsp" />  
     </definition>  
     
-    <definition name="helloUpdate" extends="template-def">  
-        <put-attribute name="body"  value="/WEB-INF/jsp/hello/helloUpdate.jsp" />  
+    <definition name="cartOrderConfirm" extends="template-def">  
+        <put-attribute name="body"  value="/WEB-INF/jsp/cart/orderConfirm.jsp" />  
     </definition>
-    
-    <definition name="search" extends="template-def">  
-    	<put-attribute name="body"  value="/WEB-INF/jsp/search/search.jsp" />  
-    </definition>
-    
-    <definition name="header" extends="template-def">  
-    	<put-attribute name="body"  value="/WEB-INF/jsp/template/header.jsp" />  
-    </definition>   
+     
 </tiles-definitions>

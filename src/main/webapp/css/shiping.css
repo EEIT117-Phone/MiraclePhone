@@ -26,7 +26,7 @@
 
   }
   .cart-header thead th:nth-child(1) {
-    width: 60%;
+    width: 55%;
   }
   .cart-header thead th:nth-child(2) {
     width: 10%;
@@ -38,7 +38,7 @@
     width: 10%;
   }
   .cart-header thead th:nth-child(5) {
-    width: 10%;
+    width: 15%;
   }
   
   
@@ -110,18 +110,27 @@
   .cart-summary tbody td:nth-child(4) {
     width: 15%;
   }
+   
   .ship-payment {
     /* height: 100px; */
     border-top: black 2px solid;
+  }
+  
+  .ship-payment div label{
+  margin-right:50px;
   }
   .ship-method{
     /* height: 100px; */
     border-top: black 2px solid;
   }
-  
-  .ship-method td div{
-    margin-right: 50px;
+ .ship-method label{
+ margin-right: 50px;
+ } 
+.form-group div select{
+  	margin-right: 50px;
   }
+  
+
   .ship-address{
     width:800px;
     margin: auto;

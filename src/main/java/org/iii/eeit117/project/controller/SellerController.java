@@ -4,7 +4,7 @@ import java.util.List;
 
 
 import org.iii.eeit117.project.model.service.SellerService;
-import org.iii.eeit117.project.model.vo.SellerVo;
+import org.iii.eeit117.project.model.vo.ProductVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,19 +33,19 @@ public class SellerController {
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String index(Model model) {
-		model.addAttribute("seller", new SellerVo());
+		model.addAttribute("seller", new ProductVo());
 		return MAIN_PAGE;
 	}
 
 	@RequestMapping(value = { "/insert", "/update" }, method = RequestMethod.POST)
-	public String insert(SellerVo SellerVo) {
-		SellerService.save(SellerVo);
+	public String insert(ProductVo ProductVo) {
+		SellerService.save(ProductVo);
 		return "redirect:/" + SalesPrice_PAGE;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "test", method = RequestMethod.GET)
-	public List<SellerVo> test() {
+	public List<ProductVo> test() {
 		return SellerService.findAll();
 	}
 

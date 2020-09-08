@@ -1,15 +1,16 @@
 $(document).ready(function () {
-    cartInputPic();
+    //cartInputPic();
     cartDelete();
     cartSummary();
-    function cartInputPic() {
-        $("#pic1").attr("src", "/MiraclePhone/images/cartPic1.jpg");
-        $("#pic2").attr("src", "/MiraclePhone/images/cartPic1.jpg");
-    }
+//    function cartInputPic() {
+//        $("#pic1").attr("src", "/MiraclePhone/images/cartPic1.jpg");
+//        $("#pic2").attr("src", "/MiraclePhone/images/cartPic1.jpg");
+//    }
 });
 function cartDelete() {
     $(".cart-delete").click(function () {
-        $(this).closest("tr").remove();
+        $(this).closest("th").remove();
+		$(this).closest("tr").remove();
         cartSummary();
     })
 }

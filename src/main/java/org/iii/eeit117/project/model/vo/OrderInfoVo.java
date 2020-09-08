@@ -47,15 +47,15 @@ public class OrderInfoVo {
 	@Column(name = "SHIP_ADDRESS")
 	private String shipAddress;
 
-	@Column(name = "SELLER_VO")
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orderInfoVO")
-	private Set<SellerVo> sellerVos;
-
 	@Column(name = "ACCOUNT")
 	private String account;
 
 	@Column(name = "ORDER_CONTEXT")
 	private String orderContext;
+
+	@OneToMany(fetch=FetchType.LAZY,mappedBy="orderInfoVO") 
+	private Set<ProductVo> productVos;
+
 	
 	@Column(name = "AMOUNT")
 	private Integer amount;
@@ -110,12 +110,12 @@ public class OrderInfoVo {
 		this.account = account;
 	}
 
-	public Set<SellerVo> getSellerVo() {
-		return sellerVos;
+	public Set<ProductVo> getSellerVo() {
+		return productVos;
 	}
 
-	public void setSellerVo(Set<SellerVo> sellerVo) {
-		this.sellerVos = sellerVo;
+	public void setSellerVo(Set<ProductVo> productVo) {
+		this.productVos = productVo;
 	}
 
 	public String getOrderContext() {

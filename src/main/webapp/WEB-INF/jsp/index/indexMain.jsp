@@ -18,7 +18,7 @@
             <li><img src="<c:url value='/images/iphoneseconds.jpg' />" alt=""></li>
         </ul>
         <div id="inputarea">
-            <form id="test" action="<c:url value='/search/result' />" method="POST">
+            <form id="test" action="<c:url value='/search/result' />" method="get">
                 <h2>快速找到您的手機</h2>
                 <input id="search" type="text" name="searchInput" size=50 autofocus placeholder="請輸入關鍵字(iphone機種，預算，容量)">
                 <br>

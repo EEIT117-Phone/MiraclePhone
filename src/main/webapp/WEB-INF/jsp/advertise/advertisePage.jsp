@@ -18,23 +18,23 @@
                 <legend>手機刊登</legend>
                 <label for="phoneType">機種:</label>
                 <form:select path="phoneType">
-                    <option>iPhone 6</option>
-                    <option>iPhone 6 Plus</option>
-                    <option>iPhone 6s</option>
-                    <option>iPhone 6s Plus</option>
-                    <option>iPhone SE (第一代)</option>
-                    <option>iPhone 7</option>
-                    <option>iPhone 7 Plus</option>
-                    <option>iPhone 8</option>
-                    <option>iPhone 8 Plus</option>
-                    <option>iPhone X</option>
-                    <option>iPhone XR</option>
-                    <option>iPhone XS</option>
-                    <option>iPhone XS Max</option>
-                    <option>iPhone 11</option>
-                    <option>iPhone 11 Pro</option>
-                    <option>iPhone 11 Pro Max</option>
-                    <option>iPhone SE (第二代)</option>
+                    <option value="iPhone6">iPhone 6</option>
+                    <option value="iPhone6Plus">iPhone 6 Plus</option>
+                    <option value="iPhone6s">iPhone 6s</option>
+                    <option value="iPhone6sPlus">iPhone 6s Plus</option>
+                    <option value="iPhoneSE">iPhone SE (第一代)</option>
+                    <option value="iPhone7">iPhone 7</option>
+                    <option value="iPhone7Plus">iPhone 7 Plus</option>
+                    <option value="iPhone8">iPhone 8</option>
+                    <option value="iPhone8Plus">iPhone 8 Plus</option>
+                    <option value="iPhoneX">iPhone X</option>
+                    <option value="iPhoneXR">iPhone XR</option>
+                    <option value="iPhoneXS">iPhone XS</option>
+                    <option value="iPhoneXSMax">iPhone XS Max</option>
+                    <option value="iPhone11">iPhone 11</option>
+                    <option value="iPhone11Pro">iPhone 11 Pro</option>
+                    <option value="iPhone11ProMax">iPhone 11 Pro Max</option>
+                    <option value="iPhoneSE2">iPhone SE (第二代)</option>
                 </form:select>
                 <br>
                 <label for="memory">容量:</label>
