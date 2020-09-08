@@ -8,7 +8,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,8 +18,8 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "SELLER")
-public class SellerVo {
+@Table(name = "PRODUCT")
+public class ProductVo {
 
 	public static final String PRODUCTID = "productId";
 	public static final String ACCOUNT = "account";

@@ -50,7 +50,7 @@ public class OrderInfoVo {
 	@OneToMany(fetch=FetchType.LAZY,mappedBy="orderInfoVO") 
 //	@OneToMany(fetch=FetchType.LAZY,mappedBy="orderInfoVO",cascade=CascadeType.MERGE) 
 
-	private Set<SellerVo> sellerVos;
+	private Set<ProductVo> productVos;
 	
 	@ManyToOne(cascade=CascadeType.MERGE,fetch=FetchType.LAZY)
 	@JoinColumn(name="orderInfoVos") 
@@ -106,12 +106,12 @@ public class OrderInfoVo {
 		this.userVo = userVo;
 	}
 
-	public Set<SellerVo> getSellerVo() {
-		return sellerVos;
+	public Set<ProductVo> getSellerVo() {
+		return productVos;
 	}
 
-	public void setSellerVo(Set<SellerVo> sellerVo) {
-		this.sellerVos = sellerVo;
+	public void setSellerVo(Set<ProductVo> productVo) {
+		this.productVos = productVo;
 	}
 
 }
