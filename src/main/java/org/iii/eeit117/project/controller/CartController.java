@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import org.iii.eeit117.project.model.data.HelloTypeEnum;
 import org.iii.eeit117.project.model.service.OrderInfoService;
-import org.iii.eeit117.project.model.service.SellerService;
+import org.iii.eeit117.project.model.service.ProductService;
 import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.model.vo.HelloVo;
 import org.iii.eeit117.project.model.vo.OrderInfoVo;
@@ -42,7 +42,7 @@ public class CartController {
 	private OrderInfoService orderinfoService;
 	
 	@Autowired
-	private SellerService sellerService;
+	private ProductService productService;
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String cartItems(HttpSession httpSession, Model model, Integer deleteId) {
@@ -54,7 +54,7 @@ public class CartController {
 			List<ProductVo> cartItems = new LinkedList<>(); // javaBean List
 			productIds.remove(deleteId);
 			for (Integer id : productIds) {
-				cartItems.add(sellerService.findOne(id));
+				cartItems.add(productService.findOne(id));
 			}
 			httpSession.setAttribute("cartItem", cartItems);
 			return MAIN_PAGE;

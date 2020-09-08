@@ -25,7 +25,7 @@ public class OrderInfoVo {
 	public static final String PAY_INFO = "payInfo";
 	public static final String SHIP_INFO = "shipInfo";
 	public static final String SHIP_ADDRESS = "shipAddress";
-	public static final String SELLER_VO = "sellerVo";
+	public static final String PRODUCT_VO = "productVo";
 	public static final String ACCOUNT = "account";
 	public static final String ORDER_CONTEXT = "orderContext";
 	public static final String AMOUNT = "amount";
@@ -110,11 +110,11 @@ public class OrderInfoVo {
 		this.account = account;
 	}
 
-	public Set<ProductVo> getSellerVo() {
+	public Set<ProductVo> getProductVo() {
 		return productVos;
 	}
 
-	public void setSellerVo(Set<ProductVo> productVo) {
+	public void setProductVo(Set<ProductVo> productVo) {
 		this.productVos = productVo;
 	}
 
