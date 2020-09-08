@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<head>
-<link href="<c:url value='/css.header.css'/>" rel="stylesheet"/>
-<script src="<c:url value='js/header.js' />"></script>
-</head>
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 		<a class="navbar-brand prject-link" href="<c:url value='/index' />">
@@ -21,10 +17,11 @@
 			<div class="form-inline mt-2 mt-md-0 module-link">
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value='/cart' />" style="color: white"> <img
-							src="<c:url value='/images/icon/shoppingCartIcon.png' />"
-							width="25" height="25" />
-							<div id="amount">${cart.size()}</div>
+						href="<c:url value='/cart' />" style="color: white"> 
+						<img src="<c:url value='/images/icon/shoppingCartIcon.png' />" width="25" height="25" />
+						<span id="amount">
+							${not empty cart ? cart.size() : 0}
+						</span>
 					</a></li>
 					<li class="nav-item usersmenu"><a class="nav-link"
 						style="color: white">會員專區</a>
