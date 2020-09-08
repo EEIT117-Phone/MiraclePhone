@@ -8,6 +8,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,8 +54,10 @@ public class SellerVo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "PRODUCTID", nullable = false)
 	private Integer productId;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="Account")
 
-	@Column(name = "ACCOUNT")
 	private String account;
 
 	@Column(name = "PHONETYPE")
@@ -132,6 +135,8 @@ public class SellerVo {
 
 	@Column(name = "FILE6")
 	private Byte[] file6;
+	
+	
 	
 	@ManyToOne
     @JoinColumn(name="ORDER_ID")

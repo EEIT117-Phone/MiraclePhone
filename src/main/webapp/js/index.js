@@ -52,4 +52,10 @@ $(function() {
         $("ul.pictureslides").css("left", move);
 
     }
+
+
+
+ $(".usersmenu").click(function(){
+                $(this).toggleClass("active");
+            })
 });
