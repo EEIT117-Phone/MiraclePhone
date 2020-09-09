@@ -21,25 +21,30 @@
   /* top             :100px; */
   margin-bottom      : 10px;
   overflow           : hidden;
-
-
+  
 }
 
-ul.pictureslides {
-  width     : 4008px;
-  /* 透過3200來裝載這個照片四張 */
-  left      : 0px;
-  transition: all .5s;
+    ul.pictureslides {
+      width: 4008px;
+      height:500px;
+      /* 透過3200來裝載這個照片四張 */
+      left: 0px;
+      transition: all .5s;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+    }
 
-}
-
-ul.pictureslides li {
-  width   : 1002px;
-  height  : 500px;
-  /* 這裡指的是每張投影片的寬度為800然後高度為300和外框剛好呼應 */
-  overflow: hidden;
-  float   : left;
-}
+    ul.pictureslides li {
+      width: 1002px;
+      height: 500px;
+      /* 這裡指的是每張投影片的寬度為800然後高度為300和外框剛好呼應 */
+      overflow: hidden;
+      float: left;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
 
 
 ul.pictureslides li img {
