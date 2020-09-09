@@ -132,9 +132,25 @@
                 <form:input path="yearOfManufacture" type="month" name="yearOfManufacture" min="2007-06" max="2020-10"
                     value="2020-10" />
                 <br>
-                <label>
-                    <div id="twzipcode">交易地點:</div>
-                </label>
+                
+                    <div id="twzipcode">交易地點:
+    <div data-role="county"
+         data-name="county"
+         data-value="臺北市"
+         data-style="county-style">
+    </div>
+    <div data-role="district"
+         data-name="district"
+         data-value="大安區"
+         data-style="district-style">
+    </div>
+    <div data-role="zipcode"
+         data-name="zipcode"
+         data-value="160"
+         data-style="zipcode-style">
+    </div>
+</div>
+                
                 <br>
                 <label for="amount">銷售金額:</label>
                 <form:input type="number" max="50000" min="0" value="8000" step="100" required="required"
