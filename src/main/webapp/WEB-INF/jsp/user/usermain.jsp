@@ -40,7 +40,7 @@
 <input id="userdata" type="hidden" value="${user}">
 
 <div id="modifyarea" style="display:none" class="elegant-aero">
-<form action="/MiraclePhone/user/usermodification" method="post">
+<form action="/MiraclePhone/user/usermodification" method="post" id="form" onsubmit="return checkform()">
 <input id="account" name="account" type="hidden" value="${user.account}" >
 <input id="password" name="password" type="password" value="${user.password}" placeholder="${user.password}">
 <input id="name" name="name" type="text" value="${user.name}" placeholder="${user.name}"  >
@@ -52,20 +52,16 @@
 <select class="col-lg-3" name="district" aria-describedby="form-district" required=""></select>
 <input class="d-none" name="zipcode" />
 <br>
-<input type="checkbox" id="seller" name="seller" value="${user.seller}" class="form-input">
+<input type="radio" id="seller" name="seller" value="${user.seller}" class="form-input">
 <span id="seller_word">賣家</span>
 <br>
-<input type="submit" value="提交修改" >
+<input type="submit" id="submit" name="submit" value="提交修改" >
 		
 </form>
 </div>
 <div id="modifybutton-area">
 <input type="button" id="modifybutton" name="modifybutton" value="修改使用者資訊" /> 
 </div>
-
-
-
-
 
 
 <script src="<c:url value='/js/usermain.js' />"></script>

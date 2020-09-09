@@ -17,7 +17,7 @@
 			<h1>會員資料填寫</h1>
 </div>
 <div class="all-form">
-		<form:form servletRelativeAction="/user/usersignup" method="post" id="makeUser" class="form-writein">
+		<form:form servletRelativeAction="/user/usersignup" method="post" id="makeUser" class="form-writein" onsubmit="return checkform()">
 			<div class="form-writein">
 			<input id="account" type="text" name="account" placeholder="電子郵件"
 					value="" class="form-input"  placeholder="帳號"  />
