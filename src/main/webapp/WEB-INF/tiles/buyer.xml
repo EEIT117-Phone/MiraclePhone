@@ -8,4 +8,9 @@
 			value="/WEB-INF/jsp/buyer/buyer.jsp" />
 	</definition>
 
+	<definition name="buyerAnswer" extends="template-def">
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/buyer/buyerAnswer.jsp" />
+	</definition>
+	
 </tiles-definitions>

@@ -22,7 +22,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BuyerController {
 
 	public static final String MODULE_NAME = "buyer";
+	public static final String ANSWER_PAGE = MODULE_NAME + "Answer";
 	private int id;
+	private int mid;
+	MassageVo quest ;
+	
 	private Session session;
 	@Autowired
 	private ProductService productService;
@@ -40,8 +44,7 @@ public class BuyerController {
 		List<MassageVo> list = query.getResultList();
 		model.addAttribute("size", list.size());
 		model.addAttribute("qa", list);
-		model.addAttribute("info", productService.findOne(10013));
-
+		model.addAttribute("info", productService.findOne(10013));//賣場資訊
 		return "buyer";
 	}
 
@@ -52,10 +55,28 @@ public class BuyerController {
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String timeStr = df.format(time);
-		mv.setProductId(10013);
+		mv.setProductId(10013);//提問買方的ID,後面用session拿
 		mv.setMassage(massage);
 		mv.setLeaveTime(timeStr);
 		session.save(mv);
+		return "redirect:/" + MODULE_NAME;
+	}
+	
+	@RequestMapping(value = "/answer" , method = RequestMethod.GET)
+	public String answer(int id) {
+		mid = id;
+		quest = massageService.findOne(mid);
+		return ANSWER_PAGE;
+	}
+	
+	@RequestMapping(value = "/answerpage" , method = RequestMethod.POST)
+	public String answerpage(@RequestParam(name = "text") String answer) {
+		Timestamp time = new Timestamp(System.currentTimeMillis());
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String timeStr = df.format(time);
+		quest.setAnsTime(timeStr);
+		quest.setAnswer(answer);
+		massageService.save(quest);
 		return "redirect:/" + MODULE_NAME;
 	}
 }

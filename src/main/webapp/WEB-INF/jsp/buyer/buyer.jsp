@@ -77,7 +77,6 @@
 				<p>機況:${info.phoneCondition}</p>
 				<p>保固:${info.phoneWarranty}</p>
 				<p>種類:${info.phoneSort}</p>
-				<p>付款方式:</p>
 				<p>出廠日期:${info.yearOfManufacture}</p>
 				<p>販售原因:${info.sellReason}</p>
 			</div>
@@ -85,7 +84,12 @@
 				<c:forEach varStatus="status" var="li" items="${qa}">
 					<div>
 						<p>${info.account}(${li.leaveTime})</p><br>
+						<p>問題:</p>
 						<p>${li.massage}</p>
+						<p>回覆:</p>
+						<p>${li.ansTime}</p>
+						<p>style="background-color: gray">${li.answer}</p>
+						<input type="button" value="回覆" onclick="javascript: location.href = '<c:url value='/buyer/answer?id=${li.mId}' />'"/>
 						<hr>
 					</div>
 				</c:forEach>
