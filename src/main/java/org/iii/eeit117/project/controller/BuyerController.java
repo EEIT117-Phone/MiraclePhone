@@ -23,11 +23,9 @@ public class BuyerController {
 
 	public static final String MODULE_NAME = "buyer";
 	public static final String ANSWER_PAGE = MODULE_NAME + "Answer";
-	private int id;
 	private int mid;
 	MassageVo quest ;
 	
-	private Session session;
 	@Autowired
 	private ProductService productService;
 
@@ -35,30 +33,23 @@ public class BuyerController {
 	private MassageService massageService;
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
-	public String sellerInfo(Model model) {
-		session = HibernateUtil.getSessionFactory().getCurrentSession();
-		Query<MassageVo> query = session.createQuery("from MassageVo where productId=:pid", MassageVo.class);
-
-//		id=productId;
-		query.setParameter("pid", 10013);
-		List<MassageVo> list = query.getResultList();
-		model.addAttribute("size", list.size());
-		model.addAttribute("qa", list);
-		model.addAttribute("info", productService.findOne(10013));//賣場資訊
+	public String sellerInfo(Model model, Integer productId) {
+		List<MassageVo> massages = massageService.findByProductId(productId);
+		model.addAttribute("size", massages.size());
+		model.addAttribute("qa", massages);
+		model.addAttribute("info", productService.findOne(productId));//賣場資訊
 		return "buyer";
 	}
 
 	@RequestMapping(value = "/massagepage", method = RequestMethod.POST)
 	public String massageInfo(MassageVo mv, @RequestParam(name = "textarea") String massage) {
-		session = HibernateUtil.getSessionFactory().getCurrentSession();
-
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String timeStr = df.format(time);
 		mv.setProductId(10013);//提問買方的ID,後面用session拿
 		mv.setMassage(massage);
 		mv.setLeaveTime(timeStr);
-		session.save(mv);
+		massageService.save(mv);
 		return "redirect:/" + MODULE_NAME;
 	}
 	
