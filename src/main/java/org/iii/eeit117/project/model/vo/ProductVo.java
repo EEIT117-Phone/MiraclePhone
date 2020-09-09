@@ -286,11 +286,11 @@ public class ProductVo {
 		this.district = district;
 	}
 
-	public String getTwZipCode() {
+	public String getZipCode() {
 		return zipcode;
 	}
 
-	public void setTwZipCode(String zipcode) {
+	public void setZipCode(String zipcode) {
 		this.zipcode = zipcode;
 	}
 

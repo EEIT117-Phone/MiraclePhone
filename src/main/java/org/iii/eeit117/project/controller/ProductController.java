@@ -19,7 +19,7 @@ public class ProductController {
 
 	public static final String MAIN_PAGE = MODULE_NAME;
 	
-	public static final String SalesPrice_PAGE = "salesPrice";
+	public static final String PRODUCTPROMOTIONVIP = "productPromotionVIP";
 
 	public static final String UPDATE_PAGE = MODULE_NAME + "Update";
 
@@ -39,8 +39,9 @@ public class ProductController {
 	@RequestMapping(value = { "/insert", "/update" }, method = RequestMethod.POST)
 	public String insert(ProductVo productVo) {
 		productService.save(productVo);
-		return "redirect:/" + SalesPrice_PAGE;
+		return "redirect:/" + PRODUCTPROMOTIONVIP;
 	}
+	
 	
 	@ResponseBody
 	@RequestMapping(value = "test", method = RequestMethod.GET)

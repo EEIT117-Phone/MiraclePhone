@@ -6,4 +6,9 @@
 	<definition name="product" extends="template-def">  
         <put-attribute name="body"  value="/WEB-INF/jsp/advertise/advertisePage.jsp" />  
     </definition>  
+
+	<definition name="productPromotionVIP" extends="template-def">  
+        <put-attribute name="body"  value="/WEB-INF/jsp/productPromotionVIP/productPromotionVIP.jsp" />  
+    </definition>  
+    
 </tiles-definitions>

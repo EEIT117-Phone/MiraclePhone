@@ -24,6 +24,32 @@ public class MassageVo {
 	
 	@Column(name="LEAVETIME")
 	private String leaveTime;
+	
+	@Column(name="ANSWER")
+	private String answer;
+	
+	@Column(name="ANSTIME")
+	private String ansTime;
+	
+	
+	public String getAnsTime() {
+		return ansTime;
+	}
+	public void setAnsTime(String ansTime) {
+		this.ansTime = ansTime;
+	}
+	public Integer getmId() {
+		return mId;
+	}
+	public void setmId(Integer mId) {
+		this.mId = mId;
+	}
+	public String getAnswer() {
+		return answer;
+	}
+	public void setAnswer(String answer) {
+		this.answer = answer;
+	}
 	public Integer getProductId() {
 		return productId;
 	}

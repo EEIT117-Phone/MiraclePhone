@@ -4,6 +4,7 @@ $(function() {
     var inner = "";
     for (var i = 0; i < customerQA.length; i++) {
         inner = inner + '<option value=i>' + customerQA[i] + '</option>';
+	
     }
     customerQASelect.innerHTML = inner;
 

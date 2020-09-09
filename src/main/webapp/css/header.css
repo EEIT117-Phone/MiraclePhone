@@ -20,6 +20,17 @@
 	cursor: pointer;
 	position: relative;
 	padding: 0 0 0 2px;
+	width:100px;
+	/* background:red; */
+}
+
+.usersmenu.active {
+	display:block;
+	cursor: pointer;
+	position: relative;
+	padding: 0 0 0 2px;
+	width:100px;
+	
 	/* background:red; */
 }
 
@@ -27,8 +38,8 @@
 	position: relative;
 	left: 0;
 	top: 0;
-	background: rgba(255, 255, 255, .8);
-	width: 80px;
+	
+	width: 100px;
 	opacity: 0;
 	max-height: 0;
 	/* overflow: hidden; */
@@ -37,11 +48,14 @@
 .usersmenu.active ul {
 	opacity: 100;
 	max-height: 0px;
+	width:100px;
 }
 
 .usersmenu ul li a {
 	display: block;
-	background: white;
+	background: #444444;
+	color: white;
+    text-decoration: none;
 }
 
 .usersmenu ul li a:hover {
