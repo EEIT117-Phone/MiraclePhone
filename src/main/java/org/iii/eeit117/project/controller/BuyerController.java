@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import org.iii.eeit117.project.model.service.BuyerService;
 import org.iii.eeit117.project.model.service.MassageService;
+import org.iii.eeit117.project.model.service.ProductService;
 import org.iii.eeit117.project.model.util.HibernateUtil;
 import org.iii.eeit117.project.model.vo.MassageVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ public class BuyerController {
 	private int id;
 	private Session session;
 	@Autowired
-	private BuyerService buyerService;
+	private ProductService productService;
 
 	@Autowired
 	private MassageService massageService;
@@ -36,11 +36,11 @@ public class BuyerController {
 		Query<MassageVo> query = session.createQuery("from MassageVo where productId=:pid", MassageVo.class);
 
 //		id=productId;
-		query.setParameter("pid", 10025);
+		query.setParameter("pid", 10013);
 		List<MassageVo> list = query.getResultList();
 		model.addAttribute("size", list.size());
 		model.addAttribute("qa", list);
-		model.addAttribute("info", buyerService.findOne(10025));
+		model.addAttribute("info", productService.findOne(10013));
 
 		return "buyer";
 	}
@@ -52,7 +52,7 @@ public class BuyerController {
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String timeStr = df.format(time);
-		mv.setProductId(10025);
+		mv.setProductId(10013);
 		mv.setMassage(massage);
 		mv.setLeaveTime(timeStr);
 		session.save(mv);

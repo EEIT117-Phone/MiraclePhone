@@ -76,10 +76,7 @@
 				<p>顏色:${info.color}</p>
 				<p>機況:${info.phoneCondition}</p>
 				<p>保固:${info.phoneWarranty}</p>
-				<p>耳機:${info.headPhone}</p>
-				<p>充電線:</p>
 				<p>種類:${info.phoneSort}</p>
-				<p>插頭:${info.socket}</p>
 				<p>付款方式:</p>
 				<p>出廠日期:${info.yearOfManufacture}</p>
 				<p>販售原因:${info.sellReason}</p>
