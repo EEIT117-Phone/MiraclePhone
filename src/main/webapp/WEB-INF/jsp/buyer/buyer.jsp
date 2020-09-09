@@ -88,7 +88,7 @@
 						<p>${li.massage}</p>
 						<p>回覆:</p>
 						<p>${li.ansTime}</p>
-						<p>style="background-color: gray">${li.answer}</p>
+						<p style="background-color: gray">${li.answer}</p>
 						<input type="button" value="回覆" onclick="javascript: location.href = '<c:url value='/buyer/answer?id=${li.mId}' />'"/>
 						<hr>
 					</div>
