@@ -1,6 +1,7 @@
 package org.iii.eeit117.project.search;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -44,7 +45,7 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 
 		// 進階搜尋功能
 		if (StringUtil.isNonEmpty(checkedOption)) {
-			restrictions.add(builder.equal(root.get(ProductVo.PHONETYPE), checkedOption));
+			restrictions.add(builder.like(root.get(ProductVo.PHONETYPE), checkedOption + "%"));
 			System.out.println("checkedOption: " + checkedOption);
 		}
 
@@ -52,8 +53,9 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 		if (StringUtil.isNonEmpty(searchInput)) {
 			System.out.println("searchInput: " + searchInput);
 			String[] searchInputList = searchInput.split(" ");
-			Predicate orSearch = null;
-			Predicate finalSearch = null;
+			Predicate orSearch;
+			Predicate finalSearch;
+			List<Predicate> list = new LinkedList<>();
 			for (String oneWord : searchInputList) {
 				System.out.println("oneWord: " + oneWord);
 				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE), "%" + oneWord + "%");
@@ -63,18 +65,10 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 				Predicate phonecondition1 = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
 				Predicate county1 = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
 				Predicate district1 = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
-
-//			restrictions.add(builder.like(root.get(SearchVo.PHONETYPE), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.MEMORY), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.COLOR), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.PHONESORT), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.PHONECONDITION), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.COUNTY), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.DISTRICT), "%" + oneWord + "%"));
-
 				orSearch = builder.or(phonetype1, memory1, color1, phonesort1, phonecondition1, county1, district1);
+				list.add(orSearch);
 			}
-			finalSearch = builder.and(orSearch, orSearch);
+			finalSearch = builder.and(list.toArray(new Predicate[0]));
 			restrictions.add(finalSearch);
 			query.where(finalSearch);
 		}
