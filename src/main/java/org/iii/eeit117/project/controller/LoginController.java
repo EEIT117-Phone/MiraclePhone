@@ -83,7 +83,7 @@ public class LoginController {
 		String county=request.getParameter("county");
 		String district=request.getParameter("district");
 		String zipcode=request.getParameter("zipcode");
-		String buyer=request.getParameter("buyer");
+		String gm=request.getParameter("gm");
 		String seller=request.getParameter("seller");
 		orginaccount.setPassword(password);
 		orginaccount.setName(name);
@@ -93,7 +93,7 @@ public class LoginController {
 		orginaccount.setCounty(county);
 		orginaccount.setDistrict(district);
 		orginaccount.setZipcode(zipcode);
-		orginaccount.setBuyer(buyer);
+		orginaccount.setGm(gm);
 		orginaccount.setSeller(seller);
 		userService.save(orginaccount);
 		UserVo userVo=userService.findOne(account);

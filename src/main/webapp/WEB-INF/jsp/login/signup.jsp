@@ -69,8 +69,8 @@
 			
 			<div class="form-writein">
 			權限開通<br>
-			<input type="checkbox" id="buyer" name="buyer" value="buyer" class="form-input">買家
-			<input type="checkbox" id="seller" name="seller" value="seller" class="form-input">
+			<input type="hidden" id="gm" name="gm" value="" class="form-input">
+			<input type="radio" id="seller" name="seller" value="seller" class="form-input">
 			<span id="seller_word">賣家</span><br>
 			</div>
 			<div class="form-writein">
