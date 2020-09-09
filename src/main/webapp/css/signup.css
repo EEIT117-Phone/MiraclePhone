@@ -3,6 +3,10 @@ body{
 	height: 100%;
   padding-top: 100px;
 }
+.signuptitle{
+	text-align:center;
+	margin:auto;
+}
 .all-form{
 display: -ms-flexbox;
   display: flex;

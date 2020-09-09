@@ -13,6 +13,9 @@
 <script src="<c:url value='/js/er.twzipcode.data.js' />"></script>
 </head>
 <body>
+<div id="signuptitle">
+			<h1>會員資料填寫</h1>
+</div>
 <div class="all-form">
 		<form:form servletRelativeAction="/user/usersignup" method="post" id="makeUser" class="form-writein">
 			<div class="form-writein">
@@ -53,7 +56,7 @@
 						aria-describedby="form-county" required="">
 				</select> 
 				<select
-						class="col-lg-5" width:200px" name="district"
+						class="col-lg-5"  name="district"
 						aria-describedby="form-district" required="">
 				</select>
 					<input class="col-lg-8" id="address" type="text"
@@ -66,8 +69,8 @@
 			
 			<div class="form-writein">
 			權限開通<br>
-			<input type="checkbox" id="buyer" name="buyer" value="buyer" class="form-input">買家
-			<input type="checkbox" id="seller" name="seller" value="seller" class="form-input">
+			<input type="hidden" id="gm" name="gm" value="" class="form-input">
+			<input type="radio" id="seller" name="seller" value="seller" class="form-input">
 			<span id="seller_word">賣家</span><br>
 			</div>
 			<div class="form-writein">
