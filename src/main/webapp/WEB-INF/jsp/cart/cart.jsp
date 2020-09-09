@@ -49,7 +49,7 @@
 								<td>${product.memory}</td>
 								<td>${product.color}</td>
 								<td>1</td>
-								<td>${product.amount}</td>
+								<td id=money${status.count}>${product.amount}</td>
 								<td>
 									<!--               <input type='hidden' name='deleteProduct' value=${order.productId}/> -->
 									<input type="submit" class="cart-delete btn btn-secondary btn-sm" name = "deleteId" value="${product.productId}">刪除
@@ -64,11 +64,9 @@
 					<tbody>
 						<tr>
 							<td></td>
-							<td>件商品</td>
-							<td>總金額:$</td>
+							<td>${cart.size()}件商品</td>
+							<td id=totalAmount></td>
 							<td><input type="submit" class="btn btn-primary btn-sm" value="送出訂單"/></td>
-<!-- 							<td><a href="/MiraclePhone/cart/orderInfo" class="btn btn-primary btn-sm" -->
-<!-- 								role="button" aria-pressed="true">送出訂單</a></td> -->
 						</tr>
 					</tbody>
 				</table>

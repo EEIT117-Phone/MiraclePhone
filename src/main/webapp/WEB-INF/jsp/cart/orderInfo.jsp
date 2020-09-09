@@ -8,6 +8,7 @@
 <title>shipInfo</title>
 <link href="<c:url value='/css/shiping.css' />" rel="stylesheet">
 <script src="<c:url value='/js/jquery.twzipcode.min.js' />"></script>
+<script src="<c:url value='/js/cart.js' />"></script>
 <script src="<c:url value='/js/shipInfo.js' />"></script>
 
 </head>
@@ -49,7 +50,7 @@
 								<td>${product.memory}</td>
 								<td>${product.color}</td>
 								<td>1</td>
-								<td>${product.amount}</td>
+								<td id=money${status.count}>${product.amount}</td>
 
 							</tr>
 					</c:forEach>
@@ -132,7 +133,7 @@
 						<div class="form-group">
 							<div id="twzipcode"></div>
 							<label for="inputAddress">地址</label>
-							<input type="text" class="form-control" id="address">
+							<form:textarea path="shipAddress" rows="1" id="address" class="form-control"/>
 						</div>
 
 				</div>
@@ -143,7 +144,7 @@
 				<tr>
 					<td></td>
 					<td>${cart.size()}件商品</td>
-					<td>總金額:$${totalAmount}</td>
+					<td id=totalAmount>總金額:$</td>
 					<td><input type="submit" class="btn btn-primary" value="送出訂單" /></td>
 <!-- 					<td><a href="/MiraclePhone/cart/orderConfirm" -->
 <!-- 						class="btn btn-primary btn-sm" role="button" aria-pressed="true">訂單結帳</a></td> -->

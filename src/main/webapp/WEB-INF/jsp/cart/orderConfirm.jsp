@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>OrderConfirm</title>
     <link href="<c:url value='/css/orderConfirm.css' />" rel="stylesheet">
-    <script src="<c:url value='/js/orderConfirm.js' />"></script>
+    <script src="<c:url value='/js/cart.js' />"></script>
 </head>
 
 <body>
@@ -44,23 +44,23 @@
 							<td>${product.memory}</td>
 							<td>${product.color}</td>
 							<td>1</td>
-							<td>${product.amount}</td>
+							<td id=money${status.count}>${product.amount}</td>
                     </tr>
             </c:forEach>
                     <tr class="ship-payment">
                         <td></td>
                         <td>付款資訊:</td>
                         <td colspan="5">
-                            <div class="payment">匯款帳號：12345678</div>
+                            <div class="payment">${payInfoMsg}</div>
                             <div></div>
                         </td>
                     </tr>
 
                     <tr class="ship-method">
                         <td></td>
-                        <td>取貨資訊:</td>
+                        <td>寄送資訊:</td>
                         <td colspan="5">
-                            <div class="shipMethod">請與賣家聊聊，約定取貨地點</div>
+                            <div class="shipMethod">${shipInfoMsg}</div>
                         </td>
                     </tr>
 
@@ -73,7 +73,7 @@
                     <tr>
                         <td></td>
                         <td>${cart.size()}件商品</td>
-                        <td>總金額:$${totalAmount}</td>
+                        <td id=totalAmount>總金額:$</td>
                     </tr>
                 </tbody>
               
