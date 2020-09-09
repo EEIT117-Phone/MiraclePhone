@@ -51,8 +51,8 @@ public class UserVo {
 	@Column(name = "seller")
 	private String seller;
 
-	@Column(name = "buyer")
-	private String buyer;
+	@Column(name = "gm")
+	private String gm;
 
 	@Column(name = "photo")
 	private byte[] photo;
@@ -155,12 +155,12 @@ public class UserVo {
 		this.seller = seller;
 	}
 
-	public String getBuyer() {
-		return buyer;
+	public String getGm() {
+		return gm;
 	}
 
-	public void setBuyer(String buyer) {
-		this.buyer = buyer;
+	public void setGm(String gm) {
+		this.gm = gm;
 	}
 
 	public byte[] getPhoto() {

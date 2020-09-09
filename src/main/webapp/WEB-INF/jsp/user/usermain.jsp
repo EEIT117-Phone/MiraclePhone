@@ -35,7 +35,6 @@
 <td>${user.district}</td>
 <td>${user.zipcode}</td>
 <td>${user.seller}</td>
-<td>${user.buyer}</td>
 </tr>
 </table>
 <input id="userdata" type="hidden" value="${user}">
@@ -53,8 +52,6 @@
 <select class="col-lg-3" name="district" aria-describedby="form-district" required=""></select>
 <input class="d-none" name="zipcode" />
 <br>
-<input type="checkbox" id="buyer" name="buyer" value="${user.buyer}" class="form-input">
-<span id="buyer_word">買家</span>
 <input type="checkbox" id="seller" name="seller" value="${user.seller}" class="form-input">
 <span id="seller_word">賣家</span>
 <br>
