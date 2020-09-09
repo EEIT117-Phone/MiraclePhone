@@ -10,7 +10,7 @@ body {
 }
 
 .main-body-and-filter {
-/* 	border: 3px blue solid; */
+	/* 	border: 3px blue solid; */
 	width: 100%;
 }
 
@@ -88,7 +88,6 @@ h4 {
 	height: 15%;
 	object-fit: cover;
 } */
-
 .card-title {
 	font-size: .9rem;
 	font-weight: bold;
@@ -115,13 +114,14 @@ h4 {
 }
 
 .search {
-	width: 80%;
- 	display: flex;
- 	padding-bottom: 10px;
+	width: 100%;
+	/*  	display: flex; */
+	display: inline-block;
+	padding-bottom: 10px;
 }
 
 .searchTerm {
-	width: 100%;
+	width: 80%;
 	border: 3px solid #6c757d;
 	padding: 5px;
 	height: 36px;

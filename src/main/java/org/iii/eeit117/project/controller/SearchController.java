@@ -37,6 +37,7 @@ public class SearchController {
 		phoneTypeList.put("iPhoneX", "iPhone X系列");
 		phoneTypeList.put("iPhone11", "iPhone 11系列");
 		phoneTypeList.put("iPhoneSE2", "iPhone SE2系列");
+		searchBean.setCheckedOption(new String []{" "});
 
 		Map<String, String> memoryList = new LinkedHashMap<String, String>();
 		memoryList.put(" ", "不限");
@@ -45,6 +46,9 @@ public class SearchController {
 		memoryList.put("64GB", "64 GB");
 		memoryList.put("128GB", "128 GB");
 		memoryList.put("256GB", "256 GB");
+
+
+
 
 		model.addAttribute("searchBean", searchBean);
 		model.addAttribute("results", searchService.search(searchBean));
@@ -60,5 +64,7 @@ public class SearchController {
 		model.addAttribute("results", searchService.search(searchBean));
 		return MODULE_NAME;
 	}
+	
+	
 
 }

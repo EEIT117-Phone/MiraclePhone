@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="<c:url value='/css/tail.select-default.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/css/owl.carousel.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/css/owl.theme.default.min.css' />" />
-    <link rel="stylesheet" href="<c:url value='/css/font-awesome.min.css' />" />
+    <link rel="stylesheet" href="<c:url value='/css/font-awesome-4.7.0/css/font-awesome.min.css' />" />
+<%--     <link rel="stylesheet" href="<c:url value='/css/font-awesome.min.css' />" /> --%>
     <link rel="stylesheet" href="<c:url value='/css/search.css' />" />
 </head>
 

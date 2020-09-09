@@ -3,7 +3,6 @@ package org.iii.eeit117.project.search;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -26,8 +25,8 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 	private Integer amount;
 	private String file1;
 	private String searchInput;
-	private String checkedOption;
-
+	private String[] checkedOption;
+	
 	@Override
 	public CriteriaQuery<ProductVo> getCriteriaQuery() {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -86,11 +85,11 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 		return query.where(builder.or(restrictions.toArray(new Predicate[] {})));
 	}
 
-	public String getCheckedOption() {
+	public String[] getCheckedOption() {
 		return checkedOption;
 	}
 
-	public void setCheckedOption(String checkedOption) {
+	public void setCheckedOption(String[] checkedOption) {
 		this.checkedOption = checkedOption;
 	}
 
