@@ -70,6 +70,22 @@ public class LoginController {
 		return SIGNUP_PAGE;
 	}
 	
+	@RequestMapping(value="/"+USERMODIFICATION_PAGE,method=RequestMethod.GET)
+	//如果從搜尋頁面直接點修改會員資料
+	//先判斷session內的inservice屬性是否為true
+	//是則導往會員修改頁面，否則導往登入頁面
+	public String userDirectModification(HttpServletRequest request,HttpSession httpsession,Model model) {
+		boolean inservice=(boolean) httpsession.getAttribute("inservice");
+		if(inservice) {
+			return USERMAIN_PAGE;
+		}
+		else {
+			return MAIN_PAGE;
+		}
+		
+		
+	}
+	
 	@RequestMapping(value="/"+USERMODIFICATION_PAGE,method=RequestMethod.POST)
 	public String userModification(HttpServletRequest request,HttpSession httpsession,Model model) {
 		String account=request.getParameter("account"); //取得欲修改的使用者帳號

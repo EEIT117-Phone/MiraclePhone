@@ -21,11 +21,12 @@ $(function () {
         .blur(
             function () { //驗證密碼
                 let pwdrule = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+`\-={}\[\]:";'<>?,.\/]).{4,16}$/;
-                ;
+                
                 let result = pwdrule.test($("#password").val());
                 
                 if (result == false) {
                     $("#pwdsure").html("格式不符或空白")
+					$("#pwdsure").val("false");
                 } else {
                     $("#pwdsure").html("成功")
                 }
@@ -37,33 +38,51 @@ $(function () {
             $("#sureidnumber").text("正確");
         } else {
             $("#sureidnumber").text("驗證錯誤");
+			$("#sureidnumber").val("false");
         }
     })
 
     function checkID(id) { //驗證身分證字號
-        tab = "ABCDEFGHJKLMNPQRSTUVXYWZIO"
+        tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		tabchange1=[1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3]
 		tabchange2=[0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5]
         verif=[0,8,7,6,5,4,3,2,1,1]
 
         if (id.length != 10){
+			
             return false;
+
 		}
 		firstChar=id.charAt(0) //第一個英文字
         firstChartIndex = tab.indexOf(id.charAt(0)) //輸入身分證第一個字母在tab內的index
 		firstnum=tabchange1[firstChartIndex] //第一個數字
 		secondnum=tabchange2[firstChartIndex] //第二個數字
 		sum=firstnum*1+secondnum*9 //先將頭兩位數相加
-       for(a=1;a<9;a++){ //將後九位數字與驗證碼放在同一個index，再相加
+       for(a=1;a<10;a++){ //將後九位數字與驗證碼放在同一個index，再相加
+		
 		sum=sum+id[a]*verif[a]
 		}
 	if(sum%10!=0){
+	
 	return false 
+	
 	}
+	
 	return true
 	
 	
   }
+
+function checkform(){
+	if($("#pwdsure").val=="false"){
+		alert("密碼格式有誤")
+		return false;
+	}
+	else if($("#sureidnumber").val=="false"){
+		alert("身分證格式有誤")
+		return false
+	}
+}
 	erTWZipcode();  //地址
 	
 	
