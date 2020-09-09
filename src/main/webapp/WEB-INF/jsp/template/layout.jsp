@@ -26,6 +26,8 @@
 	<script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
 	<!-- Bootstrap js -->
 	<script src="<c:url value='/js/bootstrap.bundle.min.js' />"></script>
+	<!-- Header js -->
+	<script src="<c:url value='/js/header.js' />"></script>
 </head>
 <body>
 	<!-- Header -->
