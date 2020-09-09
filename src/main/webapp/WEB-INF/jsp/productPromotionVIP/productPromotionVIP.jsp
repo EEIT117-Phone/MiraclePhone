@@ -18,7 +18,7 @@
    
 
     <div id="bigframe">
-    <P id="headh2"><h2>賣家刊登方案</h2></P>
+    <P id="headh2"><h2>選擇刊登方案</h2></P>
    
     
     <div id="collection">
