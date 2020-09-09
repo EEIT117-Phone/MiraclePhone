@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
-
-
+import org.hibernate.Session;
 import org.iii.eeit117.project.model.service.UserService;
-import org.iii.eeit117.project.model.service.impl.UserServiceImpI;
 import org.iii.eeit117.project.model.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,17 +32,9 @@ public class LoginController {
 	public String Main(Model model) {
 		return MAIN_PAGE;
 	}
-	@RequestMapping(value = "/1", method = RequestMethod.GET) //前往創建會員畫面捷徑
-	public String GomakeUser(Model model) {
-		return SIGNUP_PAGE;
-	}
-	@RequestMapping(value = "/2", method = RequestMethod.GET) //前往會員資料畫面捷徑
-	public String GoUserMain(Model model) {
-		return "usermain";
-	}
 	
 	@RequestMapping(value = "/"+MAIN_PAGE, method = RequestMethod.POST)
-	public String checkLogin(HttpServletRequest request,Model model) {
+	public String checkLogin(HttpServletRequest request,HttpSession httpsession,Model model) {
 		String account=request.getParameter("useraccount");
 		String password=request.getParameter("userpassword");
 		String loginStatus=userService.checkLogin(account, password);
@@ -51,14 +42,27 @@ public class LoginController {
 		list=userService.getColumnName();
 		System.out.println(list);
 		if(loginStatus.equals("acc&&pwd are corrected")) {
-			System.out.println(loginStatus);
 			UserVo userVo=userService.findOne(account);
-			model.addAttribute("user",userVo); //傳送使用者的資料
-			model.addAttribute("usercolumn",list);//傳送Users表單的欄位名
+			httpsession=request.getSession();
+			httpsession.setAttribute("usercolumn",list);
+			httpsession.setAttribute("account", account); //登入成功設定帳號資訊在httpsession內
+			httpsession.setAttribute("password", password); //登入成功設定密碼資訊在httpsession內
+			httpsession.setAttribute("inservice", true); //登入成功設定狀態:true在httpsession內
+			httpsession.setAttribute("user", userVo);
+			System.out.println(httpsession.getAttribute("account"));
+			System.out.println(loginStatus);
+			
+//			model.addAttribute("user",userVo); //傳送使用者的資料
+//			model.addAttribute("usercolumn",list);//傳送Users表單的欄位名
+			
 			return  USERMAIN_PAGE;
 		}
 		model.addAttribute("loginstatus",loginStatus);
 		return MAIN_PAGE;
+	}
+	@RequestMapping(value = "/"+SIGNUP_PAGE, method = RequestMethod.GET) 
+	public String Gousersignup(Model model) {
+		return SIGNUP_PAGE;
 	}
 	@RequestMapping(value = "/"+SIGNUP_PAGE, method = RequestMethod.POST)
 	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo) {
@@ -67,7 +71,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/"+USERMODIFICATION_PAGE,method=RequestMethod.POST)
-	public String userModification(HttpServletRequest request,Model model) {
+	public String userModification(HttpServletRequest request,HttpSession httpsession,Model model) {
 		String account=request.getParameter("account"); //取得欲修改的使用者帳號
 		System.out.println(account);
 		UserVo orginaccount=userService.findOne(account); //找在資料庫已存在的使用者資料(用帳號找)
@@ -79,6 +83,8 @@ public class LoginController {
 		String county=request.getParameter("county");
 		String district=request.getParameter("district");
 		String zipcode=request.getParameter("zipcode");
+		String buyer=request.getParameter("buyer");
+		String seller=request.getParameter("seller");
 		orginaccount.setPassword(password);
 		orginaccount.setName(name);
 		orginaccount.setIdnumber(idnumber);
@@ -87,10 +93,15 @@ public class LoginController {
 		orginaccount.setCounty(county);
 		orginaccount.setDistrict(district);
 		orginaccount.setZipcode(zipcode);
-		System.out.println(orginaccount.getAccount());
+		orginaccount.setBuyer(buyer);
+		orginaccount.setSeller(seller);
 		userService.save(orginaccount);
+		UserVo userVo=userService.findOne(account);
+		httpsession=request.getSession();
+		httpsession.setAttribute("user", userVo);
 		return USERMAIN_PAGE;
 	}
+	
 	
 	
 

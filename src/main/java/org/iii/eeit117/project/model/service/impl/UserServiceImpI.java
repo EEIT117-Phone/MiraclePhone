@@ -28,13 +28,13 @@ public class UserServiceImpI extends BaseServiceImpl<UserVo, String> implements 
 		try {
 			UserVo dataCheck=dao.findOne(account);
 			if(dataCheck==null) {
-				return "this account had not been registered";
+				return "帳號未註冊";
 			}
 			String checkpwd=dataCheck.getPassword();
 			if(checkpwd.equals(password)) { //若從資料庫有成功撈出同筆帳號，回傳成功字串
 				return "acc&&pwd are corrected";
 			}
-			return "pwd is not correct";
+			return "密碼錯誤";
 			
 		}catch(Exception e){
 			e.getStackTrace();

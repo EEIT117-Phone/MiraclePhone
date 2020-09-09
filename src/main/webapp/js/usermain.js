@@ -18,11 +18,19 @@ function countage(){ //計算年齡
 	var birthyear=birth.split("-")[0];
 	var todayyear=today.getFullYear();
 	var age=todayyear-birthyear;
-	console.log(age);
-	birth=age;
+	document.getElementById("age").value=age;
+	 if (document.getElementById("age").value < 20) //年齡不滿20歲隱藏當買家資格
+        {
+            document.getElementById("seller").hidden = true;
+            document.getElementById("seller_word").hidden = true;
+        } else {
+            document.getElementById("seller").hidden = false;
+            document.getElementById("seller_word").hidden = false;
+        }
 }
 
 birth.addEventListener("blur",countage);
+
 
 
 

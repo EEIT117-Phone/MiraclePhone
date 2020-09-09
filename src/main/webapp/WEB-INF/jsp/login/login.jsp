@@ -24,7 +24,7 @@
        </div >  	
        <div class="MakeUser">
   <button class="MakeUserButton"
-   onclick="javascript:location.href='http://localhost:8080/MiraclePhone/user/1'">會員註冊
+   onclick="javascript:location.href='http://localhost:8080/MiraclePhone/user/usersignup'">會員註冊
    </button>
        </div> 
     

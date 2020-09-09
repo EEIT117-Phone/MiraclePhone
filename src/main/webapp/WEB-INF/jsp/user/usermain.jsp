@@ -12,8 +12,9 @@
 <script type="text/javascript"></script>
 <script src="<c:url value='/js/er.twzipcode.js' />"></script>
 <script src="<c:url value='/js/er.twzipcode.data.js' />"></script>
+<input id="importMsgInput" type="hidden" value=""/> 
 <div class="welcome">
-<h1>歡迎回來,${user.account}</h1>
+<h1>歡迎回來${account}</h1>
 </div>
 <h1>會員資料</h1>
 <table class="userDataTable">
@@ -39,18 +40,26 @@
 </table>
 <input id="userdata" type="hidden" value="${user}">
 
-<div id="modifyarea" style="display:none">
+<div id="modifyarea" style="display:none" class="elegant-aero">
 <form action="/MiraclePhone/user/usermodification" method="post">
 <input id="account" name="account" type="hidden" value="${user.account}" >
-<span>密碼</span><input id="password" name="password" type="password" value="${user.password}" >
-<span>姓名</span><input id="name" name="name" value="${user.name}" >
-<span>身分證字號</span><input id="idnumber" name="idnumber" value="${user.idnumber}" >
-<span>生日</span><input id="birth" name="birth" type="date" value="${user.birth}" >
+<input id="password" name="password" type="password" value="${user.password}" placeholder="${user.password}">
+<input id="name" name="name" type="text" value="${user.name}" placeholder="${user.name}"  >
+<input id="idnumber" name="idnumber" type="text" value="${user.idnumber}" placeholder="${user.idnumber}" >
+<input id="birth" name="birth" type="date" value="${user.birth}" placeholder="${user.birth}" >
 <input id="age" type="hidden" name="age" value="">
-<select class="col-lg-1" name="county" aria-describedby="form-county" required=""></select> 
-<select class="col-lg-1" name="district" aria-describedby="form-district" required=""></select>
+<br>
+<select class="col-lg-3" name="county" aria-describedby="form-county" required=""></select> 
+<select class="col-lg-3" name="district" aria-describedby="form-district" required=""></select>
 <input class="d-none" name="zipcode" />
+<br>
+<input type="checkbox" id="buyer" name="buyer" value="${user.buyer}" class="form-input">
+<span id="buyer_word">買家</span>
+<input type="checkbox" id="seller" name="seller" value="${user.seller}" class="form-input">
+<span id="seller_word">賣家</span>
+<br>
 <input type="submit" value="提交修改" >
+		
 </form>
 </div>
 <div id="modifybutton-area">

@@ -13,6 +13,9 @@
 <script src="<c:url value='/js/er.twzipcode.data.js' />"></script>
 </head>
 <body>
+<div id="signuptitle">
+			<h1>會員資料填寫</h1>
+</div>
 <div class="all-form">
 		<form:form servletRelativeAction="/user/usersignup" method="post" id="makeUser" class="form-writein">
 			<div class="form-writein">
@@ -53,7 +56,7 @@
 						aria-describedby="form-county" required="">
 				</select> 
 				<select
-						class="col-lg-5" width:200px" name="district"
+						class="col-lg-5"  name="district"
 						aria-describedby="form-district" required="">
 				</select>
 					<input class="col-lg-8" id="address" type="text"
