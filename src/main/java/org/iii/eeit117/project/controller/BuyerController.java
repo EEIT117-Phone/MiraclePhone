@@ -24,6 +24,7 @@ public class BuyerController {
 	public static final String MODULE_NAME = "buyer";
 	public static final String ANSWER_PAGE = MODULE_NAME + "Answer";
 	private int mid;
+	private Integer proid;
 	MassageVo quest ;
 	
 	@Autowired
@@ -34,6 +35,7 @@ public class BuyerController {
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String sellerInfo(Model model, Integer productId) {
+		proid=productId;
 		List<MassageVo> massages = massageService.findByProductId(productId);
 		model.addAttribute("size", massages.size());
 		model.addAttribute("qa", massages);
@@ -46,11 +48,12 @@ public class BuyerController {
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String timeStr = df.format(time);
-		mv.setProductId(10013);//提問買方的ID,後面用session拿
+		//這裡要設留言人帳號,可用session拿
+		mv.setProductId(proid);
 		mv.setMassage(massage);
 		mv.setLeaveTime(timeStr);
 		massageService.save(mv);
-		return "redirect:/" + MODULE_NAME;
+		return "redirect:/" + MODULE_NAME + "?productId=" + proid;
 	}
 	
 	@RequestMapping(value = "/answer" , method = RequestMethod.GET)
@@ -68,6 +71,6 @@ public class BuyerController {
 		quest.setAnsTime(timeStr);
 		quest.setAnswer(answer);
 		massageService.save(quest);
-		return "redirect:/" + MODULE_NAME;
+		return "redirect:/" + MODULE_NAME + "?productId=" + proid;
 	}
 }
