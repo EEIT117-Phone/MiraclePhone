@@ -9,8 +9,13 @@
 		<put-attribute name="foot" value="/WEB-INF/jsp/template/footer.jsp" />
 	</definition>
 	
-<definition name="backstagemain"  extends="template-def">
+<definition name="backstageMain"  extends="template-def">
 	<put-attribute name="body"
 			value="/WEB-INF/jsp/backstage/backstagemain.jsp" />
 	</definition>
+	
+	<definition name="backstageCustomerContact" extends="template-def">  
+        <put-attribute name="body"  value="/WEB-INF/jsp/backstage/customerContact.jsp" />  
+    </definition>  
+    
 </tiles-definitions>
