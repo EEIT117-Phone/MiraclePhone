@@ -1,5 +1,15 @@
-$(function() {
-	let status=document.getElementById("getStatus").value; //將登入後失敗或成功結果顯示在<span>內
-	let writeStatus=document.getElementById("status");
-	writeStatus.innerHTML(status);
-});
+$( document ).ready(function(){
+console.log(document.referrer);
+console.log(document.getElementById("lastpage"))
+document.getElementById("lastpage").value=document.referrer;
+	
+})
+	
+	
+	
+
+
+
+	
+
+

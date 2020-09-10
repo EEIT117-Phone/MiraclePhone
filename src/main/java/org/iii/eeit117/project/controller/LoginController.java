@@ -1,9 +1,11 @@
 package org.iii.eeit117.project.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.hibernate.Session;
@@ -34,28 +36,31 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/"+MAIN_PAGE, method = RequestMethod.POST)
-	public String checkLogin(HttpServletRequest request,HttpSession httpsession,Model model) {
-		String account=request.getParameter("useraccount");
-		String password=request.getParameter("userpassword");
-		String loginStatus=userService.checkLogin(account, password);
+	public String checkLogin(HttpServletRequest request,HttpServletResponse response,HttpSession httpsession,Model model) throws IOException {
+		String account=request.getParameter("useraccount"); //取得輸入帳號
+		String password=request.getParameter("userpassword");//取得輸入密碼
+		String lastpageurl=request.getParameter("lastpage");//取得上一頁網址
+		String loginStatus=userService.checkLogin(account, password); //驗證取得的帳密是否存在資料庫
 		List<String> list=new ArrayList<String>();
-		list=userService.getColumnName();
+		list=userService.getColumnName(); //取得Users表單上欄位名稱
 		System.out.println(list);
 		if(loginStatus.equals("acc&&pwd are corrected")) {
 			UserVo userVo=userService.findOne(account);
+			if(userVo.getGm().equals("gm")) { //確認是否為gm，是則導入後台管理畫面
+				httpsession.setAttribute("user", userVo);
+				return "backstagemain";
+			}
 			httpsession=request.getSession();
 			httpsession.setAttribute("usercolumn",list);
-			httpsession.setAttribute("account", account); //登入成功設定帳號資訊在httpsession內
-			httpsession.setAttribute("password", password); //登入成功設定密碼資訊在httpsession內
 			httpsession.setAttribute("inservice", true); //登入成功設定狀態:true在httpsession內
-			httpsession.setAttribute("user", userVo);
-			System.out.println(httpsession.getAttribute("account"));
-			System.out.println(loginStatus);
+			httpsession.setAttribute("user", userVo); //登入成功將session內放入uservo物件
 			
 //			model.addAttribute("user",userVo); //傳送使用者的資料
 //			model.addAttribute("usercolumn",list);//傳送Users表單的欄位名
 			
-			return  USERMAIN_PAGE;
+			System.out.println(lastpageurl);
+			response.sendRedirect(lastpageurl);//驗證成功跳轉回上一頁
+			
 		}
 		model.addAttribute("loginstatus",loginStatus);
 		return MAIN_PAGE;

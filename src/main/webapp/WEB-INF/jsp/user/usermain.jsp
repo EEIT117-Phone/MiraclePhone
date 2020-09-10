@@ -14,7 +14,7 @@
 <script src="<c:url value='/js/er.twzipcode.data.js' />"></script>
 <input id="importMsgInput" type="hidden" value=""/> 
 <div class="welcome">
-<h1>歡迎回來${account}</h1>
+<h1>${user.name},歡迎回來</h1>
 </div>
 <h1>會員資料</h1>
 <table class="userDataTable">
@@ -34,6 +34,7 @@
 <td>${user.county}</td>
 <td>${user.district}</td>
 <td>${user.zipcode}</td>
+<td>${user.gm}</td>
 <td>${user.seller}</td>
 </tr>
 </table>
@@ -46,13 +47,13 @@
 <input id="name" name="name" type="text" value="${user.name}" placeholder="${user.name}"  >
 <input id="idnumber" name="idnumber" type="text" value="${user.idnumber}" placeholder="${user.idnumber}" >
 <input id="birth" name="birth" type="date" value="${user.birth}" placeholder="${user.birth}" >
-<input id="age" type="hidden" name="age" value="">
+<input id="age" type="hidden" name="age" value="${user.age}">
 <br>
 <select class="col-lg-3" name="county" aria-describedby="form-county" required=""></select> 
 <select class="col-lg-3" name="district" aria-describedby="form-district" required=""></select>
 <input class="d-none" name="zipcode" />
 <br>
-<input type="radio" id="seller" name="seller" value="${user.seller}" class="form-input">
+<input type="radio" id="seller" name="seller" value="seller" class="form-input">
 <span id="seller_word">賣家</span>
 <br>
 <input type="submit" id="submit" name="submit" value="提交修改" >
