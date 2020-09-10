@@ -1,37 +1,38 @@
 package org.iii.eeit117.project.model.service.impl;
 
-import java.io.File;
-import java.io.IOException;
+import javax.sql.rowset.serial.SerialBlob;
 
-import javax.annotation.PostConstruct;
-
-import org.apache.commons.io.FileUtils;
+import org.iii.eeit117.project.model.dao.BaseDao;
+import org.iii.eeit117.project.model.dao.FileStorageDao;
 import org.iii.eeit117.project.model.service.FileService;
-import org.iii.eeit117.project.property.AppProperty;
+import org.iii.eeit117.project.model.vo.FileStorageVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class FileServiceImpl implements FileService {
+public class FileServiceImpl extends BaseServiceImpl<FileStorageVo, Integer> implements FileService {
 
 	@Autowired
-	private AppProperty appProperty;
-	
-	@PostConstruct
-	public void init() {
-		File f = new File(appProperty.getFileRoot());
-		f.mkdirs();
-	}
+	private FileStorageDao fileStorageDao;
 	
 	@Override
-	public void store(MultipartFile file, String targetName) throws IOException {
-		FileUtils.writeByteArrayToFile(new File(appProperty.getFileRoot() + targetName), file.getBytes());
+	public BaseDao<FileStorageVo, Integer> getDao() {
+		return fileStorageDao;
 	}
-	
+
 	@Override
-	public byte[] download(String fileName) throws IOException {
-		return FileUtils.readFileToByteArray(new File(appProperty.getFileRoot() + fileName));
+	public FileStorageVo upload(MultipartFile partFile, Class<?> claz) throws Exception {
+		FileStorageVo fileStorageVo = new FileStorageVo();
+		fileStorageVo.setName(partFile.getName());
+		fileStorageVo.setClassName(claz.getSimpleName());
+		fileStorageVo.setContent(new SerialBlob(partFile.getBytes()));
+		return fileStorageDao.save(fileStorageVo);
+	}
+
+	@Override
+	public FileStorageVo download(Integer fileStorageId) {
+		return fileStorageDao.findOne(fileStorageId);
 	}
 
 }

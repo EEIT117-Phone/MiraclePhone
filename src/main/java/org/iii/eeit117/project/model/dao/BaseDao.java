@@ -42,8 +42,9 @@ public abstract class BaseDao<T, E extends Serializable> {
 		return session.createQuery(query).getResultList();
 	}
 	
-	public void save(T obj) {
+	public T save(T obj) {
 		getSession().saveOrUpdate(obj);
+		return obj;
 	}
 	
 	public void delete(T obj) {

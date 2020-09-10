@@ -31,8 +31,8 @@ public abstract class BaseServiceImpl<T, E extends Serializable> implements Base
 	}
 
 	@Override
-	public void save(T obj) {
-		getDao().save(obj);
+	public T save(T obj) {
+		return getDao().save(obj);
 	}
 
 	@Override
