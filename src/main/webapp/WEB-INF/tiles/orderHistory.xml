@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="orderHistory" extends="template-def">
+<!-- 	 上面的name要對應到controller裡的return MAIN_PAGE -->
+        <put-attribute name="body"  value="/WEB-INF/jsp/orderHistory/orderHistory.jsp" />  
+    </definition>
+</tiles-definitions>
