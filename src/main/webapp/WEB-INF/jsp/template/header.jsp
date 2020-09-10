@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-		<a class="navbar-brand prject-link" href="<c:url value='/index' />">
+		<a class="navbar-brand" href="<c:url value='/index' />">
 			<img src="<c:url value='/images/icon/phoneIcon.png' />" width="25"
 			height="25" /> <span>銷售奇機</span>
 		</a>
@@ -28,7 +28,7 @@
 						<ul>
 							<li><a href="<c:url value='/product' />">刊登手機</a></li>
 							<li><a href="<c:url value='/contact' />">刊登中物件</a></li>
-							<li><a href="<c:url value='/user/usermodification' />">修改會員資訊</a></li>
+							<li><a href="<c:url value='/usermodification' />">修改會員資訊</a></li>
 							<li><a href="<c:url value='/orderHistory' />">訂單歷史紀錄</a></li>
 							<li><a href="<c:url value='/contactcustomer' />">客服專區</a></li>
 							
