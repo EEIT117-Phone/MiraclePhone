@@ -155,7 +155,28 @@
                 <label for="amount">銷售金額:</label>
                 <form:input type="number" max="50000" min="0" value="8000" step="100" required="required"
                     path="amount" />
-                <br>
+                    
+                    
+                      <br>
+                 <label for="file1">正面:</label>
+                 <input type="file" accept="image/*" name="file1">
+                 <br>
+                 <label for="file2">背面:</label>
+                 <input type="file" accept="image/*" name="file2">
+                 <br>
+                 <label for="file3">左側:</label>
+                 <input type="file" accept="image/*" name="file3">
+                 <br>
+                 <label for="file4">右側:</label>
+                 <input type="file" accept="image/*" name="file4">
+                 <br>
+                 <label for="file5">上面:</label>
+                 <input type="file" accept="image/*" name="file5">
+                 <br>
+                 <label for="file6">下面:</label>
+                 <input type="file" accept="image/*" name="file6">
+                 <br>
+              
                 <label for="sellReason">銷售原因以及備註:</label>
                 <br>
                 <textarea placeholder="請輸入銷售原因&備註 (上限100字)" rows=10 cols="50px" maxlength="109" maxrows="10"
