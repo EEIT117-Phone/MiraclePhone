@@ -46,6 +46,10 @@ public class LoginController {
 		System.out.println(list);
 		if(loginStatus.equals("acc&&pwd are corrected")) {
 			UserVo userVo=userService.findOne(account);
+			if(userVo.getGm().equals("gm")) { //確認是否為gm，是則導入後台管理畫面
+				httpsession.setAttribute("user", userVo);
+				return "backstagemain";
+			}
 			httpsession=request.getSession();
 			httpsession.setAttribute("usercolumn",list);
 			httpsession.setAttribute("inservice", true); //登入成功設定狀態:true在httpsession內
