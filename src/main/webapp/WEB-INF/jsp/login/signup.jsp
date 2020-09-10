@@ -47,7 +47,10 @@
 				生日<input id="birth" type="date" name="birth" value="" class="form-input" />
 			</div>
 			<div class="form-writein">
-				年齡:<input id="age" name="age" value="" class="form-input"/>
+				年齡:<input id="age" name="age" value=" " class="form-input"/>
+			</div>
+			<div class="form-writein">
+			<input type="text" id="bankaccount" name="bankaccount" value="" placeholder="銀行帳號" >
 			</div>
 			<div class="row pl-3 pr-3">
 				<label class="col-form-label" for="twzipcode">寄送地址（必填）</label>
@@ -69,16 +72,18 @@
 			
 			<div class="form-writein">
 			權限開通<br>
-			<input type="hidden" id="gm" name="gm" value="" class="form-input">
+			<input type="hidden" id="gm" name="gm" value=" " class="form-input">
 			<input type="radio" id="seller" name="seller" value="seller" class="form-input">
 			<span id="seller_word">賣家</span><br>
 			</div>
 			<div class="form-writein">
 			大頭照
-			<input type="file" id="file-photo" name="file-photo"
-					accept="image/*" multiple="multiple" class="form-input" />
-					<span id="photo_word">照片</span>
+			<input accept="image/*" id="previewImage" type="file">
+			
+			<img id="show_image" src="">
+ 			<input type="hidden" name="imagestring"> <!--放實際圖片url的地方	 -->
 			</div>
+			<input type="button" id="test" name="test" value="check" >
 			<div class="form-writein">
 				<input type="checkbox" value="免責聲明" class="form-input" />我已看過<a href="">免責聲明</a><br />
 			</div>

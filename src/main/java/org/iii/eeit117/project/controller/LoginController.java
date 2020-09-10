@@ -46,6 +46,7 @@ public class LoginController {
 		System.out.println(list);
 		if(loginStatus.equals("acc&&pwd are corrected")) {
 			UserVo userVo=userService.findOne(account);
+			System.out.println(userVo.getGm());
 			if(userVo.getGm().equals("gm")) { //確認是否為gm，是則導入後台管理畫面
 				httpsession.setAttribute("user", userVo);
 				return "backstagemain";
@@ -75,10 +76,11 @@ public class LoginController {
 		return SIGNUP_PAGE;
 	}
 	
-	@RequestMapping(value="/"+USERMODIFICATION_PAGE,method=RequestMethod.GET)
+	
 	//如果從搜尋頁面直接點修改會員資料
 	//先判斷session內的inservice屬性是否為true
 	//是則導往會員修改頁面，否則導往登入頁面
+	@RequestMapping(value="/"+USERMODIFICATION_PAGE,method=RequestMethod.GET)
 	public String userDirectModification(HttpServletRequest request,HttpSession httpsession,Model model) {
 		boolean inservice=(boolean) httpsession.getAttribute("inservice");
 		if(inservice) {
@@ -101,6 +103,7 @@ public class LoginController {
 		String idnumber=request.getParameter("idnumber");
 		String birth=request.getParameter("birth");
 		String age=request.getParameter("age");
+		String bankaccount=request.getParameter("bankaccount");
 		String county=request.getParameter("county");
 		String district=request.getParameter("district");
 		String zipcode=request.getParameter("zipcode");
@@ -111,6 +114,7 @@ public class LoginController {
 		orginaccount.setIdnumber(idnumber);
 		orginaccount.setBirth(birth);
 		orginaccount.setAge(age);
+		orginaccount.setAge(bankaccount);
 		orginaccount.setCounty(county);
 		orginaccount.setDistrict(district);
 		orginaccount.setZipcode(zipcode);

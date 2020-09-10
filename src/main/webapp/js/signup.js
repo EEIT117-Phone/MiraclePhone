@@ -84,7 +84,9 @@ function checkform(){
 	}
 }
 	erTWZipcode();  //地址
+$("#test").click(test)
+function test(){
+console.log(document.getElementById("previewImage"))
+}
 	
-	
-	
-	})
+	});

@@ -48,6 +48,7 @@
 <input id="idnumber" name="idnumber" type="text" value="${user.idnumber}" placeholder="${user.idnumber}" >
 <input id="birth" name="birth" type="date" value="${user.birth}" placeholder="${user.birth}" >
 <input id="age" type="hidden" name="age" value="${user.age}">
+<input type="text" id="bankaccount" name="bankaccount" value="${user.bankaccount}">
 <br>
 <select class="col-lg-3" name="county" aria-describedby="form-county" required=""></select> 
 <select class="col-lg-3" name="district" aria-describedby="form-district" required=""></select>
@@ -56,6 +57,7 @@
 <input type="radio" id="seller" name="seller" value="seller" class="form-input">
 <span id="seller_word">賣家</span>
 <br>
+
 <input type="submit" id="submit" name="submit" value="提交修改" >
 		
 </form>
