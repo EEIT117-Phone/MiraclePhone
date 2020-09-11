@@ -17,8 +17,7 @@
 	<link href="<c:url value='/css/bootstrap.min.css' />" rel="stylesheet">
 	<!-- Carousel core CSS -->
 	<link href="<c:url value='/css/carousel.css' />" rel="stylesheet">
-	<!-- Product core CSS -->
-	<link href="<c:url value='/css/product.css' />" rel="stylesheet">
+	<!-- Header core CSS -->
 	<link href="<c:url value='/css/header.css' />" rel="stylesheet">
 	<!-- ****************** js section ****************** -->
 	 
