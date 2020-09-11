@@ -17,7 +17,7 @@
 			<h1>會員資料填寫</h1>
 </div>
 <div class="all-form">
-		<form:form servletRelativeAction="/usersignup" method="post" id="makeUser" class="form-writein" onsubmit="return checkform()">
+		<form:form servletRelativeAction="/usersignup" method="post" id="makeUser" class="form-writein" onsubmit="return checkform()" enctype="multipart/form-data">
 			<div class="form-writein">
 			<input id="account" type="text" name="account" placeholder="電子郵件"
 					value="" class="form-input"  placeholder="帳號"  />
@@ -76,14 +76,7 @@
 			<input type="radio" id="seller" name="seller" value="seller" class="form-input">
 			<span id="seller_word">賣家</span><br>
 			</div>
-			<div class="form-writein">
-			大頭照
-			<input accept="image/*" id="previewImage" type="file">
 			
-			<img id="show_image" src="">
- 			<input type="hidden" name="imagestring"> <!--放實際圖片url的地方	 -->
-			</div>
-			<input type="button" id="test" name="test" value="check" >
 			<div class="form-writein">
 				<input type="checkbox" value="免責聲明" class="form-input" />我已看過<a href="">免責聲明</a><br />
 			</div>
@@ -92,6 +85,16 @@
 			</div>
 		</form:form>
 	</div>	
+	
+	<div class="form-writein">
+			大頭照
+			<form id="sendimg" name="sendimg" action="/MiraclePhone/usersignupimg" method="post"  enctype="multipart/form-data" >
+			<input accept="image/jpeg" id="uploadimg" name="uploadimg" type="file">
+			<img id="previewImg" name="previewImg" style="weight:100px; height:100px" src="">
+ 			<input type="hidden" id="imagename" name="imagename"> <!--放實際圖片url的地方	 -->
+ 			<input type="submit" id="test" name="test" value="check" >
+ 			</form>
+			</div>
 		
 	
 

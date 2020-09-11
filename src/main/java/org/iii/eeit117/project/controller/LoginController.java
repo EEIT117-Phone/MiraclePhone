@@ -4,14 +4,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.Session;
+
+
 import org.iii.eeit117.project.model.service.UserService;
 import org.iii.eeit117.project.model.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.codec.multipart.Part;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -25,6 +28,7 @@ public class LoginController {
 	public static final String SIGNUP_PAGE = MODULE_NAME + "signup";
 	public static final String USERMAIN_PAGE=MODULE_NAME+"main";
 	public static final String USERMODIFICATION_PAGE=MODULE_NAME+"modification";
+	public static final String SIGNUPIMG_PAGE=SIGNUP_PAGE+"img";
 	@Autowired
 	private UserService userService;
 	
@@ -68,11 +72,17 @@ public class LoginController {
 		return SIGNUP_PAGE;
 	}
 	@RequestMapping(value = SIGNUP_PAGE, method = RequestMethod.POST)
-	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo) {
+	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo) throws IOException, ServletException {
 		userService.save(userVo);
 		return SIGNUP_PAGE;
 	}
 	
+	@RequestMapping(value=SIGNUPIMG_PAGE,method=RequestMethod.POST)
+	public void saveimg(HttpServletRequest request,Model model) throws IOException, ServletException {
+		request.setCharacterEncoding("UTF-8");
+		Part part=(Part) request.getPart("uploadimg");
+		System.out.println(part);
+	}
 	
 	//如果從搜尋頁面直接點修改會員資料
 	//先判斷session內的inservice屬性是否為true
