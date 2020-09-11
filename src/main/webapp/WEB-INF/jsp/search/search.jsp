@@ -153,7 +153,7 @@
                         </header>
                         <div class="pl-3 pr-3">
                         	<div class="card-body">
-                        	<form:checkboxes class="form-check-input" items="${phoneTypeList}" path="checkedOption" element="div"/>
+                        	<form:checkboxes class="form-check-input" items="${phoneTypeList}" path="checkOption" element="div"/>
                         	</div>
                         </div>
                     </article>
@@ -164,7 +164,7 @@
                         </header>
                         <div class="pl-3 pr-3">
                         	<div class="card-body">
-                        	<form:checkboxes class="form-check-input" items="${memoryList}" path="checkedOption" element="div"/>
+                        	<form:checkboxes class="form-check-input" items="${memoryList}" path="checkOption" element="div"/>
                         	</div>
                         </div>
                     </article>

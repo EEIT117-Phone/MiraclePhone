@@ -26,7 +26,8 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 	private String file1;
 	private String searchInput;
 	private String[] checkedOption;
-	
+	private String checkOption;
+
 	@Override
 	public CriteriaQuery<ProductVo> getCriteriaQuery() {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
@@ -42,12 +43,37 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			System.out.println("phoneSort: " + phoneSort);
 		}
 
-		// 進階搜尋功能
+		// 進階搜尋預設打勾
 		if (StringUtil.isNonEmpty(checkedOption)) {
 			restrictions.add(builder.like(root.get(ProductVo.PHONETYPE), checkedOption + "%"));
 			System.out.println("checkedOption: " + checkedOption);
 		}
 
+		// 進階搜尋功能
+		if (StringUtil.isNonEmpty(checkOption)) {
+			System.out.println("searchInput: " + checkOption);
+			String[] checkOptionList = checkOption.split(",");
+			Predicate orSearch;
+			Predicate finalSearch;
+			List<Predicate> list = new LinkedList<>();
+			for (String oneWord : checkOptionList) {
+				System.out.println("oneWord: " + oneWord);
+				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE), "%" + oneWord + "%");
+				Predicate memory1 = builder.like(root.get(ProductVo.MEMORY), "%" + oneWord + "%");
+				Predicate color1 = builder.like(root.get(ProductVo.COLOR), "%" + oneWord + "%");
+				Predicate phonesort1 = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
+				Predicate phonecondition1 = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
+				Predicate county1 = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
+				Predicate district1 = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
+				orSearch = builder.or(phonetype1, memory1, color1, phonesort1, phonecondition1, county1, district1);
+				list.add(orSearch);
+			}
+			// 預設價格低到高排序
+			query.orderBy(builder.asc(root.get("amount")));
+			finalSearch = builder.and(list.toArray(new Predicate[0]));
+			restrictions.add(finalSearch);
+			query.where(finalSearch);
+		}
 		// 搜尋框
 		if (StringUtil.isNonEmpty(searchInput)) {
 			System.out.println("searchInput: " + searchInput);
@@ -67,6 +93,8 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 				orSearch = builder.or(phonetype1, memory1, color1, phonesort1, phonecondition1, county1, district1);
 				list.add(orSearch);
 			}
+			// 預設價格低到高排序
+			query.orderBy(builder.asc(root.get("amount")));
 			finalSearch = builder.and(list.toArray(new Predicate[0]));
 			restrictions.add(finalSearch);
 			query.where(finalSearch);
@@ -81,8 +109,19 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			restrictions.add(builder.like(root.get(ProductVo.PHONECONDITION), "%" + searchInput + "%"));
 			restrictions.add(builder.like(root.get(ProductVo.COUNTY), "%" + searchInput + "%"));
 			restrictions.add(builder.like(root.get(ProductVo.DISTRICT), "%" + searchInput + "%"));
+			// 預設價格低到高排序
+			query.orderBy(builder.asc(root.get("amount")));
 		}
+		// 最終return
 		return query.where(builder.or(restrictions.toArray(new Predicate[] {})));
+	}
+
+	public String getCheckOption() {
+		return checkOption;
+	}
+
+	public void setCheckOption(String checkOption) {
+		this.checkOption = checkOption;
 	}
 
 	public String[] getCheckedOption() {
