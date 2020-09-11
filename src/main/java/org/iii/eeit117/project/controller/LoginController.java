@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/" + LoginController.MODULE_NAME)
 public class LoginController {
 	public static final String MODULE_NAME = "user";
 	public static final String MAIN_PAGE = MODULE_NAME + "login";
@@ -29,13 +28,11 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
-
-	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET) //前往登入畫面捷徑
+	@RequestMapping(value = MAIN_PAGE, method = RequestMethod.GET)
 	public String Main(Model model) {
 		return MAIN_PAGE;
 	}
-	
-	@RequestMapping(value = "/"+MAIN_PAGE, method = RequestMethod.POST)
+	@RequestMapping(value = MAIN_PAGE, method = RequestMethod.POST)
 	public String checkLogin(HttpServletRequest request,HttpServletResponse response,HttpSession httpsession,Model model) throws IOException {
 		String account=request.getParameter("useraccount"); //取得輸入帳號
 		String password=request.getParameter("userpassword");//取得輸入密碼
@@ -59,18 +56,18 @@ public class LoginController {
 //			model.addAttribute("user",userVo); //傳送使用者的資料
 //			model.addAttribute("usercolumn",list);//傳送Users表單的欄位名
 			
-			System.out.println(lastpageurl);
+			
 			response.sendRedirect(lastpageurl);//驗證成功跳轉回上一頁
 			
 		}
 		model.addAttribute("loginstatus",loginStatus);
 		return MAIN_PAGE;
 	}
-	@RequestMapping(value = "/"+SIGNUP_PAGE, method = RequestMethod.GET) 
+	@RequestMapping(value =SIGNUP_PAGE, method = RequestMethod.GET) 
 	public String Gousersignup(Model model) {
 		return SIGNUP_PAGE;
 	}
-	@RequestMapping(value = "/"+SIGNUP_PAGE, method = RequestMethod.POST)
+	@RequestMapping(value = SIGNUP_PAGE, method = RequestMethod.POST)
 	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo) {
 		userService.save(userVo);
 		return SIGNUP_PAGE;
@@ -80,9 +77,10 @@ public class LoginController {
 	//如果從搜尋頁面直接點修改會員資料
 	//先判斷session內的inservice屬性是否為true
 	//是則導往會員修改頁面，否則導往登入頁面
-	@RequestMapping(value="/"+USERMODIFICATION_PAGE,method=RequestMethod.GET)
+	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.GET)
 	public String userDirectModification(HttpServletRequest request,HttpSession httpsession,Model model) {
 		boolean inservice=(boolean) httpsession.getAttribute("inservice");
+		System.out.println(inservice);
 		if(inservice) {
 			return USERMAIN_PAGE;
 		}
@@ -93,7 +91,7 @@ public class LoginController {
 		
 	}
 	
-	@RequestMapping(value="/"+USERMODIFICATION_PAGE,method=RequestMethod.POST)
+	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.POST)
 	public String userModification(HttpServletRequest request,HttpSession httpsession,Model model) {
 		String account=request.getParameter("account"); //取得欲修改的使用者帳號
 		System.out.println(account);

@@ -34,9 +34,9 @@
 							
 						</ul></li>
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value='/user' />" style="color: white">登入</a></li>
+						href="<c:url value='/userlogin' />" style="color: white">登入</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value='/user/usersignup'/>" style="color: white">註冊</a></li>
+						href="<c:url value='/usersignup'/>" style="color: white">註冊</a></li>
 				</ul>
 			</div>
 		</div>

@@ -13,7 +13,7 @@
 	
   <div class="body-login">
   		<h1 class="form-signin">請輸入帳號資訊</h1>
-        <form:form servletRelativeAction="/user/userlogin" method="post" class="form-signin">
+        <form:form servletRelativeAction="/userlogin" method="post" class="form-signin">
         <input type="text" name="useraccount" placeholder="會員帳號" class="form-control"><br/>
          <input type="text" name="userpassword" placeholder="會員密碼" class="form-control"><br/>
          <input type="hidden" id="lastpage" name="lastpage" value=""> 

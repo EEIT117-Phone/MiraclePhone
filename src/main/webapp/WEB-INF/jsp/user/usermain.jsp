@@ -41,7 +41,7 @@
 <input id="userdata" type="hidden" value="${user}">
 
 <div id="modifyarea" style="display:none" class="elegant-aero">
-<form action="/MiraclePhone/user/usermodification" method="post" id="form" onsubmit="return checkform()">
+<form action="/usermodification" method="post" id="form" onsubmit="return checkform()">
 <input id="account" name="account" type="hidden" value="${user.account}" >
 <input id="password" name="password" type="password" value="${user.password}" placeholder="${user.password}">
 <input id="name" name="name" type="text" value="${user.name}" placeholder="${user.name}"  >
