@@ -11,6 +11,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.iii.eeit117.project.model.util.HibernateUtil;
 import org.iii.eeit117.project.model.util.StringUtil;
+import org.iii.eeit117.project.model.vo.HelloVo;
 import org.iii.eeit117.project.model.vo.ProductVo;
 
 public class SearchBean extends BaseSearchBean<ProductVo> {
@@ -27,6 +28,7 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 	private String searchInput;
 	private String[] checkedOption;
 	private String checkOption;
+	private Integer checkAmountOption;
 
 	@Override
 	public CriteriaQuery<ProductVo> getCriteriaQuery() {
@@ -51,7 +53,7 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 
 		// 進階搜尋功能
 		if (StringUtil.isNonEmpty(checkOption)) {
-			System.out.println("searchInput: " + checkOption);
+			System.out.println("checkOption: " + checkOption);
 			String[] checkOptionList = checkOption.split(",");
 			Predicate orSearch;
 			Predicate finalSearch;
@@ -74,6 +76,14 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			restrictions.add(finalSearch);
 			query.where(finalSearch);
 		}
+
+		// 進階搜尋價格功能
+		if (StringUtil.isNonEmpty(checkAmountOption)) {
+			System.out.println("checkAmountOption: " + checkAmountOption);
+			restrictions.add(builder.le(root.get(ProductVo.AMOUNT), checkAmountOption));
+			query.orderBy(builder.asc(root.get("amount")));
+		}
+
 		// 搜尋框
 		if (StringUtil.isNonEmpty(searchInput)) {
 			System.out.println("searchInput: " + searchInput);
@@ -114,6 +124,14 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 		}
 		// 最終return
 		return query.where(builder.or(restrictions.toArray(new Predicate[] {})));
+	}
+
+	public Integer getCheckAmountOption() {
+		return checkAmountOption;
+	}
+
+	public void setCheckAmountOption(Integer checkAmountOption) {
+		this.checkAmountOption = checkAmountOption;
 	}
 
 	public String getCheckOption() {

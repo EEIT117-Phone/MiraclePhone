@@ -173,47 +173,10 @@
                         <header class="card-header">
                             <label class="filter-title">價格區間</label>
                         </header>
-                        <div class="filter-content">
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxPriceAll"
-                                            value="PriceAll" checked>
-                                        <label class="form-check-label" for="inlineCheckboxPriceAll">不限</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder5000"
-                                            value="Under5000"> <label class="form-check-label"
-                                            for="inlineCheckboxUnder5000">5,000元以下</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder10000"
-                                            value="Under10000"> <label class="form-check-label"
-                                            for="inlineCheckboxUnder10000">10,000元以下</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder20000"
-                                            value="Under20000"> <label class="form-check-label"
-                                            for="inlineCheckboxUnder20000">20,000元以下</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder30000"
-                                            value="Under30000"> <label class="form-check-label"
-                                            for="inlineCheckboxUnder30000">30,000元以下</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder40000"
-                                            value="inlineCheckboxUnder40000"> <label class="form-check-label"
-                                            for="inlineCheckboxUnder40000">40,000元以下</label>
-                                    </div>
-                                    <br>
-                                </form>
-                            </div>
+                        <div class="pl-3 pr-3">
+                        	<div class="card-body">
+                        	<form:checkboxes class="form-check-input" items="${amountList}" path="checkAmountOption" element="div"/>
+                        	</div>
                         </div>
                     </article>
 
