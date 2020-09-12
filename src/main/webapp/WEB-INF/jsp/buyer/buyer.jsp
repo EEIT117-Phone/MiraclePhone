@@ -52,8 +52,7 @@
 				<p>面交取貨付款</p>
 				<p>運送方式：7-11取貨 60 元</p>
 				<p>郵寄寄送 40 元</p>
-				<input type='hidden' name='phoneId' value="10008">
-				<!-- 				<input type='hidden' name='phoneId' value="a2"> -->
+				<input type='hidden' name='phoneId' value="${info.productId}">
 				<p>
 					<input id='addShopCart' type='button' value='加入購物車' />
 				</p>
@@ -71,9 +70,9 @@
 		</ul>
 		<div>
 			<div id="quest1" class="quest">
-				<p>手機型號:${info.phoneType}</p>
-				<p>容量:${info.memory}</p>
-				<p>顏色:${info.color}</p>
+				<p>手機型號:${info.phoneType.label}</p>
+				<p>容量:${info.storage.label}</p>
+				<p>顏色:${info.color.label}</p>
 				<p>機況:${info.phoneCondition}</p>
 				<p>保固:${info.phoneWarranty}</p>
 				<p>種類:${info.phoneSort}</p>

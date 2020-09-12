@@ -24,7 +24,7 @@ public class FileServiceImpl extends BaseServiceImpl<FileStorageVo, Integer> imp
 	@Override
 	public FileStorageVo upload(MultipartFile partFile, Class<?> claz) throws Exception {
 		FileStorageVo fileStorageVo = new FileStorageVo();
-		fileStorageVo.setName(partFile.getName());
+		fileStorageVo.setName(partFile.getOriginalFilename());
 		fileStorageVo.setClassName(claz.getSimpleName());
 		fileStorageVo.setContent(new SerialBlob(partFile.getBytes()));
 		return fileStorageDao.save(fileStorageVo);

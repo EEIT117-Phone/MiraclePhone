@@ -43,12 +43,10 @@
 						<tbody>
 							<tr>
 								<td>${status.count}</td>
-								<td><img
-									src="/MiraclePhone/downloadFile?filename=${product.productId}_1"
-									border=0 width=100px /></td>
-								<td>${product.phoneType}</td>
-								<td>${product.memory}</td>
-								<td>${product.color}</td>
+								<td><img src="<c:url value='/fs/img/${product.pic1}' />" border=0 width=100px /></td>
+								<td>${product.phoneType.label}</td>
+								<td>${product.storage.label}</td>
+								<td>${product.color.label}</td>
 								<td>1</td>
 								<td id=money${status.count}>${product.amount}</td>
 

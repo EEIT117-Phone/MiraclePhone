@@ -27,6 +27,10 @@
 	<script src="<c:url value='/js/bootstrap.bundle.min.js' />"></script>
 	<!-- Header js -->
 	<script src="<c:url value='/js/header.js' />"></script>
+	
+	<script type="text/javascript">
+		var CONTEXT_PATH = <c:url value='/' />;
+	</script>
 </head>
 <body>
 	<!-- Header -->

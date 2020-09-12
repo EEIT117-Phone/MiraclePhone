@@ -7,7 +7,10 @@ package org.iii.eeit117.project.model.vo;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +18,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.iii.eeit117.project.model.converter.PhoneColorConverter;
+import org.iii.eeit117.project.model.converter.PhoneStorageConverter;
+import org.iii.eeit117.project.model.converter.PhoneTypeConverter;
+import org.iii.eeit117.project.model.data.PhoneColorEnum;
+import org.iii.eeit117.project.model.data.PhoneStorageEnum;
+import org.iii.eeit117.project.model.data.PhoneTypeEnum;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -24,7 +33,7 @@ public class ProductVo {
 	public static final String PRODUCTID = "productId";
 	public static final String ACCOUNT = "account";
 	public static final String PHONETYPE = "phoneType";
-	public static final String MEMORY = "memory";
+	public static final String STORAGE = "storage";
 	public static final String COLOR = "color";
 	public static final String PHONESORT = "phoneSort";
 	public static final String PHONECONDITION = "phoneCondition";
@@ -54,20 +63,20 @@ public class ProductVo {
 	@Column(name = "PRODUCTID", nullable = false)
 	private Integer productId;
 	
-//	@ManyToOne(fetch=FetchType.LAZY)
-//    @JoinColumn(name="Account")
 	@Column(name = "ACCOUNT")
-
 	private String account;
 
 	@Column(name = "PHONETYPE")
-	private String phoneType;
+	@Convert(converter = PhoneTypeConverter.class)
+	private PhoneTypeEnum phoneType;
 
-	@Column(name = "MEMORY")
-	private String memory;
-
+	@Column(name = "STORAGE")
+	@Convert(converter = PhoneStorageConverter.class)
+	private PhoneStorageEnum storage;
+	
 	@Column(name = "COLOR")
-	private String color;
+	@Convert(converter = PhoneColorConverter.class)
+	private PhoneColorEnum color;
 
 	@Column(name = "PHONESORT")
 	private String phoneSort;
@@ -118,30 +127,43 @@ public class ProductVo {
 	@Column(name = "SELLREASON")
 	private String sellReason;
 
-	@Column(name = "FILE1")
-	private Byte[] file1;
+	@Column(name = "PIC1")
+	private Integer pic1;
 
-	@Column(name = "FILE2")
-	private Byte[] file2;
+	@Column(name = "PIC2")
+	private Integer pic2;
 
-	@Column(name = "FILE3")
-	private Byte[] file3;
+	@Column(name = "PIC3")
+	private Integer pic3;
 
-	@Column(name = "FILE4")
-	private Byte[] file4;
+	@Column(name = "PIC4")
+	private Integer pic4;
 
-	@Column(name = "FILE5")
-	private Byte[] file5;
+	@Column(name = "PIC5")
+	private Integer pic5;
 
-	@Column(name = "FILE6")
-	private Byte[] file6;
-	
-	
+	@Column(name = "PIC6")
+	private Integer pic6;
 	
 	@ManyToOne
     @JoinColumn(name="ORDER_ID")
 	private OrderInfoVo orderInfoVO;
 
+	public void setPicId(Integer pos, Integer fileStorageId) {
+		if (pos == 1) {
+			pic1 = fileStorageId;
+		} else if (pos == 2) {
+			pic2 = fileStorageId;
+		} else if (pos == 3) {
+			pic3 = fileStorageId;
+		} else if (pos == 4) {
+			pic4 = fileStorageId;
+		} else if (pos == 5) {
+			pic5 = fileStorageId;
+		} else if (pos == 6) {
+			pic6 = fileStorageId;
+		}
+	}
 	public Integer getProductId() {
 		return productId;
 	}
@@ -158,27 +180,27 @@ public class ProductVo {
 		this.account = account;
 	}
 
-	public String getPhoneType() {
+	public PhoneTypeEnum getPhoneType() {
 		return phoneType;
 	}
 
-	public void setPhoneType(String phoneType) {
+	public void setPhoneType(PhoneTypeEnum phoneType) {
 		this.phoneType = phoneType;
 	}
 
-	public String getMemory() {
-		return memory;
+	public PhoneStorageEnum getStorage() {
+		return storage;
 	}
 
-	public void setMemory(String memory) {
-		this.memory = memory;
+	public void setStorage(PhoneStorageEnum storage) {
+		this.storage = storage;
 	}
 
-	public String getColor() {
+	public PhoneColorEnum getColor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(PhoneColorEnum color) {
 		this.color = color;
 	}
 
@@ -310,52 +332,52 @@ public class ProductVo {
 		this.sellReason = sellReason;
 	}
 
-	public Byte[] getFile1() {
-		return file1;
+	public Integer getPic1() {
+		return pic1;
 	}
 
-	public void setFile1(Byte[] file1) {
-		this.file1 = file1;
+	public void setPic1(Integer pic1) {
+		this.pic1 = pic1;
 	}
 
-	public Byte[] getFile2() {
-		return file2;
+	public Integer getPic2() {
+		return pic2;
 	}
 
-	public void setFile2(Byte[] file2) {
-		this.file2 = file2;
+	public void setPic2(Integer pic2) {
+		this.pic2 = pic2;
 	}
 
-	public Byte[] getFile3() {
-		return file3;
+	public Integer getPic3() {
+		return pic3;
 	}
 
-	public void setFile3(Byte[] file3) {
-		this.file3 = file3;
+	public void setPic3(Integer pic3) {
+		this.pic3 = pic3;
 	}
 
-	public Byte[] getFile4() {
-		return file4;
+	public Integer getPic4() {
+		return pic4;
 	}
 
-	public void setFile4(Byte[] file4) {
-		this.file4 = file4;
+	public void setPic4(Integer pic4) {
+		this.pic4 = pic4;
 	}
 
-	public Byte[] getFile5() {
-		return file5;
+	public Integer getPic5() {
+		return pic5;
 	}
 
-	public void setFile5(Byte[] file5) {
-		this.file5 = file5;
+	public void setPic5(Integer pic5) {
+		this.pic5 = pic5;
 	}
 
-	public Byte[] getFile6() {
-		return file6;
+	public Integer getPic6() {
+		return pic6;
 	}
 
-	public void setFile6(Byte[] file6) {
-		this.file6 = file6;
+	public void setPic6(Integer pic6) {
+		this.pic6 = pic6;
 	}
 
 	public OrderInfoVo getOrderInfoVO() {
@@ -365,5 +387,5 @@ public class ProductVo {
 	public void setOrderInfoVO(OrderInfoVo orderInfoVO) {
 		this.orderInfoVO = orderInfoVO;
 	}
-
+	
 }

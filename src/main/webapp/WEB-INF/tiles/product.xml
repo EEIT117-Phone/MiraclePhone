@@ -4,7 +4,7 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
 	<definition name="product" extends="template-def">  
-        <put-attribute name="body"  value="/WEB-INF/jsp/advertise/advertisePage.jsp" />  
+        <put-attribute name="body"  value="/WEB-INF/jsp/product/product.jsp" />  
     </definition>  
 
 	<definition name="productPromotionVIP" extends="template-def">  
