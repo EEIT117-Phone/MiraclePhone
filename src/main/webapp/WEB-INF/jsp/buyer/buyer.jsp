@@ -25,6 +25,7 @@
 			<span><a href="<c:url value='/buyer?productId=${info.productId}'/>">NO:${info.productId}</a></span>
 		</div>
 		<h3>NO:${info.productId}</h3>
+		<p>觀看次數:${info.watch}次</p>
 		<div class="link3">
 			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1"
 				id="myImg"> <img src="<c:url value='/fs/img/${info.pic2}' />"

@@ -55,6 +55,7 @@ public class ProductVo {
 	public static final String FILE4 = "file4";
 	public static final String FILE5 = "file5";
 	public static final String FILE6 = "file6";
+	public static final String WATCH = "watch";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -142,6 +143,9 @@ public class ProductVo {
 
 	@Column(name = "PIC6")
 	private Integer pic6;
+	
+	@Column(name = "WATCH")
+	private Integer watch;
 
 	@ManyToOne
     @JoinColumn(name="ORDER_ID")
@@ -384,6 +388,13 @@ public class ProductVo {
 
 	public void setOrderInfoVO(OrderInfoVo orderInfoVO) {
 		this.orderInfoVO = orderInfoVO;
+	}
+	
+	public Integer getWatch() {
+		return watch;
+	}
+	public void setWatch(Integer watch) {
+		this.watch = watch;
 	}
 	
 }
