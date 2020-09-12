@@ -26,4 +26,21 @@ $(function() {
         sectorSelect.innerHTML = Sinner;
     }
     changequestion(document.getElementById("question").selectedIndex);
+    
+    $('#profile-tab').click(function() {
+    	$.ajax({
+			url : '/MiraclePhone/contact/history',
+			method : 'GET',
+			success : function(json) {
+				let str = '';
+				for (var index in json) {
+					let obj = json[index];
+					str += '<tr><td>' + (Number(index) + 1) + '</td><td>' + obj.select1 + '-' + obj.select2
+					+ '</td><td>' + obj.date + '</td><td>' + obj.question + '</td><td>' + obj.answer + '</td></tr>';
+				}
+				$('#profile-tab-table-tbody').html(str);
+			}
+		});
+    });
+    
 });
