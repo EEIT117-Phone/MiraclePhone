@@ -25,16 +25,17 @@
 		</div>
 		<h3>◢ 簡便宜 ◣ 二手 Nokia 諾基亞 3310 藍色手機</h3>
 		<div class="link3">
-			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1" id="myImg"> 
-			<img src="<c:url value='/fs/img/${info.pic2}' />" class="small">
-			<img src="<c:url value='/fs/img/${info.pic3}' />" class="small"> 
-			<img src="<c:url value='/fs/img/${info.pic4}' />" class="small">
-			<img src="<c:url value='/fs/img/${info.pic5}' />" class="small"> 
-			<img src="<c:url value='/fs/img/${info.pic6}' />" class="small">
+			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1"
+				id="myImg"> <img src="<c:url value='/fs/img/${info.pic2}' />"
+				class="small"> <img
+				src="<c:url value='/fs/img/${info.pic3}' />" class="small"> <img
+				src="<c:url value='/fs/img/${info.pic4}' />" class="small"> <img
+				src="<c:url value='/fs/img/${info.pic5}' />" class="small"> <img
+				src="<c:url value='/fs/img/${info.pic6}' />" class="small">
 		</div>
 		<div id="myModal" class="modal">
-			<span class="close">&times;</span> <img class="modal-content"
-				id="img01">
+			<br> <br> <br> <span class="close">&times;</span> <img
+				class="modal-content" id="img01">
 			<div id="caption"></div>
 		</div>
 		<div class="salse">
@@ -79,13 +80,19 @@
 			<div id="quest2" class="quest">
 				<c:forEach varStatus="status" var="li" items="${qa}">
 					<div>
-						<p>${info.account}(${li.leaveTime})</p><br>
+						<p>${info.account}(${li.leaveTime})</p>
+						<br>
 						<p>問題:</p>
 						<p>${li.massage}</p>
 						<p>回覆:</p>
 						<p>${li.ansTime}</p>
 						<p style="background-color: gray">${li.answer}</p>
-						<input type="button" value="回覆" onclick="javascript: location.href = '<c:url value='/buyer/answer?id=${li.mId}' />'"/>
+						<button class="ansbtn" type="button" value="${li.mId}">回覆</button>
+						<br>
+						<form class="ansarea" action="<c:url value='/buyer/answerpage'/>" method="POST">
+							<textarea rows="5" cols="50" name="text"></textarea>
+							<br> <input type="submit" value="提交">
+						</form>
 						<hr>
 					</div>
 				</c:forEach>

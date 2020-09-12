@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/" + BuyerController.MODULE_NAME)
@@ -55,12 +56,13 @@ public class BuyerController {
 		massageService.save(mv);
 		return "redirect:/" + MODULE_NAME + "?productId=" + proid;
 	}
-	
+	@ResponseBody
 	@RequestMapping(value = "/answer" , method = RequestMethod.GET)
-	public String answer(int id) {
+	public String answer(Integer id) {
 		mid = id;
 		quest = massageService.findOne(mid);
-		return ANSWER_PAGE;
+		System.out.println(mid);
+		return null;
 	}
 	
 	@RequestMapping(value = "/answerpage" , method = RequestMethod.POST)
