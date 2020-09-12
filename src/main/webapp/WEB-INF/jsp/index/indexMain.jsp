@@ -43,9 +43,8 @@
                     <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
                         dy=".3em">140x140</text>
                 </svg>
-                <h2>全新機</h2>
-                <p>這裡賣的是全新機</p>
-                <p><a class="btn btn-secondary" href="https://getbootstrap.com/docs/4.5/examples/carousel/#"
+                <h2>找全新機</h2>
+                <p><a class="btn btn-secondary" href="<c:url value='/search/result?phoneSort=全新機' />"
                         role="button">點此前往
                         »</a></p>
             </div><!-- /.col-lg-4 -->
@@ -57,10 +56,8 @@
                     <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
                         dy=".3em">140x140</text>
                 </svg>
-                <h2>中古機</h2>
-                <p>這裡賣的是中古機
-                </p>
-                <p><a class="btn btn-secondary" href="https://getbootstrap.com/docs/4.5/examples/carousel/#"
+                <h2>找二手機</h2>
+                <p><a class="btn btn-secondary" href="<c:url value='/search/result?phoneSort=二手機' />"
                         role="button">點此前往
                         »</a></p>
             </div><!-- /.col-lg-4 -->
@@ -72,9 +69,8 @@
                     <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
                         dy=".3em">140x140</text>
                 </svg>
-                <h2>零件機</h2>
-                <p>這裡賣的是零件機</p>
-                <p><a class="btn btn-secondary" href="https://getbootstrap.com/docs/4.5/examples/carousel/#"
+                <h2>找零件機</h2>
+                <p><a class="btn btn-secondary" href="<c:url value='/search/result?phoneSort=零件機' />"
                         role="button">點此前往
                         »</a></p>
             </div><!-- /.col-lg-4 -->

@@ -30,7 +30,7 @@
 							<li><a href="<c:url value='/contact' />">刊登中物件</a></li>
 							<li><a href="<c:url value='/usermodification' />">修改會員資訊</a></li>
 							<li><a href="<c:url value='/orderHistory' />">訂單歷史紀錄</a></li>
-							<li><a href="<c:url value='/contactcustomer' />">客服專區</a></li>
+							<li><a href="<c:url value='/contact' />">客服專區</a></li>
 							
 						</ul></li>
 					<!-- 		會員未登入			 -->
