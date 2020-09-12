@@ -18,7 +18,7 @@ $(document).ready(function () {
 		var stat = true;
 	$('.ansbtn').click(function() {
 		let ansid = $(this).val();
-		$('.ansarea').toggle();
+		$(this).siblings('.ansarea').toggle();
 	});
 
 	$('#addShopCart').click(function() {

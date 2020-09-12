@@ -20,10 +20,11 @@
 <body>
 	<div class="link1">
 		<div class="link2">
-			<span><a href="連結網址">首頁></a></span> <span><a href="連結網址">新機></a></span>
-			<span><a href="連結網址">Nokia></a></span> <span><a href="連結網址">3310</a></span>
+			<span><a href="<c:url value='/'/>">首頁></a></span>
+			<span><a href="<c:url value='/search/result?searchInput='/>">搜尋></a></span>
+			<span><a href="<c:url value='/buyer?productId=${info.productId}'/>">NO:${info.productId}</a></span>
 		</div>
-		<h3>◢ 簡便宜 ◣ 二手 Nokia 諾基亞 3310 藍色手機</h3>
+		<h3>NO:${info.productId}</h3>
 		<div class="link3">
 			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1"
 				id="myImg"> <img src="<c:url value='/fs/img/${info.pic2}' />"
@@ -80,16 +81,17 @@
 			<div id="quest2" class="quest">
 				<c:forEach varStatus="status" var="li" items="${qa}">
 					<div>
-						<p>${info.account}(${li.leaveTime})</p>
-						<br>
+						<p>${li.buyeraccount}${li.leaveTime}</p>
 						<p>問題:</p>
-						<p>${li.massage}</p>
+						<p class="userquest">${li.massage}</p>
+						<br>
+						<p>${li.answeraccount}${li.ansTime}</p>
 						<p>回覆:</p>
-						<p>${li.ansTime}</p>
-						<p style="background-color: gray">${li.answer}</p>
-						<button class="ansbtn" type="button" value="${li.mId}">回覆</button>
+						<p class="useranswer">${li.answer}</p>
+						<button class="ansbtn" type="button">回覆</button>
 						<br>
 						<form class="ansarea" action="<c:url value='/buyer/answerpage'/>" method="POST">
+							<input class="mid" type="text" name="userid" value="${li.mId}"/>
 							<textarea rows="5" cols="50" name="text"></textarea>
 							<br> <input type="submit" value="提交">
 						</form>
