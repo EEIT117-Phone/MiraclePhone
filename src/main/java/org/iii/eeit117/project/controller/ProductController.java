@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
 
+
 @Controller
 @RequestMapping(value = "/" + ProductController.MODULE_NAME)
 public class ProductController {

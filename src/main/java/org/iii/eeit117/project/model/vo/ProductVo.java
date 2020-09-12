@@ -9,8 +9,6 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -144,7 +142,7 @@ public class ProductVo {
 
 	@Column(name = "PIC6")
 	private Integer pic6;
-	
+
 	@ManyToOne
     @JoinColumn(name="ORDER_ID")
 	private OrderInfoVo orderInfoVO;
@@ -308,11 +306,11 @@ public class ProductVo {
 		this.district = district;
 	}
 
-	public String getZipCode() {
+	public String getZipcode() {
 		return zipcode;
 	}
 
-	public void setZipCode(String zipcode) {
+	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
 

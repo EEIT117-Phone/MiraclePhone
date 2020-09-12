@@ -29,6 +29,7 @@ public class LoginController {
 	public static final String USERMAIN_PAGE=MODULE_NAME+"main";
 	public static final String USERMODIFICATION_PAGE=MODULE_NAME+"modification";
 	public static final String SIGNUPIMG_PAGE=SIGNUP_PAGE+"img";
+	
 	@Autowired
 	private UserService userService;
 	
@@ -36,6 +37,7 @@ public class LoginController {
 	public String Main(Model model) {
 		return MAIN_PAGE;
 	}
+	
 	@RequestMapping(value = MAIN_PAGE, method = RequestMethod.POST)
 	public String checkLogin(HttpServletRequest request,HttpServletResponse response,HttpSession httpsession,Model model) throws IOException {
 		String account=request.getParameter("useraccount"); //取得輸入帳號
