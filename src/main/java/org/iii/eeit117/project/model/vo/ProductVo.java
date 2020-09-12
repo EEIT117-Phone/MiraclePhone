@@ -4,6 +4,7 @@ package org.iii.eeit117.project.model.vo;
 
 
 
+import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,8 +15,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "PRODUCT")
@@ -119,25 +122,85 @@ public class ProductVo {
 	private String sellReason;
 
 	@Column(name = "FILE1")
-	private Byte[] file1;
+	private Blob file1;
 
 	@Column(name = "FILE2")
-	private Byte[] file2;
+	private Blob file2;
 
 	@Column(name = "FILE3")
-	private Byte[] file3;
+	private Blob file3;
 
 	@Column(name = "FILE4")
-	private Byte[] file4;
+	private Blob file4;
 
 	@Column(name = "FILE5")
-	private Byte[] file5;
+	private Blob file5;
 
 	@Column(name = "FILE6")
-	private Byte[] file6;
+	private Blob file6;
 	
-	
-	
+	@Transient
+	MultipartFile productImage1;
+	@Transient
+	MultipartFile productImage2;
+	@Transient
+	MultipartFile productImage3;
+	@Transient
+	MultipartFile productImage4;
+	@Transient
+	MultipartFile productImage5;
+	@Transient
+	MultipartFile productImage6;
+
+
+	public MultipartFile getProductImage1() {
+		return productImage1;
+	}
+
+	public void setProductImage1(MultipartFile productImage1) {
+		this.productImage1 = productImage1;
+	}
+
+	public MultipartFile getProductImage2() {
+		return productImage2;
+	}
+
+	public void setProductImage2(MultipartFile productImage2) {
+		this.productImage2 = productImage2;
+	}
+
+	public MultipartFile getProductImage3() {
+		return productImage3;
+	}
+
+	public void setProductImage3(MultipartFile productImage3) {
+		this.productImage3 = productImage3;
+	}
+
+	public MultipartFile getProductImage4() {
+		return productImage4;
+	}
+
+	public void setProductImage4(MultipartFile productImage4) {
+		this.productImage4 = productImage4;
+	}
+
+	public MultipartFile getProductImage5() {
+		return productImage5;
+	}
+
+	public void setProductImage5(MultipartFile productImage5) {
+		this.productImage5 = productImage5;
+	}
+
+	public MultipartFile getProductImage6() {
+		return productImage6;
+	}
+
+	public void setProductImage6(MultipartFile productImage6) {
+		this.productImage6 = productImage6;
+	}
+
 	@ManyToOne
     @JoinColumn(name="ORDER_ID")
 	private OrderInfoVo orderInfoVO;
@@ -286,11 +349,11 @@ public class ProductVo {
 		this.district = district;
 	}
 
-	public String getZipCode() {
+	public String getZipcode() {
 		return zipcode;
 	}
 
-	public void setZipCode(String zipcode) {
+	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
 
@@ -310,51 +373,51 @@ public class ProductVo {
 		this.sellReason = sellReason;
 	}
 
-	public Byte[] getFile1() {
+	public Blob getFile1() {
 		return file1;
 	}
 
-	public void setFile1(Byte[] file1) {
+	public void setFile1(Blob file1) {
 		this.file1 = file1;
 	}
 
-	public Byte[] getFile2() {
+	public Blob getFile2() {
 		return file2;
 	}
 
-	public void setFile2(Byte[] file2) {
+	public void setFile2(Blob file2) {
 		this.file2 = file2;
 	}
 
-	public Byte[] getFile3() {
+	public Blob getFile3() {
 		return file3;
 	}
 
-	public void setFile3(Byte[] file3) {
+	public void setFile3(Blob file3) {
 		this.file3 = file3;
 	}
 
-	public Byte[] getFile4() {
+	public Blob getFile4() {
 		return file4;
 	}
 
-	public void setFile4(Byte[] file4) {
+	public void setFile4(Blob file4) {
 		this.file4 = file4;
 	}
 
-	public Byte[] getFile5() {
+	public Blob getFile5() {
 		return file5;
 	}
 
-	public void setFile5(Byte[] file5) {
+	public void setFile5(Blob file5) {
 		this.file5 = file5;
 	}
 
-	public Byte[] getFile6() {
+	public Blob getFile6() {
 		return file6;
 	}
 
-	public void setFile6(Byte[] file6) {
+	public void setFile6(Blob file6) {
 		this.file6 = file6;
 	}
 

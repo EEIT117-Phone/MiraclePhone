@@ -12,7 +12,7 @@
     <script src="<c:url value='/js/jquery.twzipcode.min.js' />"></script>
 <body>
     <div>
-        <form:form servletRelativeAction="/product/insert" method="post" enctype="application/x-www-form-urlencoded"
+        <form:form servletRelativeAction="/product/insert" method="post" enctype="multipart/form-data"
             modelAttribute="product">
             <fieldset>
                 <legend>手機刊登</legend>
@@ -159,22 +159,22 @@
                     
                       <br>
                  <label for="file1">正面:</label>
-                 <input type="file" accept="image/*" name="file1">
+                 <form:input type="file" accept="image/*" path="productImage1"/>
                  <br>
                  <label for="file2">背面:</label>
-                 <input type="file" accept="image/*" name="file2">
+                 <form:input type="file" accept="image/*" path="productImage2"/>
                  <br>
                  <label for="file3">左側:</label>
-                 <input type="file" accept="image/*" name="file3">
+                 <form:input type="file" accept="image/*" path="productImage3"/>
                  <br>
                  <label for="file4">右側:</label>
-                 <input type="file" accept="image/*" name="file4">
+                 <form:input type="file" accept="image/*" path="productImage4"/>
                  <br>
                  <label for="file5">上面:</label>
-                 <input type="file" accept="image/*" name="file5">
+                 <form:input type="file" accept="image/*" path="productImage5"/>
                  <br>
                  <label for="file6">下面:</label>
-                 <input type="file" accept="image/*" name="file6">
+                 <form:input type="file" accept="image/*" path="productImage6"/>
                  <br>
               
                 <label for="sellReason">銷售原因以及備註:</label>
