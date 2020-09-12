@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +12,8 @@
     <link rel="stylesheet" href="<c:url value='/css/tail.select-default.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/css/owl.carousel.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/css/owl.theme.default.min.css' />" />
-    <link rel="stylesheet" href="<c:url value='/css/font-awesome.min.css' />" />
+    <link rel="stylesheet" href="<c:url value='/css/font-awesome-4.7.0/css/font-awesome.min.css' />" />
+<%--     <link rel="stylesheet" href="<c:url value='/css/font-awesome.min.css' />" /> --%>
     <link rel="stylesheet" href="<c:url value='/css/search.css' />" />
 </head>
 
@@ -95,32 +97,34 @@
                     </a>
                 </div>
 
-                <h4>搜尋結果</h4>
+				<div class="d-inline-block w-100">
+                <h4 class="float-left">搜尋結果</h4>
+<!--                 <select class="float-right h-100" style="margin-right: 20px;">
+                <option>價格(低到高)</option>
+                <option>價格(高到低)</option>
+              	</select> -->
+              	<input type="button" value="價格(低到高)" class="float-right h-100" style="width:130px; margin: 0 10px 0 5px;">
+              	<input type="button" value="最新" class="float-right h-100" style="width:130px; margin: 0 5px 0 5px;">
+              	<input type="button" value="最熱門" class="float-right h-100" style="width:130px; margin: 0 5px 0 5px;">
+                </div>
+              
                 <div class="h-100 mb-5">
                 <form class="w-100" style="border-spacing: 20px;">
                     <c:forEach varStatus="status" var="result" items="${results}">
-                    
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
                             <div class="card card-result">
                                 <img class="card-img" src="<c:url value='/images/iPhone11.jpg' />" alt="Card image cap">
                                 <div class="card-body search-card-body">
                                     <p class="card-title">[${result.phoneSort}] ${result.phoneType} ${result.memory}
-                                        ${result.color}</p>
-                                    <span class="card-text">$ ${result.amount} </span><span class="card-city">${result.county}${result.district}</span>
+                                        ${result.color}色</p>
+                                    <span class="card-text mr-2">$ <fmt:formatNumber value="${result.amount}" type="number"/></span><span class="card-city">${result.county}${result.district}</span>
                                 </div>
                             </div>
                         </a>
                     </c:forEach>
-                    </div>
-
-
-                    <!--               <select class="float-right h-100" style="margin-right: 20px;">
-                <option>價格(高到低)</option>
-                <option>價格(低到高)</option>
-              </select>
-              <input type="button" value="最新" class="float-right h-100" style="width:100px; margin: 0 10px 15px 5px;">
-              <input type="button" value="最熱門" class="float-right h-100" style="width:100px; margin: 0 5px 15px 5px;"> -->
                 </form>
+                </div>
+                
             </div>
 
             <!-- Filter -->
@@ -130,7 +134,7 @@
                     <div class="search">
                         <form:form servletRelativeAction="/search/result" method="get"
                             enctype="application/x-www-form-urlencoded" modelAttribute="searchBean">
-                            <form:input path="searchInput" class="searchTerm" placeholder="請輸入關鍵字搜尋" />
+                            <form:input path="searchInput" class="searchTerm" placeholder="請輸入關鍵字搜尋"/>
                             <button type="submit" class="searchButton"><i class="fa fa-search"></i>
                             </button>
                         </form:form>
@@ -138,72 +142,19 @@
                 </div>
 
                 <h4>進階篩選</h4>
+                <form:form servletRelativeAction="/search/result" method="get"
+                            enctype="application/x-www-form-urlencoded" modelAttribute="searchBean">
+                            <button type="submit" class="searchButton"></button>
+
                 <div class="card">
                     <article class="card-group-item">
                         <header class="card-header">
                             <label class="filter-title">機種</label>
                         </header>
-                        <div class="filter-content">
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxTypeAll"
-                                            value="TypeAll" checked> <label class="form-check-label"
-                                            for="inlineCheckboxTypeAll">不限</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone6"
-                                            value="iphone 6"> <label class="form-check-label"
-                                            for="inlineCheckboxiphone6">iPhone
-                                            6系列</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone7"
-                                            value="iphone 7"> <label class="form-check-label"
-                                            for="inlineCheckboxiphone7">iPhone
-                                            7系列</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone8"
-                                            value="iphone 8"> <label class="form-check-label"
-                                            for="inlineCheckboxiphone8">iPhone
-                                            8系列</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonese"
-                                            value="iphone se"> <label class="form-check-label"
-                                            for="inlineCheckboxiphonese">iPhone
-                                            SE系列</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonex"
-                                            value="iphone x"> <label class="form-check-label"
-                                            for="inlineCheckboxiphonex">iPhone
-                                            X系列</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxiphone11"
-                                            value="iphone 11"> <label class="form-check-label"
-                                            for="inlineCheckboxiphone11">iPhone
-                                            11系列</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxiphonese2"
-                                            value="iphone se2"> <label class="form-check-label"
-                                            for="inlineCheckboxiphonese2">iPhone
-                                            SE2系列</label>
-                                    </div>
-                                    <br>
-                                </form>
-
-                            </div>
+                        <div class="pl-3 pr-3">
+                        	<div class="card-body">
+                        	<form:checkboxes class="form-check-input" items="${phoneTypeList}" path="checkOption" element="div"/>
+                        	</div>
                         </div>
                     </article>
 
@@ -211,53 +162,10 @@
                         <header class="card-header">
                             <label class="filter-title">容量</label>
                         </header>
-                        <div class="filter-content">
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxMemoryAll"
-                                            value="MemoryAll" checked>
-                                        <label class="form-check-label" for="inlineCheckboxMemoryAll">不限</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox16GB"
-                                            value="16GB"> <label class="form-check-label" for="inlineCheckbox16GB">16
-                                            GB</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox32GB"
-                                            value="32GB"> <label class="form-check-label" for="inlineCheckbox32GB">32
-                                            GB</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox64GB"
-                                            value="64GB"> <label class="form-check-label" for="inlineCheckbox64GB">64
-                                            GB</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox128GB"
-                                            value="128GB"> <label class="form-check-label" for="inlineCheckbox128GB">128
-                                            GB</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox256GB"
-                                            value="256GB"> <label class="form-check-label" for="inlineCheckbox256GB">256
-                                            GB</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox512GB"
-                                            value="512GB"> <label class="form-check-label" for="inlineCheckbox512GB">512
-                                            GB</label>
-                                    </div>
-                                    <br>
-                                </form>
-                            </div>
+                        <div class="pl-3 pr-3">
+                        	<div class="card-body">
+                        	<form:checkboxes class="form-check-input" items="${memoryList}" path="checkOption" element="div"/>
+                        	</div>
                         </div>
                     </article>
 
@@ -265,47 +173,10 @@
                         <header class="card-header">
                             <label class="filter-title">價格區間</label>
                         </header>
-                        <div class="filter-content">
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxPriceAll"
-                                            value="PriceAll" checked>
-                                        <label class="form-check-label" for="inlineCheckboxPriceAll">不限</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder5000"
-                                            value="Under5000"> <label class="form-check-label"
-                                            for="inlineCheckboxUnder5000">5,000元以下</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder10000"
-                                            value="Under10000"> <label class="form-check-label"
-                                            for="inlineCheckboxUnder10000">10,000元以下</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder20000"
-                                            value="Under20000"> <label class="form-check-label"
-                                            for="inlineCheckboxUnder20000">20,000元以下</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder30000"
-                                            value="Under30000"> <label class="form-check-label"
-                                            for="inlineCheckboxUnder30000">30,000元以下</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxUnder40000"
-                                            value="inlineCheckboxUnder40000"> <label class="form-check-label"
-                                            for="inlineCheckboxUnder40000">40,000元以下</label>
-                                    </div>
-                                    <br>
-                                </form>
-                            </div>
+                        <div class="pl-3 pr-3">
+                        	<div class="card-body">
+                        	<form:checkboxes class="form-check-input" items="${amountList}" path="checkAmountOption" element="div"/>
+                        	</div>
                         </div>
                     </article>
 
@@ -370,11 +241,12 @@
                     </article>
 
                 </div>
+                </form:form>
             </div>
         </div>
     </div>
     <!-- @@ JS -->
-    <script src="<c:url value='/js/jquery-3.5.1.slim.min.js' />"></script>
+    <script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
     <script src="<c:url value='/js/popper.js' />"></script>
     <script src="<c:url value='/js/bootstrap.bundle.min.js' />"></script>
     <script src="<c:url value='/js/tail.select.min.js' />"></script>

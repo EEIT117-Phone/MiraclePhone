@@ -4,7 +4,8 @@ package org.iii.eeit117.project.controller;
 import org.iii.eeit117.project.model.service.SearchService;
 import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.search.BaseSearchBean;
-import org.iii.eeit117.project.search.IndexSearchBean;
+
+import org.iii.eeit117.project.search.SearchBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +26,7 @@ public class IndexController {
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String index(Model model) {
 		
-		model.addAttribute("searchBean", new IndexSearchBean());
+		model.addAttribute("searchBean", new SearchBean());
 		return MAIN_PAGE;
 	}
 	

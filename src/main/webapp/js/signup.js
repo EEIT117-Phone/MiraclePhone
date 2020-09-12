@@ -85,6 +85,44 @@ function checkform(){
 }
 	erTWZipcode();  //地址
 	
+var uploadimg = document.getElementById("uploadimg"); //上傳照片
+var previewImg = document.getElementById("previewImg"); //照片預覽處
+var fileReader = new FileReader(); //設立一個空的file讀取物件
+//設定大頭貼預覽
+uploadimg.addEventListener("change", e => {
+  var file = e.target.files[0];  // 取得 File Object
+  fileReader.readAsDataURL(file);  // 將 File Object 讀取成 DataURL
+	console.log(e.target.files);
+});
+
+// load 時可以取得 fileReader 回傳的結果
+fileReader.addEventListener("load", function() {
+  var dataURL = fileReader.result;   // Base64 Image
+  previewImg.src = dataURL;
+});
+//設定提交按鈕的click功能為ajax文件送去Controller
+$("#test").click(
+	function(){
+		var xhr=new XMLHttpRequest();
+		var userForm=new FormData($("#sendimg")); //創建一個新ajax的傳送載體
+		xhr.open("POST","/MiraclePhone/usersignupimg",true);
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4)
+			{
+				if(xhr.status==200)
+			{
+				alert("圖片上傳成功");
+			}
+			}
+			
+		}
+		var filename_ajax=$("#account").val()+"-headphoto"; //設定大頭貼名稱為 "帳號名-headphoto"
+		var sendimg_ajax=$("#uploadimg")[0].files[0] //取得欲上傳照片
+		userForm.append("imagename",filename_ajax);
+		userForm.append("uploadimg",sendimg_ajax);
+		
+		xhr.send(userForm);
+	});
 	
-	
-	})
+	});

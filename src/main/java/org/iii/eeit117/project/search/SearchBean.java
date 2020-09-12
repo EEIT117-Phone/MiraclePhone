@@ -1,8 +1,8 @@
 package org.iii.eeit117.project.search;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -11,6 +11,7 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.iii.eeit117.project.model.util.HibernateUtil;
 import org.iii.eeit117.project.model.util.StringUtil;
+import org.iii.eeit117.project.model.vo.HelloVo;
 import org.iii.eeit117.project.model.vo.ProductVo;
 
 public class SearchBean extends BaseSearchBean<ProductVo> {
@@ -25,7 +26,9 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 	private Integer amount;
 	private String file1;
 	private String searchInput;
-	private String checkedOption;
+	private String[] checkedOption;
+	private String checkOption;
+	private Integer checkAmountOption;
 
 	@Override
 	public CriteriaQuery<ProductVo> getCriteriaQuery() {
@@ -42,18 +45,52 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			System.out.println("phoneSort: " + phoneSort);
 		}
 
-		// 進階搜尋功能
+		// 進階搜尋預設打勾
 		if (StringUtil.isNonEmpty(checkedOption)) {
-			restrictions.add(builder.equal(root.get(ProductVo.PHONETYPE), checkedOption));
+			restrictions.add(builder.like(root.get(ProductVo.PHONETYPE), checkedOption + "%"));
 			System.out.println("checkedOption: " + checkedOption);
+		}
+
+		// 進階搜尋功能
+		if (StringUtil.isNonEmpty(checkOption)) {
+			System.out.println("checkOption: " + checkOption);
+			String[] checkOptionList = checkOption.split(",");
+			Predicate orSearch;
+			Predicate finalSearch;
+			List<Predicate> list = new LinkedList<>();
+			for (String oneWord : checkOptionList) {
+				System.out.println("oneWord: " + oneWord);
+				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE), "%" + oneWord + "%");
+				Predicate memory1 = builder.like(root.get(ProductVo.MEMORY), "%" + oneWord + "%");
+				Predicate color1 = builder.like(root.get(ProductVo.COLOR), "%" + oneWord + "%");
+				Predicate phonesort1 = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
+				Predicate phonecondition1 = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
+				Predicate county1 = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
+				Predicate district1 = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
+				orSearch = builder.or(phonetype1, memory1, color1, phonesort1, phonecondition1, county1, district1);
+				list.add(orSearch);
+			}
+			// 預設價格低到高排序
+			query.orderBy(builder.asc(root.get("amount")));
+			finalSearch = builder.and(list.toArray(new Predicate[0]));
+			restrictions.add(finalSearch);
+			query.where(finalSearch);
+		}
+
+		// 進階搜尋價格功能
+		if (StringUtil.isNonEmpty(checkAmountOption)) {
+			System.out.println("checkAmountOption: " + checkAmountOption);
+			restrictions.add(builder.le(root.get(ProductVo.AMOUNT), checkAmountOption));
+			query.orderBy(builder.asc(root.get("amount")));
 		}
 
 		// 搜尋框
 		if (StringUtil.isNonEmpty(searchInput)) {
 			System.out.println("searchInput: " + searchInput);
 			String[] searchInputList = searchInput.split(" ");
-			Predicate orSearch = null;
-			Predicate finalSearch = null;
+			Predicate orSearch;
+			Predicate finalSearch;
+			List<Predicate> list = new LinkedList<>();
 			for (String oneWord : searchInputList) {
 				System.out.println("oneWord: " + oneWord);
 				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE), "%" + oneWord + "%");
@@ -63,18 +100,12 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 				Predicate phonecondition1 = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
 				Predicate county1 = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
 				Predicate district1 = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
-
-//			restrictions.add(builder.like(root.get(SearchVo.PHONETYPE), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.MEMORY), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.COLOR), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.PHONESORT), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.PHONECONDITION), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.COUNTY), "%" + oneWord + "%"));
-//			restrictions.add(builder.like(root.get(SearchVo.DISTRICT), "%" + oneWord + "%"));
-
 				orSearch = builder.or(phonetype1, memory1, color1, phonesort1, phonecondition1, county1, district1);
+				list.add(orSearch);
 			}
-			finalSearch = builder.and(orSearch, orSearch);
+			// 預設價格低到高排序
+			query.orderBy(builder.asc(root.get("amount")));
+			finalSearch = builder.and(list.toArray(new Predicate[0]));
 			restrictions.add(finalSearch);
 			query.where(finalSearch);
 		}
@@ -88,15 +119,34 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			restrictions.add(builder.like(root.get(ProductVo.PHONECONDITION), "%" + searchInput + "%"));
 			restrictions.add(builder.like(root.get(ProductVo.COUNTY), "%" + searchInput + "%"));
 			restrictions.add(builder.like(root.get(ProductVo.DISTRICT), "%" + searchInput + "%"));
+			// 預設價格低到高排序
+			query.orderBy(builder.asc(root.get("amount")));
 		}
+		// 最終return
 		return query.where(builder.or(restrictions.toArray(new Predicate[] {})));
 	}
 
-	public String getCheckedOption() {
+	public Integer getCheckAmountOption() {
+		return checkAmountOption;
+	}
+
+	public void setCheckAmountOption(Integer checkAmountOption) {
+		this.checkAmountOption = checkAmountOption;
+	}
+
+	public String getCheckOption() {
+		return checkOption;
+	}
+
+	public void setCheckOption(String checkOption) {
+		this.checkOption = checkOption;
+	}
+
+	public String[] getCheckedOption() {
 		return checkedOption;
 	}
 
-	public void setCheckedOption(String checkedOption) {
+	public void setCheckedOption(String[] checkedOption) {
 		this.checkedOption = checkedOption;
 	}
 

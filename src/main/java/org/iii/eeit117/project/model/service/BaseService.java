@@ -13,7 +13,7 @@ public interface BaseService<T, E extends Serializable> {
 	
 	public T findOne(E id);
 	
-	public void save(T obj);
+	public T save(T obj);
 	
 	public void delete(T obj);
 	

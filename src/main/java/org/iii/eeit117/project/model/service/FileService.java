@@ -1,12 +1,11 @@
 package org.iii.eeit117.project.model.service;
 
-import java.io.IOException;
-
+import org.iii.eeit117.project.model.vo.FileStorageVo;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface FileService {
 	
-	public void store(MultipartFile file, String targetName) throws IOException;
+	public FileStorageVo upload(MultipartFile partFile, Class<?> claz) throws Exception;
 	
-	public byte[] download(String fileName) throws IOException;
+	public FileStorageVo download(Integer fileStorageId);
 }

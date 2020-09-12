@@ -12,7 +12,7 @@
     <script src="<c:url value='/js/jquery.twzipcode.min.js' />"></script>
 <body>
     <div>
-        <form:form servletRelativeAction="/product/insert" method="post" enctype="application/x-www-form-urlencoded"
+        <form:form servletRelativeAction="/product/insert" method="post" enctype="multipart/form-data"
             modelAttribute="product">
             <fieldset>
                 <legend>手機刊登</legend>
@@ -155,7 +155,28 @@
                 <label for="amount">銷售金額:</label>
                 <form:input type="number" max="50000" min="0" value="8000" step="100" required="required"
                     path="amount" />
-                <br>
+                    
+                    
+                      <br>
+                 <label for="file1">正面:</label>
+                 <form:input type="file" accept="image/*" path="productImage1"/>
+                 <br>
+                 <label for="file2">背面:</label>
+                 <form:input type="file" accept="image/*" path="productImage2"/>
+                 <br>
+                 <label for="file3">左側:</label>
+                 <form:input type="file" accept="image/*" path="productImage3"/>
+                 <br>
+                 <label for="file4">右側:</label>
+                 <form:input type="file" accept="image/*" path="productImage4"/>
+                 <br>
+                 <label for="file5">上面:</label>
+                 <form:input type="file" accept="image/*" path="productImage5"/>
+                 <br>
+                 <label for="file6">下面:</label>
+                 <form:input type="file" accept="image/*" path="productImage6"/>
+                 <br>
+              
                 <label for="sellReason">銷售原因以及備註:</label>
                 <br>
                 <textarea placeholder="請輸入銷售原因&備註 (上限100字)" rows=10 cols="50px" maxlength="109" maxrows="10"

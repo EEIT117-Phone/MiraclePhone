@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.hibernate.Session;
 import org.iii.eeit117.project.model.util.HibernateUtil;
@@ -24,6 +25,15 @@ public abstract class BaseDao<T, E extends Serializable> {
 		return getSession().createQuery(query).getResultList();
 	}
 	
+	public List<T> findByAndCondition(String field, Object val) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+		CriteriaQuery<T> query = builder.createQuery(getTypeParameterClass());
+		Root<T> root = query.from(getTypeParameterClass());
+		query.where(builder.and(builder.equal(root.get(field), val)));
+		return getSession().createQuery(query).getResultList();
+	}
+	
 	public List<T> findAll() {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -32,8 +42,9 @@ public abstract class BaseDao<T, E extends Serializable> {
 		return session.createQuery(query).getResultList();
 	}
 	
-	public void save(T obj) {
+	public T save(T obj) {
 		getSession().saveOrUpdate(obj);
+		return obj;
 	}
 	
 	public void delete(T obj) {
@@ -45,4 +56,5 @@ public abstract class BaseDao<T, E extends Serializable> {
 		ParameterizedType paramType = (ParameterizedType) getClass().getGenericSuperclass();
 		return (Class<T>) paramType.getActualTypeArguments()[0];
 	}
+	
 }

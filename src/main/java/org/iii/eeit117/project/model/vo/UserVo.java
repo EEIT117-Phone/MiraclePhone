@@ -62,7 +62,10 @@ public class UserVo {
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orderId")
 	private Set<OrderInfoVo> orderInfoVos;
-
+	
+	@Column(name="bankaccount")
+	private String bankaccount;
+	
 	public String getAccount() {
 		return account;
 	}
@@ -169,6 +172,14 @@ public class UserVo {
 
 	public void setPhoto(byte[] photo) {
 		this.photo = photo;
+	}
+
+	public String getBankaccount() {
+		return bankaccount;
+	}
+
+	public void setBankaccount(String bankaccount) {
+		this.bankaccount = bankaccount;
 	}
 
 	public Set<OrderInfoVo> getOrderInfoVo() {

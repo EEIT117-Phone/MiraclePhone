@@ -40,16 +40,26 @@ public class SearchController {
 
 		Map<String, String> memoryList = new LinkedHashMap<String, String>();
 		memoryList.put(" ", "不限");
-		memoryList.put("16GB", "16 GB");
-		memoryList.put("32GB", "32 GB");
-		memoryList.put("64GB", "64 GB");
-		memoryList.put("128GB", "128 GB");
-		memoryList.put("256GB", "256 GB");
+		memoryList.put("16G", "16 GB");
+		memoryList.put("32G", "32 GB");
+		memoryList.put("64G", "64 GB");
+		memoryList.put("128G", "128 GB");
+		memoryList.put("256G", "256 GB");
+		
+		Map<Integer, String> amountList = new LinkedHashMap<Integer, String>();
+		amountList.put(100000, "不限");
+		amountList.put(5000, "5,000元以下");
+		amountList.put(10000, "10,000元以下");
+		amountList.put(20000, "20,000元以下");
+		amountList.put(30000, "30,000元以下");
+		amountList.put(40000, "40,000元以下");
 
+		searchBean.setCheckedOption(new String []{" "});	//預設不限打勾
 		model.addAttribute("searchBean", searchBean);
 		model.addAttribute("results", searchService.search(searchBean));
 		model.addAttribute("phoneTypeList", phoneTypeList);
 		model.addAttribute("memoryList", memoryList);
+		model.addAttribute("amountList", amountList);
 		return MODULE_NAME;
 	}
 
@@ -60,5 +70,7 @@ public class SearchController {
 		model.addAttribute("results", searchService.search(searchBean));
 		return MODULE_NAME;
 	}
+	
+	
 
 }

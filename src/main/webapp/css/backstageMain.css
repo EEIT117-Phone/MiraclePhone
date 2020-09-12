@@ -1,0 +1,25 @@
+
+#nav {
+  display: inline-block;
+  float: left;
+}
+
+#main {
+  display: inline-block;
+  float: left;
+  width:700px;
+  margin:auto;
+  margin-top: 10px;
+  margin-left: 50px
+}
+
+#content {
+  display: table;
+  margin: 0 auto;
+  width:900px;
+  margin:auto;
+  margin-top: 100px;
+}
+.b{
+	margin-bottom:100px;
+}

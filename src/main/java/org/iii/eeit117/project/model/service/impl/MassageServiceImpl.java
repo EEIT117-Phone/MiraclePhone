@@ -1,5 +1,7 @@
 package org.iii.eeit117.project.model.service.impl;
 
+import java.util.List;
+
 import org.iii.eeit117.project.model.dao.BaseDao;
 import org.iii.eeit117.project.model.dao.MassageDao;
 import org.iii.eeit117.project.model.service.MassageService;
@@ -16,6 +18,11 @@ public class MassageServiceImpl extends BaseServiceImpl<MassageVo, Integer> impl
 	@Override
 	public BaseDao<MassageVo, Integer> getDao() {
 		return massageDao;
+	}
+
+	@Override
+	public List<MassageVo> findByProductId(Integer productId) {
+		return massageDao.findByAndCondition("productId", productId);
 	}
 
 }

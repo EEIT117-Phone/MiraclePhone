@@ -17,35 +17,35 @@ public class CustomerServiceVo {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "CUSTOMERID", nullable = false)
-	private Integer customerid;
+	@Column(name = "contactid", nullable = false)
+	private Integer contactid;
 
-	@Column(name = "ACCOUNT")
+	@Column(name = "account")
 	private String account;
 
-	@Column(name = "SELECT1")
+	@Column(name = "selectq1")
 	private String select1;
 
-	@Column(name = "SELECT2")
+	@Column(name = "selectq2")
 	private String select2;
 
-	@Column(name = "QUESTION")
+	@Column(name = "question")
 	private String question;
 
-	@Column(name = "ANSWER")
+	@Column(name = "answer")
 	private String answer;
 	
-	@Column(name = "DATE")
+	@Column(name = "questiondate")
 	private String date;
 
 	
 
-	public Integer getCustomerid() {
-		return customerid;
+	public Integer getContactid() {
+		return contactid;
 	}
 
-	public void setCustomerid(Integer customerid) {
-		this.customerid = customerid;
+	public void setContactid(Integer customerid) {
+		this.contactid = customerid;
 	}
 
 	public String getAccount() {

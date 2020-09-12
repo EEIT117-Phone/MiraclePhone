@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-		<a class="navbar-brand prject-link" href="<c:url value='/index' />">
+		<a class="navbar-brand" href="<c:url value='/index' />">
 			<img src="<c:url value='/images/icon/phoneIcon.png' />" width="25"
 			height="25" /> <span>銷售奇機</span>
 		</a>
@@ -28,15 +28,15 @@
 						<ul>
 							<li><a href="<c:url value='/product' />">刊登手機</a></li>
 							<li><a href="<c:url value='/contact' />">刊登中物件</a></li>
-							<li><a href="<c:url value='/user/usermodification' />">修改會員資訊</a></li>
-							<li><a href="<c:url value='/contact' />">訂單歷史紀錄</a></li>
-							<li><a href="<c:url value='/contact' />">客服專區</a></li>
+							<li><a href="<c:url value='/usermodification' />">修改會員資訊</a></li>
+							<li><a href="<c:url value='/orderHistory' />">訂單歷史紀錄</a></li>
+							<li><a href="<c:url value='/contactcustomer' />">客服專區</a></li>
 							
 						</ul></li>
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value='/user' />" style="color: white">登入</a></li>
+						href="<c:url value='/userlogin' />" style="color: white">登入</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value='/user/usersignup'/>" style="color: white">註冊</a></li>
+						href="<c:url value='/usersignup'/>" style="color: white">註冊</a></li>
 				</ul>
 			</div>
 		</div>
