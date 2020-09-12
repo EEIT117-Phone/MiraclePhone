@@ -65,7 +65,7 @@
 			</div>
 			<div class="col-md-8 order-md-1">
 				<h4 class="mb-3">個人資料</h4>
-				<form class="needs-validation" novalidate  action="/MiraclePhone/usersignup" method="post">
+				<form class="needs-validation" novalidate  action="/MiraclePhone/usersignup" method="post" enctype="multipart/form-data">
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="firstName">中文姓名</label> <input type="text"
@@ -124,6 +124,10 @@
             <input id="other" name="sex" type="radio" class="custom-control-input" checked = "checked">
             <label class="custom-control-label" for="other">其他</label>
           </div>
+        </div>
+        <h4 class="mb-3">上傳大頭貼</h4>
+        <div class="d-block my-3">
+          <input type="file" accept="image/*" name="file">
         </div>
         <div class="mb-3">
         	<h4>賣家權限</h4>

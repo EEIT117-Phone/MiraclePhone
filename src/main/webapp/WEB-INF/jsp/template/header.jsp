@@ -33,10 +33,20 @@
 							<li><a href="<c:url value='/contactcustomer' />">客服專區</a></li>
 							
 						</ul></li>
+					<!-- 		會員未登入			 -->
+					<c:if test="${empty user}">
 					<li class="nav-item"><a class="nav-link"
 						href="<c:url value='/userlogin' />" style="color: white">登入</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="<c:url value='/usersignup'/>" style="color: white">註冊</a></li>
+					</c:if>
+					<!-- 		會員已登入			 -->
+					<c:if test="${not empty user}">
+					<li class="nav-item headShot">
+						<img src="<c:url value='/fs/img/${user.pic}' />" width="40" height="40" />
+						<span>${user.name} 你好</span>
+					</li>	
+					</c:if>
 				</ul>
 			</div>
 		</div>

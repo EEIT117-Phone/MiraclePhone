@@ -9,6 +9,10 @@
 	border-radius: 50%;
 }
 
+.headShot {
+	color: white;
+}
+
 .usersmenu {
 	display: inline-block;
 	/* display: block; */

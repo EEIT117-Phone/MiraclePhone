@@ -9,9 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-
+import org.iii.eeit117.project.model.service.FileService;
 import org.iii.eeit117.project.model.service.UserService;
+import org.iii.eeit117.project.model.vo.FileStorageVo;
+import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.model.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.codec.multipart.Part;
@@ -20,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class LoginController {
@@ -32,6 +34,9 @@ public class LoginController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private FileService fileService;
 	
 	@RequestMapping(value = MAIN_PAGE, method = RequestMethod.GET)
 	public String Main(Model model) {
@@ -69,12 +74,18 @@ public class LoginController {
 		model.addAttribute("loginstatus",loginStatus);
 		return MAIN_PAGE;
 	}
+	
 	@RequestMapping(value =SIGNUP_PAGE, method = RequestMethod.GET) 
 	public String Gousersignup(Model model) {
 		return SIGNUP_PAGE;
 	}
+	
 	@RequestMapping(value = SIGNUP_PAGE, method = RequestMethod.POST)
-	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo) throws IOException, ServletException {
+	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo, MultipartFile file) throws Exception {
+		if (file != null) {
+			FileStorageVo fileStorageVo = fileService.upload(file, ProductVo.class);
+			userVo.setPic(fileStorageVo.getFileStorageId());
+		}
 		userService.save(userVo);
 		return SIGNUP_PAGE;
 	}
