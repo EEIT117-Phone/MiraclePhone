@@ -49,7 +49,7 @@ public class AuthencationFilter implements Filter {
         	session.setAttribute(AppProperty.REDIRECT_URL, null);
         	chain.doFilter(request, response);
         } else {
-        	String redirectUrl = req.getRequestURI() + (req.getQueryString() == null ? "" : "?" + req.getQueryString());
+        	String redirectUrl = uri + (req.getQueryString() == null ? "" : "?" + req.getQueryString());
         	session.setAttribute(AppProperty.REDIRECT_URL, redirectUrl);
         	resp.sendRedirect(contextPath + "/userlogin");
         	return;

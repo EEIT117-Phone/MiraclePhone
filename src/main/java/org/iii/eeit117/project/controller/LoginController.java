@@ -69,7 +69,9 @@ public class LoginController {
 //			model.addAttribute("usercolumn",list);//傳送Users表單的欄位名
 			
 			if (httpsession.getAttribute(AppProperty.REDIRECT_URL) != null) {
-				response.sendRedirect((String) httpsession.getAttribute(AppProperty.REDIRECT_URL));
+				return "redirect:/" + httpsession.getAttribute(AppProperty.REDIRECT_URL);
+    		} else {
+    			return "redirect:/";
     		}
 //			response.sendRedirect(lastpageurl);//驗證成功跳轉回上一頁
 			
