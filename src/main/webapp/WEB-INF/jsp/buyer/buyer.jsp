@@ -25,15 +25,12 @@
 		</div>
 		<h3>◢ 簡便宜 ◣ 二手 Nokia 諾基亞 3310 藍色手機</h3>
 		<div class="link3">
-			<img id="myImg" class="img1"
-				src="https://via.placeholder.com/200x200?text=img8"> <img
-				src="https://via.placeholder.com/200x200?text=img1" class="small">
-			<img src="https://via.placeholder.com/200x200?text=img2"
-				class="small"> <img
-				src="https://via.placeholder.com/200x200?text=img3" class="small">
-			<img src="https://via.placeholder.com/200x200?text=img4"
-				class="small"> <img
-				src="https://via.placeholder.com/200x200?text=img5" class="small">
+			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1" id="myImg"> 
+			<img src="<c:url value='/fs/img/${info.pic2}' />" class="small">
+			<img src="<c:url value='/fs/img/${info.pic3}' />" class="small"> 
+			<img src="<c:url value='/fs/img/${info.pic4}' />" class="small">
+			<img src="<c:url value='/fs/img/${info.pic5}' />" class="small"> 
+			<img src="<c:url value='/fs/img/${info.pic6}' />" class="small">
 		</div>
 		<div id="myModal" class="modal">
 			<span class="close">&times;</span> <img class="modal-content"
