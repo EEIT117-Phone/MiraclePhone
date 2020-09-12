@@ -14,6 +14,7 @@ import org.iii.eeit117.project.model.service.UserService;
 import org.iii.eeit117.project.model.vo.FileStorageVo;
 import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.model.vo.UserVo;
+import org.iii.eeit117.project.property.AppProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.codec.multipart.Part;
 import org.springframework.stereotype.Controller;
@@ -67,8 +68,10 @@ public class LoginController {
 //			model.addAttribute("user",userVo); //傳送使用者的資料
 //			model.addAttribute("usercolumn",list);//傳送Users表單的欄位名
 			
-			
-			response.sendRedirect(lastpageurl);//驗證成功跳轉回上一頁
+			if (httpsession.getAttribute(AppProperty.REDIRECT_URL) != null) {
+				response.sendRedirect((String) httpsession.getAttribute(AppProperty.REDIRECT_URL));
+    		}
+//			response.sendRedirect(lastpageurl);//驗證成功跳轉回上一頁
 			
 		}
 		model.addAttribute("loginstatus",loginStatus);
@@ -148,7 +151,11 @@ public class LoginController {
 		return USERMAIN_PAGE;
 	}
 	
-	
+	@RequestMapping(value = "/userlogout", method = RequestMethod.GET) 
+	public String logout(HttpSession session) {
+		session.removeAttribute(AppProperty.LOGIN_USER);
+		return "redirect:/";
+	}	
 	
 
 }

@@ -45,7 +45,9 @@
 					<li class="nav-item headShot">
 						<img src="<c:url value='/fs/img/${user.pic}' />" width="40" height="40" />
 						<span>${user.name} 你好</span>
-					</li>	
+					</li>
+					<li class="nav-item"><a class="nav-link"
+						href="<c:url value='/userlogout' />" style="color: white">登出</a></li>	
 					</c:if>
 				</ul>
 			</div>
