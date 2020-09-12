@@ -38,13 +38,13 @@ public class SearchController {
 		phoneTypeList.put("iPhone11", "iPhone 11系列");
 		phoneTypeList.put("iPhoneSE2", "iPhone SE2系列");
 
-		Map<String, String> memoryList = new LinkedHashMap<String, String>();
-		memoryList.put(" ", "不限");
-		memoryList.put("16G", "16 GB");
-		memoryList.put("32G", "32 GB");
-		memoryList.put("64G", "64 GB");
-		memoryList.put("128G", "128 GB");
-		memoryList.put("256G", "256 GB");
+		Map<String, String> storageList = new LinkedHashMap<String, String>();
+		storageList.put(" ", "不限");
+		storageList.put("16G", "16 GB");
+		storageList.put("32G", "32 GB");
+		storageList.put("64G", "64 GB");
+		storageList.put("128G", "128 GB");
+		storageList.put("256G", "256 GB");
 		
 		Map<Integer, String> amountList = new LinkedHashMap<Integer, String>();
 		amountList.put(100000, "不限");
@@ -58,7 +58,7 @@ public class SearchController {
 		model.addAttribute("searchBean", searchBean);
 		model.addAttribute("results", searchService.search(searchBean));
 		model.addAttribute("phoneTypeList", phoneTypeList);
-		model.addAttribute("memoryList", memoryList);
+		model.addAttribute("storageList", storageList);
 		model.addAttribute("amountList", amountList);
 		return MODULE_NAME;
 	}

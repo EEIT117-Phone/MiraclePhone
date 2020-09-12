@@ -11,13 +11,12 @@ import javax.persistence.criteria.Root;
 import org.hibernate.Session;
 import org.iii.eeit117.project.model.util.HibernateUtil;
 import org.iii.eeit117.project.model.util.StringUtil;
-import org.iii.eeit117.project.model.vo.HelloVo;
 import org.iii.eeit117.project.model.vo.ProductVo;
 
 public class SearchBean extends BaseSearchBean<ProductVo> {
 	private Integer productId;
 	private String phoneType;
-	private String memory;
+	private String storage;
 	private String color;
 	private String phoneSort;
 	private String phoneCondition;
@@ -47,7 +46,7 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 
 		// 進階搜尋預設打勾
 		if (StringUtil.isNonEmpty(checkedOption)) {
-			restrictions.add(builder.like(root.get(ProductVo.PHONETYPE), checkedOption + "%"));
+//			restrictions.add(builder.like(root.get(ProductVo.PHONETYPE), checkedOption + "%"));
 			System.out.println("checkedOption: " + checkedOption);
 		}
 
@@ -60,14 +59,14 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			List<Predicate> list = new LinkedList<>();
 			for (String oneWord : checkOptionList) {
 				System.out.println("oneWord: " + oneWord);
-				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE), "%" + oneWord + "%");
-				Predicate memory1 = builder.like(root.get(ProductVo.MEMORY), "%" + oneWord + "%");
-				Predicate color1 = builder.like(root.get(ProductVo.COLOR), "%" + oneWord + "%");
+				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%" + oneWord + "%");
+				Predicate storage1 = builder.like(root.get(ProductVo.STORAGE).as(String.class), "%" + oneWord + "%");
+				Predicate color1 = builder.like(root.get(ProductVo.COLOR).as(String.class), "%" + oneWord + "%");
 				Predicate phonesort1 = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
 				Predicate phonecondition1 = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
 				Predicate county1 = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
 				Predicate district1 = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
-				orSearch = builder.or(phonetype1, memory1, color1, phonesort1, phonecondition1, county1, district1);
+				orSearch = builder.or(phonetype1, storage1, color1, phonesort1, phonecondition1, county1, district1);
 				list.add(orSearch);
 			}
 			// 預設價格低到高排序
@@ -93,14 +92,14 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			List<Predicate> list = new LinkedList<>();
 			for (String oneWord : searchInputList) {
 				System.out.println("oneWord: " + oneWord);
-				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE), "%" + oneWord + "%");
-				Predicate memory1 = builder.like(root.get(ProductVo.MEMORY), "%" + oneWord + "%");
-				Predicate color1 = builder.like(root.get(ProductVo.COLOR), "%" + oneWord + "%");
+				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%" + oneWord + "%");
+				Predicate storage1 = builder.like(root.get(ProductVo.STORAGE).as(String.class), "%" + oneWord + "%");
+				Predicate color1 = builder.like(root.get(ProductVo.COLOR).as(String.class), "%" + oneWord + "%");
 				Predicate phonesort1 = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
 				Predicate phonecondition1 = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
 				Predicate county1 = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
 				Predicate district1 = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
-				orSearch = builder.or(phonetype1, memory1, color1, phonesort1, phonecondition1, county1, district1);
+				orSearch = builder.or(phonetype1, storage1, color1, phonesort1, phonecondition1, county1, district1);
 				list.add(orSearch);
 			}
 			// 預設價格低到高排序
@@ -112,9 +111,9 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 
 		// 搜尋框未輸入則全顯示
 		if (StringUtil.isEmpty(searchInput)) {
-			restrictions.add(builder.like(root.get(ProductVo.PHONETYPE), "%" + searchInput + "%"));
-			restrictions.add(builder.like(root.get(ProductVo.MEMORY), "%" + searchInput + "%"));
-			restrictions.add(builder.like(root.get(ProductVo.COLOR), "%" + searchInput + "%"));
+			restrictions.add(builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%" + searchInput + "%"));
+			restrictions.add(builder.like(root.get(ProductVo.STORAGE).as(String.class), "%" + searchInput + "%"));
+			restrictions.add(builder.like(root.get(ProductVo.COLOR).as(String.class), "%" + searchInput + "%"));
 			restrictions.add(builder.like(root.get(ProductVo.PHONESORT), "%" + searchInput + "%"));
 			restrictions.add(builder.like(root.get(ProductVo.PHONECONDITION), "%" + searchInput + "%"));
 			restrictions.add(builder.like(root.get(ProductVo.COUNTY), "%" + searchInput + "%"));
@@ -174,12 +173,12 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 		this.phoneType = phoneType;
 	}
 
-	public String getMemory() {
-		return memory;
+	public String getStorage() {
+		return storage;
 	}
 
-	public void setMemory(String memory) {
-		this.memory = memory;
+	public void setStorage(String storage) {
+		this.storage = storage;
 	}
 
 	public String getColor() {

@@ -8,6 +8,8 @@ import org.springframework.context.annotation.PropertySource;
 @PropertySource("classpath:app.properties")
 public class AppProperty {
 
+	public static final String LOGIN_USER = "user";
+	
 	@Value("${fileRoot}")
 	private String fileRoot;
 

@@ -1,7 +1,5 @@
-$(function() {
-  
-    
-     $(".usersmenu").click(function(){
-                $(this).toggleClass("active");
-            })
+$(function () {
+    $(".usersmenu").click(function () {
+        $(this).toggleClass("active");
+    });
 });

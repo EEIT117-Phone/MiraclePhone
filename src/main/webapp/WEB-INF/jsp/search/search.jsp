@@ -113,10 +113,10 @@
                     <c:forEach varStatus="status" var="result" items="${results}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
                             <div class="card card-result">
-                                <img class="card-img" src="<c:url value='/images/iPhone11.jpg' />" alt="Card image cap">
+                                <img class="card-img" src="<c:url value='/fs/img/${result.pic1}' />" alt="Card image cap">
                                 <div class="card-body search-card-body">
-                                    <p class="card-title">[${result.phoneSort}] ${result.phoneType} ${result.memory}
-                                        ${result.color}色</p>
+                                    <p class="card-title">[${result.phoneSort}] ${result.phoneType.label} ${result.storage.label}
+                                        ${result.color.label}色</p>
                                     <span class="card-text mr-2">$ <fmt:formatNumber value="${result.amount}" type="number"/></span><span class="card-city">${result.county}${result.district}</span>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
                         </header>
                         <div class="pl-3 pr-3">
                         	<div class="card-body">
-                        	<form:checkboxes class="form-check-input" items="${memoryList}" path="checkOption" element="div"/>
+                        	<form:checkboxes class="form-check-input" items="${storageList}" path="checkOption" element="div"/>
                         	</div>
                         </div>
                     </article>

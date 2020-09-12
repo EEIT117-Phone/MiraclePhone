@@ -17,8 +17,7 @@
 	<link href="<c:url value='/css/bootstrap.min.css' />" rel="stylesheet">
 	<!-- Carousel core CSS -->
 	<link href="<c:url value='/css/carousel.css' />" rel="stylesheet">
-	<!-- Product core CSS -->
-	<link href="<c:url value='/css/product.css' />" rel="stylesheet">
+	<!-- Header core CSS -->
 	<link href="<c:url value='/css/header.css' />" rel="stylesheet">
 	<!-- ****************** js section ****************** -->
 	 
@@ -28,6 +27,10 @@
 	<script src="<c:url value='/js/bootstrap.bundle.min.js' />"></script>
 	<!-- Header js -->
 	<script src="<c:url value='/js/header.js' />"></script>
+	
+	<script type="text/javascript">
+		var CONTEXT_PATH = <c:url value='/' />;
+	</script>
 </head>
 <body>
 	<!-- Header -->

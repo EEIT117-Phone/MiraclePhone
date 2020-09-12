@@ -25,15 +25,12 @@
 		</div>
 		<h3>◢ 簡便宜 ◣ 二手 Nokia 諾基亞 3310 藍色手機</h3>
 		<div class="link3">
-			<img id="myImg" class="img1"
-				src="https://via.placeholder.com/200x200?text=img8"> <img
-				src="https://via.placeholder.com/200x200?text=img1" class="small">
-			<img src="https://via.placeholder.com/200x200?text=img2"
-				class="small"> <img
-				src="https://via.placeholder.com/200x200?text=img3" class="small">
-			<img src="https://via.placeholder.com/200x200?text=img4"
-				class="small"> <img
-				src="https://via.placeholder.com/200x200?text=img5" class="small">
+			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1" id="myImg"> 
+			<img src="<c:url value='/fs/img/${info.pic2}' />" class="small">
+			<img src="<c:url value='/fs/img/${info.pic3}' />" class="small"> 
+			<img src="<c:url value='/fs/img/${info.pic4}' />" class="small">
+			<img src="<c:url value='/fs/img/${info.pic5}' />" class="small"> 
+			<img src="<c:url value='/fs/img/${info.pic6}' />" class="small">
 		</div>
 		<div id="myModal" class="modal">
 			<span class="close">&times;</span> <img class="modal-content"
@@ -52,8 +49,7 @@
 				<p>面交取貨付款</p>
 				<p>運送方式：7-11取貨 60 元</p>
 				<p>郵寄寄送 40 元</p>
-				<input type='hidden' name='phoneId' value="10008">
-				<!-- 				<input type='hidden' name='phoneId' value="a2"> -->
+				<input type='hidden' name='phoneId' value="${info.productId}">
 				<p>
 					<input id='addShopCart' type='button' value='加入購物車' />
 				</p>
@@ -71,9 +67,9 @@
 		</ul>
 		<div>
 			<div id="quest1" class="quest">
-				<p>手機型號:${info.phoneType}</p>
-				<p>容量:${info.memory}</p>
-				<p>顏色:${info.color}</p>
+				<p>手機型號:${info.phoneType.label}</p>
+				<p>容量:${info.storage.label}</p>
+				<p>顏色:${info.color.label}</p>
 				<p>機況:${info.phoneCondition}</p>
 				<p>保固:${info.phoneWarranty}</p>
 				<p>種類:${info.phoneSort}</p>

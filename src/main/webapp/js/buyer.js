@@ -18,13 +18,13 @@ $(document).ready(function () {
 	$('#addShopCart').click(function() {
 		let id = $('input[name="phoneId"]').val();
 		$.ajax({
-			url : '/MiraclePhone/cart/cartAdd',
+			url : CONTEXT_PATH + 'cart/cartAdd',
 			method : 'GET',
 			data : {
 				productId : id
 			},
 			success : function(response) {
-				$('#amount').text(response);
+				$('#carAmount').text(response);
 			}
 		});
 	});

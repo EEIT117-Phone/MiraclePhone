@@ -4,10 +4,10 @@ package org.iii.eeit117.project.model.vo;
 
 
 
-import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,10 +15,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
+import org.iii.eeit117.project.model.converter.PhoneColorConverter;
+import org.iii.eeit117.project.model.converter.PhoneStorageConverter;
+import org.iii.eeit117.project.model.converter.PhoneTypeConverter;
+import org.iii.eeit117.project.model.data.PhoneColorEnum;
+import org.iii.eeit117.project.model.data.PhoneStorageEnum;
+import org.iii.eeit117.project.model.data.PhoneTypeEnum;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "PRODUCT")
@@ -27,7 +31,7 @@ public class ProductVo {
 	public static final String PRODUCTID = "productId";
 	public static final String ACCOUNT = "account";
 	public static final String PHONETYPE = "phoneType";
-	public static final String MEMORY = "memory";
+	public static final String STORAGE = "storage";
 	public static final String COLOR = "color";
 	public static final String PHONESORT = "phoneSort";
 	public static final String PHONECONDITION = "phoneCondition";
@@ -57,20 +61,20 @@ public class ProductVo {
 	@Column(name = "PRODUCTID", nullable = false)
 	private Integer productId;
 	
-//	@ManyToOne(fetch=FetchType.LAZY)
-//    @JoinColumn(name="Account")
 	@Column(name = "ACCOUNT")
-
 	private String account;
 
 	@Column(name = "PHONETYPE")
-	private String phoneType;
+	@Convert(converter = PhoneTypeConverter.class)
+	private PhoneTypeEnum phoneType;
 
-	@Column(name = "MEMORY")
-	private String memory;
-
+	@Column(name = "STORAGE")
+	@Convert(converter = PhoneStorageConverter.class)
+	private PhoneStorageEnum storage;
+	
 	@Column(name = "COLOR")
-	private String color;
+	@Convert(converter = PhoneColorConverter.class)
+	private PhoneColorEnum color;
 
 	@Column(name = "PHONESORT")
 	private String phoneSort;
@@ -121,90 +125,43 @@ public class ProductVo {
 	@Column(name = "SELLREASON")
 	private String sellReason;
 
-	@Column(name = "FILE1")
-	private Blob file1;
+	@Column(name = "PIC1")
+	private Integer pic1;
 
-	@Column(name = "FILE2")
-	private Blob file2;
+	@Column(name = "PIC2")
+	private Integer pic2;
 
-	@Column(name = "FILE3")
-	private Blob file3;
+	@Column(name = "PIC3")
+	private Integer pic3;
 
-	@Column(name = "FILE4")
-	private Blob file4;
+	@Column(name = "PIC4")
+	private Integer pic4;
 
-	@Column(name = "FILE5")
-	private Blob file5;
+	@Column(name = "PIC5")
+	private Integer pic5;
 
-	@Column(name = "FILE6")
-	private Blob file6;
-	
-	@Transient
-	MultipartFile productImage1;
-	@Transient
-	MultipartFile productImage2;
-	@Transient
-	MultipartFile productImage3;
-	@Transient
-	MultipartFile productImage4;
-	@Transient
-	MultipartFile productImage5;
-	@Transient
-	MultipartFile productImage6;
-
-
-	public MultipartFile getProductImage1() {
-		return productImage1;
-	}
-
-	public void setProductImage1(MultipartFile productImage1) {
-		this.productImage1 = productImage1;
-	}
-
-	public MultipartFile getProductImage2() {
-		return productImage2;
-	}
-
-	public void setProductImage2(MultipartFile productImage2) {
-		this.productImage2 = productImage2;
-	}
-
-	public MultipartFile getProductImage3() {
-		return productImage3;
-	}
-
-	public void setProductImage3(MultipartFile productImage3) {
-		this.productImage3 = productImage3;
-	}
-
-	public MultipartFile getProductImage4() {
-		return productImage4;
-	}
-
-	public void setProductImage4(MultipartFile productImage4) {
-		this.productImage4 = productImage4;
-	}
-
-	public MultipartFile getProductImage5() {
-		return productImage5;
-	}
-
-	public void setProductImage5(MultipartFile productImage5) {
-		this.productImage5 = productImage5;
-	}
-
-	public MultipartFile getProductImage6() {
-		return productImage6;
-	}
-
-	public void setProductImage6(MultipartFile productImage6) {
-		this.productImage6 = productImage6;
-	}
+	@Column(name = "PIC6")
+	private Integer pic6;
 
 	@ManyToOne
     @JoinColumn(name="ORDER_ID")
 	private OrderInfoVo orderInfoVO;
 
+	public void setPicId(Integer pos, Integer fileStorageId) {
+		if (pos == 1) {
+			pic1 = fileStorageId;
+		} else if (pos == 2) {
+			pic2 = fileStorageId;
+		} else if (pos == 3) {
+			pic3 = fileStorageId;
+		} else if (pos == 4) {
+			pic4 = fileStorageId;
+		} else if (pos == 5) {
+			pic5 = fileStorageId;
+		} else if (pos == 6) {
+			pic6 = fileStorageId;
+		}
+	}
 	public Integer getProductId() {
 		return productId;
 	}
@@ -221,27 +178,27 @@ public class ProductVo {
 		this.account = account;
 	}
 
-	public String getPhoneType() {
+	public PhoneTypeEnum getPhoneType() {
 		return phoneType;
 	}
 
-	public void setPhoneType(String phoneType) {
+	public void setPhoneType(PhoneTypeEnum phoneType) {
 		this.phoneType = phoneType;
 	}
 
-	public String getMemory() {
-		return memory;
+	public PhoneStorageEnum getStorage() {
+		return storage;
 	}
 
-	public void setMemory(String memory) {
-		this.memory = memory;
+	public void setStorage(PhoneStorageEnum storage) {
+		this.storage = storage;
 	}
 
-	public String getColor() {
+	public PhoneColorEnum getColor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(PhoneColorEnum color) {
 		this.color = color;
 	}
 
@@ -373,52 +330,52 @@ public class ProductVo {
 		this.sellReason = sellReason;
 	}
 
-	public Blob getFile1() {
-		return file1;
+	public Integer getPic1() {
+		return pic1;
 	}
 
-	public void setFile1(Blob file1) {
-		this.file1 = file1;
+	public void setPic1(Integer pic1) {
+		this.pic1 = pic1;
 	}
 
-	public Blob getFile2() {
-		return file2;
+	public Integer getPic2() {
+		return pic2;
 	}
 
-	public void setFile2(Blob file2) {
-		this.file2 = file2;
+	public void setPic2(Integer pic2) {
+		this.pic2 = pic2;
 	}
 
-	public Blob getFile3() {
-		return file3;
+	public Integer getPic3() {
+		return pic3;
 	}
 
-	public void setFile3(Blob file3) {
-		this.file3 = file3;
+	public void setPic3(Integer pic3) {
+		this.pic3 = pic3;
 	}
 
-	public Blob getFile4() {
-		return file4;
+	public Integer getPic4() {
+		return pic4;
 	}
 
-	public void setFile4(Blob file4) {
-		this.file4 = file4;
+	public void setPic4(Integer pic4) {
+		this.pic4 = pic4;
 	}
 
-	public Blob getFile5() {
-		return file5;
+	public Integer getPic5() {
+		return pic5;
 	}
 
-	public void setFile5(Blob file5) {
-		this.file5 = file5;
+	public void setPic5(Integer pic5) {
+		this.pic5 = pic5;
 	}
 
-	public Blob getFile6() {
-		return file6;
+	public Integer getPic6() {
+		return pic6;
 	}
 
-	public void setFile6(Blob file6) {
-		this.file6 = file6;
+	public void setPic6(Integer pic6) {
+		this.pic6 = pic6;
 	}
 
 	public OrderInfoVo getOrderInfoVO() {
@@ -428,5 +385,5 @@ public class ProductVo {
 	public void setOrderInfoVO(OrderInfoVo orderInfoVO) {
 		this.orderInfoVO = orderInfoVO;
 	}
-
+	
 }
