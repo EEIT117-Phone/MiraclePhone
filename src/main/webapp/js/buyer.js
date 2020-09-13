@@ -15,6 +15,12 @@ $(document).ready(function () {
 		$("#QAA").show();
 	});
 
+		var stat = true;
+	$('.ansbtn').click(function() {
+		let ansid = $(this).val();
+		$(this).siblings('.ansarea').toggle();
+	});
+
 	$('#addShopCart').click(function() {
 		let id = $('input[name="phoneId"]').val();
 		$.ajax({

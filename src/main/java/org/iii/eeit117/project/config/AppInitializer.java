@@ -2,6 +2,7 @@ package org.iii.eeit117.project.config;
 
 import javax.servlet.Filter;
 
+import org.iii.eeit117.project.filter.AuthencationFilter;
 import org.iii.eeit117.project.filter.OpenSessionViewFilter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -25,7 +26,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
 	@Override
 	protected Filter[] getServletFilters() {
-		return new Filter[] { characterEncodingFilter(), openSessionViewFilter() };
+		return new Filter[] { authencationFilter(), characterEncodingFilter(), openSessionViewFilter() };
 	}
 
 	private CharacterEncodingFilter characterEncodingFilter() {
@@ -39,4 +40,7 @@ public class AppInitializer extends AbstractAnnotationConfigDispatcherServletIni
 		return new OpenSessionViewFilter();
 	}
 	
+	private AuthencationFilter authencationFilter() {
+		return new AuthencationFilter();
+	}
 }

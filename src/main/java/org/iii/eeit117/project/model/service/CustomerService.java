@@ -6,5 +6,6 @@ import org.iii.eeit117.project.model.vo.CustomerServiceVo;
 
 public interface CustomerService extends BaseService<CustomerServiceVo,Integer> {
 	List<CustomerServiceVo> findUnResponse(String q1, String q2);
-	public void saveResponse(String id, String response);
+	public List<CustomerServiceVo> findByAccount(String account);
+	
 }

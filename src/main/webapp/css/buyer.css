@@ -39,9 +39,9 @@ a:hover {
 }
 
 .down {
+	margin:auto;
 	width: 500px;
 	height: 10px;
-	margin: auto;
 	margin-top: 130px;
 }
 
@@ -61,6 +61,8 @@ a:hover {
 
 #QAA {
 	display: none;
+	margin-top:100px;
+	text-align: center;
 }
 
 .link1 {
@@ -85,6 +87,19 @@ h3 {
 	margin-top: 60px
 }
 
+.mid{
+	display:none;
+}
+
+.userquest{
+	
+	margin-left: 50px;
+}
+
+.useranswer{
+	margin-left: 50px
+}
+
 .img1 {
 	width: 560px;
 	height: 300px;
@@ -92,6 +107,10 @@ h3 {
 	margin-top: 10px;
 	margin-left: 18px;
 	overflow: hidden;
+}
+
+.ansarea{
+	display:none;
 }
 
 .salse {
@@ -153,6 +172,10 @@ h3 {
 
 #quest2 {
 	display: none;
+}
+
+.noleave{
+	text-align: center;
 }
 
 #quest3 {
@@ -236,9 +259,9 @@ to {
 /* The Close Button */
 .close {
 	position: absolute;
-	top: 15px;
+	top: 100px;
 	right: 35px;
-	color: #f1f1f1;
+	color: white;
 	font-size: 40px;
 	font-weight: bold;
 	transition: 0.3s;

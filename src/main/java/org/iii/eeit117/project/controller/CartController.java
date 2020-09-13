@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.iii.eeit117.project.model.service.OrderInfoService;
 import org.iii.eeit117.project.model.service.ProductService;
 import org.iii.eeit117.project.model.vo.ProductVo;
+import org.iii.eeit117.project.model.vo.UserVo;
 import org.iii.eeit117.project.model.vo.OrderInfoVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -78,17 +79,19 @@ public class CartController {
 	public String orderConfirm(HttpSession httpSession, OrderInfoVo orderInfo, Model model) {
 		model.addAttribute("orderInfo", orderInfo);
 		List<ProductVo> ProductVos = (List<ProductVo>) httpSession.getAttribute("cartItem");
+		//加入date
 		String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 		orderInfo.setDate(date);
+		//加入amount
 		Integer totalAmount = 0;
 		for (ProductVo Vo : ProductVos) {
 			totalAmount += Vo.getAmount();
 		}
 		orderInfo.setAmount(totalAmount);
 		model.addAttribute("totalAmount", totalAmount);
-		// Test 加入account
-		httpSession.setAttribute("account", "ken001@yahoo.com");
-		orderInfo.setAccount((String) httpSession.getAttribute("account"));
+		//加入account
+		UserVo userVo = (UserVo) httpSession.getAttribute("user");
+		orderInfo.setAccount((String) userVo.getAccount());
 
 		orderinfoService.save(orderInfo);
 

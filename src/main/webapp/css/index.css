@@ -1,168 +1,137 @@
 .bd-placeholder-img {
-  font-size          : 1.125rem;
-  text-anchor        : middle;
-  -webkit-user-select: none;
-  -moz-user-select   : none;
-  -ms-user-select    : none;
-  user-select        : none;
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
-}
-
-.cobtainer {
-  position           : relative;
-  width              : 1002px;
-  height             : 500px;
-  /* background-color:lightcyan; */
-  /* top             :100px; */
-  margin-bottom      : 10px;
-  overflow           : hidden;
-  
-}
-
-    ul.pictureslides {
-      width: 4008px;
-      height:500px;
-      /* 透過3200來裝載這個照片四張 */
-      left: 0px;
-      transition: all .5s;
-      margin: 0;
-      padding: 0;
-      position: absolute;
-    }
-
-    ul.pictureslides li {
-      width: 1002px;
-      height: 500px;
-      /* 這裡指的是每張投影片的寬度為800然後高度為300和外框剛好呼應 */
-      overflow: hidden;
-      float: left;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-
-ul.pictureslides li img {
-  width        : 100%;
-  height       : 100%;
-  /* li下面的圖片為和其li寬度和高度100%相符合 */
-  /* object-fit: cover; */
-  /* 這個是什麼效果，老師好像有大概講到 */
-}
-
-
-/* 接下來是下拉選單 */
-
-.cobtainer #inputarea {
-  position: absolute;
-  top     : 200px;
-  left    : 300px;
-
-
-}
-
-
-.cobtainer h2 {
-
-  color      : white;
-  font-family: NSimSun;
-
-
-}
-
-
-
-.dot li {
-  border: 1px solid "transparent";
-
-}
-
-
-.bd-placeholder-img {
-  font-size          : 1.125rem;
-  text-anchor        : middle;
-  -webkit-user-select: none;
-  -moz-user-select   : none;
-  -ms-user-select    : none;
-  user-select        : none;
-}
-
-@media (min-width: 768px) {
-  .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
 }
 
 .cobtainer {
-  position           : relative;
-  width              : 1002px;
-  height             : 500px;
-  /* background-color:lightcyan; */
-  /* top             :100px; */
-  margin-bottom      : 10px;
-  overflow           : hidden;
-
-
+	position: relative;
+	width: 1002px;
+	height: 500px;
+	/* background-color:lightcyan; */
+	/* top             :100px; */
+	margin-bottom: 10px;
+	overflow: hidden;
 }
 
 ul.pictureslides {
-  width     : 4008px;
-  /* 透過3200來裝載這個照片四張 */
-  left      : 0px;
-  transition: all .5s;
-
+	width: 4008px;
+	height: 500px;
+	/* 透過3200來裝載這個照片四張 */
+	left: 0px;
+	transition: all .5s;
+	margin: 0;
+	padding: 0;
+	position: absolute;
 }
 
 ul.pictureslides li {
-  width   : 1002px;
-  height  : 500px;
-  /* 這裡指的是每張投影片的寬度為800然後高度為300和外框剛好呼應 */
-  overflow: hidden;
-  float   : left;
+	width: 1002px;
+	height: 500px;
+	/* 這裡指的是每張投影片的寬度為800然後高度為300和外框剛好呼應 */
+	overflow: hidden;
+	float: left;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
-
 
 ul.pictureslides li img {
-  width        : 100%;
-  height       : 100%;
-  /* li下面的圖片為和其li寬度和高度100%相符合 */
-  /* object-fit: cover; */
-  /* 這個是什麼效果，老師好像有大概講到 */
+	width: 100%;
+	height: 100%;
+	/* li下面的圖片為和其li寬度和高度100%相符合 */
+	/* object-fit: cover; */
+	/* 這個是什麼效果，老師好像有大概講到 */
 }
 
-
-
-
+/* 接下來是下拉選單 */
 .cobtainer #inputarea {
-  position: absolute;
-  top     : 200px;
-  left    : 300px;
-
-
+	position: absolute;
+	top: 200px;
+	left: 300px;
 }
-
 
 .cobtainer h2 {
-
-  color      : white;
-  font-family: NSimSun;
-
-
+	color: white;
+	font-family: NSimSun;
 }
-
-
 
 .dot li {
-  border: 1px solid "transparent";
-
+	border: 1px solid "transparent";
 }
 
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
 
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
 
+.cobtainer {
+	position: relative;
+	width: 1002px;
+	height: 500px;
+	/* background-color:lightcyan; */
+	/* top             :100px; */
+	margin-bottom: 10px;
+	overflow: hidden;
+}
 
+ul.pictureslides {
+	width: 4008px;
+	/* 透過3200來裝載這個照片四張 */
+	left: 0px;
+	transition: all .5s;
+}
 
+ul.pictureslides li {
+	width: 1002px;
+	height: 500px;
+	/* 這裡指的是每張投影片的寬度為800然後高度為300和外框剛好呼應 */
+	overflow: hidden;
+	float: left;
+}
+
+ul.pictureslides li img {
+	width: 100%;
+	height: 100%;
+	/* li下面的圖片為和其li寬度和高度100%相符合 */
+	/* object-fit: cover; */
+	/* 這個是什麼效果，老師好像有大概講到 */
+}
+
+.cobtainer #inputarea {
+	position: absolute;
+	top: 200px;
+	left: 300px;
+}
+
+.cobtainer h2 {
+	color: white;
+	font-family: NSimSun;
+}
+
+.dot li {
+	border: 1px solid "transparent";
+}
+
+.featurette-divider {
+	margin: 0.5rem 0;
+}

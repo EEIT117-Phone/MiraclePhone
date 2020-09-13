@@ -54,11 +54,8 @@ public class UserVo {
 	@Column(name = "gm")
 	private String gm;
 
-	@Column(name = "photo")
-	private byte[] photo;
-	
-//	@OneToMany(fetch = FetchType.LAZY)
-//	private Set<SellerVo> sellerVos;
+	@Column(name = "pic")
+	private Integer pic;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orderId")
 	private Set<OrderInfoVo> orderInfoVos;
@@ -68,10 +65,6 @@ public class UserVo {
 	
 	public String getAccount() {
 		return account;
-	}
-
-	public UserVo() {
-
 	}
 
 	public void setAccount(String account) {
@@ -166,12 +159,12 @@ public class UserVo {
 		this.gm = gm;
 	}
 
-	public byte[] getPhoto() {
-		return photo;
+	public Integer getPic() {
+		return pic;
 	}
 
-	public void setPhoto(byte[] photo) {
-		this.photo = photo;
+	public void setPic(Integer pic) {
+		this.pic = pic;
 	}
 
 	public String getBankaccount() {

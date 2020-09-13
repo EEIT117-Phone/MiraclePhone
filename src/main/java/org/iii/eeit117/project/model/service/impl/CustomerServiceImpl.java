@@ -35,16 +35,8 @@ public class CustomerServiceImpl extends BaseServiceImpl<CustomerServiceVo, Inte
 	}
 
 	@Override
-	public void saveResponse(String id, String response) {
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession(); 
-		String hql="UPDATE CustomerService SET answer=?0 where customerid=?1";
-		Query<CustomerServiceVo> query=session.createQuery(hql);
-		query.setString(0, id);
-		query.setString(1, response);
-		query.executeUpdate();
-
+	public List<CustomerServiceVo> findByAccount(String account) {
+		return customerServiceDao.findByAndCondition("account", account);
 	}
-
-	
 
 }

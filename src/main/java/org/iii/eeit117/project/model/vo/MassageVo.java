@@ -22,6 +22,12 @@ public class MassageVo {
 	@Column(name="MASSAGE")
 	private String massage;
 	
+	@Column(name="BUYERACCOUNT")
+	private String buyeraccount;
+	
+	@Column(name="ANSWERACCOUNT")
+	private String answeraccount;
+	
 	@Column(name="LEAVETIME")
 	private String leaveTime;
 	
@@ -69,5 +75,17 @@ public class MassageVo {
 		this.leaveTime = leaveTime;
 	}
 	
+	public String getBuyeraccount() {
+		return buyeraccount;
+	}
+	public void setBuyeraccount(String buyeraccount) {
+		this.buyeraccount = buyeraccount;
+	}
+	public String getAnsweraccount() {
+		return answeraccount;
+	}
+	public void setAnsweraccount(String answeraccount) {
+		this.answeraccount = answeraccount;
+	}
 	
 }

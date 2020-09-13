@@ -175,39 +175,11 @@
 													<th scope="col">#</th>
 													<th scope="col">歷史紀錄</th>
 													<th scope="col">日期</th>
-													<th scope="col">時間</th>
-
+													<th scope="col">問題</th>
+													<th scope="col">回答</th>
 												</tr>
 											</thead>
-											<tbody>
-												<tr>
-													<th scope="row">1</th>
-													<td></td>
-													<td></td>
-													<td></td>
-												</tr>
-												<tr>
-													<th scope="row">2</th>
-													<td></td>
-													<td></td>
-													<td></td>
-												</tr>
-												<tr>
-													<th scope="row">3</th>
-													<td colspan="2"></td>
-													<td></td>
-												</tr>
-												<tr>
-													<th scope="row">4</th>
-													<td colspan="2"></td>
-													<td></td>
-												</tr>
-												<tr>
-													<th scope="row">5</th>
-													<td colspan="2"></td>
-													<td></td>
-												</tr>
-
+											<tbody id="profile-tab-table-tbody">
 											</tbody>
 										</table>
 									</div>

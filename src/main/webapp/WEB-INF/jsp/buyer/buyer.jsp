@@ -20,21 +20,24 @@
 <body>
 	<div class="link1">
 		<div class="link2">
-			<span><a href="連結網址">首頁></a></span> <span><a href="連結網址">新機></a></span>
-			<span><a href="連結網址">Nokia></a></span> <span><a href="連結網址">3310</a></span>
+			<span><a href="<c:url value='/'/>">首頁></a></span>
+			<span><a href="<c:url value='/search/result?searchInput='/>">搜尋></a></span>
+			<span><a href="<c:url value='/buyer?productId=${info.productId}'/>">NO:${info.productId}</a></span>
 		</div>
-		<h3>◢ 簡便宜 ◣ 二手 Nokia 諾基亞 3310 藍色手機</h3>
+		<h3>[${info.phoneSort}] ${info.phoneType.label} ${info.storage.label} ${info.color.label}</h3>
+		<p>觀看次數:${info.watch}次</p>
 		<div class="link3">
-			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1" id="myImg"> 
-			<img src="<c:url value='/fs/img/${info.pic2}' />" class="small">
-			<img src="<c:url value='/fs/img/${info.pic3}' />" class="small"> 
-			<img src="<c:url value='/fs/img/${info.pic4}' />" class="small">
-			<img src="<c:url value='/fs/img/${info.pic5}' />" class="small"> 
-			<img src="<c:url value='/fs/img/${info.pic6}' />" class="small">
+			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1"
+				id="myImg"> <img src="<c:url value='/fs/img/${info.pic2}' />"
+				class="small"> <img
+				src="<c:url value='/fs/img/${info.pic3}' />" class="small"> <img
+				src="<c:url value='/fs/img/${info.pic4}' />" class="small"> <img
+				src="<c:url value='/fs/img/${info.pic5}' />" class="small"> <img
+				src="<c:url value='/fs/img/${info.pic6}' />" class="small">
 		</div>
 		<div id="myModal" class="modal">
-			<span class="close">&times;</span> <img class="modal-content"
-				id="img01">
+			<br> <br> <br> <span class="close">&times;</span> <img
+				class="modal-content" id="img01">
 			<div id="caption"></div>
 		</div>
 		<div class="salse">
@@ -43,12 +46,11 @@
 				<p>刊登日期:</p>
 			</div>
 			<div class="stl1">
-				<p>付款方式：PChomePay支付連 現金 (ATM、餘額、銀行支付)</p>
-				<p>銀行或郵局轉帳</p>
-				<p>郵局無摺存款</p>
-				<p>面交取貨付款</p>
-				<p>運送方式：7-11取貨 60 元</p>
-				<p>郵寄寄送 40 元</p>
+				<p>付款方式 :</p>
+				<p>銀行或郵局轉帳<c:choose><c:when test="${info.post ==1 }">✔</c:when><c:when test="${info.post !=1 }">✘</c:when></c:choose></p>
+				<p>面交取貨付款<c:choose><c:when test="${info.face ==1 }">✔</c:when><c:when test="${info.face !=1 }">✘</c:when></c:choose></p>
+				<p>7-11便利商店<c:choose><c:when test="${info.seven ==1 }">✔</c:when><c:when test="${info.seven !=1 }">✘</c:when></c:choose></p>
+				<p>全家便利商店<c:choose><c:when test="${info.family ==1 }">✔</c:when><c:when test="${info.family !=1 }">✘</c:when></c:choose></p>
 				<input type='hidden' name='phoneId' value="${info.productId}">
 				<p>
 					<input id='addShopCart' type='button' value='加入購物車' />
@@ -77,15 +79,31 @@
 				<p>販售原因:${info.sellReason}</p>
 			</div>
 			<div id="quest2" class="quest">
+					<c:if test="${ qa[0] == null}">
+						<p class="noleave">目前暫無留言</p>
+					</c:if>
 				<c:forEach varStatus="status" var="li" items="${qa}">
 					<div>
-						<p>${info.account}(${li.leaveTime})</p><br>
+					<c:if test="${li.massage != null}">
+						<p>${li.buyeraccount}${li.leaveTime}</p>
 						<p>問題:</p>
-						<p>${li.massage}</p>
+						<p class="userquest">${li.massage}</p>
+					</c:if>
+						<br>
+					<c:if test="${li.answer != '' and li.answer != null}">
+						<p>${li.answeraccount}${li.ansTime}</p>
 						<p>回覆:</p>
-						<p>${li.ansTime}</p>
-						<p style="background-color: gray">${li.answer}</p>
-						<input type="button" value="回覆" onclick="javascript: location.href = '<c:url value='/buyer/answer?id=${li.mId}' />'"/>
+						<p class="useranswer">${li.answer}</p>
+					</c:if>
+					<c:if test="${li.massage != null}">
+						<button class="ansbtn" type="button">回覆</button>
+					</c:if>
+						<br>
+						<form class="ansarea" action="<c:url value='/buyer/answerpage'/>" method="POST">
+							<input class="mid" type="text" name="userid" value="${li.mId}"/>
+							<textarea rows="5" cols="50" name="text"></textarea>
+							<br> <input type="submit" value="提交">
+						</form>
 						<hr>
 					</div>
 				</c:forEach>

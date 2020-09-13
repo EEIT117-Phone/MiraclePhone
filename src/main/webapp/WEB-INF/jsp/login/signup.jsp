@@ -7,7 +7,6 @@
 <head>
 <link href="<c:url value='/css/signup.css' />" rel="stylesheet">
 <title>註冊</title>
-<script src="<c:url value='/js/signup.js' />"></script>
 </head>
 <body class="bg-light">
 	<div class="container">
@@ -65,7 +64,9 @@
 			</div>
 			<div class="col-md-8 order-md-1">
 				<h4 class="mb-3">個人資料</h4>
-				<form class="needs-validation" novalidate  action="/MiraclePhone/usersignup" method="post">
+				<form class="needs-validation" novalidate
+					action="/MiraclePhone/usersignup" method="post"
+					enctype="multipart/form-data">
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="firstName">中文姓名</label> <input type="text"
@@ -77,7 +78,7 @@
 					</div>
 
 					<div class="mb-3">
-						<label for="username">帳號(Email)</label>
+						<label for="account">帳號(Email)</label>
 						<div class="input-group">
 							<div class="input-group-prepend">
 								<span class="input-group-text">@</span>
@@ -91,70 +92,87 @@
 					<div class="mb-3">
 						<label for="password">密碼<span class="text-muted">(password)</span></label>
 						<input type="password" class="form-control" id="password"
-							placeholder="密碼4~16位含數字、特殊符號、大小寫英文">
+							name="password" placeholder="密碼4~16位含數字、特殊符號、大小寫英文">
 						<div class="invalid-feedback">你的密碼人家才不感興趣呢!</div>
 					</div>
 					<div class="mb-4">
-					<label for="address">住址</label>
-						<div id="twzipcode"></div>
+						<label for="address">住址</label>
+						<div id="twzipcode">
+						</div>
+						
 					</div>
 					<div class="mb-3">
-					<label for="idnumber">身分證字號<span class="text-muted"></span></label>  
-					<input id="idnumber" type="text" name="idnumber" class="form-control"
-					value="">
-						<span id="sureidnumber"></span>
+						<label for="idnumber">身分證字號<span class="text-muted"></span></label>
+						<input id="idnumber" type="text" name="idnumber"
+							class="form-control" value=""> <span id="sureidnumber"></span>
 					</div>
 					<div class="mb-3">
-        	<h4>生日</h4>
-			<input type="hidden" id="age" name="age" value=" " class="custom-control-input">
-			<input type="date" id="birth" name="birth" value="">
-			 	
-		</div>	
-        <h4 class="mb-3">性別</h4>
-        <div class="d-block my-3">
-          <div class="custom-control custom-radio">
-            <input id="man" name="sex" type="radio" class="custom-control-input" >
-            <label class="custom-control-label" for="man">男</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="woman" name="sex" type="radio" class="custom-control-input" >
-            <label class="custom-control-label" for="woman">女</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="other" name="sex" type="radio" class="custom-control-input" checked = "checked">
-            <label class="custom-control-label" for="other">其他</label>
-          </div>
-        </div>
-        <div class="mb-3">
-        	<h4>賣家權限</h4>
-			<input type="hidden" id="gm" name="gm" value=" " class="custom-control-input">
-			<input type="radio" id="seller" name="seller" value="seller">
-			 <span>須年滿18歲才能勾選成為賣家</span>		
-		</div>
+						<h4>生日</h4>
+						<input type="hidden" id="age" name="age" value=""
+							class="custom-control-input"> <input type="date"
+							id="birth" name="birth" value="">
 
-<button class="btn btn-primary btn-lg btn-block" type="submit">提交</button>
+					</div>
+					<h4 class="mb-3">性別</h4>
+					<div class="d-block my-3">
+						<div class="custom-control custom-radio">
+							<input id="man" name="sex" type="radio"
+								class="custom-control-input" value="man"> <label
+								class="custom-control-label" for="man">男</label>
+						</div>
+						<div class="custom-control custom-radio">
+							<input id="woman" name="sex" type="radio"
+								class="custom-control-input" value="woman"> <label
+								class="custom-control-label" for="woman">女</label>
+						</div>
+						<div class="custom-control custom-radio">
+							<input id="other" name="sex" type="radio"
+								class="custom-control-input" value="other" checked="checked">
+							<label class="custom-control-label" for="other">其他</label>
+						</div>
+					</div>
+					<h4 class="mb-3">上傳大頭貼</h4>
+					<div class="d-block my-3">
+						<input type="file" accept="image/*" name="file">
+					</div>
+					<div class="mb-3">
+						<h4>賣家權限</h4>
+						<input type="hidden" id="gm" name="gm" value=" "
+							class="custom-control-input"> <input type="radio"
+							id="seller" name="seller" value="seller"> <span>須年滿18歲才能勾選成為賣家</span>
+					</div>
+					<div class="mb-3">
+						<label for="bankaccount">銀行帳戶<span class="text-muted"></span></label>
+						<input id="bankaccount" type="text" name="bankaccount"
+							class="form-control" value="">
+					</div>
+
+					<button class="btn btn-primary btn-lg btn-block" type="submit">提交</button>
 				</form>
 			</div>
 		</div>
 
 
 	</div>
-	
-<!-- 	<div class="form-writein"> -->
-<!-- 			大頭照 -->
-<%-- 			<form id="sendimg" name="sendimg" action="/MiraclePhone/usersignupimg" method="post"  enctype="multipart/form-data" > --%>
-<!-- 			<input accept="image/jpeg" id="uploadimg" name="uploadimg" type="file"> -->
-<!-- 			<img id="previewImg" name="previewImg" style="weight:100px; height:100px" src=""> -->
-<!--  			<input type="hidden" id="imagename" name="imagename"> 放實際圖片url的地方	 -->
-<!--  			<input type="submit" id="test" name="test" value="check" > -->
-<%--  			</form> --%>
-<!-- 			</div> -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
-	<script src="<c:url value='/js/signup1.js' />"></script>
+
+	<!-- 	<div class="form-writein"> -->
+	<!-- 			大頭照 -->
+	<%-- 			<form id="sendimg" name="sendimg" action="/MiraclePhone/usersignupimg" method="post"  enctype="multipart/form-data" > --%>
+	<!-- 			<input accept="image/jpeg" id="uploadimg" name="uploadimg" type="file"> -->
+	<!-- 			<img id="previewImg" name="previewImg" style="weight:100px; height:100px" src=""> -->
+	<!--  			<input type="hidden" id="imagename" name="imagename"> 放實際圖片url的地方	 -->
+	<!--  			<input type="submit" id="test" name="test" value="check" > -->
+	<%--  			</form> --%>
+	<!-- 			</div> -->
+	<script type="text/javascript"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 	<script src="<c:url value='/js/bootstrap.bundle.min.js' />"></script>
-		
+	<script src="<c:url value='/js/signup.js' />"></script>
 	
+
 
 </body>
 </html>
