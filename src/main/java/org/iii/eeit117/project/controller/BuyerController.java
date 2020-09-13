@@ -25,7 +25,6 @@ public class BuyerController {
 
 	public static final String MODULE_NAME = "buyer";
 	public static final String ANSWER_PAGE = MODULE_NAME + "Answer";
-//	private int mid;
 	private Integer proid;
 	MassageVo quest ;
 	
@@ -64,17 +63,11 @@ public class BuyerController {
 		mv.setProductId(proid);
 		mv.setMassage(massage);
 		mv.setLeaveTime(timeStr);
+		if(massage!= "" && massage!=null) {
 		massageService.save(mv);
+		}
 		return "redirect:/" + MODULE_NAME + "?productId=" + proid;
 	}
-//	@ResponseBody
-//	@RequestMapping(value = "/answer" , method = RequestMethod.GET)
-//	public String answer(Integer id) {
-//		mid = id;
-//		quest = massageService.findOne(mid);
-//		System.out.println(mid);
-//		return null;
-//	}
 	
 	@RequestMapping(value = "/answerpage" , method = RequestMethod.POST)
 	public String answerpage(@RequestParam(name = "text") String answer,
@@ -93,7 +86,9 @@ public class BuyerController {
 		quest.setAnsweraccount(user.getAccount());
 		quest.setAnsTime(timeStr);
 		quest.setAnswer(answer);
-		massageService.save(quest);
+		if(answer!= "" && answer!=null) {
+			massageService.save(quest);
+			}
 		return "redirect:/" + MODULE_NAME + "?productId=" + proid;
 	}
 }

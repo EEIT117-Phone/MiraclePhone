@@ -39,9 +39,9 @@ a:hover {
 }
 
 .down {
+	margin:auto;
 	width: 500px;
 	height: 10px;
-	margin: auto;
 	margin-top: 130px;
 }
 
@@ -61,6 +61,8 @@ a:hover {
 
 #QAA {
 	display: none;
+	margin-top:100px;
+	text-align: center;
 }
 
 .link1 {
@@ -170,6 +172,10 @@ h3 {
 
 #quest2 {
 	display: none;
+}
+
+.noleave{
+	text-align: center;
 }
 
 #quest3 {
