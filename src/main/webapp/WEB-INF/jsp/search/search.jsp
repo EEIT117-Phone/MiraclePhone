@@ -9,11 +9,9 @@
 <head>
     <title>銷售奇機</title>
     <!-- @@ CSS -->
-    <link rel="stylesheet" href="<c:url value='/css/tail.select-default.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/css/owl.carousel.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/css/owl.theme.default.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/css/font-awesome-4.7.0/css/font-awesome.min.css' />" />
-<%--     <link rel="stylesheet" href="<c:url value='/css/font-awesome.min.css' />" /> --%>
     <link rel="stylesheet" href="<c:url value='/css/search.css' />" />
 </head>
 
@@ -54,7 +52,7 @@
                         <div class="item card">
                             <img class="card-img" src="<c:url value='/images/iPhone6s.jpeg' />" alt="Card image cap">
                             <div class="card-body search-card-body">
-                                <p class="card-title">[二手機] iPhone 6s 128G 銀色 7成新</p>
+                                <p class="card-title">[二手機] iPhone 6s 128G 銀色</p>
                                 <p class="card-text">$ 1,500</p>
                             </div>
                         </div>
@@ -63,7 +61,7 @@
                         <div class="item card">
                             <img class="card-img" src="<c:url value='/images/iPhoneSE.jpg' />" alt="Card image cap">
                             <div class="card-body search-card-body">
-                                <p class="card-title">[二手機] iPhone SE 32G 太空灰 7成新</p>
+                                <p class="card-title">[二手機] iPhone SE 32G 太空灰</p>
                                 <p class="card-text">$ 12,000</p>
                             </div>
                         </div>
@@ -72,7 +70,7 @@
                         <div class="item card">
                             <img class="card-img" src="<c:url value='/images/iPhoneXR.jpg' />" alt="Card image cap">
                             <div class="card-body search-card-body">
-                                <p class="card-title">[二手機] iPhone XR 256G 白色 9成新</p>
+                                <p class="card-title">[二手機] iPhone XR 256G 白色</p>
                                 <p class="card-text">$ 22,500</p>
                             </div>
                         </div>
@@ -90,7 +88,7 @@
                         <div class="item card">
                             <img class="card-img" src="<c:url value='/images/iPhone6sPlus.jpg' />" alt="Card image cap">
                             <div class="card-body search-card-body">
-                                <p class="card-title">[二手機] iPhone 6s Plus 32G 玫瑰金 6成新</p>
+                                <p class="card-title">[二手機] iPhone 6s Plus 32G 玫瑰金</p>
                                 <p class="card-text">$ 5,000</p>
                             </div>
                         </div>
@@ -99,11 +97,7 @@
 
 				<div class="d-inline-block w-100">
                 <h4 class="float-left">搜尋結果</h4>
-<!--                 <select class="float-right h-100" style="margin-right: 20px;">
-                <option>價格(低到高)</option>
-                <option>價格(高到低)</option>
-              	</select> -->
-              	<input type="button" value="價格(低到高)" class="float-right h-100" style="width:130px; margin: 0 10px 0 5px;">
+              	<input id="amountButton" type="button" value="價格(低到高)" class="float-right h-100" style="width:130px; margin: 0 10px 0 5px;">
               	<input type="button" value="最新" class="float-right h-100" style="width:130px; margin: 0 5px 0 5px;">
               	<input type="button" value="最熱門" class="float-right h-100" style="width:130px; margin: 0 5px 0 5px;">
                 </div>
@@ -117,7 +111,8 @@
                                 <div class="card-body search-card-body">
                                     <p class="card-title">[${result.phoneSort}] ${result.phoneType.label} ${result.storage.label}
                                         ${result.color.label}色</p>
-                                    <span class="card-text mr-2">$ <fmt:formatNumber value="${result.amount}" type="number"/></span><span class="card-city">${result.county}${result.district}</span>
+                                    <p class="card-text mr-2 d-inline-block mb-0">$ <fmt:formatNumber value="${result.amount}" type="number"/></p><i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i><p class="card-city text-secondary d-inline-block mb-0">${result.watch}</p>
+                                	<p class="card-city mb-0 text-right">${result.county}${result.district}</p>
                                 </div>
                             </div>
                         </a>
@@ -145,7 +140,6 @@
                 <form:form servletRelativeAction="/search/result" method="get"
                             enctype="application/x-www-form-urlencoded" modelAttribute="searchBean">
                             <button type="submit" class="searchButton"></button>
-
                 <div class="card">
                     <article class="card-group-item">
                         <header class="card-header">
@@ -153,7 +147,7 @@
                         </header>
                         <div class="pl-3 pr-3">
                         	<div class="card-body">
-                        	<form:checkboxes class="form-check-input" items="${phoneTypeList}" path="checkOption" element="div"/>
+                        	<form:checkboxes class="form-check-input" id="phoneTypeOption" items="${phoneTypeList}" path="checkOption" element="div"/>
                         	</div>
                         </div>
                     </article>
@@ -164,7 +158,7 @@
                         </header>
                         <div class="pl-3 pr-3">
                         	<div class="card-body">
-                        	<form:checkboxes class="form-check-input" items="${storageList}" path="checkOption" element="div"/>
+                        	<form:checkboxes class="form-check-input" id="storageOption" items="${storageList}" path="checkOption" element="div"/>
                         	</div>
                         </div>
                     </article>
@@ -246,15 +240,9 @@
         </div>
     </div>
     <!-- @@ JS -->
-    <script src="<c:url value='/js/jquery-3.5.1.min.js' />"></script>
     <script src="<c:url value='/js/popper.js' />"></script>
-    <script src="<c:url value='/js/bootstrap.bundle.min.js' />"></script>
-    <script src="<c:url value='/js/tail.select.min.js' />"></script>
     <script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
     <script src="<c:url value='/js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
-    <script src="<c:url value='/js/popper.js' />"></script>
-    <script src="<c:url value='/js/owl.carousel.setting.js' />"></script>
-    <script src="<c:url value='/js/tail-select.setting.js' />"></script>
     <script src="<c:url value='/js/owl.carousel.setting.js' />"></script>
     <script src="<c:url value='/js/search.js' />"></script>
 </body>

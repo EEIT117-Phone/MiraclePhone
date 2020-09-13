@@ -54,7 +54,6 @@ public class SearchController {
 		amountList.put(30000, "30,000元以下");
 		amountList.put(40000, "40,000元以下");
 
-		searchBean.setCheckedOption(new String []{" "});	//預設不限打勾
 		model.addAttribute("searchBean", searchBean);
 		model.addAttribute("results", searchService.search(searchBean));
 		model.addAttribute("phoneTypeList", phoneTypeList);
