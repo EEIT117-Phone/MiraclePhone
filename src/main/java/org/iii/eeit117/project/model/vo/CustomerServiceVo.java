@@ -2,14 +2,10 @@ package org.iii.eeit117.project.model.vo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.iii.eeit117.project.model.data.HelloTypeEnum;
 
 @Entity
 @Table(name = "CUSTOMERSERVICE")
@@ -24,10 +20,10 @@ public class CustomerServiceVo {
 	private String account;
 
 	@Column(name = "selectq1")
-	private String select1;
+	private String selectq1;
 
 	@Column(name = "selectq2")
-	private String select2;
+	private String selectq2;
 
 	@Column(name = "question")
 	private String question;
@@ -56,20 +52,20 @@ public class CustomerServiceVo {
 		this.account = account;
 	}
 
-	public String getSelect1() {
-		return select1;
+	public String getSelectq1() {
+		return selectq1;
 	}
 
-	public void setSelect1(String select1) {
-		this.select1 = select1;
+	public void setSelectq1(String selectq1) {
+		this.selectq1 = selectq1;
 	}
 
-	public String getSelect2() {
-		return select2;
+	public String getSelectq2() {
+		return selectq2;
 	}
 
-	public void setSelect2(String select2) {
-		this.select2 = select2;
+	public void setSelectq2(String selectq2) {
+		this.selectq2 = selectq2;
 	}
 
 	public String getQuestion() {

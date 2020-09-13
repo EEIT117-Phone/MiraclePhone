@@ -7,19 +7,42 @@
 #main {
   display: inline-block;
   float: left;
-  width:700px;
+  width:620px;
   margin:auto;
   margin-top: 10px;
-  margin-left: 50px
+  margin-left: 150px;
+  margin-bottom:200px;
 }
 
 #content {
   display: table;
   margin: 0 auto;
-  width:900px;
-  margin:auto;
-  margin-top: 100px;
+  width:1100px;
+  margin:10px;
+  margin-top: 80px;
 }
 .b{
 	margin-bottom:100px;
+	border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 0;
+}
+.main_nav{
+	width:120px;
+}
+
+.dropdown-menu{
+	width:50px;
+	}
+.submitbtn{
+	float: right;
+    margin-bottom: 7px;
+    border: 1px blue solid;
+    border-radius: 4px;
+    padding: 7px 17px;
+    margin-left: 80%;
+}
+.date{
+	float: right;
+}
+
 }
