@@ -52,7 +52,7 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			List<Predicate> list = new LinkedList<>();
 			for (String oneWord : checkOptionList) {
 				System.out.println("oneWord: " + oneWord);
-				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE).as(String.class),"%" + oneWord + "%");
+				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%" + oneWord + "%");
 				Predicate storage1 = builder.like(root.get(ProductVo.STORAGE).as(String.class), "%" + oneWord + "%");
 				Predicate color1 = builder.like(root.get(ProductVo.COLOR).as(String.class), "%" + oneWord + "%");
 				Predicate phonesort1 = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
@@ -90,7 +90,8 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			List<Predicate> list = new LinkedList<>();
 			for (String oneWord : searchInputList) {
 				System.out.println("oneWord: " + oneWord);
-				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%" + oneWord + "%");
+				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE).as(String.class),
+						"%" + oneWord + "%");
 				Predicate storage1 = builder.like(root.get(ProductVo.STORAGE).as(String.class), "%" + oneWord + "%");
 				Predicate color1 = builder.like(root.get(ProductVo.COLOR).as(String.class), "%" + oneWord + "%");
 				Predicate phonesort1 = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
@@ -102,18 +103,18 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			}
 			// 預設價格低到高排序
 			query.orderBy(builder.asc(root.get("amount")));
-			finalSearch = builder.and(list.toArray(new Predicate[0]));
+			finalSearch = builder.and(list.toArray(new Predicate[] {}));
 			restrictions.add(finalSearch);
-			query.where(finalSearch);
-		} else {
-			// 搜尋框未輸入則全顯示
+//			query.where(finalSearch);
+		}
+		// 搜尋框未輸入則全顯示
+		if (StringUtil.isEmpty(searchInput)) {
 			restrictions.add(builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%"));
 			// 預設價格低到高排序
 			query.orderBy(builder.asc(root.get("amount")));
 		}
 
-		// 最終return
-		return query.where(builder.or(restrictions.toArray(new Predicate[] {})));
+		return query.where(builder.and(restrictions.toArray(new Predicate[] {})));
 	}
 
 	public Integer getCheckAmountOption() {
