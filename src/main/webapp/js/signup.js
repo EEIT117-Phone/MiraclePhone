@@ -1,4 +1,21 @@
 $(function () {
+	 $("#password")
+        .blur(
+            function () { //驗證密碼
+                let pwdrule = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+`\-={}\[\]:";'<>?,.\/]).{4,16}$/;
+                
+                let result = pwdrule.test($("#password").val());
+                
+                if (result == false) {
+                    $("#pwdsure").html("格式不符或空白")
+					$("#pwdsure").val("false");
+                } else {
+                    $("#pwdsure").html("成功")
+                }
+
+            })
+
+		
     $("#birth").blur(function () { //自動計算年齡
         userbirth = document.getElementById("birth").value;
         let today = new Date();
@@ -17,22 +34,7 @@ $(function () {
         }
     })
 
-    $("#password")
-        .blur(
-            function () { //驗證密碼
-                let pwdrule = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+`\-={}\[\]:";'<>?,.\/]).{4,16}$/;
-                
-                let result = pwdrule.test($("#password").val());
-                
-                if (result == false) {
-                    $("#pwdsure").html("格式不符或空白")
-					$("#pwdsure").val("false");
-                } else {
-                    $("#pwdsure").html("成功")
-                }
-
-            })
-
+   
     $("#idnumber").blur(function () {
         if (checkID(this.value)) {
             $("#sureidnumber").text("正確");
@@ -73,62 +75,38 @@ $(function () {
 	
   }
 
-function checkform(){
+ $("#userdata").click(function(){
 	if($("#pwdsure").val=="false"){
 		alert("密碼格式有誤")
 		return false;
 	}
 	else if($("#sureidnumber").val=="false"){
 		alert("身分證格式有誤")
-		return false
+		return false;
 	}
-}
-	
-	
-var uploadimg = document.getElementById("uploadimg"); //上傳照片
-var previewImg = document.getElementById("previewImg"); //照片預覽處
-var fileReader = new FileReader(); //設立一個空的file讀取物件
-////設定大頭貼預覽
-//uploadimg.addEventListener("change", e => {
-//  var file = e.target.files[0];  // 取得 File Object
-//  fileReader.readAsDataURL(file);  // 將 File Object 讀取成 DataURL
-//	console.log(e.target.files);
-//});
-
-// load 時可以取得 fileReader 回傳的結果
-fileReader.addEventListener("load", function() {
-  var dataURL = fileReader.result;   // Base64 Image
-  previewImg.src = dataURL;
+	return true;
 });
-////設定提交按鈕的click功能為ajax文件送去Controller
-//$("#test").click(
-//	function(){
-//		var xhr=new XMLHttpRequest();
-//		var userForm=new FormData($("#sendimg")); //創建一個新ajax的傳送載體
-//		xhr.open("POST","/MiraclePhone/usersignupimg",true);
-//		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-//		xhr.onreadystatechange=function(){
-//			if(xhr.readyState==4)
-//			{
-//				if(xhr.status==200)
-//			{
-//				alert("圖片上傳成功");
-//			}
-//			}
-//			
-//		}
-//		var filename_ajax=$("#account").val()+"-headphoto"; //設定大頭貼名稱為 "帳號名-headphoto"
-//		var sendimg_ajax=$("#uploadimg")[0].files[0] //取得欲上傳照片
-//		userForm.append("imagename",filename_ajax);
-//		userForm.append("uploadimg",sendimg_ajax);
-//		
-//		xhr.send(userForm);
-//	});
+	
+	
+
+//設定大頭貼預覽
+$("#file").change(function() {
+ readURL(this); 
+});
+function readURL(input){
+  if(input.files && input.files[0]){
+    var reader = new FileReader();
+    reader.onload = function (e) {
+       $("#previewImg").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+
 $("#twzipcode").twzipcode({ //外掛地址
 zipcodeIntoDistrict: true, // 郵遞區號自動顯示在區別選單中
 css: ["county form-control", "district form-control"] // 自訂 "城市"、"地別" class 名稱 
 });
 	
-
-
-	});
+});

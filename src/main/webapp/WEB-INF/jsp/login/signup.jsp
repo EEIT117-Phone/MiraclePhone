@@ -64,7 +64,7 @@
 			</div>
 			<div class="col-md-8 order-md-1">
 				<h4 class="mb-3">個人資料</h4>
-				<form class="needs-validation" novalidate
+				<form id="userdata" class="needs-validation"  
 					action="/MiraclePhone/usersignup" method="post"
 					enctype="multipart/form-data">
 					<div class="row">
@@ -92,7 +92,8 @@
 					<div class="mb-3">
 						<label for="password">密碼<span class="text-muted">(password)</span></label>
 						<input type="password" class="form-control" id="password"
-							name="password" placeholder="密碼4~16位含數字、特殊符號、大小寫英文">
+							name="password" placeholder="密碼4~16位含數字、特殊符號、大小寫英文" required>
+						<span id="pwdsure"></span>
 						<div class="invalid-feedback">你的密碼人家才不感興趣呢!</div>
 					</div>
 					<div class="mb-4">
@@ -104,50 +105,51 @@
 					<div class="mb-3">
 						<label for="idnumber">身分證字號<span class="text-muted"></span></label>
 						<input id="idnumber" type="text" name="idnumber"
-							class="form-control" value=""> <span id="sureidnumber"></span>
+							class="form-control" value="" required> <span id="sureidnumber"></span>
 					</div>
 					<div class="mb-3">
 						<h4>生日</h4>
 						<input type="hidden" id="age" name="age" value=""
 							class="custom-control-input"> <input type="date"
-							id="birth" name="birth" value="">
+							id="birth" name="birth" value="" required>
 
 					</div>
 					<h4 class="mb-3">性別</h4>
 					<div class="d-block my-3">
 						<div class="custom-control custom-radio">
-							<input id="man" name="sex" type="radio"
+							<input  type="radio" id="man" name="sex" 
 								class="custom-control-input" value="man"> <label
 								class="custom-control-label" for="man">男</label>
 						</div>
 						<div class="custom-control custom-radio">
-							<input id="woman" name="sex" type="radio"
+							<input type="radio" id="woman" name="sex" 
 								class="custom-control-input" value="woman"> <label
 								class="custom-control-label" for="woman">女</label>
 						</div>
 						<div class="custom-control custom-radio">
-							<input id="other" name="sex" type="radio"
-								class="custom-control-input" value="other" checked="checked">
+							<input type="radio" id="other" name="sex" 
+								class="custom-control-input" value="other" >
 							<label class="custom-control-label" for="other">其他</label>
 						</div>
 					</div>
 					<h4 class="mb-3">上傳大頭貼</h4>
 					<div class="d-block my-3">
-						<input type="file" accept="image/*" name="file">
+						<input type="file" accept="image/*" id="file" name="file">
+						<img id="previewImg" name="previewImg" style="weight:100px; height:100px" src="">
 					</div>
 					<div class="mb-3">
 						<h4>賣家權限</h4>
 						<input type="hidden" id="gm" name="gm" value=" "
-							class="custom-control-input"> <input type="radio"
-							id="seller" name="seller" value="seller"> <span>須年滿18歲才能勾選成為賣家</span>
+							class="custom-control-input"> 
+					<input type="radio" id="seller" name="seller" value="seller"> <span id="seller_word">須年滿18歲才能勾選成為賣家</span>
 					</div>
 					<div class="mb-3">
 						<label for="bankaccount">銀行帳戶<span class="text-muted"></span></label>
-						<input id="bankaccount" type="text" name="bankaccount"
-							class="form-control" value="">
+						<input id="bankaccount" type="text" name="bankaccount" oninput ="value=value.replace(/[^\d]/g,'')"
+							class="form-control" value="" placeholder="請輸入數字" required>
 					</div>
 
-					<button class="btn btn-primary btn-lg btn-block" type="submit">提交</button>
+					<input class="btn btn-primary btn-lg btn-block" type="submit" id="submit" name="submit">提交</button>
 				</form>
 			</div>
 		</div>
@@ -159,7 +161,7 @@
 	<!-- 			大頭照 -->
 	<%-- 			<form id="sendimg" name="sendimg" action="/MiraclePhone/usersignupimg" method="post"  enctype="multipart/form-data" > --%>
 	<!-- 			<input accept="image/jpeg" id="uploadimg" name="uploadimg" type="file"> -->
-	<!-- 			<img id="previewImg" name="previewImg" style="weight:100px; height:100px" src=""> -->
+	<!-- 			 -->
 	<!--  			<input type="hidden" id="imagename" name="imagename"> 放實際圖片url的地方	 -->
 	<!--  			<input type="submit" id="test" name="test" value="check" > -->
 	<%--  			</form> --%>
