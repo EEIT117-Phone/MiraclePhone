@@ -14,6 +14,7 @@
 	rel="stylesheet">
 <link href="<c:url value='/css/bootstrap.min.css' />" rel="stylesheet">
 <link rel="stylesheet" href="<c:url value='/css/buyer.css' />" />
+<link rel="stylesheet" href="<c:url value='/css/search.css' />" />
 <script src="<c:url value='/js/buyer.js' />"></script>
 </head>
 
@@ -159,16 +160,16 @@
 			</c:when>
 		</c:choose>
 		<br>
-		<p>按鍵輪播</p>
+		<h2>其他搜尋結果:</h2>
 		<div class="owl-carousel">
 <c:forEach varStatus="status" var="result" items="${rs}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
-                            <div class="card card-result">
+                            <div class="item card">
                                 <img class="card-img" src="<c:url value='/fs/img/${result.pic1}' />" alt="Card image cap">
                                 <div class="card-body search-card-body">
                                     <p class="card-title">[${result.phoneSort}] ${result.phoneType.label} ${result.storage.label}
                                         ${result.color.label}色</p>
-                                    <p class="card-text mr-2 d-inline-block mb-0">$ <fmt:formatNumber value="${result.amount}" type="number"/></p><i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i><p class="card-city text-secondary d-inline-block mb-0">${result.watch}</p>
+                                    <p class="card-text mr-2 d-inline-block mb-0">$ <fmt:formatNumber value="${result.amount}" type="number"/></p><i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i>
                                 	<p class="card-city mb-0 text-right">${result.county}${result.district}</p>
                                 </div>
                             </div>
