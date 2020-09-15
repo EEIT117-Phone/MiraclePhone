@@ -9,11 +9,33 @@ $(function() {
     customerQASelect.innerHTML = inner;
     
 	let a = document.getElementById("question").selectedIndex;
-	//console.log(a);
     changequestion(a);
+    $('#profile-tab').click(function() {
+        $.ajax({
+            url : CONTEXT_PATH + '/contact/history',
+            method : 'GET',
+            success : function(json) {
+                let str = '';
+                for (var index in json) {
+                    let obj = json[index];
+                    str += `
+                    	<tr>
+                    		<td>${Number(index) + 1}</td>
+                    		<td>${obj.selectq1}-賣家評價${obj.selectq2}</td>
+                    		<td>${obj.date}</td>
+                    		<td>${obj.question}</td>
+                    		<td>${obj.answer || ''}</td>
+                    	</tr>
+                    `;
+                }
+                $('#profile-tab-table-tbody').html(str);
+            }
+        });
+
+	 });
 });
 
- var sectors = new Array();
+ 	var sectors = new Array();
     sectors[0] = ["請選擇"];
     sectors[1] = ["賣家評價", "商品付款方式", "商品規格疑問"];
     sectors[2] = ["配送時長", "配送方式", "其他"];
@@ -21,8 +43,7 @@ $(function() {
     sectors[4] = ["發票及載具問題"];
     sectors[5] = ["退貨進度查詢", "退貨相關問題", "維修保固相關問題"];
 
-function changequestion(index) {
-	
+    function changequestion(index) {
         var Sinner = "";
         for (var i = 0; i < sectors[index].length; i++) {
             Sinner = Sinner + '<option value='+sectors[index][i]+'>' + sectors[index][i] + '</option>';
@@ -31,26 +52,10 @@ function changequestion(index) {
         sectorSelect.innerHTML = Sinner;
     }
 
-	var selectq1 = document.getElementById("");
 
 
 
 
 
-    $('#profile-tab').click(function() {
-		console.log("123");
-        $.ajax({
-            url : '/MiraclePhone/contact/history',
-            method : 'GET',
-            success : function(json) {
-                let str = '';
-                for (var index in json) {
-                    let obj = json[index];
-                    str += '<tr><td>' + (Number(index) + 1) + '</td><td>' + obj.select1 + '-' + obj.select2
-                    + '</td><td>' + obj.date + '</td><td>' + obj.question + '</td><td>' + obj.answer + '</td></tr>';
-                }
-                $('#profile-tab-table-tbody').html(str);
-            }
-        });
 
- });
+
