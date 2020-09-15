@@ -53,26 +53,23 @@
 						<strong>E2</strong></li>
 				</ul>
 
-				<form class="card p-2">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Promo code">
 						<div class="input-group-append">
-							<button type="submit" class="btn btn-secondary">Redeem</button>
+			
 						</div>
 					</div>
-				</form>
+				
 			</div>
 			<div class="col-md-8 order-md-1">
 				<h4 class="mb-3">個人資料</h4>
-				<form id="userdata" class="needs-validation"  
+				<form id="userdata"  
 					action="/MiraclePhone/usersignup" method="post"
-					enctype="multipart/form-data">
+					enctype="multipart/form-data" >
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<label for="firstName">中文姓名</label> <input type="text"
-								class="form-control" name="name" id="NAME" placeholder=""
+							<label for="firstName">姓名</label> <input type="text"
+								class="form-control" name="name" id="name" placeholder=""
 								value="" required>
-							<div class="invalid-feedback">我的名字呢?嗚嗚</div>
 						</div>
 
 					</div>
@@ -83,9 +80,10 @@
 							<div class="input-group-prepend">
 								<span class="input-group-text">@</span>
 							</div>
-							<input type="text" class="form-control" id="account"
+							<input type="email" class="form-control" id="account"
 								name="account" placeholder="請輸入電子信箱" required>
-							<div class="invalid-feedback" style="width: 100%;">帳號跟愛情一樣不能空白</div>
+								
+						
 						</div>
 					</div>
 
@@ -94,7 +92,6 @@
 						<input type="password" class="form-control" id="password"
 							name="password" placeholder="密碼4~16位含數字、特殊符號、大小寫英文" required>
 						<span id="pwdsure"></span>
-						<div class="invalid-feedback">你的密碼人家才不感興趣呢!</div>
 					</div>
 					<div class="mb-4">
 						<label for="address">住址</label>
@@ -149,7 +146,7 @@
 							class="form-control" value="" placeholder="請輸入數字" required>
 					</div>
 
-					<input class="btn btn-primary btn-lg btn-block" type="submit" id="submit" name="submit">提交</button>
+					<button class="btn btn-primary btn-lg btn-block" type="submit" id="send" name="send">提交</button>
 				</form>
 			</div>
 		</div>

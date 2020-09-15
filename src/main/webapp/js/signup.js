@@ -11,6 +11,7 @@ $(function () {
 					$("#pwdsure").val("false");
                 } else {
                     $("#pwdsure").html("成功")
+					$("#pwdsure").val("true");
                 }
 
             })
@@ -38,6 +39,7 @@ $(function () {
     $("#idnumber").blur(function () {
         if (checkID(this.value)) {
             $("#sureidnumber").text("正確");
+			$("#sureidnumber").val("true");
         } else {
             $("#sureidnumber").text("驗證錯誤");
 			$("#sureidnumber").val("false");
@@ -75,19 +77,7 @@ $(function () {
 	
   }
 
- $("#userdata").click(function(){
-	if($("#pwdsure").val=="false"){
-		alert("密碼格式有誤")
-		return false;
-	}
-	else if($("#sureidnumber").val=="false"){
-		alert("身分證格式有誤")
-		return false;
-	}
-	return true;
-});
-	
-	
+ 
 
 //設定大頭貼預覽
 $("#file").change(function() {
@@ -108,5 +98,22 @@ $("#twzipcode").twzipcode({ //外掛地址
 zipcodeIntoDistrict: true, // 郵遞區號自動顯示在區別選單中
 css: ["county form-control", "district form-control"] // 自訂 "城市"、"地別" class 名稱 
 });
+
+
+
 	
+$("#send").click(function(){
+	console.log($("#pwdsure").val())
+	console.log($("#sureidnumber").val())
+	if($("#pwdsure").val()!=false||$("#sureidnumber").val()!=false){
+			alert("身分證或密碼格式不符")
+			return false
+		}
+		alert("輸入成功")
+		return true
+	})
+	
+
+
+		
 });
