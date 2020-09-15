@@ -14,7 +14,7 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<div class="navbar-nav mr-auto"></div>
-			<div class="form-inline mt-2 mt-md-0 module-link">
+			<div >
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link"
 						href="<c:url value='/cart' />" style="color: white"> 
