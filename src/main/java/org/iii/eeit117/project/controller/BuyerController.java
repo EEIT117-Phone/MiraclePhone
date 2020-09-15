@@ -49,16 +49,13 @@ public class BuyerController {
 
 	@RequestMapping(value = "/massagepage", method = RequestMethod.POST)
 	public String massageInfo(MassageVo mv, @RequestParam(name = "textarea") String massage,
-							HttpSession httpsession,HttpServletRequest request) {
-		
+							HttpSession httpsession,HttpServletRequest request,
+							Model m) {
 		UserVo user = (UserVo) httpsession.getAttribute("user");
-		if(user == null) {
-			return "userlogin";
-		}
-		
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String timeStr = df.format(time);
+		m.addAttribute("user", user);
 		mv.setBuyeraccount(user.getAccount());
 		mv.setProductId(proid);
 		mv.setMassage(massage);
@@ -75,10 +72,6 @@ public class BuyerController {
 							 ,HttpSession httpsession) {
 		
 		UserVo user = (UserVo) httpsession.getAttribute("user");
-		if(user == null) {
-			return "userlogin";
-		}
-		
 		quest = massageService.findOne(mid);
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

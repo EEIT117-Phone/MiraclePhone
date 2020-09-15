@@ -17,14 +17,16 @@
 </head>
 
 
-<body>
+<body style="background-color: #F7F3F3">
 	<div class="link1">
 		<div class="link2">
-			<span><a href="<c:url value='/'/>">首頁></a></span>
-			<span><a href="<c:url value='/search/result?searchInput='/>">搜尋></a></span>
-			<span><a href="<c:url value='/buyer?productId=${info.productId}'/>">NO:${info.productId}</a></span>
+			<span><a href="<c:url value='/'/>">首頁></a></span> <span><a
+				href="<c:url value='/search/result?searchInput='/>">搜尋></a></span> <span><a
+				href="<c:url value='/buyer?productId=${info.productId}'/>">[${info.phoneSort}]
+					${info.phoneType.label} ${info.storage.label} ${info.color.label}</a></span>
 		</div>
-		<h3>[${info.phoneSort}] ${info.phoneType.label} ${info.storage.label} ${info.color.label}</h3>
+		<h3>[${info.phoneSort}] ${info.phoneType.label}
+			${info.storage.label} ${info.color.label}</h3>
 		<p>觀看次數:${info.watch}次</p>
 		<div class="link3">
 			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1"
@@ -47,10 +49,34 @@
 			</div>
 			<div class="stl1">
 				<p>付款方式 :</p>
-				<p>銀行或郵局轉帳<c:choose><c:when test="${info.post ==1 }">✔</c:when><c:when test="${info.post !=1 }">✘</c:when></c:choose></p>
-				<p>面交取貨付款<c:choose><c:when test="${info.face ==1 }">✔</c:when><c:when test="${info.face !=1 }">✘</c:when></c:choose></p>
-				<p>7-11便利商店<c:choose><c:when test="${info.seven ==1 }">✔</c:when><c:when test="${info.seven !=1 }">✘</c:when></c:choose></p>
-				<p>全家便利商店<c:choose><c:when test="${info.family ==1 }">✔</c:when><c:when test="${info.family !=1 }">✘</c:when></c:choose></p>
+				<p>
+					銀行或郵局轉帳
+					<c:choose>
+						<c:when test="${info.post ==1 }">✔</c:when>
+						<c:when test="${info.post !=1 }">✘</c:when>
+					</c:choose>
+				</p>
+				<p>
+					面交取貨付款
+					<c:choose>
+						<c:when test="${info.face ==1 }">✔</c:when>
+						<c:when test="${info.face !=1 }">✘</c:when>
+					</c:choose>
+				</p>
+				<p>
+					7-11便利商店
+					<c:choose>
+						<c:when test="${info.seven ==1 }">✔</c:when>
+						<c:when test="${info.seven !=1 }">✘</c:when>
+					</c:choose>
+				</p>
+				<p>
+					全家便利商店
+					<c:choose>
+						<c:when test="${info.family ==1 }">✔</c:when>
+						<c:when test="${info.family !=1 }">✘</c:when>
+					</c:choose>
+				</p>
 				<input type='hidden' name='phoneId' value="${info.productId}">
 				<p>
 					<input id='addShopCart' type='button' value='加入購物車' />
@@ -79,44 +105,54 @@
 				<p>販售原因:${info.sellReason}</p>
 			</div>
 			<div id="quest2" class="quest">
-					<c:if test="${ qa[0] == null}">
-						<p class="noleave">目前暫無留言</p>
-					</c:if>
+				<c:if test="${ qa[0] == null}">
+					<p class="noleave">目前暫無留言</p>
+				</c:if>
 				<c:forEach varStatus="status" var="li" items="${qa}">
 					<div>
-					<c:if test="${li.massage != null}">
-						<p>${li.buyeraccount}${li.leaveTime}</p>
-						<p>問題:</p>
-						<p class="userquest">${li.massage}</p>
-					</c:if>
-						<br>
-					<c:if test="${li.answer != '' and li.answer != null}">
-						<p>${li.answeraccount}${li.ansTime}</p>
-						<p>回覆:</p>
-						<p class="useranswer">${li.answer}</p>
-					</c:if>
-					<c:if test="${li.massage != null}">
-						<button class="ansbtn" type="button">回覆</button>
-					</c:if>
-						<br>
-						<form class="ansarea" action="<c:url value='/buyer/answerpage'/>" method="POST">
-							<input class="mid" type="text" name="userid" value="${li.mId}"/>
+						<c:if test="${li.massage != null}">
+							<div class="buyerquest">
+								<p>${li.buyeraccount}${li.leaveTime}</p>
+								<p>問題:</p>
+								<p>${li.massage}</p>
+							</div>
+						</c:if>
+						<c:if test="${li.answer != '' and li.answer != null}">
+							<div class="useranswer">
+								<p>${li.answeraccount}${li.ansTime}</p>
+								<p class="selleranswer">賣家回覆:</p>
+								<p>${li.answer}</p>
+							</div>
+						</c:if>
+						<c:if
+							test="${li.massage != null and user.account == info.account}">
+							<button class="ansbtn" type="button">回覆</button>
+						</c:if>
+						<form class="ansarea" action="<c:url value='/buyer/answerpage'/>"
+							method="POST">
+							<input class="mid" type="text" name="userid" value="${li.mId}" />
 							<textarea rows="5" cols="50" name="text"></textarea>
 							<br> <input type="submit" value="提交">
 						</form>
-						<hr>
 					</div>
 				</c:forEach>
 
 			</div>
 		</div>
-
-		<form id="QAA" action="<c:url value="/buyer/massagepage"/>"
-			method="post">
-			<textarea rows="5" cols="50" name="textarea"></textarea>
-			<br> <input type="submit" value="提交">
-		</form>
-
+		<c:choose>
+			<c:when test="${user!=null}">
+				<form id="QAA" action="<c:url value="/buyer/massagepage"/>"
+					method="post">
+					<textarea rows="5" cols="50" name="textarea"></textarea>
+					<br> <input type="submit" value="提交">
+				</form>
+			</c:when>
+			<c:when test="${user==null}">
+				<div class="msglogin">
+					<a href="http://localhost:8080/MiraclePhone/userlogin">留言請先登入</a>
+				</div>
+			</c:when>
+		</c:choose>
 		<br>
 		<p>按鍵輪播</p>
 		<div class="owl-carousel">

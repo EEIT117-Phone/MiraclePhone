@@ -4,15 +4,20 @@ $(document).ready(function () {
   });
 
 	$("#aaa").click(function() {
+		$("#aaa").css("background-color","lightcyan");
+		$("#bbb").css("background-color","white");
 		$("#quest1").show();
 		$("#quest2").hide();
 		$("#QAA").hide();
+		$(".msglogin").hide();
 	});
-
 	$("#bbb").click(function() {
+		$("#aaa").css("background-color","white");
+		$("#bbb").css("background-color","lightcyan");
 		$("#quest2").show();
 		$("#quest1").hide();
 		$("#QAA").show();
+		$(".msglogin").show();
 	});
 
 		var stat = true;
