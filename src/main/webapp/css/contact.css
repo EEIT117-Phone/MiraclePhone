@@ -1,37 +1,52 @@
 .bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
 
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
 
-  .server-main {
-    
-    width:800px;
-    /* float: 50%; */
-    margin:0 auto;
-    margin-top: 150px;
-    float: unset;
-  }
-  #al{
-    background: #5555FF;
-  }
-  #a2{
-    background: #99BBFF;
-  }
- .position1{
-   width: 600px;
-   position:relative;
-   margin-right: 5px;
- }
- .position2{
-   margin-right: 100px;
- }
+.server-main {
+	width: 800px;
+	float: 50%;
+	margin: 0 auto;
+	margin-top: 100px;
+	float: unset;
+}
+
+body {
+	font-family: "蘋果儷中黑", Microsoft JhengHei, "微軟正黑體", sans-serif;
+	margin: 10px auto;
+}
+
+.col-4 {
+	left: -250px;
+}
+
+.col-8 {
+	margin: 0 auto;
+	margin-top: -180px;
+}
+
+.textarea{
+	border-radius: 5px;
+}
+
+#question {
+	margin-right: 10px;
+	width: 200px;
+	height: 40px;
+}
+
+#question-sector {
+	width: 200px;
+	height: 40px;
+}
+

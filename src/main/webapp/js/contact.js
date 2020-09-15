@@ -31,6 +31,12 @@ function changequestion(index) {
         sectorSelect.innerHTML = Sinner;
     }
 
+	var selectq1 = document.getElementById("");
+
+
+
+
+
     $('#profile-tab').click(function() {
 		console.log("123");
         $.ajax({
