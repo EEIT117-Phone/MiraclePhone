@@ -17,14 +17,14 @@ $(function() {
             success : function(json) {
                 let str = '';
                 for (var index in json) {
-                    let obj = json[index];
+                    const {selectq1, selectq2, date, question, answer} = json[index];
                     str += `
                     	<tr>
                     		<td>${Number(index) + 1}</td>
-                    		<td>${obj.selectq1}-賣家評價${obj.selectq2}</td>
-                    		<td>${obj.date}</td>
-                    		<td>${obj.question}</td>
-                    		<td>${obj.answer || ''}</td>
+                    		<td>${selectq1}-${selectq2}</td>
+                    		<td>${date}</td>
+                    		<td>${question}</td>
+                    		<td>${answer || ''}</td>
                     	</tr>
                     `;
                 }
