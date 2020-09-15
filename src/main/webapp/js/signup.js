@@ -105,7 +105,7 @@ css: ["county form-control", "district form-control"] // 自訂 "城市"、"地�
 $("#send").click(function(){
 	console.log($("#pwdsure").val())
 	console.log($("#sureidnumber").val())
-	if($("#pwdsure").val()!=false||$("#sureidnumber").val()!=false){
+	if($("#pwdsure").val()==false||$("#sureidnumber").val()==false){
 			alert("身分證或密碼格式不符")
 			return false
 		}
