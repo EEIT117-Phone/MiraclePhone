@@ -1,7 +1,7 @@
 $(document).ready(function () {
   //  Filter  預設選取不限
-  $('#phoneTypeOption1').attr('checked', 'checked');
-  $('#storageOption1').attr('checked', 'checked');
+//  $('#phoneTypeOption1').attr('checked', 'checked');
+//  $('#storageOption1').attr('checked', 'checked');
 
   //  Filter  不限/其他複選
   $('.form-check-input').each(function (i) {
@@ -44,15 +44,11 @@ $(document).ready(function () {
 
   //  搜尋結果排序鈕切換
   $('#amountButton').click(function () {
-    if ($(this).val() == '價格(低到高)') {
-      $(this).val('價格(高到低)');
+    if ($(this).val() == '價格(低到高)↓') {
+      $(this).val('價格(高到低)↑');
     } else {
-      $(this).val('價格(低到高)');
+      $(this).val('價格(低到高)↓');
     }
   })
-
-
-
-
 
 });

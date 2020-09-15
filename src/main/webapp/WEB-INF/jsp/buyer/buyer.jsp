@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +14,7 @@
 	rel="stylesheet">
 <link href="<c:url value='/css/bootstrap.min.css' />" rel="stylesheet">
 <link rel="stylesheet" href="<c:url value='/css/buyer.css' />" />
+<link rel="stylesheet" href="<c:url value='/css/search.css' />" />
 <script src="<c:url value='/js/buyer.js' />"></script>
 </head>
 
@@ -29,13 +31,15 @@
 			${info.storage.label} ${info.color.label}</h3>
 		<p>觀看次數:${info.watch}次</p>
 		<div class="link3">
-			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1"
-				id="myImg"> <img src="<c:url value='/fs/img/${info.pic2}' />"
-				class="small"> <img
-				src="<c:url value='/fs/img/${info.pic3}' />" class="small"> <img
-				src="<c:url value='/fs/img/${info.pic4}' />" class="small"> <img
-				src="<c:url value='/fs/img/${info.pic5}' />" class="small"> <img
-				src="<c:url value='/fs/img/${info.pic6}' />" class="small">
+			<div class="imgdiv">
+				<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1" id="myImg"> 
+			</div>
+				<img src="<c:url value='/fs/img/${info.pic1}' />" class="small">
+				<img src="<c:url value='/fs/img/${info.pic2}' />" class="small"> 
+				<img src="<c:url value='/fs/img/${info.pic3}' />" class="small"> 
+				<img src="<c:url value='/fs/img/${info.pic4}' />" class="small"> 
+				<img src="<c:url value='/fs/img/${info.pic5}' />" class="small"> 
+				<img src="<c:url value='/fs/img/${info.pic6}' />" class="small">
 		</div>
 		<div id="myModal" class="modal">
 			<br> <br> <br> <span class="close">&times;</span> <img
@@ -82,16 +86,18 @@
 					<input id='addShopCart' type='button' value='加入購物車' />
 				</p>
 			</div>
+			<!-- 
 			<div class="link4">
 				<p class="p1">賣家資訊</p>
 				<a href="連結網址" class="p2">${info.account}</a> <br> <a
 					href="連結網址" class="p2">聯絡賣家</a> <br> <a href="連結網址" class="p2">賣家評價</a>
 			</div>
+			-->
 		</div>
 
 		<ul class="down">
-			<li id="aaa"><p>商品說明</p></li>
-			<li id="bbb"><p>問與答(${size})</p></li>
+			<li id="aaa">商品說明</li>
+			<li id="bbb">問與答(${size})</li>
 		</ul>
 		<div>
 			<div id="quest1" class="quest">
@@ -125,7 +131,7 @@
 							</div>
 						</c:if>
 						<c:if
-							test="${li.massage != null and user.account == info.account}">
+							test="${li.massage != null and user.account == info.account and li.answer == null}">
 							<button class="ansbtn" type="button">回覆</button>
 						</c:if>
 						<form class="ansarea" action="<c:url value='/buyer/answerpage'/>"
@@ -154,49 +160,21 @@
 			</c:when>
 		</c:choose>
 		<br>
-		<p>按鍵輪播</p>
+		<h2>其他搜尋結果:</h2>
 		<div class="owl-carousel">
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img1"><img
-					src="https://via.placeholder.com/200x200?text=img1" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img2"><img
-					src="https://via.placeholder.com/200x200?text=img2" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img3"><img
-					src="https://via.placeholder.com/200x200?text=img3" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img4"><img
-					src="https://via.placeholder.com/200x200?text=img4" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img5"><img
-					src="https://via.placeholder.com/200x200?text=img5" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img6"><img
-					src="https://via.placeholder.com/200x200?text=img6" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img7"><img
-					src="https://via.placeholder.com/200x200?text=img7" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img8"><img
-					src="https://via.placeholder.com/200x200?text=img8" /></a>
-			</div>
-		</div>
+<c:forEach varStatus="status" var="result" items="${rs}">
+                        <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
+                            <div class="item card">
+                                <img class="card-img" src="<c:url value='/fs/img/${result.pic1}' />" alt="Card image cap">
+                                <div class="card-body search-card-body">
+                                    <p class="card-title">[${result.phoneSort}] ${result.phoneType.label} ${result.storage.label}
+                                        ${result.color.label}色</p>
+                                    <p class="card-text mr-2 d-inline-block mb-0">$ <fmt:formatNumber value="${result.amount}" type="number"/></p><i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i>
+                                	<p class="card-city mb-0 text-right">${result.county}${result.district}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </c:forEach>
 	</div>
 	<script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
 	<script src="<c:url value='/js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>

@@ -35,12 +35,15 @@ public class BuyerController {
 	private MassageService massageService;
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
-	public String sellerInfo(Model model, Integer productId) {
-		proid=productId;
+	public String sellerInfo(Model model, Integer productId
+							,HttpSession httpsession) {
+		
+		proid=productId;	
 		ProductVo productinfo = productService.findOne(productId);
 		productinfo.setWatch(productinfo.getWatch() + 1);
 		productService.save(productinfo);
 		List<MassageVo> massages = massageService.findByProductId(productId);
+		model.addAttribute("rs", httpsession.getAttribute("rs"));
 		model.addAttribute("size", massages.size());
 		model.addAttribute("qa", massages);
 		model.addAttribute("info", productinfo);

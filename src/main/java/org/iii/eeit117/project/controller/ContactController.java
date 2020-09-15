@@ -44,12 +44,6 @@ public class ContactController {
 		return MAIN_PAGE;
 	}
 
-//	@RequestMapping(value = "/customer", method = RequestMethod.GET)
-//	public String search(CustomerServiceVo searchBean, Model m) {
-//		m.addAttribute(customerService.findAll());
-//		return MAIN_PAGE;
-//	}
-	
 	@ResponseBody
 	@RequestMapping(value = "/history", method = RequestMethod.GET)
 	public List<CustomerServiceVo> history(@SessionAttribute("user") UserVo user) {

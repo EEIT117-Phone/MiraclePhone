@@ -1,3 +1,7 @@
+body {
+	margin-top: 0;
+}
+
 .bd-placeholder-img {
 	font-size: 1.125rem;
 	text-anchor: middle;
@@ -62,7 +66,6 @@ ul.pictureslides li img {
 
 .cobtainer h2 {
 	color: white;
-	font-family: NSimSun;
 }
 
 .dot li {
@@ -121,11 +124,6 @@ ul.pictureslides li img {
 	position: absolute;
 	top: 200px;
 	left: 300px;
-}
-
-.cobtainer h2 {
-	color: white;
-	font-family: NSimSun;
 }
 
 .dot li {

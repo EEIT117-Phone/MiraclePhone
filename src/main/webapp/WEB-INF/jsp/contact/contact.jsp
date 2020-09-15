@@ -13,11 +13,11 @@
 
 <body>
 	<main role="main">
-		<form:form servletRelativeAction="/contact/customer" method="GET" 
+		<form:form servletRelativeAction="/contact/customer" method="GET"
 			modelAttribute="customerVo">
 
-			<div class="server-main" style="font-size: 16px;">
-				<div class="col-4" style="position: relative; left: -250px;">
+			<div class="server-main">
+				<div class="col-4">
 					<div class="list-group" id="list-tab" role="tablist">
 						<a class="list-group-item list-group-item-action active"
 							id="list-home-list" data-toggle="list" href="#list-home"
@@ -31,7 +31,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-8" style="margin: 0 auto; margin-top: -180px;">
+					<div class="col-8">
 						<div class="tab-content" id="nav-tabContent">
 							<div class="tab-pane fade show active" id="list-home"
 								role="tabpanel" aria-labelledby="list-home-list">
@@ -46,7 +46,7 @@
 												<button class="btn btn-link btn-block text-left"
 													type="button" data-toggle="collapse"
 													data-target="#collapseOne" aria-expanded="true"
-													aria-controls="collapseOne">訂單紀錄]</button>
+													aria-controls="collapseOne">訂單紀錄</button>
 											</h2>
 										</div>
 
@@ -132,10 +132,8 @@
 										<br> <b>問題類別:</b><br> <br>
 										<div>
 											<select id="question" name="selectq1"
-												onchange="changequestion(this.selectedIndex)" class="bot"
-												style="margin-right: 10px; width: 200px; height: 40px;"></select>
-											<select id="question-sector"  name="selectq2" class="bot"
-												style="width: 200px; height: 40px;"></select>
+												onchange="changequestion(this.selectedIndex)" class="bot"></select>
+											<select id="question-sector" name="selectq2" class="bot"></select>
 										</div>
 
 										<div>
@@ -147,21 +145,21 @@
 
 											<div>
 												<b>問題內容:</b><br> <br>
-												<textarea name="question" cols="72" rows="13"
-													style="border-radius: 5px;"></textarea>
+												<textarea name="question" id="textarea-ckeck" placeholder="請輸入內容(限500字)" cols="72" rows="13" class="textarea"></textarea>
 												<br>
 											</div>
 											<br>
 											<div>
 												<form>
-													<button type="submit" class="btn btn-outline-danger" id="profile-tab-submit">送出</button>
+													<button type="submit" class="btn btn-outline-danger"
+														id="submit">送出</button>
 												</form>
 												<br>
 											</div>
 											<h6 style="color: #AAAAAA; font-size: 15px;">您的訊息，我們將會盡快為您進行回覆。</h6>
 
 										</div>
-										
+
 
 									</div>
 
@@ -250,7 +248,7 @@
 						</div>
 					</div>
 				</div>
-				</div>
+			</div>
 		</form:form>
 
 		<hr>
