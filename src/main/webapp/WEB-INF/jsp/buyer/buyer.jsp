@@ -29,13 +29,15 @@
 			${info.storage.label} ${info.color.label}</h3>
 		<p>觀看次數:${info.watch}次</p>
 		<div class="link3">
-			<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1"
-				id="myImg"> <img src="<c:url value='/fs/img/${info.pic2}' />"
-				class="small"> <img
-				src="<c:url value='/fs/img/${info.pic3}' />" class="small"> <img
-				src="<c:url value='/fs/img/${info.pic4}' />" class="small"> <img
-				src="<c:url value='/fs/img/${info.pic5}' />" class="small"> <img
-				src="<c:url value='/fs/img/${info.pic6}' />" class="small">
+			<div class="imgdiv">
+				<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1" id="myImg"> 
+			</div>
+				<img src="<c:url value='/fs/img/${info.pic1}' />" class="small">
+				<img src="<c:url value='/fs/img/${info.pic2}' />" class="small"> 
+				<img src="<c:url value='/fs/img/${info.pic3}' />" class="small"> 
+				<img src="<c:url value='/fs/img/${info.pic4}' />" class="small"> 
+				<img src="<c:url value='/fs/img/${info.pic5}' />" class="small"> 
+				<img src="<c:url value='/fs/img/${info.pic6}' />" class="small">
 		</div>
 		<div id="myModal" class="modal">
 			<br> <br> <br> <span class="close">&times;</span> <img
@@ -82,16 +84,18 @@
 					<input id='addShopCart' type='button' value='加入購物車' />
 				</p>
 			</div>
+			<!-- 
 			<div class="link4">
 				<p class="p1">賣家資訊</p>
 				<a href="連結網址" class="p2">${info.account}</a> <br> <a
 					href="連結網址" class="p2">聯絡賣家</a> <br> <a href="連結網址" class="p2">賣家評價</a>
 			</div>
+			-->
 		</div>
 
 		<ul class="down">
-			<li id="aaa"><p>商品說明</p></li>
-			<li id="bbb"><p>問與答(${size})</p></li>
+			<li id="aaa">商品說明</li>
+			<li id="bbb">問與答(${size})</li>
 		</ul>
 		<div>
 			<div id="quest1" class="quest">
@@ -125,7 +129,7 @@
 							</div>
 						</c:if>
 						<c:if
-							test="${li.massage != null and user.account == info.account}">
+							test="${li.massage != null and user.account == info.account and li.answer == null}">
 							<button class="ansbtn" type="button">回覆</button>
 						</c:if>
 						<form class="ansarea" action="<c:url value='/buyer/answerpage'/>"

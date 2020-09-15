@@ -57,12 +57,11 @@ a:hover {
 	list-style: none;
 	float: left;
 	width: 150px;
-	height: 30px;
 	background-color: white;
 	margin-left: 8px;
 	text-align: center;
-	border-radius: 4px;
 	line-height: 28px;
+	border-radius: 4px;
 }
 
 #aaa{
@@ -105,8 +104,8 @@ h3 {
 }
 
 .link3 {
-	width: 600px;
-	height: 400px;
+	width: 550px;
+	height: 550px;
 	border: gray 1px solid;
 	margin-top: 30px;
 	background-color: white;
@@ -135,13 +134,21 @@ h3 {
 	color:#C7C7E2;
 }
 
-.img1 {
-	width: 560px;
-	height: 300px;
-	border: gray 1px solid;
+.imgdiv {
+	text-align:center;
+	line-height:450px;
+	width: 500px;
+	height: 450px;
 	margin-top: 10px;
 	margin-left: 18px;
 	overflow: hidden;
+}
+
+.img1{
+	max-width:500px; max-height:600px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.3s;
 }
 
 .ansarea{
@@ -150,10 +157,10 @@ h3 {
 
 .salse {
 	width: 600px;
-	height: 350px;
+	height: 450px;
 	background-color: white;
 	position: absolute;
-	top: 175px;
+	top: 210px;
 	left: 620px;
 	border: gray 1px solid;
 }
@@ -217,11 +224,6 @@ h3 {
 	display: none;
 }
 
-#myImg {
-	border-radius: 5px;
-	cursor: pointer;
-	transition: 0.3s;
-}
 
 #myImg:hover {
 	opacity: 0.7;
