@@ -1,5 +1,13 @@
 $(function () {
     $(".usersmenu").hover(function () {
-        $(this).toggleClass("active");
-    });
+        $(this).addClass("active");
+    }, function(){
+                
+           $(this).removeClass("active");
+           
+           });   
+    
+    
+    
+   
 });
