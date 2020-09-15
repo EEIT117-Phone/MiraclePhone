@@ -7,13 +7,10 @@ $(function() {
 	
     }
     customerQASelect.innerHTML = inner;
-
-   
-
     
 	let a = document.getElementById("question").selectedIndex;
-	console.log(a);
-    //changequestion(a);
+	//console.log(a);
+    changequestion(a);
 });
 
  var sectors = new Array();
@@ -33,3 +30,21 @@ function changequestion(index) {
         var sectorSelect = document.getElementById("question-sector");
         sectorSelect.innerHTML = Sinner;
     }
+
+    $('#profile-tab').click(function() {
+		console.log("123");
+        $.ajax({
+            url : '/MiraclePhone/contact/history',
+            method : 'GET',
+            success : function(json) {
+                let str = '';
+                for (var index in json) {
+                    let obj = json[index];
+                    str += '<tr><td>' + (Number(index) + 1) + '</td><td>' + obj.select1 + '-' + obj.select2
+                    + '</td><td>' + obj.date + '</td><td>' + obj.question + '</td><td>' + obj.answer + '</td></tr>';
+                }
+                $('#profile-tab-table-tbody').html(str);
+            }
+        });
+
+ });

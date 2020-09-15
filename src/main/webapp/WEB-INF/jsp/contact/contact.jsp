@@ -131,10 +131,10 @@
 										role="tabpanel" aria-labelledby="home-tab">
 										<br> <b>問題類別:</b><br> <br>
 										<div>
-											<select id="question"
+											<select id="question" name="selectq1"
 												onchange="changequestion(this.selectedIndex)" class="bot"
 												style="margin-right: 10px; width: 200px; height: 40px;"></select>
-											<select id="question-sector" class="bot"
+											<select id="question-sector"  name="selectq2" class="bot"
 												style="width: 200px; height: 40px;"></select>
 										</div>
 
@@ -147,23 +147,21 @@
 
 											<div>
 												<b>問題內容:</b><br> <br>
-												<textarea name="comments" cols="72" rows="13"
+												<textarea name="question" cols="72" rows="13"
 													style="border-radius: 5px;"></textarea>
 												<br>
 											</div>
 											<br>
 											<div>
 												<form>
-													<button type="submit" class="btn btn-outline-danger">送出</button>
-													<!-- <button type="reset" class="btn btn-outline-danger">清除</button> -->
+													<button type="submit" class="btn btn-outline-danger" id="profile-tab-submit">送出</button>
 												</form>
 												<br>
 											</div>
 											<h6 style="color: #AAAAAA; font-size: 15px;">您的訊息，我們將會盡快為您進行回覆。</h6>
 
 										</div>
-										</fieldset>
-
+										
 
 									</div>
 

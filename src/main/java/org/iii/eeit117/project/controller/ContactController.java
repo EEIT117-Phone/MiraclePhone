@@ -1,5 +1,7 @@
 package org.iii.eeit117.project.controller;
 
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.iii.eeit117.project.model.service.CustomerService;
@@ -30,7 +32,14 @@ public class ContactController {
 	}
 
 	@RequestMapping(value = "/customer", method = RequestMethod.GET)
-	public String insert(CustomerServiceVo customerVo) {
+	public String insert(CustomerServiceVo customerVo , @SessionAttribute("user") UserVo user) {
+		
+		Timestamp time = new Timestamp(System.currentTimeMillis());
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String timeStr = df.format(time);
+		
+		customerVo.setDate(timeStr);
+		customerVo.setAccount(user.getAccount());;
 		customerService.save(customerVo);
 		return MAIN_PAGE;
 	}
