@@ -3,6 +3,8 @@ package org.iii.eeit117.project.controller;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.iii.eeit117.project.model.service.SearchService;
 import org.iii.eeit117.project.search.SearchBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +29,8 @@ public class SearchController {
 	}
 
 	@RequestMapping(value = "/result", method = RequestMethod.GET)
-	public String search(SearchBean searchBean, Model model) {
+	public String search(SearchBean searchBean, Model model,
+							HttpSession httpsession) {
 		Map<String, String> phoneTypeList = new LinkedHashMap<String, String>();
 		phoneTypeList.put(" ", "不限");
 		phoneTypeList.put("iPhone6", "iPhone 6系列");
@@ -53,7 +56,7 @@ public class SearchController {
 		amountList.put(20000, "20,000元以下");
 		amountList.put(30000, "30,000元以下");
 		amountList.put(40000, "40,000元以下");
-
+		httpsession.setAttribute("rs", searchService.search(searchBean));
 		model.addAttribute("searchBean", searchBean);
 		model.addAttribute("results", searchService.search(searchBean));
 		model.addAttribute("phoneTypeList", phoneTypeList);

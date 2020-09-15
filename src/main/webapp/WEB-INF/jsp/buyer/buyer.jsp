@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -160,47 +161,19 @@
 		<br>
 		<p>按鍵輪播</p>
 		<div class="owl-carousel">
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img1"><img
-					src="https://via.placeholder.com/200x200?text=img1" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img2"><img
-					src="https://via.placeholder.com/200x200?text=img2" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img3"><img
-					src="https://via.placeholder.com/200x200?text=img3" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img4"><img
-					src="https://via.placeholder.com/200x200?text=img4" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img5"><img
-					src="https://via.placeholder.com/200x200?text=img5" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img6"><img
-					src="https://via.placeholder.com/200x200?text=img6" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img7"><img
-					src="https://via.placeholder.com/200x200?text=img7" /></a>
-			</div>
-			<div class="item">
-				<a target="_blank"
-					href="https://via.placeholder.com/200x200?text=img8"><img
-					src="https://via.placeholder.com/200x200?text=img8" /></a>
-			</div>
-		</div>
+<c:forEach varStatus="status" var="result" items="${rs}">
+                        <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
+                            <div class="card card-result">
+                                <img class="card-img" src="<c:url value='/fs/img/${result.pic1}' />" alt="Card image cap">
+                                <div class="card-body search-card-body">
+                                    <p class="card-title">[${result.phoneSort}] ${result.phoneType.label} ${result.storage.label}
+                                        ${result.color.label}色</p>
+                                    <p class="card-text mr-2 d-inline-block mb-0">$ <fmt:formatNumber value="${result.amount}" type="number"/></p><i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i><p class="card-city text-secondary d-inline-block mb-0">${result.watch}</p>
+                                	<p class="card-city mb-0 text-right">${result.county}${result.district}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </c:forEach>
 	</div>
 	<script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
 	<script src="<c:url value='/js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
