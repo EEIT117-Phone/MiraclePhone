@@ -14,21 +14,18 @@ $(function() {
         $.ajax({
             url : CONTEXT_PATH + '/contact/history',
             method : 'GET',
-            success : function(json) {
-                let str = '';
-                for (var index in json) {
-                    const {selectq1, selectq2, date, question, answer} = json[index];
-                    str += `
-                    	<tr>
-                    		<td>${Number(index) + 1}</td>
-                    		<td>${selectq1}-${selectq2}</td>
-                    		<td>${date}</td>
-                    		<td>${question}</td>
-                    		<td>${answer || ''}</td>
-                    	</tr>
-                    `;
-                }
-                $('#profile-tab-table-tbody').html(str);
+            success : function(jsonArr) {
+                $('#profile-tab-table-tbody').html(jsonArr.map(({selectq1, selectq2, date, question, answer},index)=> 
+	                `
+		                <tr>
+		            		<td>${index + 1}</td>
+		            		<td>${selectq1}-${selectq2}</td>
+		            		<td>${date}</td>
+		            		<td>${question}</td>
+		            		<td>${answer || ''}</td>
+		            	</tr>
+	            	`
+                ).join(''));
             }
         });
 
