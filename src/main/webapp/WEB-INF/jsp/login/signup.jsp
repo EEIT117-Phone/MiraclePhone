@@ -63,11 +63,11 @@
 			<div class="col-md-8 order-md-1">
 				<h4 class="mb-3">個人資料</h4>
 				<form id="userdata"  
-					action="/MiraclePhone/usersignup" method="post"
-					enctype="multipart/form-data" >
+					action="/MiraclePhone/usersignup" method="post" onsubmit="checkform()"
+					enctype="multipart/form-data">
 					<div class="row">
 						<div class="col-md-6 mb-3">
-							<label for="firstName">姓名</label> <input type="text"
+							<label for="firstName">姓名</label> <input type="text" 
 								class="form-control" name="name" id="name" placeholder=""
 								value="" required>
 						</div>
@@ -82,9 +82,9 @@
 							</div>
 							<input type="email" class="form-control" id="account"
 								name="account" placeholder="請輸入電子信箱" required>
-								
-						
 						</div>
+						
+						<label id="sureaccount">${checkacc_result}</label>
 					</div>
 
 					<div class="mb-3">
@@ -93,7 +93,7 @@
 							name="password" placeholder="密碼4~16位含數字、特殊符號、大小寫英文" required>
 						<span id="pwdsure"></span>
 					</div>
-					<div class="mb-4">
+					<div class="mb-3">
 						<label for="address">住址</label>
 						<div id="twzipcode">
 						</div>
@@ -146,7 +146,7 @@
 							class="form-control" value="" placeholder="請輸入數字" required>
 					</div>
 
-					<button class="btn btn-primary btn-lg btn-block" type="submit" id="send" name="send">提交</button>
+					<button class="btn btn-primary btn-lg btn-block" type="submit" id="send" name="send" >提交</button>
 				</form>
 			</div>
 		</div>

@@ -44,6 +44,24 @@ public class LoginController {
 		return MAIN_PAGE;
 	}
 	
+	@RequestMapping(value="useracccheck",method=RequestMethod.POST) //驗證帳號是否重複
+	public String checkAcc(HttpServletRequest request,HttpServletResponse response) {
+		String checkacc=request.getParameter("checkacc");
+		System.out.println(checkacc);
+		UserVo result=userService.findOne(checkacc);
+		if(result!=null) {
+			request.setAttribute("checkacc_result","帳號已被使用");
+		
+		}
+		else
+		{
+			request.setAttribute("checkacc_result","帳號可以使用");
+		}
+		System.out.println(request.getAttribute("checkacc_result"));
+		
+		return SIGNUP_PAGE;
+	}
+	
 	@RequestMapping(value = MAIN_PAGE, method = RequestMethod.POST)
 	public String checkLogin(HttpServletRequest request,HttpServletResponse response,HttpSession httpsession,Model model) throws IOException {
 		String account=request.getParameter("useraccount"); //取得輸入帳號

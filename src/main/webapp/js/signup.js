@@ -7,14 +7,36 @@ $(function () {
                 let result = pwdrule.test($("#password").val());
                 
                 if (result == false) {
-                    $("#pwdsure").html("格式不符或空白")
-					$("#pwdsure").val("false");
+                    $("#pwdsure").text("格式不符或空白")
+					$("#pwdsure").val(false);
                 } else {
-                    $("#pwdsure").html("成功")
-					$("#pwdsure").val("true");
+                    $("#pwdsure").text("成功")
+					$("#pwdsure").val(true);
                 }
 
             })
+
+	$("#account").blur(function(){
+		console.log("開始");
+		var account_ajax=document.getElementById("account").value;
+		var xhr=new XMLHttpRequest();
+		xhr.open("POST","useracccheck",true);
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		console.log(xhr);
+		xhr.send("checkacc="+account_ajax);
+		console.log(xhr);
+		xhr.onreadystatechange=function(){
+			console.log(xhr);
+			if(xhr.readtState===4){
+				console.log(xhr);
+				if(xhr.status===200){
+					console.log("成功")
+				}
+			}
+			
+		}
+		
+	})
 
 		
     $("#birth").blur(function () { //自動計算年齡
@@ -39,10 +61,10 @@ $(function () {
     $("#idnumber").blur(function () {
         if (checkID(this.value)) {
             $("#sureidnumber").text("正確");
-			$("#sureidnumber").val("true");
+			$("#sureidnumber").val(true);
         } else {
             $("#sureidnumber").text("驗證錯誤");
-			$("#sureidnumber").val("false");
+			$("#sureidnumber").val(false);
         }
     })
 
@@ -105,15 +127,28 @@ css: ["county form-control", "district form-control"] // 自訂 "城市"、"地�
 $("#send").click(function(){
 	console.log($("#pwdsure").val())
 	console.log($("#sureidnumber").val())
-	if($("#pwdsure").val()==false||$("#sureidnumber").val()==false){
-			alert("身分證或密碼格式不符")
-			return false
+	if($("#pwdsure").val()){
+		if($("#sureidnumber").val()){
+			alert("輸入成功");
+			return true;	
+		}	
 		}
-		alert("輸入成功")
-		return true
+	else{
+		alert("身分證或密碼格式不符");
+			return false;
+	}
+		
+		
 	})
 	
-
+function checkform(){
+	if($("#send").click){
+		$("#userdata").submit()
+	}
+	else{
+		return false;
+	}
+}
 
 		
 });
