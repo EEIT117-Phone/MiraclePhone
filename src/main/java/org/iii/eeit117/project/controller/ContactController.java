@@ -39,7 +39,7 @@ public class ContactController {
 		String timeStr = df.format(time);
 		
 		customerVo.setDate(timeStr);
-		customerVo.setAccount(user.getAccount());;
+		customerVo.setAccount(user.getAccount());
 		customerService.save(customerVo);
 		return MAIN_PAGE;
 	}
