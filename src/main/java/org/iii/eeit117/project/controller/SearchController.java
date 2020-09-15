@@ -48,6 +48,7 @@ public class SearchController {
 		storageList.put("64G", "64 GB");
 		storageList.put("128G", "128 GB");
 		storageList.put("256G", "256 GB");
+		storageList.put("512G", "512 GB");
 		
 		Map<Integer, String> amountList = new LinkedHashMap<Integer, String>();
 		amountList.put(100000, "不限");

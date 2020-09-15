@@ -64,9 +64,9 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			}
 			// 預設價格低到高排序
 			query.orderBy(builder.asc(root.get("amount")));
-			finalSearch = builder.or(list.toArray(new Predicate[0]));
+			finalSearch = builder.and(list.toArray(new Predicate[0]));
 			restrictions.add(finalSearch);
-			query.where(finalSearch);
+//			query.where(finalSearch);
 		} else {
 			// 搜尋框未輸入則全顯示
 			restrictions.add(builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%"));
