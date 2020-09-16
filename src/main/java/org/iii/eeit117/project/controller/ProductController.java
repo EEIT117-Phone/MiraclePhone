@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -48,7 +49,7 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = { "/insert", "/update" }, method = RequestMethod.POST)
-	public String insert(ProductVo productVo, List<MultipartFile> files, @SessionAttribute(AppProperty.LOGIN_USER) UserVo user) throws Exception {
+	public String insert(ProductVo productVo, List<MultipartFile> files, @SessionAttribute(AppProperty.LOGIN_USER) UserVo user,RedirectAttributes rd) throws Exception {
 		// 上傳檔案
 		for (int i = 0; i < files.size(); i++) {
 			MultipartFile file = files.get(i);
@@ -61,6 +62,8 @@ public class ProductController {
 		productVo.setAccount(user.getAccount());
 		
 		productService.save(productVo);
+		
+		rd.addFlashAttribute("product", productVo);
 		return "redirect:/" + PRODUCT_PROMOTION_VIP;
 	}
 

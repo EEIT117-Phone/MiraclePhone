@@ -22,7 +22,7 @@
 		<P id="headh2">
 		<h2>選擇刊登方案</h2>
 	
-		<form action="" method="post">
+		<form action="<c:url value='/productPromotionVIP/pay' />" method="post">
 			<div id="collection">
 
 
