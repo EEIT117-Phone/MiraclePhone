@@ -1,3 +1,14 @@
+  #bigframe{
+    margin: 0px auto;
+    position:relative;
+    /* border: 1px blue solid; */
+    width:500px;
+    height:500px;
+    text-align: center;
+ }
+  
+  
+  
   P #headh2{
     position: relative;
     height:50px;
@@ -10,7 +21,9 @@
     color:coral;
 } 
 
- /* 這個collection也是relative是裡面弔詭的地方 */
+
+
+
  #collection{
     position:relative;
     border:1px solid green;
@@ -39,9 +52,7 @@
     
 
  }
-/* 置中有很多種方式，是哪一種呢? */
- /* align-content: center; */
-    /* justify-content: center; */
+
 
  #collection #commoncase3{
     position: absolute;
@@ -91,15 +102,14 @@
 
  }
 
- #bigframe{
-    margin: 0px auto;
-    position:relative;
-    /* border: 1px blue solid; */
-    width:500px;
-    height:500px;
-    text-align: center;
- }
- span{
+.button{
+	
+	margin-top:10px;
+	
+	
+}
 
-     margin: 0;
- }
+
+
+
+
