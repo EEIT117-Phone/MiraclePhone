@@ -3,6 +3,7 @@ package org.iii.eeit117.project.controller;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.iii.eeit117.project.model.service.ProductService;
@@ -40,33 +41,32 @@ public class productPromotionVIPController {
 	@PostMapping("/pay")
 	public String payalready(@RequestParam("promotecase") String promotecase,Model m) throws ParseException {
 		
-		System.out.println(forsaveproduct.getAccount());
-		System.out.println(promotecase);
-		
-		String[] promteColumn = promotecase.split(" ");
-		System.out.println(promteColumn[0]+promteColumn[1]+promteColumn[2]);
-		
-		
+	
+		String[] promteColumn = promotecase.split(" ");	
 		String VIPlevel=promteColumn[0];
 		int adlastTime=Integer.parseInt(promteColumn[1]);
 		int status=Integer.parseInt(promteColumn[2]);
 	
-		
 		Timestamp time = new Timestamp(System.currentTimeMillis());
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String ad = sdf.format(time);
 		Date ad_date=sdf.parse(ad);
 		
-		Timestamp expirytime = new Timestamp(System.currentTimeMillis()+adlastTime);
-		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-		String ex = sdf2.format(expirytime);
-		Date expiry_date=sdf.parse(ex);
+		Date current=new Date();
+		Calendar calendar=Calendar.getInstance();
+		calendar.setTime(current);
+		calendar.add(Calendar.DAY_OF_MONTH, +adlastTime);
+		Date expiry_date=calendar.getTime();
 		
+		if(ad_date.before(expiry_date)) {
+			System.out.println("刊登時間比結束時間前面");
+		}
 		
 		forsaveproduct.setVip(VIPlevel);
 		forsaveproduct.setStatus(status);
 		forsaveproduct.setAd_date(ad_date);
 		forsaveproduct.setExpiry_date(expiry_date);
+		forsaveproduct.setWatch(0);
 		productService.save(forsaveproduct);
 		
 		
