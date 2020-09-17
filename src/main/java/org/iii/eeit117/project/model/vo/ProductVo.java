@@ -154,7 +154,7 @@ public class ProductVo {
 	@Column(name = "VIP")
 	private String vip;
 	@Column(name = "STATUS")
-	private Integer status;
+	private String status;
 	@Column(name = "AD_DATE")
 	private Date ad_date;
 	@Column(name = "EXPIRY_DATE")
@@ -416,10 +416,10 @@ public class ProductVo {
 	public void setVip(String vip) {
 		this.vip = vip;
 	}
-	public Integer getStatus() {
+	public String getStatus() {
 		return status;
 	}
-	public void setStatus(Integer status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 	public Date getAd_date() {
