@@ -45,7 +45,7 @@ public class productPromotionVIPController {
 		String[] promteColumn = promotecase.split(" ");	
 		String VIPlevel=promteColumn[0];
 		int adlastTime=Integer.parseInt(promteColumn[1]);
-		int status=Integer.parseInt(promteColumn[2]);
+		String status=promteColumn[2];
 	
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
