@@ -16,28 +16,36 @@ $(function () {
 
             })
 
-	$("#account").blur(function(){
-		console.log("開始");
-		var account_ajax=document.getElementById("account").value;
-		var xhr=new XMLHttpRequest();
-		xhr.open("POST","useracccheck",true);
-		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-		console.log(xhr);
-		xhr.send("checkacc="+account_ajax);
-		console.log(xhr);
-		xhr.onreadystatechange=function(){
-			console.log(xhr);
-			if(xhr.readtState===4){
-				console.log(xhr);
-				if(xhr.status===200){
-					console.log("成功")
-				}
+//	$("#account").blur(function(){
+//		console.log("開始");
+//		var account_ajax=document.getElementById("account").value;
+//		var xhr=new XMLHttpRequest();
+//		xhr.open("POST","useracccheck",true);
+//		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+//		xhr.send("checkacc="+account_ajax);
+//		xhr.onreadystatechange=function(){
+//			console.log(xhr);	
+//		}
+//		
+//	})
+$("#account").blur(function(){
+	let account=$("#account").val();
+		$.ajax({
+			url:CONTEXT_PATH + 'useracccheck' ,
+			method : 'POST',
+			dataType: "text",
+			data:{
+			checkaccount:account	
+			},
+			success : function(response) {
+				console.log(response);
+				$('#sureaccount').text(response);
 			}
-			
-		}
+		});
+	});
 		
-	})
-
+		
+		
 		
     $("#birth").blur(function () { //自動計算年齡
         userbirth = document.getElementById("birth").value;

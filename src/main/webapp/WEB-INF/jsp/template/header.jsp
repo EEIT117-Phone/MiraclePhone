@@ -43,7 +43,9 @@
 					<!-- 		會員已登入			 -->
 					<c:if test="${not empty user}">
 					<li class="nav-item headShot">
+					<a href="<c:url value='/usermodification'/>">
 						<img src="<c:url value='/fs/img/${user.pic}' />" width="40" height="40" />
+					</a>
 						<span>${user.name} 你好</span>
 					</li>
 					<li class="nav-item"><a class="nav-link"

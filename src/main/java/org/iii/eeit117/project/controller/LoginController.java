@@ -3,6 +3,8 @@ package org.iii.eeit117.project.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +24,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.sun.mail.iap.Response;
 
 @Controller
 public class LoginController {
@@ -44,22 +49,33 @@ public class LoginController {
 		return MAIN_PAGE;
 	}
 	
+	@ResponseBody
 	@RequestMapping(value="useracccheck",method=RequestMethod.POST) //驗證帳號是否重複
-	public String checkAcc(HttpServletRequest request,HttpServletResponse response) {
-		String checkacc=request.getParameter("checkacc");
-		System.out.println(checkacc);
+	public String checkAcc(String checkaccount) {
+		Pattern p;
+		Matcher m;
+		String checkacc=checkaccount;
+		String accrule = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$"; //帳號驗證規則
+		p = Pattern.compile(accrule);
+		m = p.matcher(checkacc);
 		UserVo result=userService.findOne(checkacc);
-		if(result!=null) {
-			request.setAttribute("checkacc_result","帳號已被使用");
+		if(!m.matches()) { //輸入的帳號格式驗證
+			String checkacc_result="Account Unable to meet email requirements";
+			return checkacc_result;
+		}
 		
+		if(result!=null) {
+			String checkacc_result="Account has been used";
+			
+			return checkacc_result;
 		}
 		else
 		{
-			request.setAttribute("checkacc_result","帳號可以使用");
+			String checkacc_result="Account can use";
+			
+			return checkacc_result;
 		}
-		System.out.println(request.getAttribute("checkacc_result"));
 		
-		return SIGNUP_PAGE;
 	}
 	
 	@RequestMapping(value = MAIN_PAGE, method = RequestMethod.POST)

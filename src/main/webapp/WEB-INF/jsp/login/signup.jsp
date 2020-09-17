@@ -84,9 +84,9 @@
 								name="account" placeholder="請輸入電子信箱" required>
 						</div>
 						
-						<label id="sureaccount">${checkacc_result}</label>
+						<label id="sureaccount"></label>
 					</div>
-
+						
 					<div class="mb-3">
 						<label for="password">密碼<span class="text-muted">(password)</span></label>
 						<input type="password" class="form-control" id="password"
