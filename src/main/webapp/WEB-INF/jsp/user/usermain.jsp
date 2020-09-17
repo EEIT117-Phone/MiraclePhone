@@ -13,16 +13,17 @@
 <script src="<c:url value='/js/er.twzipcode.js' />"></script>
 <script src="<c:url value='/js/er.twzipcode.data.js' />"></script>
 <input id="importMsgInput" type="hidden" value=""/> 
-<div class="welcome">
-<h1>${user.name},歡迎回來</h1>
+<div  class="jumbotron">
+<h1>${user.name} 歡迎回來</h1>
 </div>
+<div class="container">
 <h1>會員資料</h1>
-<table class="userDataTable">
-<tr>
+<table class="table table-bordered">
+<thead>
 <c:forEach items="${usercolumn}" var="column" begin="0" end="11">
 <td><c:out value="${column}"/></td> <%--將後端傳來的column-name list用foreach印出 --%>
 </c:forEach>
-</tr>
+</thead>
 <tr>
 <td>${user.account}</td>
 <td>${user.password}</td>
@@ -41,6 +42,7 @@
 <input id="userdata" type="hidden" value="${user}">
 
 <div id="modifyarea" style="display:none" class="elegant-aero">
+<font size="3">會員修改</font>
 <form action="/usermodification" method="post" id="form" onsubmit="return checkform()">
 <input id="account" name="account" type="hidden" value="${user.account}" >
 <input id="password" name="password" type="password" value="${user.password}" placeholder="${user.password}">
@@ -58,15 +60,15 @@
 <span id="seller_word">賣家</span>
 <br>
 
-<input type="submit" id="submit" name="submit" value="提交修改" >
+<input type="submit" id="submit" name="submit" value="提交修改" class="btn btn-primary">
 		
 </form>
 </div>
 <div id="modifybutton-area">
-<input type="button" id="modifybutton" name="modifybutton" value="修改使用者資訊" /> 
+<input type="button" id="modifybutton" name="modifybutton" value="修改使用者資訊" class="btn btn-primary"/> 
 </div>
 
-
+</div>
 <script src="<c:url value='/js/usermain.js' />"></script>
 </body>
 </html>
