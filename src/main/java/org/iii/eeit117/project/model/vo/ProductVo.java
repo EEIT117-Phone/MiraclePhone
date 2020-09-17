@@ -56,6 +56,10 @@ public class ProductVo {
 	public static final String FILE5 = "file5";
 	public static final String FILE6 = "file6";
 	public static final String WATCH = "watch";
+	public static final String VIP = "vip";
+	public static final String STATUS = "status";
+	public static final String AD_DATE = "ad_date";
+	public static final String AD_TIME = "ad_time";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -146,6 +150,15 @@ public class ProductVo {
 	
 	@Column(name = "WATCH")
 	private Integer watch;
+	
+	@Column(name = "VIP")
+	private String vip;
+	@Column(name = "STATUS")
+	private Integer status;
+	@Column(name = "AD_DATE")
+	private Date ad_date;
+	@Column(name = "EXPIRY_DATE")
+	private Date expiry_date;
 
 	@ManyToOne
     @JoinColumn(name="ORDER_ID")
@@ -166,6 +179,7 @@ public class ProductVo {
 			pic6 = fileStorageId;
 		}
 	}
+	
 	public Integer getProductId() {
 		return productId;
 	}
@@ -396,5 +410,28 @@ public class ProductVo {
 	public void setWatch(Integer watch) {
 		this.watch = watch;
 	}
-	
+	public String getVip() {
+		return vip;
+	}
+	public void setVip(String vip) {
+		this.vip = vip;
+	}
+	public Integer getStatus() {
+		return status;
+	}
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	public Date getAd_date() {
+		return ad_date;
+	}
+	public void setAd_date(Date ad_date) {
+		this.ad_date = ad_date;
+	}
+	public Date getExpiry_date() {
+		return expiry_date;
+	}
+	public void setExpiry_date(Date expiry_date) {
+		this.expiry_date = expiry_date;
+	}
 }
