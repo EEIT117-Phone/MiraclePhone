@@ -43,6 +43,22 @@ $("#account").blur(function(){
 			}
 		});
 	});
+	
+	$("#vertifyacc").click(function(){
+		let account=$("#account").val();
+		$.ajax({
+			url:CONTEXT_PATH + 'vertifimail' ,
+			method : 'GET',
+			dataType: "text",
+			data:{
+				checkaccount:account
+			},
+			success : function(response) {
+				console.log(response);
+				$('#surevertify').text(response);
+			}
+		});
+	});
 		
 		
 		
