@@ -27,23 +27,23 @@
 
 
 				<div id="commoncase">
-					<input id="normalone" type="radio" name="promotecase" value="normal 30 1">
+					<input id="normalone" type="radio" name="promotecase" value="normal 30 已上架">
 					普通方案一個月
 				</div>
 
 				<div id="commoncase3">
-					<input id="normalthree" type="radio" name="promotecase" value="normal 90 1">
+					<input id="normalthree" type="radio" name="promotecase" value="normal 90 已上架">
 					普通方案三個月
 				</div>
 
 				<div id="vip">
-					<input id="vipone" type="radio" name="promotecase" value="VIP 30 1">
+					<input id="vipone" type="radio" name="promotecase" value="VIP 30 已上架">
 					vip方案一個月
 				</div>
 
 
 				<div id="vip3">
-					<input id="vipthree" type="radio" name="promotecase" value="VIP 90 1">
+					<input id="vipthree" type="radio" name="promotecase" value="VIP 90 已上架">
 					vip方案三個月
 				</div>
 
