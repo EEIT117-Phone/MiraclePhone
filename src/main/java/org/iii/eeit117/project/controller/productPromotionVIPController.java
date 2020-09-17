@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/" + ProductPromotionVIPController.MODULE_NAME)
-public class ProductPromotionVIPController {
+@RequestMapping(value = "/" + productPromotionVIPController.MODULE_NAME)
+public class productPromotionVIPController {
 
 	public static final String MODULE_NAME = "productPromotionVIP";
 	private ProductVo forsaveproduct;
