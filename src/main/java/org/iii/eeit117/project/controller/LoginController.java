@@ -153,7 +153,7 @@ public class LoginController {
 		
 	}
 	
-	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.POST)
+	@RequestMapping(value="usermodification",method=RequestMethod.POST)
 	public String userModification(HttpServletRequest request,HttpSession httpsession,Model model) {
 		String account=request.getParameter("account"); //取得欲修改的使用者帳號
 		System.out.println(account);
