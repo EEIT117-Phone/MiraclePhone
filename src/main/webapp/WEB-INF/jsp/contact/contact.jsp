@@ -113,8 +113,8 @@
 
 							</div>
 							<div class="tab-pane fade" id="list-profile" role="tabpanel"
-								aria-labelledby="list-profile-list">
-
+								aria-labelledby="list-profile-list" onload="click()">
+				
 								<!-- Customer Msg Start -->
 								<ul class="nav nav-tabs" id="myTab" role="tablist">
 									<li class="nav-item" role="presentation"><a
@@ -132,7 +132,10 @@
 										<br> <b>問題類別:</b><br> <br>
 										<div>
 											<select id="question" name="selectq1"
-												onchange="changequestion(this.selectedIndex)" class="bot"></select>
+												onchange="changequestion(this.selectedIndex)" class="bot">
+											</select>
+											
+											
 											<select id="question-sector" name="selectq2" class="bot"></select>
 										</div>
 
@@ -145,19 +148,17 @@
 
 											<div>
 												<b>問題內容:</b><br> <br>
-												<textarea name="question" id="textarea-ckeck" placeholder="請輸入內容(限500字)" cols="72" rows="13" class="textarea"></textarea>
+												<textarea name="question" id="textarea-ckeck" placeholder="請輸入內容(限500字)" maxlength="500" cols="85" rows="15" class="textarea"></textarea>
 												<br>
 											</div>
 											<br>
 											<div>
 												<form>
-													<button type="submit" class="btn btn-outline-danger"
-														id="submit">送出</button>
+												<button type="submit" class="btn btn-primary" id="btn" onclick="return(confirm('您的訊息，我們將會盡快為您進行回覆。'))">送出</button>
 												</form>
 												<br>
+												<br>
 											</div>
-											<h6 style="color: #AAAAAA; font-size: 15px;">您的訊息，我們將會盡快為您進行回覆。</h6>
-
 										</div>
 
 
@@ -174,6 +175,7 @@
 													<th scope="col">問題</th>
 													<th scope="col">回答</th>
 												</tr>
+												
 											</thead>
 											<tbody id="profile-tab-table-tbody">
 											</tbody>

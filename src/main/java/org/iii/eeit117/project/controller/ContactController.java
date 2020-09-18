@@ -4,6 +4,10 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+import javax.persistence.metamodel.SetAttribute;
+import javax.servlet.http.HttpSession;
+
+import org.apache.tiles.request.Request;
 import org.iii.eeit117.project.model.service.CustomerService;
 import org.iii.eeit117.project.model.vo.CustomerServiceVo;
 import org.iii.eeit117.project.model.vo.UserVo;
@@ -26,13 +30,17 @@ public class ContactController {
 	@Autowired
 	private CustomerService customerService;
 
+	private String q1;
+
+	private String q2;
+
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String index(Model m) {
 		return MAIN_PAGE;
 	}
 
 	@RequestMapping(value = "/customer", method = RequestMethod.GET)
-	public String insert(CustomerServiceVo customerVo , @SessionAttribute("user") UserVo user) {
+	public String insert(HttpSession httpSession,CustomerServiceVo customerVo , @SessionAttribute("user") UserVo user) {
 		
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -40,7 +48,20 @@ public class ContactController {
 		
 		customerVo.setDate(timeStr);
 		customerVo.setAccount(user.getAccount());
-		customerService.save(customerVo);
+		
+		
+		q1 = customerVo.getSelectq1();
+		q2 = customerVo.getSelectq2();
+		System.out.println("q1");
+		if(q1 == "請選擇" || q2 == "請選擇") {
+			httpSession.setAttribute("q1", "請選擇問題類別");
+			//httpSession.setAttribute(q2, "請選擇問題類別");
+			System.out.println("123");
+		}else {
+			customerService.save(customerVo);
+			System.out.println("456");
+		}
+		
 		return MAIN_PAGE;
 	}
 
