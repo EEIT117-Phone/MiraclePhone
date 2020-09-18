@@ -46,53 +46,26 @@
             <div class="main-body">
                 <!--    VIP輪播        -->
                 <h4>精選推薦</h4>
-                <div class="owl-carousel">
-                    <a target="_blank" href="<c:url value='/buyer' />"
-                        class="text-dark text-decoration-none">
-                        <div class="item card">
-                            <img class="card-img" src="<c:url value='/images/iPhone6s.jpeg' />" alt="Card image cap">
-                            <div class="card-body search-card-body">
-                                <p class="card-title">[二手機] iPhone 6s 128G 銀色</p>
-                                <p class="card-text">$ 1,500</p>
+                <div class="owl-carousel">          
+                    <c:forEach varStatus="status" var="result" items="${results}">
+                        <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
+                            <div class="item card card-result element-item">
+                                <img class="card-img" src="<c:url value='/fs/img/${result.pic2}' />" alt="Card image cap">
+                                <div class="card-body search-card-body">
+                                	<span class="card-title new d-none">${result.productId}</span>
+                                    <span class="card-title">[${result.phoneSort}] </span>
+                                    <span class="card-title">${result.phoneType.label} </span>
+                                    <span class="card-title">${result.storage.label} </span>
+                                    <span class="card-title">${result.color.label}</span><br>
+                                    <p class="card-text d-inline-block mb-0">$</p>
+                                    <p class="card-text d-inline-block mb-0 amount"><fmt:formatNumber value="${result.amount}" type="number"/></p>
+                                    <i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i>
+                                    <p class="card-city text-secondary d-inline-block mb-0 watch">${result.watch}</p>
+                                	<p class="card-city mb-0 text-right">${result.county}${result.district}</p>
+                                </div>
                             </div>
-                        </div>
-                    </a> <a target="_blank" href="<c:url value='/buyer' />"
-                        class="text-dark text-decoration-none">
-                        <div class="item card">
-                            <img class="card-img" src="<c:url value='/images/iPhoneSE.jpg' />" alt="Card image cap">
-                            <div class="card-body search-card-body">
-                                <p class="card-title">[二手機] iPhone SE 32G 太空灰</p>
-                                <p class="card-text">$ 12,000</p>
-                            </div>
-                        </div>
-                    </a> <a target="_blank" href="<c:url value='/buyer' />"
-                        class="text-dark text-decoration-none">
-                        <div class="item card">
-                            <img class="card-img" src="<c:url value='/images/iPhoneXR.jpg' />" alt="Card image cap">
-                            <div class="card-body search-card-body">
-                                <p class="card-title">[二手機] iPhone XR 256G 白色</p>
-                                <p class="card-text">$ 22,500</p>
-                            </div>
-                        </div>
-                    </a> <a target="_blank" href="<c:url value='/buyer' />"
-                        class="text-dark text-decoration-none">
-                        <div class="item card">
-                            <img class="card-img" src="<c:url value='/images/iPhone11.jpg' />" alt="Card image cap">
-                            <div class="card-body search-card-body">
-                                <p class="card-title">[全新機] iPhone 11 64G 珊瑚色</p>
-                                <p class="card-text">$ 30,000</p>
-                            </div>
-                        </div>
-                    </a> <a target="_blank" href="<c:url value='/buyer' />"
-                        class="text-dark text-decoration-none">
-                        <div class="item card">
-                            <img class="card-img" src="<c:url value='/images/iPhone6sPlus.jpg' />" alt="Card image cap">
-                            <div class="card-body search-card-body">
-                                <p class="card-title">[二手機] iPhone 6s Plus 32G 玫瑰金</p>
-                                <p class="card-text">$ 5,000</p>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
+                    </c:forEach>
                 </div>
 
 				<div class="d-inline-block w-100">
@@ -109,7 +82,7 @@
                     <c:forEach varStatus="status" var="result" items="${results}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
                             <div class="card card-result element-item">
-                                <img class="card-img" src="<c:url value='/fs/img/${result.pic1}' />" alt="Card image cap">
+                                <img class="card-img" src="<c:url value='/fs/img/${result.pic2}' />" alt="Card image cap">
                                 <div class="card-body search-card-body">
                                 	<span class="card-title new d-none">${result.productId}</span>
                                     <span class="card-title">[${result.phoneSort}] </span>
