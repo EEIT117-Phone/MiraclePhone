@@ -45,6 +45,8 @@ public class ProductController {
 	
 	@Autowired
 	private SearchService searchService;
+
+	private Integer proid;
 	
 
 
@@ -77,15 +79,28 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String searchPage(ProductVo productVo, Model model) {
+	public String searchPage(ProductVo productVo, Model model,@SessionAttribute(AppProperty.LOGIN_USER) UserVo user) {
 		model.addAttribute("productSearch", new ProductVo());
-		model.addAttribute("results", productService.findAll());
+		model.addAttribute("results", productService.findByAccount(user.getAccount()));
 		return PRODUCT_SEARCH;
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(ProductVo productVo) {
+	public String update(ProductVo productVo,HttpSession httpsession,HttpServletRequest request) {
+		String productId=request.getParameter("productId");
+		Integer productId2= Integer.parseInt(productId);
+		ProductVo productinfo = productService.findOne(productId2);
+		String amount=request.getParameter("amount");
+		String sellReason=request.getParameter("sellReason");
+		Integer amount2= Integer.parseInt(amount);
+		productinfo.setAmount(amount2);
+		productinfo.setSellReason(sellReason);
+		productService.save(productinfo);
 		
+		
+		System.out.println("☆proudctId☆=:"+request.getParameter("productId"));//取值
+		System.out.println("☆amount☆=:"+request.getParameter("amount"));//取值
+		System.out.println("☆sellReason☆=:"+request.getParameter("sellReason"));//取值
 		return "redirect:/product/search" ;
 	}
 
