@@ -96,7 +96,6 @@ public class LoginController {
 			}
 			httpsession=request.getSession();
 			httpsession.setAttribute("usercolumn",list);
-			httpsession.setAttribute("inservice", true); //登入成功設定狀態:true在httpsession內
 			httpsession.setAttribute("user", userVo); //登入成功將session內放入uservo物件
 			
 //			model.addAttribute("user",userVo); //傳送使用者的資料
@@ -137,13 +136,13 @@ public class LoginController {
 	}
 	
 	//如果從搜尋頁面直接點修改會員資料
-	//先判斷session內的inservice屬性是否為true
+	//先判斷session內是否有userVo
 	//是則導往會員修改頁面，否則導往登入頁面
 	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.GET)
 	public String userDirectModification(HttpServletRequest request,HttpSession httpsession,Model model) {
-		boolean inservice=(boolean) httpsession.getAttribute("inservice");
-		System.out.println(inservice);
-		if(inservice) {
+		UserVo user=(UserVo) httpsession.getAttribute("user");
+		
+		if(user!=null) {
 			return USERMAIN_PAGE;
 		}
 		else {
@@ -152,6 +151,7 @@ public class LoginController {
 		
 		
 	}
+	
 	
 	@RequestMapping(value="usermodification",method=RequestMethod.POST)
 	public String userModification(HttpServletRequest request,HttpSession httpsession,Model model) {
