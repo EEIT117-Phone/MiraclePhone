@@ -17,7 +17,7 @@
 			<div >
 				<ul class="navbar-nav">
 					<li class="nav-item"><a class="nav-link"
-						href="<c:url value='/cart' />" style="color: white"> 
+						href="<c:url value='/cart/item' />" style="color: white"> 
 						<img src="<c:url value='/images/icon/shoppingCartIcon.png' />" width="25" height="25" />
 						<span id="carAmount">
 							${not empty cart ? cart.size() : 0}
