@@ -1,3 +1,4 @@
+$(function () {
 var userdata=document.getElementById("userdata")
 
 var modifybutton=document.getElementById("modifybutton");
@@ -100,11 +101,25 @@ function checkform(){
 	}
 	
 }
-var submitbutton=document.getElementById("submit");
+//設定大頭貼預覽
+$("#file").change(function() {
+ readURL(this); 
+});
+function readURL(input){
+  if(input.files && input.files[0]){
+    var reader = new FileReader();
+    reader.onload = function (e) {
+       $("#previewImg").attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
 
+var submitbutton=document.getElementById("submit");
 birth.addEventListener("blur",countage);
 submitbutton.addEventListener("click",checkform);
 
+})
 
 
 

@@ -8,4 +8,6 @@ public interface FileService {
 	public FileStorageVo upload(MultipartFile partFile, Class<?> claz) throws Exception;
 	
 	public FileStorageVo download(Integer fileStorageId);
+	
+	
 }

@@ -43,14 +43,16 @@
 
 <div id="modifyarea" style="display:none" class="elegant-aero">
 <font size="3">會員修改</font>
-<form action="/MiraclePhone/usermodification" method="post" id="form" onsubmit="return checkform()">
+<form action="/MiraclePhone/usermodification" method="post" onsubmit="return checkform()" enctype="multipart/form-data">
 <input id="account" name="account" type="hidden" value="${user.account}" >
-<input id="password" name="password" type="password" value="${user.password}" placeholder="${user.password}">
-<input id="name" name="name" type="text" value="${user.name}" placeholder="${user.name}"  >
-<input id="idnumber" name="idnumber" type="text" value="${user.idnumber}" placeholder="${user.idnumber}" >
-<input id="birth" name="birth" type="date" value="${user.birth}" placeholder="${user.birth}" >
+<input id="gm" type="hidden" name="gm" value="">
+<input id="password" name="password" type="password" value="${user.password}">
+<input id="name" name="name" type="text" value="${user.name}" >
+<input id="idnumber" name="idnumber" type="text" value="${user.idnumber}" >
+<input id="birth" name="birth" type="date" value="${user.birth}">
 <input id="age" type="hidden" name="age" value="${user.age}">
 <input type="text" id="bankaccount" name="bankaccount" value="${user.bankaccount}">
+
 <br>
 <select class="col-lg-3" name="county" aria-describedby="form-county" required=""></select> 
 <select class="col-lg-3" name="district" aria-describedby="form-district" required=""></select>
@@ -60,8 +62,10 @@
 <span id="seller_word">賣家</span>
 <br>
 
-<input type="submit" id="submit" name="submit" value="提交修改" class="btn btn-primary">
-		
+<input type="file" accept="image/*" id="file" name="file" >
+<img id="previewImg" name="previewImg" style="weight:100px; height:100px" src="">
+<br>
+<button class="btn btn-primary btn-lg btn-block" type="submit" id="submit" name="submit" >提交</button>
 </form>
 </div>
 <div id="modifybutton-area">

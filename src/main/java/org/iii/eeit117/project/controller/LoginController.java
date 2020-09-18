@@ -36,7 +36,7 @@ public class LoginController {
 	public static final String SIGNUP_PAGE = MODULE_NAME + "signup";
 	public static final String USERMAIN_PAGE=MODULE_NAME+"main";
 	public static final String USERMODIFICATION_PAGE=MODULE_NAME+"modification";
-	public static final String SIGNUPIMG_PAGE=SIGNUP_PAGE+"img";
+	
 	
 	@Autowired
 	private UserService userService;
@@ -120,19 +120,13 @@ public class LoginController {
 	
 	@RequestMapping(value = SIGNUP_PAGE, method = RequestMethod.POST)
 	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo, MultipartFile file) throws Exception {
+		System.out.println(file);
 		if (file != null) {
 			FileStorageVo fileStorageVo = fileService.upload(file, ProductVo.class);
 			userVo.setPic(fileStorageVo.getFileStorageId());
 		}
 		userService.save(userVo);
-		return SIGNUP_PAGE;
-	}
-	
-	@RequestMapping(value=SIGNUPIMG_PAGE,method=RequestMethod.POST)
-	public void saveimg(HttpServletRequest request,Model model) throws IOException, ServletException {
-		request.setCharacterEncoding("UTF-8");
-		Part part=(Part) request.getPart("uploadimg");
-		System.out.println(part);
+		return MAIN_PAGE;
 	}
 	
 	//如果從搜尋頁面直接點修改會員資料
@@ -141,7 +135,6 @@ public class LoginController {
 	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.GET)
 	public String userDirectModification(HttpServletRequest request,HttpSession httpsession,Model model) {
 		UserVo user=(UserVo) httpsession.getAttribute("user");
-		
 		if(user!=null) {
 			return USERMAIN_PAGE;
 		}
@@ -149,40 +142,18 @@ public class LoginController {
 			return MAIN_PAGE;
 		}
 		
-		
 	}
 	
-	
-	@RequestMapping(value="usermodification",method=RequestMethod.POST)
-	public String userModification(HttpServletRequest request,HttpSession httpsession,Model model) {
+	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.POST)
+	public String userModification(HttpServletRequest request,@ModelAttribute("userModification")UserVo userVo,HttpSession httpsession,MultipartFile file) throws Exception {
 		String account=request.getParameter("account"); //取得欲修改的使用者帳號
 		System.out.println(account);
-		UserVo orginaccount=userService.findOne(account); //找在資料庫已存在的使用者資料(用帳號找)
-		String password=request.getParameter("password");
-		String name=request.getParameter("name");
-		String idnumber=request.getParameter("idnumber");
-		String birth=request.getParameter("birth");
-		String age=request.getParameter("age");
-		String bankaccount=request.getParameter("bankaccount");
-		String county=request.getParameter("county");
-		String district=request.getParameter("district");
-		String zipcode=request.getParameter("zipcode");
-		String gm=request.getParameter("gm");
-		String seller=request.getParameter("seller");
-		orginaccount.setPassword(password);
-		orginaccount.setName(name);
-		orginaccount.setIdnumber(idnumber);
-		orginaccount.setBirth(birth);
-		orginaccount.setAge(age);
-		orginaccount.setAge(bankaccount);
-		orginaccount.setCounty(county);
-		orginaccount.setDistrict(district);
-		orginaccount.setZipcode(zipcode);
-		orginaccount.setGm(gm);
-		orginaccount.setSeller(seller);
-		userService.save(orginaccount);
-		UserVo userVo=userService.findOne(account);
-		httpsession=request.getSession();
+		System.out.println(file);
+		if (file != null) {
+			FileStorageVo fileStorageVo = fileService.upload(file, ProductVo.class);
+			userVo.setPic(fileStorageVo.getFileStorageId());
+		}
+		userService.save(userVo);
 		httpsession.setAttribute("user", userVo);
 		return USERMAIN_PAGE;
 	}
