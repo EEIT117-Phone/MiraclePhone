@@ -12,10 +12,11 @@
 </head>
 <body>
  <div id="content" class="container">
-	<table class="table">
+	<table class="table table-striped">
 		<thead>
 			<tr>
 				<th>序號</th>
+				<th>圖片</th>
 				<th>編號	</th>
 				<th>機種</th>
 				<th>顏色</th>
@@ -31,7 +32,14 @@
 		<tbody>
 			<c:forEach varStatus="status" var="result" items="${results}">
 				<tr>
+				
 					<td>${status.count}</td>
+					<td>
+					<a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />
+					" class="text-dark text-decoration-none">
+					<img class="card-img" src="<c:url value='/fs/img/${result.pic2}' />"
+					 alt="Card image cap"></a>
+					 </td>
 					<td>${result.productId}</td>
 					<td>${result.phoneType.label}</td>
 					<td>${result.color.label}</td>
