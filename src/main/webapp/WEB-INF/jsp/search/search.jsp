@@ -97,21 +97,29 @@
 
 				<div class="d-inline-block w-100">
                 <h4 class="float-left">搜尋結果</h4>
-              	<input id="amountButton" type="button" value="價格(低到高)" class="float-right h-100" style="width:130px; margin: 0 10px 0 5px;">
-              	<input type="button" value="最新" class="float-right h-100" style="width:130px; margin: 0 5px 0 5px;">
-              	<input type="button" value="最熱門" class="float-right h-100" style="width:130px; margin: 0 5px 0 5px;">
+                <div class="button-group sort-by-button-group">
+              	<button id="amountButton" class="btn btn-primary float-right h-100" data-sort-value="amount" style="margin: 0 10px 0 5px;">價格(低到高)↑</button>
+              	<button class="btn btn-primary float-right h-100" data-sort-value="new" style="margin: 0 5px 0 5px;">上架時間</button>
+              	<button class="btn btn-primary float-right h-100" data-sort-value="watch" style="margin: 0 5px 0 5px;">瀏覽次數</button>
+                </div>
                 </div>
               
                 <div class="h-100 mb-5">
-                <form class="w-100" style="border-spacing: 20px;">
+                <form class="w-100 grid" style="border-spacing: 20px;" id="results">
                     <c:forEach varStatus="status" var="result" items="${results}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
-                            <div class="card card-result">
+                            <div class="card card-result element-item">
                                 <img class="card-img" src="<c:url value='/fs/img/${result.pic1}' />" alt="Card image cap">
                                 <div class="card-body search-card-body">
-                                    <p class="card-title">[${result.phoneSort}] ${result.phoneType.label} ${result.storage.label}
-                                        ${result.color.label}色</p>
-                                    <p class="card-text mr-2 d-inline-block mb-0">$ <fmt:formatNumber value="${result.amount}" type="number"/></p><i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i><p class="card-city text-secondary d-inline-block mb-0">${result.watch}</p>
+                                	<span class="card-title new d-none">${result.productId}</span>
+                                    <span class="card-title">[${result.phoneSort}] </span>
+                                    <span class="card-title">${result.phoneType.label} </span>
+                                    <span class="card-title">${result.storage.label} </span>
+                                    <span class="card-title">${result.color.label}</span><br>
+                                    <p class="card-text d-inline-block mb-0">$</p>
+                                    <p class="card-text d-inline-block mb-0 amount"><fmt:formatNumber value="${result.amount}" type="number"/></p>
+                                    <i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i>
+                                    <p class="card-city text-secondary d-inline-block mb-0 watch">${result.watch}</p>
                                 	<p class="card-city mb-0 text-right">${result.county}${result.district}</p>
                                 </div>
                             </div>
@@ -243,6 +251,7 @@
     <script src="<c:url value='/js/popper.js' />"></script>
     <script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
     <script src="<c:url value='/js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
+    <script src="<c:url value='/js/isotope.pkgd.min.js' />"></script>
     <script src="<c:url value='/js/owl.carousel.setting.js' />"></script>
     <script src="<c:url value='/js/search.js' />"></script>
 </body>

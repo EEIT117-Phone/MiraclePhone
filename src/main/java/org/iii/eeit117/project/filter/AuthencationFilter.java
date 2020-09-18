@@ -19,7 +19,11 @@ import org.iii.eeit117.project.property.AppProperty;
 
 public class AuthencationFilter implements Filter {
 	
+<<<<<<< HEAD
 	public static final String[] WHILE_LIST = {"/js", "/css", "/images", "/fs/img", "/index", "/user", "/search", "/buyer", "/contact", "/cart/item", "/cartAdd"};
+=======
+	public static final List<String> WHILE_LIST = Arrays.asList("/js", "/css", "/images", "/fs/img", "/index", "/user", "/search", "/buyer", "/contact","/vertifimail");
+>>>>>>> a59fcaec762a141877b7f5bb5f4285438edd0439
 	
 	private String contextPath;
 	

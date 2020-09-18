@@ -1,5 +1,7 @@
 package org.iii.eeit117.project.model.service.impl;
 
+import java.util.List;
+
 import org.iii.eeit117.project.model.dao.BaseDao;
 import org.iii.eeit117.project.model.dao.ProductDao;
 import org.iii.eeit117.project.model.service.ProductService;
@@ -9,6 +11,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProductServiceImpl extends BaseServiceImpl<ProductVo, Integer> implements ProductService {
+
+	@Override
+	public List<ProductVo> findByAccount(String account) {
+		return productDao.findByAndCondition("account", account);
+	}
 
 	@Autowired
 	private ProductDao productDao;

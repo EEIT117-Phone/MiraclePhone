@@ -1,8 +1,13 @@
 package org.iii.eeit117.project.config;
 
+import java.util.Properties;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -43,5 +48,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 		TilesViewResolver viewResolver = new TilesViewResolver();
 		registry.viewResolver(viewResolver);
 	}
-
+	
+	
+	
 }

@@ -83,6 +83,10 @@
 							<input type="email" class="form-control" id="account"
 								name="account" placeholder="請輸入電子信箱" required>
 						</div>
+						<div>
+						<button id="vertifyacc" type="button" name="vertifyacc">寄送驗證信</button>
+						<label id="surevertify" name="surevertify"></label>
+						</div>
 						
 						<label id="sureaccount"></label>
 					</div>

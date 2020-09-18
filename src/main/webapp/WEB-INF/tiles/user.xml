@@ -18,6 +18,9 @@
     <definition name="usersignupimg" extends="template-def">  
         <put-attribute name="body"  value="/WEB-INF/jsp/login/signup.jsp" />  
     </definition> 
+    <definition name="usermodification" extends="template-def">  
+        <put-attribute name="body"  value="/WEB-INF/jsp/login/usermain.jsp" />  
+    </definition> 
     
    
 

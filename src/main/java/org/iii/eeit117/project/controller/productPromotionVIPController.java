@@ -1,8 +1,6 @@
 package org.iii.eeit117.project.controller;
 
-import java.sql.Timestamp;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -45,22 +43,16 @@ public class productPromotionVIPController {
 		String[] promteColumn = promotecase.split(" ");	
 		String VIPlevel=promteColumn[0];
 		int adlastTime=Integer.parseInt(promteColumn[1]);
-		int status=Integer.parseInt(promteColumn[2]);
+		String status=promteColumn[2];
 	
-		Timestamp time = new Timestamp(System.currentTimeMillis());
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		String ad = sdf.format(time);
-		Date ad_date=sdf.parse(ad);
-		
-		Date current=new Date();
+
+		Date ad_date=new Date();
+		System.out.println(ad_date);
 		Calendar calendar=Calendar.getInstance();
-		calendar.setTime(current);
+		calendar.setTime(ad_date);
 		calendar.add(Calendar.DAY_OF_MONTH, +adlastTime);
 		Date expiry_date=calendar.getTime();
 		
-		if(ad_date.before(expiry_date)) {
-			System.out.println("刊登時間比結束時間前面");
-		}
 		
 		forsaveproduct.setVip(VIPlevel);
 		forsaveproduct.setStatus(status);
@@ -68,7 +60,6 @@ public class productPromotionVIPController {
 		forsaveproduct.setExpiry_date(expiry_date);
 		forsaveproduct.setWatch(0);
 		productService.save(forsaveproduct);
-		
 		
 		m.addAttribute("product", forsaveproduct);
 		

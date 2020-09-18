@@ -1,9 +1,6 @@
 package org.iii.eeit117.project.controller;
 
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+
 import java.util.Date;
 import java.util.List;
 
@@ -34,8 +31,7 @@ public class ProductExpiryController {
 		List<ProductVo> allProducts=productservice.findAll();
 		for(ProductVo eachProduct:allProducts) {
 			if(currentDate.after(eachProduct.getExpiry_date())) {
-				
-				eachProduct.setStatus(0);
+				eachProduct.setStatus("已下架");
 				
 			}
 			
