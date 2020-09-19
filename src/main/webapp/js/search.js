@@ -4,6 +4,33 @@ $(document).ready(function () {
   //  $('#storageOption1').attr('checked', 'checked');
 
   //  Filter  不限/其他複選
+
+$("input[type='checkbox']").click(function (){
+		var str = $("input:checkbox:checked").serialize();
+		$.ajax({
+			url : CONTEXT_PATH + 'search/ajaxresult?' + str,
+			method : 'GET',
+			success : function(result) {
+				var res= "<form class='w-100' style='border-spacing: 20px;' id='results' > ";
+				
+				for(var i=0; i < result.length; i++){
+					res += "<a target='_blank' href='http://localhost:8080/MiraclePhone/buyer?productId=" + result[i].productId +  "'class='text-dark text-decoration-none'>" +
+					"<div class='card card-result'>" +
+					"<img class='card-img' src='http://localhost:8080/MiraclePhone/fs/img/" + result[i].pic1 + "'alt='Card image cap'>" +
+					"<div class='card-body search-card-body'>" + 
+					"<p class='card-title'>" + "[" + result[i].phoneSort + "]" + result[i].phoneType + result[i].storage + result[i].color + "色</p>" +
+					"<p class='card-text mr-2 d-inline-block mb-0'>$ <fmt:formatNumber value='" + result[i].amount + "'type='number'/></p><i class='fa fa-eye fa-fw text-secondary mr-0' aria-hidden='true'></i><p class='card-city text-secondary d-inline-block mb-0'>" + result[i].watch + "</p>" +
+					"<p class='card-city mb-0 text-right'>" + result[i].county + result[i].district + "</p>" +
+					"</div></div></a>"
+				}
+				res += "</form>";
+			$("#ajaxres").html(res);
+			}
+		
+		});
+		});
+			
+			
   $('.form-check-input').each(function (i) {
     $('#phoneTypeOption' + (i + 2) + '').click(function () {
       if ($(this).is(':checked')) {
