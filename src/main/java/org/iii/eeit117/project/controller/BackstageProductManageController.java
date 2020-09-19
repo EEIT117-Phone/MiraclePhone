@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Component
 @RequestMapping(value = "/" + BackstageProductManageController.MODULE_NAME)
@@ -32,22 +33,32 @@ public class BackstageProductManageController {
 	}
 
 	@RequestMapping(value = "/searchProduct", method = RequestMethod.POST)
-	public String customerContact(ProductSearchBean searchBean, Model model) {
+	public String searchProduct(ProductSearchBean searchBean, Model model) {
 		model.addAttribute("searchBean", searchBean);
 		String[] statusList = { "上架中", "暫時下架"};
 		model.addAttribute("statusList",statusList);
 		model.addAttribute("results", productService.search(searchBean));
 		return MAIN_PAGE;
 	}
-
+	@ResponseBody
 	@RequestMapping(value = "/offShelf", method = RequestMethod.GET)
-	public String customerContact2(ProductSearchBean searchBean, ProductVo productVo, Model model,String id, String state) {
+	public String offShelf(ProductSearchBean searchBean, Model model, Integer productId) {
 		model.addAttribute("searchBean", searchBean);
 		String[] statusList = { "上架中", "暫時下架"};
 		model.addAttribute("statusList",statusList);
-		System.out.println(productVo.getProductId());
-		System.out.println(productVo.getStatus());
-		return MAIN_PAGE;
+		System.out.println(productId);
+		ProductVo productVo = productService.findOne(productId);
+		String status = productVo.getStatus();
+		System.out.println("++++++++++++++status:"+status);
+		if(status.equals("上架中")) {
+			productVo.setStatus("暫時下架");
+			System.out.println("更改暫時下架");
+		}else {
+			productVo.setStatus("上架中");
+			System.out.println("更改上架中");
+		}
+		productService.save(productVo);
+		return productVo.getStatus();
 	}
 
 }

@@ -1,18 +1,40 @@
 $(document).ready(function () {
-
 	
 	for(a=0; a<100; a++){
-		let aa = $("#status-control"+a).siblings('span').html();
-		console.log(aa);
-		console.log("11");
-		if("暫時下架" == aa){
+		$("#status-control"+a).click(function() {
+		let id = $(this).val();
+		let btn = $(this);
+		console.log(this)
+		$.ajax({
+			url : CONTEXT_PATH + 'productManagement/offShelf',
+			method : 'GET',
+			data : {
+				productId : id
+			},
+			success : function(response) {
+				btn.siblings('span').text("111");
+				if("核准上架"==btn.text()){
+					btn.siblings('span').text("上架中");
+					btn.text("暫時下架");
+				}else{
+					btn.siblings('span').text("暫時下架");
+					btn.text("核准上架");
+				}
+			}
+		});
+	});
+		
+		let statusButton = $("#status-control"+a).siblings('span').html();
+		if("暫時下架" == statusButton){
 			$("#status-control"+a).text("核准上架");
 		}
 		
-		if("上架中" == aa){
+		if("上架中" == statusButton){
 			$("#status-control"+a).text("暫時下架");
 		}
-		
 	}
-
 });
+function statusButton(){
+	
+}
+

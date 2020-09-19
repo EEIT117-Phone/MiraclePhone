@@ -16,6 +16,14 @@
 	
 	<definition name="backstageCustomerContact" extends="template-def">  
         <put-attribute name="body"  value="/WEB-INF/jsp/backstage/customerContact.jsp" />  
-    </definition>  
+    </definition> 
+
+	<definition name="productManagementMain" extends="template-def">
+		<put-attribute name="body" value="/WEB-INF/jsp/backstage/productManagement.jsp" />
+	</definition>
+	
+	<definition name="memberManagementMain" extends="template-def">
+		<put-attribute name="body" value="/WEB-INF/jsp/backstage/memberManagement.jsp" />
+	</definition>	 
     
 </tiles-definitions>
