@@ -23,10 +23,10 @@ $(function() {
         console.log($("ul.pictureslides").css("width"));
 
 
-        let divWidth = windowWidth * 40 / 100;
+        let divWidth = windowWidth * 50 / 100;
 
 
-        let left = (windowWidth - divWidth) / 2;
+        let left = windowWidth*38/100;
 
 
         $("#inputarea").css("left", left).width(divWidth)

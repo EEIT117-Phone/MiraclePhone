@@ -1,6 +1,9 @@
 $(function () {
     $("#normalone").click(function () {
-        $("#amount").text("200")
+    	$("#amount").text("200");
+    
+      
+      
     })
     
     

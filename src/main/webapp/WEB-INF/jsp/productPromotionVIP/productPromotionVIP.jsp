@@ -15,8 +15,8 @@
 
 </head>
 <body>
-
-
+	<h4 id="test">您的手機在VIP方案於每次收尋結果置頂並輪播，且在首頁可以透過精選推薦快速被買家收尋到</h4>
+	
 
 	<div id="bigframe">
 		<P id="headh2">
@@ -53,8 +53,8 @@
 			
 			<p>這樣金額:</p><span id="amount"></span>
 				<div id="button">
-					<input type="submit" value="確認結帳">
-					 <a href="<c:url value='/product'/>" ><input type="button" value="回上一頁"></a>
+					<input class="btn btn-primary " type="submit" value="確認結帳">
+					 <a href="<c:url value='/product'/>" ><input class="btn btn-primary " type="button" value="回上一頁"></a>
 
 				</div>
 		</form>

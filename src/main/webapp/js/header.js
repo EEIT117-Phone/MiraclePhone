@@ -1,10 +1,10 @@
 $(function () {
-    $(".usersmenu").hover(function () {
+    $(".usersmenu").click(function () {
         $(this).addClass("active");
-    }, function(){
-                
-           $(this).removeClass("active");
-           
+    }).mouseleave(function(){
+    
+    $(this).removeClass("active");
+         
            });   
     
     

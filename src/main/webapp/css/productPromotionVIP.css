@@ -18,7 +18,7 @@
     
     
     left:40%;
-    color:coral;
+    color:#7B7B7B;
 } 
 
 
@@ -26,8 +26,8 @@
 
  #collection{
     position:relative;
-    border:1px solid green;
-    background-color:cornsilk;
+    border:1px solid black;
+    background-color:#E0E0E0;
     width:500px;
     height:300px;
     border-radius: 5%; 
@@ -38,7 +38,7 @@
 
  #collection #commoncase{
     position: absolute;
-    border: 1px blue solid;
+    border: 1px #4F4F4F solid;
     background-color: darkcyan;
     width: 150px;
     height:100px;
@@ -56,7 +56,7 @@
 
  #collection #commoncase3{
     position: absolute;
-    border: 1px blue solid;
+    border: 1px #4F4F4F solid;
     background-color: darkcyan;
     width: 150px;
     height:100px;
@@ -72,7 +72,7 @@
 
  #collection #vip{
     position: absolute;
-    border: 1px blue solid;
+    border: 1px #4F4F4F solid;
     background-color: orange;
     width: 150px;
     height:100px;
@@ -88,7 +88,7 @@
 
  #collection #vip3{
     position: absolute;
-    border: 1px blue solid;
+    border: 1px #4F4F4F solid;
     background-color:orange;
     width: 150px;
     height:100px;
@@ -105,6 +105,12 @@
 .button{
 	
 	margin-top:10px;
+	
+	
+}
+
+.test{
+	position: relative;
 	
 	
 }

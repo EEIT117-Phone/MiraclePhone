@@ -20,10 +20,10 @@
         </ul>
         <div id="inputarea">
             <form id="test" action="<c:url value='/search/result' />" method="get">
-                <h2>快速找到您的手機</h2>
+               	<h1 >在這找到您的手機</h1>
                 <input id="search" type="text" name="searchInput" style="font-size:20px" size=50 autofocus placeholder="請輸入關鍵字(iphone機種，預算，容量，地點)">
                 <br>
-                <input type="submit" value="Search" class="btn btn-primary ">
+                
             </form>
         </div>
         <ul class="dot">
@@ -51,7 +51,7 @@
                     focusable="false" role="img" aria-label="Placeholder: 500x500">
                      
                      <a href="<c:url value='/search/result?indexInput=全新機 VIP' />" class="text-decoration-none">
-                     <image xlink:href="<c:url value='/images/iphonenew.jfif' />"
+                     <image xlink:href="<c:url value='/images/iphonenew.jpg' />"
     														width="100%" height="100%"/>
     														</a> 
                     

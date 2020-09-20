@@ -33,7 +33,7 @@ body {
 
 ul.pictureslides {
 	width: 4008px;
-	height: 500px;
+	height: 600px;
 	/* 透過3200來裝載這個照片四張 */
 	left: 0px;
 	transition: all .5s;
@@ -44,7 +44,7 @@ ul.pictureslides {
 
 ul.pictureslides li {
 	width: 1002px;
-	height: 500px;
+	height: 600px;
 	/* 這裡指的是每張投影片的寬度為800然後高度為300和外框剛好呼應 */
 	overflow: hidden;
 	float: left;
@@ -61,19 +61,23 @@ ul.pictureslides li img {
 	/* 這個是什麼效果，老師好像有大概講到 */
 }
 
-/* 接下來是下拉選單 */
+
 .cobtainer #inputarea {
 	position: absolute;
 	top: 300px;
-	left: 500px;
+	left: 400px;
+	
 }
 
-.cobtainer h2 {
+.cobtainer h1 {
 	color: white;
+	position:relative;
+	left:80px;
 }
 
 .dot li {
 	border: 1px solid "transparent";
 }
+
 
 

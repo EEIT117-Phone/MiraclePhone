@@ -54,6 +54,7 @@ public class productPromotionVIPController {
 		Date expiry_date=calendar.getTime();
 		
 		
+	
 		forsaveproduct.setVip(VIPlevel);
 		forsaveproduct.setStatus(status);
 		forsaveproduct.setAd_date(ad_date);
