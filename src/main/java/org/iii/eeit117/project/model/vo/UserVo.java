@@ -63,6 +63,18 @@ public class UserVo {
 	@Column(name="bankaccount")
 	private String bankaccount;
 	
+	@Column(name = "PAY_INFO_FACE") //支付方式:面交
+	private String payInfoFace;
+
+	@Column(name = "PAY_INFO_REMIT") //支付方式:匯款
+	private String payInfoRemit;
+
+	@Column(name = "SHIP_INFO_FACE") //商品移交:面交
+	private String shipInfoFace;
+	
+	@Column(name = "SHIP_INFO_POST")  //商品移交:郵寄
+	private String shipInfoPost;
+	
 	public String getAccount() {
 		return account;
 	}
@@ -181,6 +193,38 @@ public class UserVo {
 
 	public void setOrderInfoVo(Set<OrderInfoVo> orderInfoVo) {
 		this.orderInfoVos = orderInfoVo;
+	}
+	
+	public String getPayInfoFace() {
+		return payInfoFace;
+	}
+
+	public void setPayInfoFace(String payInfoFace) {
+		this.payInfoFace = payInfoFace;
+	}
+
+	public String getShipInfoFace() {
+		return shipInfoFace;
+	}
+
+	public void setShipInfoFace(String shipInfoFace) {
+		this.shipInfoFace = shipInfoFace;
+	}
+
+	public String getPayInfoRemit() {
+		return payInfoRemit;
+	}
+
+	public void setPayInfoRemit(String payInfoRemit) {
+		this.payInfoRemit = payInfoRemit;
+	}
+
+	public String getShipInfoPost() {
+		return shipInfoPost;
+	}
+
+	public void setShipInfoPost(String shipInfoPost) {
+		this.shipInfoPost = shipInfoPost;
 	}
 	
 	

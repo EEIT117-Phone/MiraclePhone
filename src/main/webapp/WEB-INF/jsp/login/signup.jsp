@@ -137,12 +137,18 @@
 					<div class="d-block my-3">
 						<input type="file" accept="image/*" id="file" name="file">
 						<img id="previewImg" name="previewImg" style="weight:100px; height:100px" src="">
+						<input type="hidden" id="gm" name="gm" value=" " class="custom-control-input"> 
 					</div>
 					<div class="mb-3">
 						<h4>賣家權限</h4>
-						<input type="hidden" id="gm" name="gm" value=" "
-							class="custom-control-input"> 
-					<input type="radio" id="seller" name="seller" value="seller"> <span id="seller_word">須年滿18歲才能勾選成為賣家</span>
+					<input type="radio" id="seller" name="seller" value="seller"> <span id="seller_word">是否成為賣家</span><br>
+					<input type="radio" id="shipInfoFace" name="shipInfoFace" value="商品面交"><span id="shipInfoFace_word">商品可面交</span>
+					<input type="radio" id="shipInfoPost" name="shipInfoPost" value="商品郵寄"><span id="shipInfoFace_word">商品可郵寄</span>
+					</div>
+					<div class="mb-3">
+						<h4>買家權限</h4>
+					<input type="radio" id="payInfoFace" name="payInfoFace" value="付款面交"><span id="payInfoFace_word">付款方式:面交</span>
+					<input type="radio" id="payInfoRemit" name="payInfoRemit" value="付款匯款"><span id="payInfoRemit_word">付款方式:匯款</span>
 					</div>
 					<div class="mb-3">
 						<label for="bankaccount">銀行帳戶<span class="text-muted"></span></label>

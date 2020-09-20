@@ -16,18 +16,7 @@ $(function () {
 
             })
 
-//	$("#account").blur(function(){
-//		console.log("開始");
-//		var account_ajax=document.getElementById("account").value;
-//		var xhr=new XMLHttpRequest();
-//		xhr.open("POST","useracccheck",true);
-//		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-//		xhr.send("checkacc="+account_ajax);
-//		xhr.onreadystatechange=function(){
-//			console.log(xhr);	
-//		}
-//		
-//	})
+
 $("#account").blur(function(){
 	let account=$("#account").val();
 		$.ajax({
@@ -173,6 +162,20 @@ function checkform(){
 		return false;
 	}
 }
+
+console.log($("#shipInfoPost").checked)
+$("input[type='radio']").click(function(event){
+	if ($(this).data('waschecked') == true)
+    {
+        $(this).prop('checked', false);
+        $(this).data('waschecked', false);
+    }
+    else
+    {
+         $(this).prop('checked', true);
+         $(this).data('waschecked', true);
+    }
+})
 
 		
 });
