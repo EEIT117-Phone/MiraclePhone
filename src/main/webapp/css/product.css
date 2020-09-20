@@ -12,16 +12,6 @@
 		font-size: 3.5rem;
 	}
 }
-
-form {
-	border-left: black 2px solid;
-	border-right: black 2px solid;
-	background-color: wheat;
-	margin: 0px 350px 0px 350px;
-	padding: 5px;
-	position: relative;
-}
-
 hr {
 	border: black 1px solid;
 	padding: 0px;
@@ -33,3 +23,4 @@ hr {
 	max-height: 150px;
 	margin: 5px;
 }
+

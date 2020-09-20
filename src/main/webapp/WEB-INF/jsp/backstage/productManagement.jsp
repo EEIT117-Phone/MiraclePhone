@@ -11,6 +11,7 @@
 <script src="<c:url value='/js/productManagement.js' />"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 </head>
 
 
@@ -72,18 +73,21 @@
     <tr>
       <td  rowspan="3">
       
+      	<a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
       	<img src="<c:url value='/fs/img/${result.pic2}' />" border=0 width=105px height=140px /> 
-      
+      	
+      	</a>
 	 </td>
       <td>商品名稱 ：${result.phoneType.label}</td>
       <td>
       	商品狀態 ：<span id = "status${status.count}">${result.status}</span>
-      	<button type="button" class="btn btn-outline-primary" onclick="javascript: location.href = '<c:url value='/productManagement/offShelf?productId=${result.productId}&status=${result.status}' />'" id="status-control${status.count}"></button>
+      	<button type="button" name='${result.productId}' value="${result.productId}" class="status btn btn-outline-primary" id="status-control${status.count}"></button>
       </td>
     </tr>
     <tr>
       <td>賣家帳號 ：${result.account}</td>
-      <td>製造價格 ：${result.amount}元</td>
+      <td class="moneyFormat">商品價格 ：<fmt:formatNumber value="${result.amount}" type="number"/>元</td>
+      
     </tr>
     <tr>
       <td>容量 ：${result.storage.label}</td>

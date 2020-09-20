@@ -77,7 +77,8 @@
                 </div>
                 </div>
               
-                <div class="h-100 mb-5">
+                <div class="h-100 mb-5" id="ajaxres">
+                <!-- 
                 <form class="w-100 grid" style="border-spacing: 20px;" id="results">
                     <c:forEach varStatus="status" var="result" items="${results}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
@@ -99,6 +100,7 @@
                         </a>
                     </c:forEach>
                 </form>
+                -->
                 </div>
                 
             </div>

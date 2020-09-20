@@ -1,6 +1,4 @@
 package org.iii.eeit117.project.controller;
-
-
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
 
 
 @Controller
@@ -32,14 +29,9 @@ public class ProductExpiryController {
 		for(ProductVo eachProduct:allProducts) {
 			if(currentDate.after(eachProduct.getExpiry_date())) {
 				eachProduct.setStatus("已下架");
-				
-			}
-			
+				productservice.save(eachProduct);	
+			}			
 		}
-		
-		
-		
+
 	}
-	
-	
 }

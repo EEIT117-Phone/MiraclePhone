@@ -9,54 +9,51 @@
 <title>刊登中物件</title>
 <script src="<c:url value='/js/jquery.twzipcode.min.js' />"></script>
  <link href="<c:url value='/css/hello.css' />" rel="stylesheet">
+ <style>
+
+ </style>
+ <script src="<c:url value='/js/backstageCustomer.js' />"></script>
+<script src="<c:url value='/js/productManagement.js' />"></script>
 </head>
 <body>
  <div id="content" class="container">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>序號</th>
-				<th>圖片</th>
-				<th>編號	</th>
-				<th>機種</th>
-				<th>顏色</th>
-				<th>容量</th>
-				<th>刊登時間</th>
-				<th>銷售金額</th>
-				<th>銷售原因以及備註</th>
-				<th></th>
-				<th></th>
-				
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach varStatus="status" var="result" items="${results}">
-				<tr>
-				
-					<td>${status.count}</td>
-					<td>
-					<a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />
-					" class="text-dark text-decoration-none">
-					<img class="card-img" src="<c:url value='/fs/img/${result.pic2}' />"
-					 alt="Card image cap"></a>
-					 </td>
-					<td>${result.productId}</td>
-					<td>${result.phoneType.label}</td>
-					<td>${result.color.label}</td>
-					<td>${result.storage.label}</td>
-					<td>${result.ad_date}</td>
-					
-					<form:form id="form-1"  servletRelativeAction="/product/update" modelAttribute="productSearch" method="post">
-					<td><input type="number" max="50000" min="0" value=${result.amount} step="100" required="required"
+ <table class="productManagement-header table">
+  		<c:forEach varStatus="status"  var="result"  items="${results}" >
+  		<thead class="thead-dark">
+   			<tr>
+     		 <th scope="col" colspan="3">商品編號 ：${result.productId}</th>
+  	 		</tr>
+ 		 </thead>
+  	<tbody>
+    <tr>
+      <td  rowspan="4">
+      <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />">	
+		<img src="<c:url value='/fs/img/${result.pic2}'/>"alt="Card image cap" style="border:0px;width:105px;height:140px">
+					</a></td>  
+      <td>機種 ：${result.phoneType.label}</td>
+      <td>
+      刊登時間:${result.ad_date}
+      </td>
+    </tr>
+    <tr>
+      <td>容量 ：${result.storage.label}</td>
+      <td>顏色 ：${result.color.label}</td>
+    </tr>
+    <tr>
+    	<form:form id="form-1"  servletRelativeAction="/product/update" modelAttribute="productSearch" method="post">
+					<td style="position:relative;top:8px">銷售金額  :  <input type="number" max="50000" min="0" value=${result.amount} step="100" required="required"
                     name="amount" /></td>
-					<td><textarea  rows="1" cols="17" maxlength="110" name=sellReason >${result.sellReason}</textarea></td>
-					<td><input type="submit" class="btn btn-primary" value="儲存"/></td>
-					<td><input name="productId" value=${result.productId} hidden="TRUE"/></td>
+                    
+					<td>
+					銷售原因以及備註  :  <textarea style="position:relative;top:8px" rows="1" cols="17" maxlength="110" name=sellReason >${result.sellReason}</textarea>
+					<input type="submit" class="btn btn-primary" value="儲存"/>
+					</td>
+					<td style="display:none;"><input name="productId" value=${result.productId} hidden="TRUE"/></td>
 					</form:form>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+	</tr>
+  </tbody>
+  </c:forEach>
+</table>
 	</div>
 </body>
 </html>

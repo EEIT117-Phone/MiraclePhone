@@ -12,17 +12,18 @@
 <body>
     <div class="cobtainer">
         <ul class="pictureslides">
-            <li><img src="<c:url value='/images/iphone.jpg' />" alt=""></li>
-            <li><img src="<c:url value='/images/iPhone11.jpg' />" alt=""></li>
-            <li><img src="<c:url value='/images/iphonelots.jpg' />" alt=""></li>
+            
+            <li><img src="<c:url value='/images/index2.webp' />" alt=""></li>
+            <li><img src="<c:url value='/images/index3.png' />" alt=""></li>
             <li><img src="<c:url value='/images/iphoneseconds.jpg' />" alt=""></li>
+            <li><img src="<c:url value='/images/index1.jfif' />" alt=""></li>
         </ul>
         <div id="inputarea">
             <form id="test" action="<c:url value='/search/result' />" method="get">
                 <h2>快速找到您的手機</h2>
-                <input id="search" type="text" name="searchInput" size=50 autofocus placeholder="請輸入關鍵字(iphone機種，預算，容量)">
+                <input id="search" type="text" name="searchInput" style="font-size:20px" size=50 autofocus placeholder="請輸入關鍵字(iphone機種，預算，容量，地點)">
                 <br>
-                <input type="submit" value="Search" style="background-color:	#019858;font-family:cursive ;">
+                <input type="submit" value="Search" class="btn btn-primary ">
             </form>
         </div>
         <ul class="dot">
@@ -34,105 +35,67 @@
     </div>
     <div class="container marketing">
         <!-- Three columns of text below the carousel -->
-        <div class="row">
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                    xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                    aria-label="Placeholder: 140x140">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
-                        dy=".3em">140x140</text>
-                </svg>
-                <h2>找全新機</h2>
-                <p><a class="btn btn-secondary" href="<c:url value='/search/result?phoneSort=全新機' />"
-                        role="button">點此前往
-                        »</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                    xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                    aria-label="Placeholder: 140x140">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
-                        dy=".3em">140x140</text>
-                </svg>
-                <h2>找二手機</h2>
-                <p><a class="btn btn-secondary" href="<c:url value='/search/result?phoneSort=二手機' />"
-                        role="button">點此前往
-                        »</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                    xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img"
-                    aria-label="Placeholder: 140x140">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777"
-                        dy=".3em">140x140</text>
-                </svg>
-                <h2>找零件機</h2>
-                <p><a class="btn btn-secondary" href="<c:url value='/search/result?phoneSort=零件機' />"
-                        role="button">點此前往
-                        »</a></p>
-            </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
+        
         <!-- START THE FEATURETTES -->
         <hr class="featurette-divider">
         <div class="row featurette">
             <div class="col-md-7">
                 <h2 class="featurette-heading">精選全新機推薦 <span class="text-muted"></span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod
-                    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac
-                    cursus
-                    commodo.</p>
+                <p class="lead">全新機也就是官方等正規渠道售賣的機子，全新機無論是機頭還是配件、盒子等都是正規廠商生產，全新原封就是全新的，配件等都沒有拆封使用過，官方售賣以及經銷商等正規售賣點代為售賣所取得的。
+
+</p>
             </div>
             <div class="col-md-5">
                 <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
                     height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
                     focusable="false" role="img" aria-label="Placeholder: 500x500">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa"
-                        dy=".3em">500x500</text>
+                     
+                     <a href="<c:url value='/search/result?indexInput=全新機 VIP' />" class="text-decoration-none">
+                     <image xlink:href="<c:url value='/images/iphonenew.jfif' />"
+    														width="100%" height="100%"/>
+    														</a> 
+                    
+    													
                 </svg>
             </div>
         </div>
         <hr class="featurette-divider">
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">精選中古機推薦<span class="text-muted"></span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod
-                    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac
-                    cursus
-                    commodo.</p>
+                <h2 class="featurette-heading">精選二手機推薦<span class="text-muted"></span></h2>
+                <p class="lead">二手機一般指曾被購買，且已拆封被使用過的手機。
+								價格會比全新機為低，一般會與貨品的外觀與損耗程度成比例。
+
+</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                    height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
+                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="600"
+                    height="600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
                     focusable="false" role="img" aria-label="Placeholder: 500x500">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa"
-                        dy=".3em">500x500</text>
+                   
+                   	<a href="<c:url value='/search/result?indexInput=二手機 VIP' />" class="text-decoration-none">
+                     <image xlink:href="<c:url value='/images/iphoneSEsecond.jpg' />"
+    														width="100%" height="100%"/>
+    														</a>
                 </svg>
             </div>
         </div>
         <hr class="featurette-divider">
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
-                    euismod
-                    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac
-                    cursus
-                    commodo.</p>
+                <h2 class="featurette-heading">精選零件機推薦 <span class="text-muted"></span></h2>
+                <p class="lead">指手機無法正常使用，可能無法開機，螢幕壞損嚴重，使用者不想修理故出售，這類型的手機可以
+                	作為其他手機維修時所需要的零件來源。
+                </p>
             </div>
             <div class="col-md-5">
                 <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
                     height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
                     focusable="false" role="img" aria-label="Placeholder: 500x500">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa"
-                        dy=".3em">500x500</text>
+                     <a href="<c:url value='/search/result?indexInput=零件機 VIP' />" class="text-decoration-none">
+                     <image xlink:href="<c:url value='/images/iPhoneParts.jpeg' />"
+    														width="100%" height="100%"/>
+    														</a>
                 </svg>
             </div>
         </div>

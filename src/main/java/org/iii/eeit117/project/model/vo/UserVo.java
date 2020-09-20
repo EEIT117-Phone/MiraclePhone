@@ -17,6 +17,10 @@ import javax.persistence.Table;
 @Table(name = "Users")
 public class UserVo {
 
+	public static final String ACCOUNT = "account";
+	
+	public static final String IDNUMBER = "idnumber";
+	
 	@Id
 	@Column(name = "account")
 	private String account;

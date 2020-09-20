@@ -1,17 +1,20 @@
 package org.iii.eeit117.project.controller;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.iii.eeit117.project.model.service.SearchService;
+import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.search.SearchBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping(value = "/" + SearchController.MODULE_NAME)
@@ -66,12 +69,12 @@ public class SearchController {
 		return MODULE_NAME;
 	}
 
-	/* 	傳該商品productId給Buyer頁面  */
-	@RequestMapping(value = "/buyer", method = RequestMethod.GET)
-	public String buyerPage(SearchBean searchBean, Model model) {
-		model.addAttribute("productId", searchBean);
-		model.addAttribute("results", searchService.search(searchBean));
-		return MODULE_NAME;
+	@ResponseBody
+	@RequestMapping(value = "/ajaxresult", method = RequestMethod.GET)
+	public List<ProductVo> ajax(SearchBean searchBean, Model model, HttpSession httpsession) {
+		List<ProductVo> sb = searchService.search(searchBean);
+		httpsession.setAttribute("rs", sb);
+		return sb;
 	}
 	
 	
