@@ -4,7 +4,7 @@ $(document).ready(function () {
   });
 
 	$("#aaa").click(function() {
-		$("#aaa").css("background-color","lightcyan");
+		$("#aaa").css("background-color","rgba(0,0,0,.03)");
 		$("#bbb").css("background-color","white");
 		$("#quest1").show();
 		$("#quest2").hide();
@@ -13,7 +13,7 @@ $(document).ready(function () {
 	});
 	$("#bbb").click(function() {
 		$("#aaa").css("background-color","white");
-		$("#bbb").css("background-color","lightcyan");
+		$("#bbb").css("background-color","rgba(0,0,0,.03)");
 		$("#quest2").show();
 		$("#quest1").hide();
 		$("#QAA").show();
