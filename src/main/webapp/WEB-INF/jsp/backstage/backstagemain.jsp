@@ -18,7 +18,7 @@
   <div class="main_nav btn-group-vertical dropright" role="group" aria-label="Vertical button group">
     <button type="button" class=" btn btn-secondary " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">客服回覆</button>
     <a href='<c:url value="/productManagement" />' class="bottom btn btn-secondary " role="button" aria-pressed="true">商品管理</a>
-    <a href='<c:url value="/backstage" />' id = "b" class="bottom btn btn-secondary" role="button" aria-pressed="true">會員管理</a>
+    <a href='<c:url value="/memberManagement" />' id = "b" class="bottom btn btn-secondary" role="button" aria-pressed="true">會員管理</a>
   
   	<div class="dropdown-menu">
       <a class="dropdown-item" href='<c:url value="/backstage/customerContact?selectq1=賣家相關&selectq2=賣家評價" />'>賣家相關</a>
