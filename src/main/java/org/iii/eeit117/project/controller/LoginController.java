@@ -89,8 +89,8 @@ public class LoginController {
 		System.out.println(list);
 		if(loginStatus.equals("acc&&pwd are corrected")) {
 			UserVo userVo=userService.findOne(account);
-			System.out.println(userVo.getGm());
-			if(userVo.getGm().equals("gm")) { //確認是否為gm，是則導入後台管理畫面
+			System.out.println(userVo.getStatus());
+			if(userVo.getStatus().equals("gm")) { //確認是否為gm，是則導入後台管理畫面
 				httpsession.setAttribute("user", userVo);
 				return "backstagemain";
 			}

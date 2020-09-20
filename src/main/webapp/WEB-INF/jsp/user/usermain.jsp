@@ -35,8 +35,9 @@
 <td>${user.county}</td>
 <td>${user.district}</td>
 <td>${user.zipcode}</td>
-<td>${user.gm}</td>
+<td>${user.status}</td>
 <td>${user.seller}</td>
+<td>${user.bankaccount}</td>
 </tr>
 </table>
 <input id="userdata" type="hidden" value="${user}">
@@ -45,7 +46,7 @@
 <font size="3">會員修改</font>
 <form action="/MiraclePhone/usermodification" method="post" onsubmit="return checkform()" enctype="multipart/form-data">
 <input id="account" name="account" type="hidden" value="${user.account}" >
-<input id="gm" type="hidden" name="gm" value="">
+<input id="status" type="hidden" name="status" value="">
 <input id="password" name="password" type="password" value="${user.password}">
 <input id="name" name="name" type="text" value="${user.name}" >
 <input id="idnumber" name="idnumber" type="text" value="${user.idnumber}" >

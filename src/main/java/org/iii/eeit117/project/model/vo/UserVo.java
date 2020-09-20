@@ -55,8 +55,8 @@ public class UserVo {
 	@Column(name = "seller")
 	private String seller;
 
-	@Column(name = "gm")
-	private String gm;
+	@Column(name = "STATUS")
+	private String status;
 
 	@Column(name = "pic")
 	private Integer pic;
@@ -167,12 +167,12 @@ public class UserVo {
 		this.seller = seller;
 	}
 
-	public String getGm() {
-		return gm;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setGm(String gm) {
-		this.gm = gm;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Integer getPic() {
