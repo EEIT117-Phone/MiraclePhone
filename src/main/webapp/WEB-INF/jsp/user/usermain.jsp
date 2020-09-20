@@ -46,7 +46,7 @@
 <font size="3">會員修改</font>
 <form action="/MiraclePhone/usermodification" method="post" onsubmit="return checkform()" enctype="multipart/form-data">
 <input id="account" name="account" type="hidden" value="${user.account}" >
-<input id="status" type="hidden" name="status" value="">
+<input id="status" type="hidden" name="status" value="user">
 <input id="password" name="password" type="password" value="${user.password}">
 <input id="name" name="name" type="text" value="${user.name}" >
 <input id="idnumber" name="idnumber" type="text" value="${user.idnumber}" >

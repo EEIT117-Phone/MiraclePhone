@@ -49,7 +49,7 @@ public class BackstageController {
 				httpsession.setAttribute("user", userVo);
 				return MAIN_PAGE;
 		}
-			else { //有此帳號卻無gm權限則倒回一般會員登入頁面
+			else if(userVo.getStatus().equals("user")) {
 				return "userlogin";
 			}
 		}

@@ -137,7 +137,7 @@
 					<div class="d-block my-3">
 						<input type="file" accept="image/*" id="file" name="file">
 						<img id="previewImg" name="previewImg" style="weight:100px; height:100px" src="">
-						<input type="hidden" id="status" name="status" value=" " class="custom-control-input"> 
+						<input type="hidden" id="status" name="status" value="user" class="custom-control-input"> 
 					</div>
 					<div class="mb-3">
 						<h4>賣家權限</h4>
