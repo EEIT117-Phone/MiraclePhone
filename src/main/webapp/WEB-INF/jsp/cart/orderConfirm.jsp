@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 
@@ -30,23 +31,26 @@
             </table>
 
             <table class="cart-main table">
-            <c:forEach varStatus="status" var="product" items="${cartItem}">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col" colspan="8">賣家 : ${product.account}</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>${status.count}</td>
-							<td><img src="<c:url value='/fs/img/${product.pic1}' />" border=0 width=100px /></td>
-							<td>${product.phoneType.label}</td>
-							<td>${product.storage.label}</td>
-							<td>${product.color.label}</td>
-							<td>1</td>
-							<td id=money${status.count}>${product.amount}</td>
-                    </tr>
-            </c:forEach>
+            <c:forEach varStatus="status" var="entry" items="${cartItems}">
+						<thead class="thead-light">
+							<tr>
+								<th scope="col" colspan="8">賣家 : ${entry.account}</th>
+							</tr>
+						</thead>
+					<c:forEach varStatus="status" var="product" items="${entry.productVos}">
+						<tbody>
+ 							<tr class = "product"> 
+ 								<td>${status.count}</td>
+ 								<td><img src="<c:url value='/fs/img/${product.pic1}' />" border=0 width=100px /></td>
+ 								<td>${product.phoneType.label}</td>
+ 								<td>${product.storage.label}</td>
+ 								<td>${product.color.label}</td>
+ 								<td>1</td>
+ 								<td><fmt:formatNumber value="${product.amount}" type="number"/><span class="sum">${product.amount}</span></td>
+  								
+ 							</tr> 
+					</c:forEach>
+					</c:forEach>
                     <tr class="ship-payment">
                         <td></td>
                         <td>付款資訊:</td>
@@ -64,8 +68,9 @@
                         </td>
                     </tr>
 
+                 
                 </tbody>
-                
+ 				
             </table>
             <table class="cart-summary table">
 

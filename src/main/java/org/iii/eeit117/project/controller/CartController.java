@@ -1,18 +1,24 @@
 package org.iii.eeit117.project.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpSession;
 
+import org.iii.eeit117.project.model.service.CartService;
 import org.iii.eeit117.project.model.service.OrderInfoService;
 import org.iii.eeit117.project.model.service.ProductService;
 import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.model.vo.UserVo;
+import org.iii.eeit117.project.model.vo.CartVo;
 import org.iii.eeit117.project.model.vo.OrderInfoVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,25 +41,27 @@ public class CartController {
 
 	@Autowired
 	private OrderInfoService orderinfoService;
-
+	
 	@Autowired
-	private ProductService productService;
-
-	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
+	private CartService cartService;
+	
+	@RequestMapping(value = "/item", method = RequestMethod.GET)
 	public String cartItems(HttpSession httpSession, Model model, Integer deleteId) {
 		if (httpSession.getAttribute("cart") == null) {
 			model.addAttribute("message", "購物車目前尚無商品");
 			return MAIN_PAGE;
 		} else {
 			Set<Integer> productIds = (Set<Integer>) httpSession.getAttribute("cart");
-			List<ProductVo> cartItems = new LinkedList<>(); // javaBean List
 			productIds.remove(deleteId);
-			for (Integer id : productIds) {
-				cartItems.add(productService.findOne(id));
-			}
-			httpSession.setAttribute("cartItem", cartItems);
-			return MAIN_PAGE;
+			Map<String, CartVo> cartItemMap = cartService.getCartItems(productIds);
+			CartVo a = cartItemMap.get("andrew");
+			
+			System.out.println(a.getPayInfo());
+			System.out.println(a.getProductVos());
+			httpSession.setAttribute("cartItems", cartItemMap.values());
+			
 		}
+		return MAIN_PAGE;
 	}
 
 	@ResponseBody
@@ -70,53 +78,38 @@ public class CartController {
 
 	@RequestMapping(value = "/orderInfo", method = RequestMethod.GET)
 	public String orderInfo(HttpSession httpSession, Model model, OrderInfoVo orderInfo) {
-		List<ProductVo> ProductVos = (List<ProductVo>) httpSession.getAttribute("cartItem");
 		model.addAttribute("orderInfo", orderInfo);
 		return ORDERINFO_PAGE;
 	}
 
 	@RequestMapping(value = "/orderConfirm", method = RequestMethod.POST)
 	public String orderConfirm(HttpSession httpSession, OrderInfoVo orderInfo, Model model) {
-		model.addAttribute("orderInfo", orderInfo);
-		List<ProductVo> ProductVos = (List<ProductVo>) httpSession.getAttribute("cartItem");
-		//加入date
+		Set<Integer> productIds  = (Set<Integer>) httpSession.getAttribute("cart");
+		
 		String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
 		orderInfo.setDate(date);
-		//加入amount
-		Integer totalAmount = 0;
-		for (ProductVo Vo : ProductVos) {
-			totalAmount += Vo.getAmount();
-		}
-		orderInfo.setAmount(totalAmount);
-		model.addAttribute("totalAmount", totalAmount);
-		//加入account
+		orderInfo.setAmount(cartService.GetTotalAmount(productIds));
+		model.addAttribute("orderInfo", orderInfo);
 		UserVo userVo = (UserVo) httpSession.getAttribute("user");
 		orderInfo.setAccount((String) userVo.getAccount());
 
 		orderinfoService.save(orderInfo);
 
 		if ("匯款".equals(orderInfo.getPayInfo())) {
-			model.addAttribute("payInfoMsg", "匯款帳號：玉山銀行 12345678");
+			model.addAttribute("payInfoMsg", "匯款帳號："+userVo.getBankaccount());
 		} else {
 			model.addAttribute("payInfoMsg", "面交付款");
 		}
-		
-		System.out.println(orderInfo.getShipInfo());
+
 		if ("郵寄".equals(orderInfo.getShipInfo())) {
-			
 			model.addAttribute("shipInfoMsg", orderInfo.getShipAddress());
-			
-		} else if ("賣家面交".equals(orderInfo.getShipInfo())) {
-			
+		} else if ("面交".equals(orderInfo.getShipInfo())) {
 			model.addAttribute("shipInfoMsg", "請與賣家確認面交地點");
-			System.out.println("賣家面交");
-		} else if ("7-11取貨".equals(orderInfo.getShipInfo())) {
-			
-			model.addAttribute("shipInfoMsg", "7-11 東門店");
 		}
-		else{
-			model.addAttribute("shipInfoMsg", "全家 大安店");
-		}
+		
+		//httpSession.removeAttribute("cart");
+		//httpSession.removeAttribute("cartItemMap");
+		
 		return CONFIRM_PAGE;
 	}
 }

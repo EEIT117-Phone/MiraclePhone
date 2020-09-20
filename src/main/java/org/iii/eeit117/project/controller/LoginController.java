@@ -89,8 +89,8 @@ public class LoginController {
 		System.out.println(list);
 		if(loginStatus.equals("acc&&pwd are corrected")) {
 			UserVo userVo=userService.findOne(account);
-			System.out.println(userVo.getGm());
-			if(userVo.getGm().equals("gm")) { //確認是否為gm，是則導入後台管理畫面
+			System.out.println(userVo.getStatus());
+			if("gm".equals(userVo.getStatus())) { //確認是否為gm，是則導入後台管理畫面
 				httpsession.setAttribute("user", userVo);
 				return "backstagemain";
 			}
@@ -161,6 +161,8 @@ public class LoginController {
 	@RequestMapping(value = "/userlogout", method = RequestMethod.GET) 
 	public String logout(HttpSession session) {
 		session.removeAttribute(AppProperty.LOGIN_USER);
+		session.removeAttribute("cart");
+    	session.removeAttribute("cartItemMap");
 		return "redirect:/";
 	}	
 	
