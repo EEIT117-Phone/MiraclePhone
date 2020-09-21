@@ -21,10 +21,10 @@
     <a href='<c:url value="/memberManagement" />' id = "b" class="bottom btn btn-secondary" role="button" aria-pressed="true">會員管理</a>
   
   	<div class="dropdown-menu">
-      <a class="dropdown-item" href='<c:url value="/backstage/customerContact?selectq1=賣家相關&selectq2=賣家評價" />'>賣家相關</a>
-      <a class="dropdown-item" href='<c:url value="/backstage/customerContact?selectq1=配送問題&selectq2=配送時長" />'>配送問題</a>
-      <a class="dropdown-item" href='<c:url value="/backstage/customerContact?selectq1=會員相關&selectq2=修改會員資料" />'>會員相關</a>
-      <a class="dropdown-item" href='<c:url value="/backstage/customerContact?selectq1=退貨及退款&selectq2=退貨進度查詢" />'>退貨及退款</a>
+      <a class="dropdown-item" href='<c:url value="/customerContact?selectq1=賣家相關&selectq2=賣家評價" />'>賣家相關</a>
+      <a class="dropdown-item" href='<c:url value="/customerContact?selectq1=配送問題&selectq2=配送時長" />'>配送問題</a>
+      <a class="dropdown-item" href='<c:url value="/customerContact?selectq1=會員相關&selectq2=修改會員資料" />'>會員相關</a>
+      <a class="dropdown-item" href='<c:url value="/customerContact?selectq1=退貨及退款&selectq2=退貨進度查詢" />'>退貨及退款</a>
     </div>
     
     

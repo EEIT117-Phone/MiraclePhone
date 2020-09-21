@@ -18,7 +18,7 @@
 			value="/WEB-INF/jsp/backstage/backstagemain.jsp" />
 	</definition>
 	
-	<definition name="backstageCustomerContact" extends="template-def">  
+	<definition name="customerContact" extends="template-def">  
         <put-attribute name="body"  value="/WEB-INF/jsp/backstage/customerContact.jsp" />  
     </definition> 
 
