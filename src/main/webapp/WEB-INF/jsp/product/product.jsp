@@ -35,7 +35,7 @@ table {
 <body>
 	<div>
 		<div style="width: 50%; margin: 0 auto">
-			<form:form servletRelativeAction="/product/insert" method="GET" enctype="multipart/form-data"
+			<form:form servletRelativeAction="/product/insert" method="post" enctype="multipart/form-data"
 				modelAttribute="product">
 				<table class="table">
 					<thead class="thead-dark">
