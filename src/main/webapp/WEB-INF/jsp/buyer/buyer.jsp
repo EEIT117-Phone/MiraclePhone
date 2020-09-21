@@ -25,8 +25,8 @@
 		<p>觀看次數:${info.watch}次</p>
 
 		<div class="imgArea overflow-auto">
-			<div class="salse float-right mr-5 pl-5">
-				<div class="salse2 mt-2">
+			<div class="salse float-right mx-5 mb-3">
+				<div class="salse2 mt-5">
 					<div>
 						<span class="align-middle h4 font-weight-bold">直購價 :</span><span class="span1 align-middle"> $ <fmt:formatNumber value="${info.amount}" type="number" /></span>
 						&nbsp;&nbsp;
@@ -63,6 +63,7 @@
 			<hr>
 			<div class="productInfo">
 			<p class="h4 font-weight-bold">商品說明 :</p>
+				<table>
 					<p>手機型號: ${info.phoneType.label}</p>
 					<p>容量: ${info.storage.label}</p>
 					<p>顏色: ${info.color.label}</p>
@@ -70,48 +71,13 @@
 					<p>保固: ${info.phoneWarranty}</p>
 					<p>種類: ${info.phoneSort}</p>
 					<p>出廠日期: ${info.yearOfManufacture}</p>
+				</table>
 					<p>販售原因: ${info.sellReason}</p>
 			</div>
+			<hr>
 			
-			
-			
-			</div>
-
-			<div class="link3 float-left ml-4">
-				<div class="imgdiv mt-3">
-					<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1"
-						id="myImg">
-				</div>
-				<div class="my-0 mx-auto">
-					<img src="<c:url value='/fs/img/${info.pic1}' />"
-						class="small mb-3 ml-4"> <img
-						src="<c:url value='/fs/img/${info.pic2}' />"
-						class="small mb-3 ml-4"> <img
-						src="<c:url value='/fs/img/${info.pic3}' />"
-						class="small mb-3 ml-4"> <img
-						src="<c:url value='/fs/img/${info.pic4}' />"
-						class="small mb-3 ml-4"> <img
-						src="<c:url value='/fs/img/${info.pic5}' />"
-						class="small mb-3 ml-4"> <img
-						src="<c:url value='/fs/img/${info.pic6}' />"
-						class="small mb-3 ml-4">
-				</div>
-			</div>
-			<div id="myModal" class="modal">
-				<br> <br> <br> <span class="close">&times;</span> <img
-					class="modal-content" id="img01">
-				<div id="caption"></div>
-			</div>
-		</div>
-
-
-
-
-		<div class="QA">
-			<ul class="down">
-				<li id="bbb">問與答(${size})</li>
-			</ul>
-			
+					<div class="QA">
+		<p class="h4 font-weight-bold mt-2">問與答(${size})</p>
 				<div id="quest2" class="quest">
 					<c:if test="${ qa[0] == null}">
 						<p class="noleave">目前暫無留言</p>
@@ -119,17 +85,17 @@
 					<c:forEach varStatus="status" var="li" items="${qa}">
 						<div>
 							<c:if test="${li.massage != null}">
-								<div class="buyerquest">
-									<p>${li.buyeraccount}${li.leaveTime}</p>
+								<div class="buyerquest pl-4">
+									<p>( ${li.buyeraccount}) ${li.leaveTime}</p>
 									<p>問題:</p>
-									<p>${li.massage}</p>
+									<p class="mb-0">${li.massage}</p>
 								</div>
 							</c:if>
 							<c:if test="${li.answer != '' and li.answer != null}">
-								<div class="useranswer">
-									<p>${li.answeraccount}${li.ansTime}</p>
-									<p class="selleranswer">賣家回覆:</p>
+								<div class="useranswer pl-4">
+									<p class="selleranswer font-weight-bold">賣家回覆:</p>
 									<p>${li.answer}</p>
+									<p class="text-right pr-4">( ${li.answeraccount}) ${li.ansTime}</p>
 								</div>
 							</c:if>
 							<c:if
@@ -161,6 +127,37 @@
 					</div>
 				</c:when>
 			</c:choose>
+			
+			
+			</div>
+
+			<div class="link3 float-left ml-5 mt-4 overflow-auto">
+				<div class="imgdiv mt-3">
+					<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1"
+						id="myImg">
+				</div>
+				<div class="my-0 mx-auto">
+					<img src="<c:url value='/fs/img/${info.pic1}' />"
+						class="small my-3 ml-4"> <img
+						src="<c:url value='/fs/img/${info.pic2}' />"
+						class="small my-3 ml-4"> <img
+						src="<c:url value='/fs/img/${info.pic3}' />"
+						class="small my-3 ml-4"> <img
+						src="<c:url value='/fs/img/${info.pic4}' />"
+						class="small my-3 ml-4"> <img
+						src="<c:url value='/fs/img/${info.pic5}' />"
+						class="small my-3 ml-4"> <img
+						src="<c:url value='/fs/img/${info.pic6}' />"
+						class="small my-3 ml-4">
+				</div>
+			</div>
+			<div id="myModal" class="modal">
+				<br> <br> <br> <span class="close">&times;</span> <img
+					class="modal-content" id="img01">
+				<div id="caption"></div>
+			</div>
+		</div>
+
 			<br>
 			<p class="h4 font-weight-bold">其他搜尋結果:</p>
 			<div class="owl-carousel">

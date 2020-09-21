@@ -8,16 +8,22 @@ a:hover {
 
 .link1 {
 	width: 100%;
-	padding: 0px 100px 0px 100px;
+	padding: 0px 120px;
 	/* 	position: relative; */
+}
+
+.link3 {
+	width: 550px;
+/* 	max-height: 500px; */
 }
 
 .small {
 	width: 55px;
 	height: 55px;
-	border: gray 1px solid;
+	border: 1px solid rgba(0, 0, 0, .125);
+	border-radius: 5px;
 	float: left;
-	margin-top: 10px;
+	object-fit: cover;
 }
 
 .stl1 p {
@@ -73,7 +79,12 @@ a:hover {
 .imgArea {
 	border: 1px solid rgba(0, 0, 0, .125);
 	background-color: rgba(0, 0, 0, .03);
-	border-radius: 0.25rem;
+	border-radius: 0.75rem;
+}
+
+.QA {
+	width:100%;
+/* 	max-height: 300px; */
 }
 
 .mid {
@@ -81,17 +92,17 @@ a:hover {
 }
 
 .buyerquest {
-	background-color: #F3F3FA;
+	background-color: white;
+	border-radius: 0.75rem;
 }
 
 .buyerquest p {
 	font-size: 18px;
-	margin-left: 30px;
 }
 
 .useranswer {
 	font-size: 18px;
-	margin-left: 50px
+	background-color: rgba(0, 0, 0, .03);
 }
 
 .useranswer .selleranswer {
@@ -103,17 +114,18 @@ a:hover {
 	text-align: center;
 	/* 	line-height:450px; */
 	width: 500px;
-	height: 450px;
+/* 	height: 450px; */
 	overflow: hidden;
 	object-fit: cover;
 }
 
 .img1 {
+	width: 800px;
 	max-width: 500px;
-	max-height: 600px;
-	border-radius: 5px;
+	border-radius: 10px;
 	cursor: pointer;
 	transition: 0.3s;
+	object-fit: cover;
 }
 
 .ansarea {
@@ -167,11 +179,10 @@ a:hover {
 }
 
 .quest {
-	margin-top: 50px;
 	width: 100%;
 	background-color: white;
 	border: 1px solid rgba(0, 0, 0, .125);
-	border-radius: 0.25rem;
+	border-radius: 0.75rem;
 	font-size: 24px;
 }
 
