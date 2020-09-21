@@ -85,7 +85,7 @@ public class LoginController {
 		String password=request.getParameter("userpassword");//取得輸入密碼
 		String lastpageurl=request.getParameter("lastpage");//取得上一頁網址
 		String loginStatus=userService.checkLogin(account, password); //驗證取得的帳密是否存在資料庫
-		List<String> list=Arrays.asList("帳號","密碼","姓名","身分證字號","性別","生日","縣市","鄉鎮區","郵遞區號","銀行帳號","賣家權限","年齡","大頭貼");
+		List<String> list=Arrays.asList("帳號","密碼","姓名","身分證字號","性別","生日","大頭貼","縣市","鄉鎮區","郵遞區號","銀行帳號","賣家權限","年齡");
 		
 		if(loginStatus.equals("acc&&pwd are corrected")) {
 			UserVo userVo=userService.findOne(account);
