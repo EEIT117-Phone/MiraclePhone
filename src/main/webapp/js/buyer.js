@@ -3,22 +3,6 @@ $(document).ready(function () {
     $("#myImg").attr("src", this.src);
   });
 
-	$("#aaa").click(function() {
-		$("#aaa").css("background-color","rgba(0,0,0,.03)");
-		$("#bbb").css("background-color","white");
-		$("#quest1").show();
-		$("#quest2").hide();
-		$("#QAA").hide();
-		$(".msglogin").hide();
-	});
-	$("#bbb").click(function() {
-		$("#aaa").css("background-color","white");
-		$("#bbb").css("background-color","rgba(0,0,0,.03)");
-		$("#quest2").show();
-		$("#quest1").hide();
-		$("#QAA").show();
-		$(".msglogin").show();
-	});
 
 		var stat = true;
 	$('.ansbtn').click(function() {

@@ -50,9 +50,6 @@ a:hover {
 	border-radius: 4px;
 }
 
-#aaa {
-	background-color: rgba(0, 0, 0, .03);
-}
 
 .msglogin {
 	background-color: rgba(0, 0, 0, .03);
@@ -65,7 +62,6 @@ a:hover {
 	margin-top: 20px;
 	text-align: center;
 	border-radius: 8px;
-	display: none;
 }
 
 #QAA {
@@ -179,9 +175,6 @@ a:hover {
 	font-size: 24px;
 }
 
-#quest2 {
-	display: none;
-}
 
 .noleave {
 	text-align: center;
@@ -274,6 +267,7 @@ to {
 	color: #bbb;
 	text-decoration: none;
 	cursor: pointer;
+	background-color: rgba(0, 0, 0, .03);
 }
 
 /* 100% Image Width on Smaller Screens */

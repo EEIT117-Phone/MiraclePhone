@@ -109,20 +109,9 @@
 
 		<div class="QA">
 			<ul class="down">
-				<li id="aaa">商品說明</li>
 				<li id="bbb">問與答(${size})</li>
 			</ul>
-			<div>
-				<div id="quest1" class="quest">
-					<p>手機型號:${info.phoneType.label}</p>
-					<p>容量:${info.storage.label}</p>
-					<p>顏色:${info.color.label}</p>
-					<p>機況:${info.phoneCondition}</p>
-					<p>保固:${info.phoneWarranty}</p>
-					<p>種類:${info.phoneSort}</p>
-					<p>出廠日期:${info.yearOfManufacture}</p>
-					<p>販售原因:${info.sellReason}</p>
-				</div>
+			
 				<div id="quest2" class="quest">
 					<c:if test="${ qa[0] == null}">
 						<p class="noleave">目前暫無留言</p>
