@@ -6,9 +6,9 @@
 
 <head>
 <title>後台管理</title>
-<link href="<c:url value='/css/productManagement.css' />" rel="stylesheet">
+<link href="<c:url value='/css/memberManagement.css' />" rel="stylesheet">
 <script src="<c:url value='/js/backstageCustomer.js' />"></script>
-<script src="<c:url value='/js/productManagement.js' />"></script>
+<script src="<c:url value='/js/memberManagement.js' />"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -26,7 +26,7 @@
   	<div class="dropdown-menu">
       <a class="dropdown-item" href='<c:url value="/customerContact?selectq1=賣家相關&selectq2=賣家評價" />'>賣家相關</a>
       <a class="dropdown-item" href='<c:url value="/customerContact?selectq1=配送問題&selectq2=配送時長" />'>配送問題</a>
-      <a class="dropdown-item" href='<c:url value="/customerContact?selectq1=會員相關&selectq2=修改會員資料" />'>會員相關</a>
+      <a class="dropdown-item" href='<c:url value="/bcustomerContact?selectq1=會員相關&selectq2=修改會員資料" />'>會員相關</a>
       <a class="dropdown-item" href='<c:url value="/customerContact?selectq1=退貨及退款&selectq2=退貨進度查詢" />'>退貨及退款</a>
     </div>
     
@@ -35,8 +35,8 @@
   </nav>
   
   <main id="main">
-  <h2>搜尋商品</h2>
-    <form:form servletRelativeAction="/productManagement/searchProduct" method="POST" enctype="application/x-www-form-urlencoded" modelAttribute="searchBean">
+  <h2>會員管理</h2><br>
+    <form:form servletRelativeAction="/memberManagement/searchMember" method="get" modelAttribute="searchBean">
            <table class="searchtable">
            		<thead>
            			<tr>
@@ -45,11 +45,8 @@
                     	<form:input path="account" class="searchBox form-control"/>
            				</th>
            			<th>
-           				<form:label path="productId">商品編號</form:label>
-                    	<form:input path="productId" class="searchBox form-control"/>
-           			</th>
-           			<th >
-                   		<form:checkboxes class="form-check-input" items="${statusList}" path="status" element="div"/><br>
+           				<form:label path="idnumber">身分證字號</form:label>
+                    	<form:input path="idnumber" class="searchBox form-control"/>
            			</th>
            			</tr>
            		</thead>
@@ -62,41 +59,38 @@
             	</div>
             </div>
   	</form:form>	
+    
     <table class="productManagement-header table">
   		<c:forEach varStatus="status"  var="result"  items="${results}" >
   		<thead class="thead-dark">
    			<tr>
-     		 <th scope="col" colspan="3">商品編號 ：${result.productId}</th>
+     		 <th scope="col" colspan="3">會員編號 ：${result.account}</th>
   	 		</tr>
  		 </thead>
   	<tbody>
     <tr>
       <td  rowspan="3">
-      
-      	<a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
-      	<img src="<c:url value='/fs/img/${result.pic2}' />" border=0 width=105px height=140px /> 
-      	
-      	</a>
+      	<img src="<c:url value='/fs/img/${result.pic}' />" border=0 width=105px height=140px /> 
 	 </td>
-      <td>商品名稱 ：${result.phoneType.label}</td>
+      <td>姓名 ：${result.name}</td>
       <td>
-      	商品狀態 ：<span id = "status${status.count}">${result.status}</span>
-      	<button type="button" name='${result.productId}' value="${result.productId}" class="status btn btn-outline-primary" id="status-control${status.count}"></button>
+      	刊登數 ：${result.postAmount}
       </td>
     </tr>
     <tr>
-      <td>賣家帳號 ：${result.account}</td>
-      <td class="moneyFormat">商品價格 ：<fmt:formatNumber value="${result.amount}" type="number"/>元</td>
+      <td>生日 ：${result.birth}</td>
+      <td>身分證字號 ：${result.idnumber}</td>
       
     </tr>
     <tr>
-      <td>容量 ：${result.storage.label}</td>
-      <td>顏色 ：${result.color.label}</td>
+      <td>身分 ：${result.seller eq "seller" ? "買家／賣家 " : "買家" }</td>
+      <td>
+		<input type="button" class="status btn btn-outline-primary" value="${result.status eq "blacklist" ? "恢復權限" :"設為黑名單"}" onclick="javascript: location.href = '<c:url value='/memberManagement/deleteMember?account=${result.account}&status=${result.status eq "blacklist" ? "NULL" :"blacklist"}' />'"/>
+		</td>
     </tr>
   </tbody>
   </c:forEach>
 </table>
-
 
     
   </main>

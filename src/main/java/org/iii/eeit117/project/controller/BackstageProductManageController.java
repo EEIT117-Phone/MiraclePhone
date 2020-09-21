@@ -1,10 +1,7 @@
 package org.iii.eeit117.project.controller;
 
-import java.util.List;
 
-import org.iii.eeit117.project.model.service.CustomerService;
 import org.iii.eeit117.project.model.service.ProductService;
-import org.iii.eeit117.project.model.vo.CustomerServiceVo;
 import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.search.ProductSearchBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +46,6 @@ public class BackstageProductManageController {
 		System.out.println(productId);
 		ProductVo productVo = productService.findOne(productId);
 		String status = productVo.getStatus();
-		System.out.println("++++++++++++++status:"+status);
 		if(status.equals("上架中")) {
 			productVo.setStatus("暫時下架");
 			System.out.println("更改暫時下架");

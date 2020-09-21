@@ -12,6 +12,7 @@ import javax.persistence.Id;
 
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "Users")
@@ -78,6 +79,9 @@ public class UserVo {
 	
 	@Column(name = "SHIP_INFO_POST")  //商品移交:郵寄
 	private String shipInfoPost;
+	
+	@Transient
+	private Long postAmount;
 	
 	public String getAccount() {
 		return account;
@@ -230,7 +234,13 @@ public class UserVo {
 	public void setShipInfoPost(String shipInfoPost) {
 		this.shipInfoPost = shipInfoPost;
 	}
-	
-	
+
+	public Long getPostAmount() {
+		return postAmount;
+	}
+
+	public void setPostAmount(Long postAmount) {
+		this.postAmount = postAmount;
+	}
 
 }

@@ -1,5 +1,7 @@
 package org.iii.eeit117.project.model.data;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum PhoneTypeEnum {
 
 	/* iPhone 6 */
@@ -70,7 +72,7 @@ public enum PhoneTypeEnum {
 		}
 		return null;
 	}
-
+	@JsonValue
 	public String getLabel() {
 		return label;
 	}

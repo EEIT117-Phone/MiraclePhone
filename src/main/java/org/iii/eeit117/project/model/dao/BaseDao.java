@@ -34,6 +34,16 @@ public abstract class BaseDao<T, E extends Serializable> {
 		return getSession().createQuery(query).getResultList();
 	}
 	
+	public Long countByAndCondition(String field, Object val) {
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		CriteriaBuilder builder = session.getCriteriaBuilder();
+		CriteriaQuery<Long> query = builder.createQuery(Long.class);
+		Root<T> root = query.from(getTypeParameterClass());
+		query.select(builder.count(root));
+		query.where(builder.and(builder.equal(root.get(field), val)));
+		return getSession().createQuery(query).getSingleResult();
+	}
+	
 	public List<T> findAll() {
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		CriteriaBuilder builder = session.getCriteriaBuilder();

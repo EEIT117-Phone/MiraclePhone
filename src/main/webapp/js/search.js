@@ -19,7 +19,7 @@ $("input[type='checkbox']").click(function (){
 					"<img class='card-img' src='http://localhost:8080/MiraclePhone/fs/img/" + result[i].pic1 + "'alt='Card image cap'>" +
 					"<div class='card-body search-card-body'>" + 
 					"<p class='card-title'>" + "[" + result[i].phoneSort + "]" + result[i].phoneType + result[i].storage + result[i].color + "色</p>" +
-					"<p class='card-text mr-2 d-inline-block mb-0'>$ <fmt:formatNumber value='" + result[i].amount + "'type='number'/></p><i class='fa fa-eye fa-fw text-secondary mr-0' aria-hidden='true'></i><p class='card-city text-secondary d-inline-block mb-0'>" + result[i].watch + "</p>" +
+					"<p class='card-text mr-2 d-inline-block mb-0'>$ " + result[i].amount + "</p><i class='fa fa-eye fa-fw text-secondary mr-0' aria-hidden='true'></i><p class='card-city text-secondary d-inline-block mb-0'>" + result[i].watch + "</p>" +
 					"<p class='card-city mb-0 text-right'>" + result[i].county + result[i].district + "</p>" +
 					"</div></div></a>"
 				}

@@ -1,8 +1,6 @@
 package org.iii.eeit117.project.filter;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -18,12 +16,12 @@ import org.iii.eeit117.project.model.vo.UserVo;
 import org.iii.eeit117.project.property.AppProperty;
 
 public class AuthencationFilter implements Filter {
-	
-	public static final List<String> WHILE_LIST = Arrays.asList("/js", "/css", "/images", "/fs/img", "/index", "/user", "/search", "/buyer", "/contact","/vertifimail","/backstage");
 
-	
+	public static final String[] WHILE_LIST = { "/js", "/css", "/images", "/fs/img", "/index", "/user", "/search",
+			"/buyer", "/contact", "/vertifimail", "/cart/item", "/cart/cartAdd" };
+
 	private String contextPath;
-	
+
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
@@ -32,34 +30,32 @@ public class AuthencationFilter implements Filter {
 		HttpSession session = req.getSession();
 		// 白名單檢查
 		String uri = req.getRequestURI().replace(contextPath, "");
-		
+
 		if ("".equals(uri) || "/".equals(uri)) {
 			chain.doFilter(request, response);
-            return;
+			return;
 		}
 		for (String white : WHILE_LIST) {
-            if (uri.indexOf(white) != -1) {
-            	chain.doFilter(request, response);
-                return;
-            }
+			if (uri.indexOf(white) != -1) {
+				chain.doFilter(request, response);
+				return;
+			}
 		}
-		
+
 		// 驗證使用者是否登入
 		UserVo user = (UserVo) session.getAttribute(AppProperty.LOGIN_USER);
-        if (user != null) {
-        	session.setAttribute(AppProperty.REDIRECT_URL, null);
-        	chain.doFilter(request, response);
-        } else {
-        	String redirectUrl = uri + (req.getQueryString() == null ? "" : "?" + req.getQueryString());
-        	session.setAttribute(AppProperty.REDIRECT_URL, redirectUrl);
-        	resp.sendRedirect(contextPath + "/userlogin");
-        	return;
-        }
-        
-		
+		if (user != null) {
+			session.setAttribute(AppProperty.REDIRECT_URL, null);
+			chain.doFilter(request, response);
+		} else {
+			String redirectUrl = uri + (req.getQueryString() == null ? "" : "?" + req.getQueryString());
+			session.setAttribute(AppProperty.REDIRECT_URL, redirectUrl);
+			resp.sendRedirect(contextPath + "/userlogin");
+			return;
+		}
+
 	}
 
-	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		contextPath = filterConfig.getServletContext().getContextPath();
@@ -67,7 +63,7 @@ public class AuthencationFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		
+
 	}
 
 }

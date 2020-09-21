@@ -9,26 +9,35 @@
 <title>賣家刊登頁面</title>
 <link href="<c:url value='/css/product.css' />" rel="stylesheet">
 <!-- twZip -->
-<script onload="" src="<c:url value='/js/product.js' />"></script>
-<script src="<c:url value='/js/jquery.twzipcode.min.js' />"></script>
+<script src="<c:url value='/js/product.js' />"></script>
+<script src="<c:url value='/js/jquery.twzipcode.min.js'/>"></script>
 <style>
 select {
-	width: 300px;
+	width: 85%;
 }
 
-input#amount {
-	width: 280px;
+input {
+	width: 100%;
 	align-content: center;
 	text-align: center;
+}
+td {
+	max-width: 100%;
+}
+label {
+	max-width: 100%;
+}
+table {
+	border: 1px solid black;
 }
 </style>
 </head>
 <body>
-	<center>
-		<div align="center" style="width: 50%;">
-			<table class="table" style="margin-top: 0px">
-				<form:form servletRelativeAction="/product/insert" method="post" enctype="multipart/form-data"
-					modelAttribute="product">
+	<div>
+		<div style="width: 50%; margin: 0 auto">
+			<form:form servletRelativeAction="/product/insert" method="post" enctype="multipart/form-data"
+				modelAttribute="product">
+				<table class="table">
 					<thead class="thead-dark">
 						<tr>
 							<th colspan="2"><h2 style="text-align: center;">手機刊登</h2></th>
@@ -101,36 +110,37 @@ input#amount {
 									path="yearOfManufacture" type="month" name="yearOfManufacture" min="2007-06" max="2020-10"
 									value="2020-10" /></td>
 							<td rowspan="4"><textarea
-									style="width: 530px; height: 340px; font-size: 1em; color: blue;"
-									placeholder="請輸入銷售原因&備註 (上限200字)" rows=10 cols="50px" maxlength="200" maxrows="10"
-									id="sellReason" name="sellReason" required="required"></textarea></td>
+									style="width: 100%; height: 340px; font-size: 1em; color: blue;"
+									placeholder="請輸入銷售原因&備註 (上限200字)" rows=10 cols="50px" maxlength="200" id="sellReason"
+									name="sellReason" required="required"></textarea></td>
 						</tr>
 						<tr>
-							<td><div class="form-check form-check-inline" style="width: 70px;">
+							<td><div class="form-check form-check-inline">
 									<label>配件:</label>
 								</div>
-								<div class="form-check form-check-inline" style="width: 70px;">
+								<div class="form-check form-check-inline">
 									<label class="form-check-label" for="inlineCheckboxHeadphone">耳機 </label><input
 										class="form-check-input" type="checkbox" id="inlineCheckboxHeadphone" name="headPhone"
 										value="1">
 								</div>
-								<div class="form-check form-check-inline" style="width: 70px">
+								<div class="form-check form-check-inline">
 									<label class="form-check-label" for="inlineCheckboxPlug">插頭 </label><input
 										class="form-check-input" type="checkbox" id="inlineCheckboxPlug" name="plug" value="1">
 								</div>
-								<div class="form-check form-check-inline" style="width: 70px">
+								<div class="form-check form-check-inline">
 									<label class="form-check-label" for="inlineCheckboxLine">線 </label><input
 										class="form-check-input" type="checkbox" id="inlineCheckboxLine" name="line" value="1">
 								</div></td>
 						</tr>
 						<tr>
-							<td><div id="twzipcode">
-									<label>交易地點:</label>
+							<td>
+								<div id="twzipcode">
+									交易地點:
 									<div data-role="county" data-name="county" data-value="" data-style="county-style"></div>
 									<div data-role="district" data-name="district" data-value="" data-style="district-style"></div>
 									<div data-role="zipcode" data-name="zipcode" data-value="" data-style="zipcode-style"></div>
-								</div></td>
-
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<td><label for="amount">銷售金額:</label> <form:input type="number" max="50000" min="0"
@@ -143,15 +153,18 @@ input#amount {
 							</label></td>
 						</tr>
 					</tbody>
-				</form:form>
-			</table>
+				</table>
+			</form:form>
 		</div>
-	</center>
+	</div>
 </body>
 <script>
-$(".custom-file-input").on("change", function() {
-	  var fileName = $(this).val().split("\\").pop();
-	  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-	});
+	$(".custom-file-input").on(
+			"change",
+			function() {
+				var fileName = $(this).val().split("\\").pop();
+				$(this).siblings(".custom-file-label").addClass("selected")
+						.html(fileName);
+			});
 </script>
 </html>

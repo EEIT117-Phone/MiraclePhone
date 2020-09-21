@@ -1,3 +1,7 @@
+body {
+ font-family: "蘋果儷中黑", Microsoft JhengHei, "微軟正黑體", sans-serif;
+ margin: 10px auto;
+}
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -54,11 +58,11 @@
   }
 
   .cart-main tbody td:nth-child(2) {
-    width: 27%;
+    width: 17%;
   }
 
   .cart-main tbody td:nth-child(3) {
-    width: 30%;
+    width: 36%;
   }
 
   .cart-main tbody td:nth-child(4) {
@@ -72,14 +76,14 @@
     width: 10%;
   }
   .cart-main tbody td:nth-child(7) {
-    width: 10%;
+    width: 14%;
   }
   
   /* .cart-main tbody td{
     height:150px;
   } */
   .cart-main tbody tr img{
-    width:140px;
+    width:110px;
     height:auto;
     border: grey 1px solid;
   }
@@ -95,7 +99,7 @@
     margin-bottom: 100px;
   }
   .cart-summary tbody{
-    background-color:lightblue;
+    background-color:#F3F3FA;
     border-top: gray 2px solid;
   }
   .cart-summary tbody td:nth-child(1) {
@@ -132,7 +136,11 @@
   
 
   .ship-address{
-    width:800px;
-    margin: auto;
     display: none;
+    width:710px;
+    margin: auto;
+    margin-top: 20px
+  }
+    .sum{
+  display:none;
   }

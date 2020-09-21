@@ -12,7 +12,6 @@ $(document).ready(function () {
 				productId : id
 			},
 			success : function(response) {
-				btn.siblings('span').text("111");
 				if("核准上架"==btn.text()){
 					btn.siblings('span').text("上架中");
 					btn.text("暫時下架");

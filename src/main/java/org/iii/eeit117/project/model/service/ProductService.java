@@ -7,4 +7,8 @@ import org.iii.eeit117.project.model.vo.ProductVo;
 
 public interface ProductService extends BaseService<ProductVo,Integer> {
 	public List<ProductVo> findByAccount(String account);
+	
+	public Long countByAccount(String account);
+	
+	
 }

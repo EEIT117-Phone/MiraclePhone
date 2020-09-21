@@ -1,15 +1,3 @@
-* {
-	margin: 0px;
-	padding: 0px;
-}
-
-.head1 {
-	margin: auto;
-	background-color: gray;
-	width: 900px;
-	height: 80px;
-}
-
 a {
 	text-decoration: none;
 }
@@ -18,166 +6,126 @@ a:hover {
 	text-decoration: underline;
 }
 
+.link1 {
+	width: 100%;
+	padding: 0px 8rem;
+	/* 	position: relative; */
+}
+
+.link3 {
+	width: 50%;
+	max-height: 650px;
+}
+
 .small {
 	width: 55px;
 	height: 55px;
-	border: gray 1px solid;
+	border: 1px solid rgba(0, 0, 0, .125);
+	border-radius: 5px;
 	float: left;
-	margin-left: 23px;
-	margin-top: 10px;
-}
-
-.stl1 {
-	font-size: 14px;
-	margin-left: 5px;
-	width: 400px;
-	height: 240px;
+	object-fit: scale-down;
 }
 
 .stl1 p {
 	margin-top: 8px;
 }
 
-.down {
-	margin:auto;
-	width: 500px;
-	height: 10px;
-	margin-top: 30px;
-}
-
-.down li:hover{
-	color:black;
-	cursor:pointer;
-}
-
-.down li {
-	color:gray;
+.msglogin {
+	background-color: rgba(0, 0, 0, .03);
 	font-size: 20px;
 	font-weight: bolder;
-	list-style: none;
-	float: left;
-	width: 150px;
-	background-color: white;
-	margin-left: 8px;
-	text-align: center;
-	line-height: 28px;
-	border-radius: 4px;
-}
-
-#aaa{
-	background-color: lightcyan;
-}
-
-.msglogin{
-	background-color:lightcyan;
-	font-size: 20px;
-	font-weight: bolder;
-	font-color:gray;
-	width:250px;
-	line-height:50px;
-	margin:auto;
-	margin-top:20px;
+	font-color: gray;
+	width: 250px;
+	line-height: 50px;
+	margin: auto;
+	margin-top: 20px;
 	text-align: center;
 	border-radius: 8px;
-	display:none;
 }
 
 #QAA {
-	display: none;
-	margin-top:50px;
+	margin-top: 50px;
 	text-align: center;
 }
 
-.link1 {
-	margin: auto;
-	width: 1200px;
-	height: 100%;
-	position: relative;
+.imgArea {
+	width: 100%;
+	background-color: rgba(0, 0, 0, .03);
+	border: 1px solid rgba(0, 0, 0, .125);
+	border-radius: 0.75rem;
 }
 
-.link2 {
-	margin-top: 100px;
+.QA {
+	width: 100%;
+	/* 	max-height: 300px; */
 }
 
-h3 {
-	margin-top: 40px;
+.mid {
+	display: none;
 }
 
-.link3 {
-	width: 550px;
-	height: 550px;
-	border: gray 1px solid;
-	margin-top: 30px;
+.buyerquest {
 	background-color: white;
+	border-radius: 0.75rem;
 }
 
-.mid{
-	display:none;
+.buyerquest p {
+	font-size: 18px;
 }
 
-.buyerquest{
-	background-color:#F3F3FA;
+.useranswer {
+	font-size: 18px;
+	background-color: rgba(0, 0, 0, .03);
 }
 
-.buyerquest p{
-	font-size:18px;
-	margin-left: 30px;
-}
-
-.useranswer{
-	font-size:18px;
-	margin-left: 50px
-}
-
-.useranswer .selleranswer{
-	font-size:14px;
-	color:#C7C7E2;
+.useranswer .selleranswer {
+	font-size: 14px;
+	color: #C7C7E2;
 }
 
 .imgdiv {
-	text-align:center;
-	line-height:450px;
+	text-align: center;
+	/* 	line-height:450px; */
 	width: 500px;
-	height: 450px;
-	margin-top: 10px;
-	margin-left: 18px;
+	/* 	height: 450px; */
 	overflow: hidden;
+	object-fit: cover;
 }
 
-.img1{
-	max-width:500px; max-height:600px;
-	border-radius: 5px;
+.img1 {
+	height: 100%;
+	width: 80%;
+	max-width: 500px;
+	border-radius: 10px;
 	cursor: pointer;
 	transition: 0.3s;
+	object-fit: scale-down;
 }
 
-.ansarea{
-	display:none;
+.ansarea {
+	display: none;
 }
 
 .salse {
-	width: 600px;
-	height: 450px;
-	background-color: white;
-	position: absolute;
-	top: 210px;
-	left: 620px;
-	border: gray 1px solid;
+	width: 38%;
 }
 
 .salse2 {
+	/* 	font-size: 18px; */
+	color: gray;
+	/* 	border-radius: 10px; */
+	line-height: 200%;
+}
+
+.productInfo {
 	font-size: 18px;
 	color: gray;
-	width: 96%;
-	height: 80px;
-	background-color: lightcyan;
-	margin: 9px;
-	border-radius: 10px;
+	line-height: 100%;
 }
 
 .span1 {
-	font-size: 28px;
-	color: red;
+	font-size: 1.8rem;
+	color: #FF5733;
 	font-weight: bold;
 }
 
@@ -205,25 +153,20 @@ h3 {
 }
 
 .quest {
-	margin-top: 50px;
 	width: 100%;
 	background-color: white;
-	border:2px black solid;
+	border: 1px solid rgba(0, 0, 0, .125);
+	border-radius: 0.75rem;
 	font-size: 24px;
 }
 
-#quest2 {
-	display: none;
-}
-
-.noleave{
+.noleave {
 	text-align: center;
 }
 
 #quest3 {
 	display: none;
 }
-
 
 #myImg:hover {
 	opacity: 0.7;
@@ -308,6 +251,7 @@ to {
 	color: #bbb;
 	text-decoration: none;
 	cursor: pointer;
+	background-color: rgba(0, 0, 0, .03);
 }
 
 /* 100% Image Width on Smaller Screens */

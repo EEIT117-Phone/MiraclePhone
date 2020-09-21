@@ -1,3 +1,7 @@
+body {
+ font-family: "蘋果儷中黑", Microsoft JhengHei, "微軟正黑體", sans-serif;
+ margin: 10px auto;
+}
 .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -77,7 +81,7 @@
   
   
   .cart-main tbody tr img{
-    width:140px;
+    width:110px;
     height:auto;
     border: grey 1px solid;
   }
@@ -87,7 +91,7 @@
     margin-bottom: 100px;
   }
   .cart-summary tbody{
-    background-color:lightblue;
+    background-color:#F3F3FA;
     border-top: gray 2px solid;
   }
   .cart-summary tbody td:nth-child(1) {
@@ -99,5 +103,7 @@
   .cart-summary tbody td:nth-child(3) {
     width: 15%;
   }
-  
+    .sum{
+  display:none;
+  }
   

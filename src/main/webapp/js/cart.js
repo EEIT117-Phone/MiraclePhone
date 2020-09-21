@@ -1,8 +1,7 @@
 $(document).ready(function () {
-
+	
     cartDelete();
     cartSummary();
-	moneyFormat();
 });
 function cartDelete() {
     $(".cart-delete").click(function () {
@@ -12,19 +11,13 @@ function cartDelete() {
     })
 }
 
-function moneyFormat() {
-	
-	for(a=1; a<=10; a++){
-    $("#money"+a).text(toCurrency($("#money"+a).text()))
-		
-	}
-}
+
 
 function cartSummary() {
-    summaryColumn = $(".cart-main tbody tr");
+    summaryColumn = $(".product td");
     let totalPrice = 0;
 	
-    summaryColumn.find("td:nth-child(7)").each(function () {
+    summaryColumn.find("span").each(function () {
         var eachPrice = parseInt($(this).text());
         totalPrice += eachPrice;
     });

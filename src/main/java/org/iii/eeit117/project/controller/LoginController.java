@@ -89,6 +89,7 @@ public class LoginController {
 		
 		if(loginStatus.equals("acc&&pwd are corrected")) {
 			UserVo userVo=userService.findOne(account);
+
 			httpsession=request.getSession();
 			httpsession.setAttribute("usercolumn",list);
 			httpsession.setAttribute("user", userVo); //登入成功將session內放入uservo物件
@@ -153,6 +154,8 @@ public class LoginController {
 	@RequestMapping(value = "/userlogout", method = RequestMethod.GET) 
 	public String logout(HttpSession session) {
 		session.removeAttribute(AppProperty.LOGIN_USER);
+		session.removeAttribute("cart");
+    	session.removeAttribute("cartItemMap");
 		return "redirect:/";
 	}	
 	

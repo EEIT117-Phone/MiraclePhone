@@ -16,6 +16,11 @@ public class ProductServiceImpl extends BaseServiceImpl<ProductVo, Integer> impl
 	public List<ProductVo> findByAccount(String account) {
 		return productDao.findByAndCondition("account", account);
 	}
+	
+	@Override
+	public Long countByAccount(String account) {
+		return productDao.countByAndCondition("account", account);
+	}
 
 	@Autowired
 	private ProductDao productDao;

@@ -24,6 +24,8 @@ import org.iii.eeit117.project.model.data.PhoneStorageEnum;
 import org.iii.eeit117.project.model.data.PhoneTypeEnum;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "PRODUCT")
 public class ProductVo {
@@ -162,6 +164,7 @@ public class ProductVo {
 
 	@ManyToOne
     @JoinColumn(name="ORDER_ID")
+	@JsonBackReference
 	private OrderInfoVo orderInfoVO;
 
 	public void setPicId(Integer pos, Integer fileStorageId) {
