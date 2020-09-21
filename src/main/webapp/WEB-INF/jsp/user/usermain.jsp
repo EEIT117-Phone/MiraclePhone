@@ -20,7 +20,7 @@
 <h1>會員資料</h1>
 <table class="table table-bordered">
 <thead>
-<c:forEach items="${usercolumn}" var="column" begin="0" end="11">
+<c:forEach items="${usercolumn}" var="column" begin="0" end="12">
 <td><c:out value="${column}"/></td> <%--將後端傳來的column-name list用foreach印出 --%>
 </c:forEach>
 </thead>
@@ -30,14 +30,16 @@
 <td>${user.name}</td>
 <td>${user.idnumber}</td>
 <td>${user.sex}</td>
-<td>${user.age}</td>
 <td>${user.birth}</td>
 <td>${user.county}</td>
 <td>${user.district}</td>
 <td>${user.zipcode}</td>
-<td>${user.status}</td>
-<td>${user.seller}</td>
 <td>${user.bankaccount}</td>
+<td>${user.seller}</td>
+<td>${user.age}</td>
+<td>${user.pic}</td>
+
+
 </tr>
 </table>
 <input id="userdata" type="hidden" value="${user}">
@@ -55,8 +57,8 @@
 <input type="text" id="bankaccount" name="bankaccount" value="${user.bankaccount}">
 
 <br>
-<select class="col-lg-3" name="county" aria-describedby="form-county" required=""></select> 
-<select class="col-lg-3" name="district" aria-describedby="form-district" required=""></select>
+<select class="col-lg-3" name="county" aria-describedby="form-county" ></select> 
+<select class="col-lg-3" name="district" aria-describedby="form-district"></select>
 <input class="d-none" name="zipcode" />
 <br>
 <input type="radio" id="seller" name="seller" value="seller" class="form-input">

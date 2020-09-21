@@ -2,6 +2,7 @@ package org.iii.eeit117.project.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -84,24 +85,20 @@ public class LoginController {
 		String password=request.getParameter("userpassword");//取得輸入密碼
 		String lastpageurl=request.getParameter("lastpage");//取得上一頁網址
 		String loginStatus=userService.checkLogin(account, password); //驗證取得的帳密是否存在資料庫
-		List<String> list=new ArrayList<String>();
-		list=userService.getColumnName(); //取得Users表單上欄位名稱
-		System.out.println(list);
+		List<String> list=Arrays.asList("帳號","密碼","姓名","身分證字號","性別","生日","縣市","鄉鎮區","郵遞區號","銀行帳號","賣家權限","年齡","大頭貼");
+		
 		if(loginStatus.equals("acc&&pwd are corrected")) {
 			UserVo userVo=userService.findOne(account);
 			httpsession=request.getSession();
 			httpsession.setAttribute("usercolumn",list);
 			httpsession.setAttribute("user", userVo); //登入成功將session內放入uservo物件
 			
-//			model.addAttribute("user",userVo); //傳送使用者的資料
-//			model.addAttribute("usercolumn",list);//傳送Users表單的欄位名
-			
 			if (httpsession.getAttribute(AppProperty.REDIRECT_URL) != null) {
 				return "redirect:/" + httpsession.getAttribute(AppProperty.REDIRECT_URL);
     		} else {
     			return "redirect:/";
     		}
-//			response.sendRedirect(lastpageurl);//驗證成功跳轉回上一頁
+
 			
 		}
 		model.addAttribute("loginstatus",loginStatus);
