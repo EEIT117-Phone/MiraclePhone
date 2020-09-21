@@ -25,7 +25,7 @@
 		<p>觀看次數:${info.watch}次</p>
 
 		<div class="imgArea overflow-auto">
-			<div class="salse float-right mx-5 mb-3">
+			<div class="salse float-right mr-5 mb-3">
 				<div class="salse2 mt-5">
 					<div>
 						<span class="align-middle h4 font-weight-bold">直購價 :</span><span class="span1 align-middle"> $ <fmt:formatNumber value="${info.amount}" type="number" /></span>
