@@ -1,5 +1,7 @@
 package org.iii.eeit117.project.model.data;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum PhoneStorageEnum {
 
 	/* 16G */
@@ -38,6 +40,7 @@ public enum PhoneStorageEnum {
 		return null;
 	}
 	
+	@JsonValue
 	public String getLabel() {
 		return label;
 	}

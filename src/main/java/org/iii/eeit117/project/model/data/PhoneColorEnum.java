@@ -1,5 +1,7 @@
 package org.iii.eeit117.project.model.data;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum PhoneColorEnum {
 
 	/* 太空灰 */
@@ -61,7 +63,7 @@ public enum PhoneColorEnum {
 		}
 		return null;
 	}
-
+	@JsonValue
 	public String getLabel() {
 		return label;
 	}
