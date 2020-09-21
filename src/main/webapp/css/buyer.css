@@ -14,7 +14,7 @@ a:hover {
 
 .link3 {
 	width: 50%;
-	/* 	max-height: 500px; */
+	max-height: 650px;
 }
 
 .small {
@@ -23,7 +23,7 @@ a:hover {
 	border: 1px solid rgba(0, 0, 0, .125);
 	border-radius: 5px;
 	float: left;
-	object-fit: cover;
+	object-fit: scale-down;
 }
 
 .stl1 p {
@@ -93,12 +93,13 @@ a:hover {
 }
 
 .img1 {
+	height: 500px;
 	width: 800px;
 	max-width: 500px;
 	border-radius: 10px;
 	cursor: pointer;
 	transition: 0.3s;
-	object-fit: cover;
+	object-fit: scale-down;
 }
 
 .ansarea {
