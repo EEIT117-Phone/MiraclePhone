@@ -15,8 +15,8 @@
             
             <li><img src="<c:url value='/images/index2.webp' />" alt=""></li>
             <li><img src="<c:url value='/images/index3.png' />" alt=""></li>
-            <li><img src="<c:url value='/images/iphoneseconds.jpg' />" alt=""></li>
-            <li><img src="<c:url value='/images/index1.jfif' />" alt=""></li>
+            <li><img src="<c:url value='/images/indexiphone.jpg' />" alt=""></li>
+            <li><img src="<c:url value='/images/iphoneindex4.jpg' />" alt=""></li>
         </ul>
         <div id="inputarea">
             <form id="test" action="<c:url value='/search/result' />" method="get">
