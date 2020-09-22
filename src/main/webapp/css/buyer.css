@@ -85,8 +85,8 @@ a:hover {
 
 .imgdiv {
 	/* 	line-height:450px; */
-	height: 40rem;
-	width: 40rem;
+	height: 30rem;
+	width: 30rem;
 	/* 	height: 450px; */
 	overflow: hidden;
 	object-fit: scale-down;
