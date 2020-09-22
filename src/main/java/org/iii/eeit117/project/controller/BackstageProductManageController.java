@@ -1,6 +1,7 @@
 package org.iii.eeit117.project.controller;
 
 
+import org.iii.eeit117.project.model.service.BackstageService;
 import org.iii.eeit117.project.model.service.ProductService;
 import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.search.ProductSearchBean;
@@ -20,6 +21,8 @@ public class BackstageProductManageController {
 
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private BackstageService backstageService;
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
 	public String goMainPageGET(ProductSearchBean searchBean, Model model) {
@@ -54,6 +57,7 @@ public class BackstageProductManageController {
 			System.out.println("更改上架中");
 		}
 		productService.save(productVo);
+		backstageService.offShelfMail(productId);
 		return productVo.getStatus();
 	}
 
