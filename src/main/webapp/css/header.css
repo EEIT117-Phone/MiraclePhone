@@ -23,15 +23,6 @@
 	/* background:red; */
 }
 
-.usersmenu.active {
-	display:block;
-	cursor: pointer;
-	position: relative;
-	padding: 0 0 0 2px;
-	width:100px;
-	
-	/* background:red; */
-}
 
 .usersmenu ul {
 	position: relative;
@@ -53,11 +44,25 @@
 .urioption {
 	display:none;
     text-decoration: none;
+    background:black;
+    
+  
 }
 
+.urioption li{
+	 text-decoration: none;
+	 background:#3C3C3C;
+	 color:white;
+}
+
+.urioption li a{
+	 color:white;
+}
 
 .urioption li a:hover {
 	background: lightblue;
+	 text-decoration: none;
+	 display:block;
 }
 
 .usersmenu ul, li {
