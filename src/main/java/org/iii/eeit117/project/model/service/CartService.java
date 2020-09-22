@@ -10,4 +10,6 @@ import org.iii.eeit117.project.model.vo.ProductVo;
 public interface CartService {
 	public Map<String, CartVo> getCartItems(Set<Integer> productIds);
 	public Integer GetTotalAmount(Set<Integer> productIds);
+	public void sendOrderConfirmMail(Set<Integer> productIds);
+	public void soldOut(Set<Integer> productIds);
 }

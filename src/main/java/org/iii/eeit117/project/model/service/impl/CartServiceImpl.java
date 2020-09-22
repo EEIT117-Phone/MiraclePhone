@@ -2,6 +2,7 @@ package org.iii.eeit117.project.model.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import org.iii.eeit117.project.model.dao.BaseDao;
 import org.iii.eeit117.project.model.dao.CustomerServiceDao;
 import org.iii.eeit117.project.model.service.CartService;
 import org.iii.eeit117.project.model.service.CustomerService;
+import org.iii.eeit117.project.model.service.EmailService;
 import org.iii.eeit117.project.model.service.ProductService;
 import org.iii.eeit117.project.model.service.UserService;
 import org.iii.eeit117.project.model.util.HibernateUtil;
@@ -30,6 +32,8 @@ public class CartServiceImpl implements CartService {
 	private ProductService productService;
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private EmailService emailService;
 
 	@Override
 	public Map<String, CartVo> getCartItems(Set<Integer> productIds) {
@@ -66,8 +70,7 @@ public class CartServiceImpl implements CartService {
 					cartVo.setProductVos(productVos);
 					cartItems.put(cartVo.getAccount(), cartVo);
 				}else {
-					
-					cartItems.get(cartVo.getAccount()).getProductVos().add(productVo);
+					cartItems.get(account).getProductVos().add(productVo);
 				}
 			}
 		}
@@ -82,5 +85,28 @@ public class CartServiceImpl implements CartService {
 			totalAmount += productService.findOne(id).getAmount();
 		}
 		return totalAmount;
+	}
+
+	@Override
+	public void sendOrderConfirmMail(Set<Integer> productIds) {
+		String subject = "訂單已成立";
+		String text = "您的商品已售出，請盡快出貨!";
+		Set<String> mailSets = new HashSet<>();
+		for (Integer id : productIds) {
+			ProductVo productVo = productService.findOne(id);
+			mailSets.add(productVo.getAccount());
+		}
+		for(String mail : mailSets) {
+			emailService.sendSimpleMessage(mail, subject, text);
+		}
+	}
+
+	@Override
+	public void soldOut(Set<Integer> productIds) {
+		for (Integer id : productIds) {
+			ProductVo productVo = productService.findOne(id);
+			productVo.setStatus("已售出");
+			productService.save(productVo);
+		}
 	}
 }
