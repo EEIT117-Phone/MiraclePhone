@@ -45,7 +45,7 @@
         <div class="main-body-and-filter h-100">
             <div class="main-body">
                 <!--    VIP輪播        -->
-                <h4 class="ml-3">精選推薦</h4>
+                <p class="ml-3 h3">精選推薦</p>
                 <div class="owl-carousel owl-theme">          
                     <c:forEach varStatus="status" var="result" items="${results}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
@@ -69,7 +69,7 @@
                 </div>
 
 				<div class="d-inline-block w-100">
-                <h4 class="float-left ml-3">搜尋結果</h4>
+                <p class="h3 float-left ml-3">搜尋結果</p>
                 <div class="button-group sort-by-button-group">
               		<button id="amountButton" class="btn btn-primary float-right h-100 my-0 mr-3 ml-2" data-sort-value="amount">價格(低到高)↑</button>
               		<button class="btn btn-primary float-right h-100 my-0 mx-2" data-sort-value="new">上架時間</button>
@@ -119,7 +119,7 @@
                     </div>
                 </div>
 
-                <h4>進階篩選</h4>
+                <p class="h3">進階篩選</p>
                 <form:form servletRelativeAction="/search/result" method="get"
                             enctype="application/x-www-form-urlencoded" modelAttribute="searchBean">
 <!--                             <button type="submit" class="searchButton"></button> -->
