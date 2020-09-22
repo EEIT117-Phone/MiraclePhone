@@ -9,8 +9,8 @@
 <head>
     <title>銷售奇機</title>
     <!-- @@ CSS -->
-    <link rel="stylesheet" href="<c:url value='/css/owl.carousel.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/css/owl.theme.default.min.css' />" />
+    <link rel="stylesheet" href="<c:url value='/css/owl.carousel.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/css/font-awesome-4.7.0/css/font-awesome.min.css' />" />
     <link rel="stylesheet" href="<c:url value='/css/search.css' />" />
 </head>
@@ -46,7 +46,7 @@
             <div class="main-body">
                 <!--    VIP輪播        -->
                 <h4>精選推薦</h4>
-                <div class="owl-carousel">          
+                <div class="owl-carousel owl-theme">          
                     <c:forEach varStatus="status" var="result" items="${results}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
                             <div class="item card card-result element-item">
@@ -56,7 +56,7 @@
                                     <span class="card-title">[${result.phoneSort}] </span>
                                     <span class="card-title">${result.phoneType.label} </span>
                                     <span class="card-title">${result.storage.label} </span>
-                                    <span class="card-title">${result.color.label}</span><br>
+                                    <span class="card-title">${result.color.label}色</span><br>
                                     <p class="card-text d-inline-block mb-0">$</p>
                                     <p class="card-text d-inline-block mb-0 amount"><fmt:formatNumber value="${result.amount}" type="number"/></p>
                                     <i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i>
@@ -71,9 +71,9 @@
 				<div class="d-inline-block w-100">
                 <h4 class="float-left">搜尋結果</h4>
                 <div class="button-group sort-by-button-group">
-              	<button id="amountButton" class="btn btn-primary float-right h-100" data-sort-value="amount" style="margin: 0 10px 0 5px;">價格(低到高)↑</button>
-              	<button class="btn btn-primary float-right h-100" data-sort-value="new" style="margin: 0 5px 0 5px;">上架時間</button>
-              	<button class="btn btn-primary float-right h-100" data-sort-value="watch" style="margin: 0 5px 0 5px;">瀏覽次數</button>
+              		<button id="amountButton" class="btn btn-primary float-right h-100" data-sort-value="amount" style="margin: 0 10px 0 5px;">價格(低到高)↑</button>
+              		<button class="btn btn-primary float-right h-100" data-sort-value="new" style="margin: 0 5px 0 5px;">上架時間</button>
+              		<button class="btn btn-primary float-right h-100" data-sort-value="watch" style="margin: 0 5px 0 5px;">瀏覽次數</button>
                 </div>
                 </div>
               
@@ -122,7 +122,7 @@
                 <h4>進階篩選</h4>
                 <form:form servletRelativeAction="/search/result" method="get"
                             enctype="application/x-www-form-urlencoded" modelAttribute="searchBean">
-                            <button type="submit" class="searchButton"></button>
+<!--                             <button type="submit" class="searchButton"></button> -->
                 <div class="card">
                     <article class="card-group-item">
                         <header class="card-header">
@@ -188,30 +188,6 @@
                                             for="inlineCheckboxPost">中華郵政</label>
                                     </div>
                                     <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxOK"
-                                            value="OK"> <label class="form-check-label" for="inlineCheckboxOK">OK
-                                            Mart</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox7-11"
-                                            value="7-11"> <label class="form-check-label"
-                                            for="inlineCheckbox7-11">7-11</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxFamily"
-                                            value="Family"> <label class="form-check-label"
-                                            for="inlineCheckboxFamily">全家</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxLife"
-                                            value="Life"> <label class="form-check-label"
-                                            for="inlineCheckboxLife">萊爾富</label>
-                                    </div>
-                                    <br>
                                 </form>
                             </div>
                         </div>
@@ -224,8 +200,7 @@
     </div>
     <!-- @@ JS -->
     <script src="<c:url value='/js/popper.js' />"></script>
-    <script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
-    <script src="<c:url value='/js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
+    <script src="<c:url value='/js/owl.carousel.min.js' />"></script>
     <script src="<c:url value='/js/isotope.pkgd.min.js' />"></script>
     <script src="<c:url value='/js/owl.carousel.setting.js' />"></script>
     <script src="<c:url value='/js/search.js' />"></script>

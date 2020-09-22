@@ -100,13 +100,13 @@
 							</c:if>
 							<c:if
 								test="${li.massage != null and user.account == info.account and li.answer == null}">
-								<button class="ansbtn" type="button">回覆</button>
+								<button class="ansbtn btn btn-primary btn-sm" type="button">回覆</button>
 							</c:if>
 							<form class="ansarea" action="<c:url value='/buyer/answerpage'/>"
 								method="POST">
 								<input class="mid" type="text" name="userid" value="${li.mId}" />
-								<textarea rows="5" cols="50" name="text"></textarea>
-								<br> <input type="submit" value="提交">
+								<textarea rows="2" cols="30" name="text"></textarea>
+								<br> <input type="submit" class="btn btn-primary btn-sm" value="提交">
 							</form>
 						</div>
 					</c:forEach>
@@ -117,8 +117,8 @@
 				<c:when test="${user!=null}">
 					<form id="QAA" action="<c:url value="/buyer/massagepage"/>"
 						method="post">
-						<textarea rows="5" cols="50" name="textarea"></textarea>
-						<br> <input type="submit" value="提交">
+						<textarea rows="3" cols="45" name="textarea"></textarea>
+						<br> <input type="submit" class="btn btn-primary btn-sm" value="提交">
 					</form>
 				</c:when>
 				<c:when test="${user==null}">
@@ -160,7 +160,7 @@
 
 			<br>
 			<p class="h4 font-weight-bold">其他搜尋結果:</p>
-			<div class="owl-carousel">
+			<div class="owl-carousel owl-theme">
 				<c:forEach varStatus="status" var="result" items="${rs}">
 					<a target="_blank"
 						href="<c:url value='/buyer?productId=${result.productId}' />"
@@ -187,8 +187,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="<c:url value='/js/jquery-2.1.1.min.js' />"></script>
-	<script src="<c:url value='/js/owl.carousel.2.0.0-beta.2.4.min.js' />"></script>
+    <script src="<c:url value='/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/js/owl.carouselyin.js' />"></script>
 </body>
 
