@@ -26,8 +26,8 @@ public class BuyerController {
 	public static final String MODULE_NAME = "buyer";
 	public static final String ANSWER_PAGE = MODULE_NAME + "Answer";
 	private Integer proid;
-	MassageVo quest ;
-	
+	MassageVo quest;
+
 	@Autowired
 	private ProductService productService;
 
@@ -35,10 +35,9 @@ public class BuyerController {
 	private MassageService massageService;
 
 	@RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
-	public String sellerInfo(Model model, Integer productId
-							,HttpSession httpsession) {
-		
-		proid=productId;	
+	public String sellerInfo(Model model, Integer productId, HttpSession httpsession) {
+
+		proid = productId;
 		ProductVo productinfo = productService.findOne(productId);
 		productinfo.setWatch(productinfo.getWatch() + 1);
 		productService.save(productinfo);
@@ -51,9 +50,9 @@ public class BuyerController {
 	}
 
 	@RequestMapping(value = "/massagepage", method = RequestMethod.POST)
-	public String massageInfo(MassageVo mv, @RequestParam(name = "textarea") String massage,
-							HttpSession httpsession,HttpServletRequest request,
-							Model m) {
+	public String massageInfo(MassageVo mv, @RequestParam(name = "textarea") String massage, HttpSession httpsession,
+			HttpServletRequest request, Model m) {
+
 		UserVo user = (UserVo) httpsession.getAttribute("user");
 		Timestamp time = new Timestamp(System.currentTimeMillis());
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -63,17 +62,16 @@ public class BuyerController {
 		mv.setProductId(proid);
 		mv.setMassage(massage);
 		mv.setLeaveTime(timeStr);
-		if(massage!= "" && massage!=null) {
-		massageService.save(mv);
+		if (massage != "" && massage != null) {
+			massageService.save(mv);
 		}
 		return "redirect:/" + MODULE_NAME + "?productId=" + proid;
 	}
-	
-	@RequestMapping(value = "/answerpage" , method = RequestMethod.POST)
-	public String answerpage(@RequestParam(name = "text") String answer,
-							 @RequestParam(name = "userid") Integer mid	
-							 ,HttpSession httpsession) {
-		
+
+	@RequestMapping(value = "/answerpage", method = RequestMethod.POST)
+	public String answerpage(@RequestParam(name = "text") String answer, @RequestParam(name = "userid") Integer mid,
+			HttpSession httpsession) {
+
 		UserVo user = (UserVo) httpsession.getAttribute("user");
 		quest = massageService.findOne(mid);
 		Timestamp time = new Timestamp(System.currentTimeMillis());
@@ -82,9 +80,9 @@ public class BuyerController {
 		quest.setAnsweraccount(user.getAccount());
 		quest.setAnsTime(timeStr);
 		quest.setAnswer(answer);
-		if(answer!= "" && answer!=null) {
+		if (answer != "" && answer != null) {
 			massageService.save(quest);
-			}
+		}
 		return "redirect:/" + MODULE_NAME + "?productId=" + proid;
 	}
 }

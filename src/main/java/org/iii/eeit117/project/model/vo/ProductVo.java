@@ -115,7 +115,7 @@ public class ProductVo {
 
 	@DateTimeFormat(pattern="yyyy-MM")
 	@Column(name = "YEAROFMANUFACTURE")
-	private Date yearOfManufacture;
+	private String yearOfManufacture;
 
 	@Column(name = "COUNTY")
 	private String county;
@@ -158,7 +158,7 @@ public class ProductVo {
 	@Column(name = "STATUS")
 	private String status;
 	@Column(name = "AD_DATE")
-	private Date ad_date;
+	private String ad_date;
 	@Column(name = "EXPIRY_DATE")
 	private Date expiry_date;
 
@@ -303,11 +303,11 @@ public class ProductVo {
 		this.face = face;
 	}
 
-	public Date getYearOfManufacture() {
+	public String getYearOfManufacture() {
 		return yearOfManufacture;
 	}
 
-	public void setYearOfManufacture(Date yearOfManufacture) {
+	public void setYearOfManufacture(String yearOfManufacture) {
 		this.yearOfManufacture = yearOfManufacture;
 	}
 
@@ -425,10 +425,10 @@ public class ProductVo {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Date getAd_date() {
+	public String getAd_date() {
 		return ad_date;
 	}
-	public void setAd_date(Date ad_date) {
+	public void setAd_date(String ad_date) {
 		this.ad_date = ad_date;
 	}
 	public Date getExpiry_date() {

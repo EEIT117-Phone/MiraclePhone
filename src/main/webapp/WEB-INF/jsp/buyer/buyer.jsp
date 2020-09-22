@@ -34,7 +34,7 @@
 							<i class="fa fa-cart-plus" aria-hidden="true"></i> 加入購物車
 						</button>
 						<br>
-						<span class="h4 font-weight-bold">刊登日期 :</span> <input type='hidden' name='phoneId' value="${info.productId}">
+						<span class="h4 font-weight-bold">刊登日期 :${info.ad_date}</span> <input type='hidden' name='phoneId' value="${info.productId}">
 						<div class="stl1">
 							<span class="h4 font-weight-bold">付款方式 :</span>
 							<span> 銀行或郵局轉帳
