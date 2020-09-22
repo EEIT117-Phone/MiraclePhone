@@ -50,14 +50,13 @@
 	width:100px;
 }
 
-.usersmenu ul li a {
-	display: block;
-	background: #444444;
-	color: white;
+.urioption {
+	display:none;
     text-decoration: none;
 }
 
-.usersmenu ul li a:hover {
+
+.urioption li a:hover {
 	background: lightblue;
 }
 
