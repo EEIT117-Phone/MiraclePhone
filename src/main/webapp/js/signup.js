@@ -143,7 +143,7 @@ $("#send").click(function(){
 	console.log($("#sureidnumber").val())
 	if($("#pwdsure").val()){
 		if($("#sureidnumber").val()){
-			alert("輸入成功");
+			alert("註冊成功");
 			return true;	
 		}	
 		}
