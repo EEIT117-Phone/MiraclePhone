@@ -33,7 +33,7 @@
 	border-style: none;
 }
 
-h4 {
+.h3 {
 	color: gray;
 }
 
@@ -97,7 +97,7 @@ h4 {
 .card-result {
 	width: 12.2rem;
 	display: inline-block;
-	margin: 0.5rem 1rem;
+	margin: 0.5rem 0.8rem;
 }
 
 .card-city {
