@@ -49,7 +49,8 @@ $("#account").blur(function(){
 		});
 	});
 		
-		
+	console.log($("#status").val());
+	
 		
 		
     $("#birth").blur(function () { //自動計算年齡

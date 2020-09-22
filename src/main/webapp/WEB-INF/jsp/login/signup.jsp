@@ -81,7 +81,8 @@
 								<span class="input-group-text">@</span>
 							</div>
 							<input type="email" class="form-control" id="account"
-								name="account" placeholder="請輸入電子信箱" required>
+								name="account" placeholder="請輸入電子信箱" value="${useraccount}" required>
+							<input type="hidden" id="status" name="status" value="${vertifimail}" > 
 						</div>
 						<div>
 						<button id="vertifyacc" type="button" name="vertifyacc">寄送驗證信</button>
@@ -137,7 +138,7 @@
 					<div class="d-block my-3">
 						<input type="file" accept="image/*" id="file" name="file">
 						<img id="previewImg" name="previewImg" style="weight:100px; height:100px" src="">
-						<input type="hidden" id="status" name="status" value="user" class="custom-control-input"> 
+						
 					</div>
 					<div class="mb-3">
 						<h4>賣家權限</h4>
