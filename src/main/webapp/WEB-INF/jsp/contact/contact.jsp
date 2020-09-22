@@ -113,8 +113,7 @@
 
 							</div>
 							<div class="tab-pane fade" id="list-profile" role="tabpanel"
-								aria-labelledby="list-profile-list" onload="click()">
-				
+								aria-labelledby="list-profile-list" >
 								<!-- Customer Msg Start -->
 								<ul class="nav nav-tabs" id="myTab" role="tablist">
 									<li class="nav-item" role="presentation"><a
@@ -129,7 +128,9 @@
 								<div class="tab-content" id="myTabContent">
 									<div class="tab-pane fade show active" id="home"
 										role="tabpanel" aria-labelledby="home-tab">
-										<br> <b>問題類別:</b><br> <br>
+										<br> <b>問題類別: </b>
+										<br>
+										<br>
 										<div>
 											<select id="question" name="selectq1"
 												onchange="changequestion(this.selectedIndex)" class="bot">
@@ -147,14 +148,15 @@
 											<br>
 
 											<div>
-												<b>問題內容:</b><br> <br>
-												<textarea name="question" id="textarea-ckeck" placeholder="請輸入內容(限500字)" maxlength="500" cols="85" rows="15" class="textarea"></textarea>
+												<b>問題內容: </b><br> <br>
+												
+												<textarea id="textarea-ckeck" name="question" placeholder="請輸入內容(限500字)" maxlength="500" cols="85" rows="15" class="textarea"></textarea>
 												<br>
 											</div>
 											<br>
 											<div>
 												<form>
-												<button type="submit" class="btn btn-primary" id="btn" onclick="return(confirm('您的訊息，我們將會盡快為您進行回覆。'))">送出</button>
+													<button type="submit" class="btn btn-primary" id="btn">送出</button>
 												</form>
 												<br>
 												<br>
