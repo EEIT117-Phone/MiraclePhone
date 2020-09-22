@@ -12,6 +12,7 @@
 		font-size: 3.5rem;
 	}
 }
+
 hr {
 	border: black 1px solid;
 	padding: 0px;
@@ -22,5 +23,28 @@ hr {
 	max-width: 150px;
 	max-height: 150px;
 	margin: 5px;
+}
+
+td {
+	max-width: 100%;
+}
+
+label {
+	max-width: 100%;
+}
+
+table {
+	border: 1px solid black;
+}
+
+div.form-check.form-check-inline {
+	line-height: 1em;
+	width: 60px;
+}
+
+div.form-check.form-check-inline {
+	line-height: 1em;
+	width: 60px;
+	text-align: center;
 }
 

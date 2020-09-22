@@ -17,7 +17,7 @@ public enum PhoneTypeEnum {
 	, IPHONE_6S_PLUS("iPhone 6s Plus", "iPhone6sPlus")
 
 	/* iPhone SE (第一代) */
-	, IPHONE_SE("iPhone SE (第一代)", "iPhoneSE")
+	, IPHONE_SE("iPhone SE", "iPhoneSE")
 
 	/* iPhone 7 */
 	, IPHONE_7("iPhone 7", "iPhone7")
@@ -53,7 +53,7 @@ public enum PhoneTypeEnum {
 	, IPHONE_11_PRO_MAX("iPhone 11 Pro Max", "iPhone11ProMax")
 
 	/* iPhone SE (第二代) */
-	, IPHONE_SE2("iPhone SE (第二代)", "iPhoneSE2");
+	, IPHONE_SE2("iPhone SE2", "iPhoneSE2");
 
 	private String label;
 

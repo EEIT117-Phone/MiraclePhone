@@ -10,6 +10,37 @@ $(function() {
     
 	let a = document.getElementById("question").selectedIndex;
     changequestion(a);
+	
+$('#btn').click(function() {
+	 
+            var btnid = document.getElementById('btn');
+            var btnVal = btnid.value;
+
+            var selectorid = document.getElementById('question');
+			var selectVal = selectorid.value;
+
+			var textareaid = document.getElementById('textarea-ckeck');
+			var textareaVal = textareaid.value;
+	
+			var checkVal = document.getElementById('home');
+            var allDataValid = true;
+
+           
+            if (textareaVal == "") {
+                allDataValid = false;
+				alert("請填寫問題內容");
+            } else if (selectVal == "請選擇") {
+                allDataValid = false;
+               	alert("請選擇問題類別");    
+            } else {
+				allDataValid = true;
+                alert("您的留言已送出，謝謝您寶貴的意見。");
+			}
+});
+	
+	
+
+
     $('#profile-tab').click(function() {
         $.ajax({
             url : CONTEXT_PATH + '/contact/history',

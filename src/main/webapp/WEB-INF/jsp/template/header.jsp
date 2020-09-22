@@ -23,8 +23,9 @@
 							${not empty cart ? cart.size() : 0}
 						</span>
 					</a></li>
-					<li class="nav-item usersmenu"><a class="nav-link"
-						style="color: white">會員專區</a>
+					<li class="nav-item usersmenu">
+					<a class="nav-link" style="color: white">會員專區</a>
+						<div class="urioption">
 						<ul>
 							<li><a href="<c:url value='/product' />">刊登手機</a></li>
 							<li><a href="<c:url value='/product/search' />">刊登中物件</a></li>
@@ -32,7 +33,8 @@
 							<li><a href="<c:url value='/orderHistory' />">訂單歷史紀錄</a></li>
 							<li><a href="<c:url value='/contact' />">客服專區</a></li>
 							
-						</ul></li>
+						</ul>
+						</div>
 					<!-- 		會員未登入			 -->
 					<c:if test="${empty user}">
 					<li class="nav-item"><a class="nav-link"
@@ -44,7 +46,9 @@
 					<c:if test="${not empty user}">
 					<li class="nav-item headShot">
 					<a href="<c:url value='/usermodification'/>">
-						<img src="<c:url value='/fs/img/${user.pic}' />" width="40" height="40" />
+						<img src="<c:url value='/fs/img/${user.pic}' />" width="40" height="40" style="border-radius: 50%;
+	object-fit: cover;
+	 object-position: center;" />
 					</a>
 						<span>${user.name} 你好</span>
 					</li>

@@ -1,6 +1,7 @@
 package org.iii.eeit117.project.controller;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -52,12 +53,12 @@ public class productPromotionVIPController {
 		calendar.setTime(ad_date);
 		calendar.add(Calendar.DAY_OF_MONTH, +adlastTime);
 		Date expiry_date=calendar.getTime();
-		
-		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String dateString = sdf.format(ad_date);
 	
 		forsaveproduct.setVip(VIPlevel);
 		forsaveproduct.setStatus(status);
-		forsaveproduct.setAd_date(ad_date);
+		forsaveproduct.setAd_date(dateString);
 		forsaveproduct.setExpiry_date(expiry_date);
 		forsaveproduct.setWatch(0);
 		productService.save(forsaveproduct);

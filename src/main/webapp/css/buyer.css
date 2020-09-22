@@ -14,7 +14,7 @@ a:hover {
 
 .link3 {
 	width: 50%;
-	/* 	max-height: 500px; */
+	max-height: 47rem;
 }
 
 .small {
@@ -23,7 +23,7 @@ a:hover {
 	border: 1px solid rgba(0, 0, 0, .125);
 	border-radius: 5px;
 	float: left;
-	object-fit: cover;
+	object-fit: scale-down;
 }
 
 .stl1 p {
@@ -84,21 +84,24 @@ a:hover {
 }
 
 .imgdiv {
-	text-align: center;
 	/* 	line-height:450px; */
-	width: 500px;
+	height: 30rem;
+	width: 30rem;
 	/* 	height: 450px; */
 	overflow: hidden;
-	object-fit: cover;
+	object-fit: scale-down;
 }
 
 .img1 {
-	width: 800px;
-	max-width: 500px;
+	height: 100%;
+	width: 100%;
+	/* 	max-width: 28rem; */
+	/* 	max-height: 40rem; */
+	border: 1px solid rgba(0, 0, 0, .125);
 	border-radius: 10px;
 	cursor: pointer;
 	transition: 0.3s;
-	object-fit: cover;
+	object-fit: scale-down;
 }
 
 .ansarea {

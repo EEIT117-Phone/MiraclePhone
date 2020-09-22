@@ -5,33 +5,40 @@ $(document).ready(function () {
 
   //  Filter  不限/其他複選
 
-$("input[type='checkbox']").click(function (){
-		var str = $("input:checkbox:checked").serialize();
-		$.ajax({
-			url : CONTEXT_PATH + 'search/ajaxresult?' + str,
-			method : 'GET',
-			success : function(result) {
-				var res= "<form class='w-100' style='border-spacing: 20px;' id='results' > ";
-				
-				for(var i=0; i < result.length; i++){
-					res += "<a target='_blank' href='http://localhost:8080/MiraclePhone/buyer?productId=" + result[i].productId +  "'class='text-dark text-decoration-none'>" +
-					"<div class='card card-result'>" +
-					"<img class='card-img' src='http://localhost:8080/MiraclePhone/fs/img/" + result[i].pic1 + "'alt='Card image cap'>" +
-					"<div class='card-body search-card-body'>" + 
-					"<p class='card-title'>" + "[" + result[i].phoneSort + "]" + result[i].phoneType + result[i].storage + result[i].color + "色</p>" +
-					"<p class='card-text mr-2 d-inline-block mb-0'>$ " + result[i].amount + "</p><i class='fa fa-eye fa-fw text-secondary mr-0' aria-hidden='true'></i><p class='card-city text-secondary d-inline-block mb-0'>" + result[i].watch + "</p>" +
-					"<p class='card-city mb-0 text-right'>" + result[i].county + result[i].district + "</p>" +
-					"</div></div></a>"
-				}
-				res += "</form>";
-			$("#ajaxres").html(res);
-			}
-		
-		});
-		});
-			
-			
-  $('.form-check-input').each(function (i) {
+  $("input[type='checkbox']").click(function () {
+    var str = $("input:checkbox:checked").serialize();
+    $.ajax({
+      url: CONTEXT_PATH + 'search/ajaxresult?' + str,
+      method: 'GET',
+      success: function (result) {
+        var res = "<form class='w-100 grid pl-1' id='results' > ";
+        
+        for (var i = 0; i < result.length; i++) {
+          res += "<a target='_blank' href='http://localhost:8080/MiraclePhone/buyer?productId=" + result[i].productId + "'class='text-dark text-decoration-none'>" +
+            "<div class='card card-result element-item mb-3'>" +
+            "<img class='card-img' src='http://localhost:8080/MiraclePhone/fs/img/" + result[i].pic2 + "'alt='Card image cap'>" +
+            "<div class='card-body search-card-body'>" +
+            "<span class='card-title new d-none'>" + result[i].productId + "</span>" +
+            "<span class='card-title'>[" + result[i].phoneSort + "] </span>" +
+            "<span class='card-title'>" + result[i].phoneType + " </span>" +
+            "<span class='card-title'>" + result[i].storage + " </span>" +
+            "<span class='card-title'>" + result[i].color + "</span><br>" +
+            "<p class='card-text d-inline-block mb-0'>$</p>" +
+            "<p class='card-text d-inline-block mb-0 amount'>" + result[i].amount + "</p>" +
+            "<i class='fa fa-eye fa-fw text-secondary mr-0' aria-hidden='true'></i>" +
+            "<p class='card-city text-secondary d-inline-block mb-0 watch'>" + result[i].watch + "</p>" +
+            "<p class='card-city mb-0 text-right'>" + result[i].county + result[i].district + "</p>" +
+            "</div></div></a>"
+        }
+        res += "</form>";
+        $("#ajaxres").html(res);
+      }
+
+    });
+  });
+
+
+/*  $('.form-check-input').each(function (i) {
     $('#phoneTypeOption' + (i + 2) + '').click(function () {
       if ($(this).is(':checked')) {
         $('#phoneTypeOption1').removeAttr('checked');
@@ -67,7 +74,7 @@ $("input[type='checkbox']").click(function (){
     else {
       $('#storageOption1').attr('checked', 'checked');
     }
-  });
+  });*/
 
   //  搜尋結果排序鈕切換
   $('#amountButton').click(function () {
@@ -82,6 +89,8 @@ $("input[type='checkbox']").click(function (){
     }
   })
 
+
+  // init Isotope
   var $grid = $('.grid').isotope({
     itemSelector: '.element-item',
     layoutMode: 'fitRows',
@@ -111,20 +120,21 @@ $("input[type='checkbox']").click(function (){
   // bind sort button click
   $('.sort-by-button-group').on('click', 'button', function () {
     var sortValue = $(this).attr('data-sort-value');
+    console.log(sortValue);
     $grid.isotope({ sortBy: sortValue });
   });
 
-  /* Get the sorting direction: asc||desc */
-  var direction = $(this).attr('data-sort-direction');
+  // /* Get the sorting direction: asc||desc */
+  // var direction = $(this).attr('data-sort-direction');
 
-  /* convert it to a boolean */
-  var isAscending = (direction == 'asc');
-  var newDirection = (isAscending) ? 'desc' : 'asc';
+  // /* convert it to a boolean */
+  // var isAscending = (direction == 'asc');
+  // var newDirection = (isAscending) ? 'desc' : 'asc';
 
-  /* pass it to isotope */
-  $grid.isotope({ sortBy: sortValue, sortAscending: isAscending });
+  // /* pass it to isotope */
+  // $grid.isotope({ sortBy: sortValue, sortAscending: isAscending });
 
-  $(this).attr('data-sort-direction', newDirection);
+  // $(this).attr('data-sort-direction', newDirection);
 
   // // change is-checked class on buttons
   // $('.button-group').each(function (i, buttonGroup) {
