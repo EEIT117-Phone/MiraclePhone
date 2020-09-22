@@ -1,8 +1,8 @@
 $(function () {
-	$("#home").css("display","none");
-	$("#showform").click(function(){
+//	$("#home").css("display","none");
+/*	$("#showform").click(function(){
 		$("#home").css("display","block");
-	})
+	})*/
 
 erTWZipcode();  //地址
 
