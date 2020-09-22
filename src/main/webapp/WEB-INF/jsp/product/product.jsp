@@ -19,11 +19,6 @@ select {
 #amount {
 	width: 85%;
 }
-
-.btn.btn-primary {
-	width: 200px;
-}
-
 div.zipbar input {
 	width: 85%;
 	height: 25.2px;
@@ -155,13 +150,14 @@ div.zipbar input {
 						</tr>
 						<tr>
 							<td><label for="amount">銷售金額:</label> <form:input
-									type="number" max="50000" min="0" value="8000" step="100" 
-									required="required" path="amount"/></td>
+									type="number" max="50000" min="0" value="8000" step="100"
+									required="required" path="amount" /></td>
 						</tr>
 						<tr>
+							<td align="center"><input type="reset"
+								class="btn btn-secondary" style="width: 200px"></td>
 							<td align="center"><input type="submit"
-								class="btn btn-primary"></td>
-							<td  align="center"><input type="reset" class="btn btn-primary"></td>
+								class="btn btn-primary" style="width:200px"></td>
 						</tr>
 					</tbody>
 				</table>
