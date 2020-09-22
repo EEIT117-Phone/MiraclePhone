@@ -28,7 +28,6 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 	private String checkOption;
 	private Integer checkAmountOption;
 	private String indexInput;
-	private String vip;
 
 	@Override
 	public CriteriaQuery<ProductVo> getCriteriaQuery() {
@@ -54,7 +53,8 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			List<Predicate> list = new LinkedList<>();
 			for (String oneWord : checkOptionList) {
 				System.out.println("oneWord: " + oneWord);
-				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%" + oneWord + "%");
+				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE).as(String.class),
+						"%" + oneWord + "%");
 				Predicate storage1 = builder.like(root.get(ProductVo.STORAGE).as(String.class), "%" + oneWord + "%");
 				Predicate color1 = builder.like(root.get(ProductVo.COLOR).as(String.class), "%" + oneWord + "%");
 				Predicate phonesort1 = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
@@ -109,31 +109,29 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			restrictions.add(finalSearch);
 //			query.where(finalSearch);
 		}
-		
+
 		// 首頁精選全新機，二手機，零件機加上VIP
-				if (StringUtil.isNonEmpty(indexInput)) {
-					
-					String[] searchInputList = indexInput.split(" ");
-					Predicate orSearch;
-					Predicate finalSearch;
-					List<Predicate> list = new LinkedList<>();
-					for (String oneWord : searchInputList) {
-						System.out.println("oneWord: " + oneWord);
-						
-					
-						Predicate phonesort1 = builder.equal(root.get(ProductVo.PHONESORT),oneWord);
-						Predicate viplevel=builder.like(root.get(ProductVo.VIP),"%" + oneWord + "%");
-						orSearch = builder.or(phonesort1,viplevel);
-						list.add(orSearch);
-					}
-					// 預設價格低到高排序
-					query.orderBy(builder.asc(root.get("amount")));
-					finalSearch = builder.and(list.toArray(new Predicate[] {}));
-					restrictions.add(finalSearch);
+		if (StringUtil.isNonEmpty(indexInput)) {
+
+			String[] searchInputList = indexInput.split(" ");
+			Predicate orSearch;
+			Predicate finalSearch;
+			List<Predicate> list = new LinkedList<>();
+			for (String oneWord : searchInputList) {
+				System.out.println("oneWord: " + oneWord);
+
+				Predicate phonesort1 = builder.equal(root.get(ProductVo.PHONESORT), oneWord);
+				Predicate viplevel = builder.like(root.get(ProductVo.VIP), "%" + oneWord + "%");
+				orSearch = builder.or(phonesort1, viplevel);
+				list.add(orSearch);
+			}
+			// 預設價格低到高排序
+			query.orderBy(builder.asc(root.get("amount")));
+			finalSearch = builder.and(list.toArray(new Predicate[] {}));
+			restrictions.add(finalSearch);
 //					query.where(finalSearch);
-				}
-		
-		
+		}
+
 		// 搜尋框未輸入則全顯示
 		if (StringUtil.isEmpty(searchInput)) {
 			restrictions.add(builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%"));

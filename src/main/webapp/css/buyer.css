@@ -14,7 +14,7 @@ a:hover {
 
 .link3 {
 	width: 50%;
-	max-height: 650px;
+	max-height: 47rem;
 }
 
 .small {
@@ -84,18 +84,20 @@ a:hover {
 }
 
 .imgdiv {
-	text-align: center;
 	/* 	line-height:450px; */
-	width: 500px;
+	height: 40rem;
+	width: 40rem;
 	/* 	height: 450px; */
 	overflow: hidden;
-	object-fit: cover;
+	object-fit: scale-down;
 }
 
 .img1 {
 	height: 100%;
-	width: 80%;
-	max-width: 500px;
+	width: 100%;
+	/* 	max-width: 28rem; */
+	/* 	max-height: 40rem; */
+	border: 1px solid rgba(0, 0, 0, .125);
 	border-radius: 10px;
 	cursor: pointer;
 	transition: 0.3s;

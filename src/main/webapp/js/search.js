@@ -11,18 +11,18 @@ $(document).ready(function () {
       url: CONTEXT_PATH + 'search/ajaxresult?' + str,
       method: 'GET',
       success: function (result) {
-        var res = "<form class='w-100 grid' style='border-spacing: 20px;' id='results' > ";
+        var res = "<form class='w-100 grid pl-1' id='results' > ";
         
         for (var i = 0; i < result.length; i++) {
           res += "<a target='_blank' href='http://localhost:8080/MiraclePhone/buyer?productId=" + result[i].productId + "'class='text-dark text-decoration-none'>" +
-            "<div class='card card-result element-item'>" +
+            "<div class='card card-result element-item mb-3'>" +
             "<img class='card-img' src='http://localhost:8080/MiraclePhone/fs/img/" + result[i].pic2 + "'alt='Card image cap'>" +
             "<div class='card-body search-card-body'>" +
             "<span class='card-title new d-none'>" + result[i].productId + "</span>" +
             "<span class='card-title'>[" + result[i].phoneSort + "] </span>" +
             "<span class='card-title'>" + result[i].phoneType + " </span>" +
             "<span class='card-title'>" + result[i].storage + " </span>" +
-            "<span class='card-title'>" + result[i].color + "色</span><br>" +
+            "<span class='card-title'>" + result[i].color + "</span><br>" +
             "<p class='card-text d-inline-block mb-0'>$</p>" +
             "<p class='card-text d-inline-block mb-0 amount'>" + result[i].amount + "</p>" +
             "<i class='fa fa-eye fa-fw text-secondary mr-0' aria-hidden='true'></i>" +
@@ -38,7 +38,7 @@ $(document).ready(function () {
   });
 
 
-  $('.form-check-input').each(function (i) {
+/*  $('.form-check-input').each(function (i) {
     $('#phoneTypeOption' + (i + 2) + '').click(function () {
       if ($(this).is(':checked')) {
         $('#phoneTypeOption1').removeAttr('checked');
@@ -74,7 +74,7 @@ $(document).ready(function () {
     else {
       $('#storageOption1').attr('checked', 'checked');
     }
-  });
+  });*/
 
   //  搜尋結果排序鈕切換
   $('#amountButton').click(function () {

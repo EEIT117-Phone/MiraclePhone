@@ -17,8 +17,8 @@
 
 <body>
     <div class="main">
-        <div class="main-toplink card">
-            <table cellpadding="20" cellspacing="0">
+        <div class="main-toplink card pb-3">
+            <table>
                 <tr>
                     <td class="text-center">
                     	<a href="<c:url value='/search/result?phoneSort=全新機' />" class="text-decoration-none">
@@ -45,7 +45,7 @@
         <div class="main-body-and-filter h-100">
             <div class="main-body">
                 <!--    VIP輪播        -->
-                <h4>精選推薦</h4>
+                <h4 class="ml-3">精選推薦</h4>
                 <div class="owl-carousel owl-theme">          
                     <c:forEach varStatus="status" var="result" items="${results}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
@@ -56,7 +56,7 @@
                                     <span class="card-title">[${result.phoneSort}] </span>
                                     <span class="card-title">${result.phoneType.label} </span>
                                     <span class="card-title">${result.storage.label} </span>
-                                    <span class="card-title">${result.color.label}色</span><br>
+                                    <span class="card-title">${result.color.label}</span><br>
                                     <p class="card-text d-inline-block mb-0">$</p>
                                     <p class="card-text d-inline-block mb-0 amount"><fmt:formatNumber value="${result.amount}" type="number"/></p>
                                     <i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i>
@@ -69,16 +69,16 @@
                 </div>
 
 				<div class="d-inline-block w-100">
-                <h4 class="float-left">搜尋結果</h4>
+                <h4 class="float-left ml-3">搜尋結果</h4>
                 <div class="button-group sort-by-button-group">
-              		<button id="amountButton" class="btn btn-primary float-right h-100" data-sort-value="amount" style="margin: 0 10px 0 5px;">價格(低到高)↑</button>
-              		<button class="btn btn-primary float-right h-100" data-sort-value="new" style="margin: 0 5px 0 5px;">上架時間</button>
-              		<button class="btn btn-primary float-right h-100" data-sort-value="watch" style="margin: 0 5px 0 5px;">瀏覽次數</button>
+              		<button id="amountButton" class="btn btn-primary float-right h-100 my-0 mr-3 ml-2" data-sort-value="amount">價格(低到高)↑</button>
+              		<button class="btn btn-primary float-right h-100 my-0 mx-2" data-sort-value="new">上架時間</button>
+              		<button class="btn btn-primary float-right h-100 my-0 mx-2" data-sort-value="watch">瀏覽次數</button>
                 </div>
                 </div>
               
                 <div class="h-100 mb-5" id="ajaxres">
-                <!-- 
+                 
                 <form class="w-100 grid" style="border-spacing: 20px;" id="results">
                     <c:forEach varStatus="status" var="result" items="${results}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
@@ -100,7 +100,7 @@
                         </a>
                     </c:forEach>
                 </form>
-                -->
+                
                 </div>
                 
             </div>

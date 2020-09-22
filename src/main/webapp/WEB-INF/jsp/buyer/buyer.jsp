@@ -132,23 +132,16 @@
 			</div>
 
 			<div class="link3 float-left ml-5 mt-4 overflow-auto">
-				<div class="imgdiv mt-3">
-					<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1"
-						id="myImg">
+				<div class="imgdiv mt-3 mx-auto">
+					<img src="<c:url value='/fs/img/${info.pic1}' />" class="img1" id="myImg">
 				</div>
-				<div class="my-0 mx-auto">
-					<img src="<c:url value='/fs/img/${info.pic1}' />"
-						class="small my-3 ml-4"> <img
-						src="<c:url value='/fs/img/${info.pic2}' />"
-						class="small my-3 ml-4"> <img
-						src="<c:url value='/fs/img/${info.pic3}' />"
-						class="small my-3 ml-4"> <img
-						src="<c:url value='/fs/img/${info.pic4}' />"
-						class="small my-3 ml-4"> <img
-						src="<c:url value='/fs/img/${info.pic5}' />"
-						class="small my-3 ml-4"> <img
-						src="<c:url value='/fs/img/${info.pic6}' />"
-						class="small my-3 ml-4">
+				<div class="smallall my-0 overflow-auto d-flex justify-content-center">
+					<img src="<c:url value='/fs/img/${info.pic1}' />" class="small my-3 mx-2">
+					<img src="<c:url value='/fs/img/${info.pic2}' />" class="small my-3 mx-2">
+					<img src="<c:url value='/fs/img/${info.pic3}' />" class="small my-3 mx-2">
+					<img src="<c:url value='/fs/img/${info.pic4}' />" class="small my-3 mx-2">
+					<img src="<c:url value='/fs/img/${info.pic5}' />" class="small my-3 mx-2">
+					<img src="<c:url value='/fs/img/${info.pic6}' />" class="small my-3 mx-2">
 				</div>
 			</div>
 			<div id="myModal" class="modal">

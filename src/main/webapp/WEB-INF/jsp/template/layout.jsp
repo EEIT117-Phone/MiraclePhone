@@ -19,8 +19,6 @@
 	<link href="<c:url value='/css/carousel.css' />" rel="stylesheet">
 	<!-- Header core CSS -->
 	<link href="<c:url value='/css/header.css' />" rel="stylesheet">
-	<!-- Generic core CSS -->
-	<link href="<c:url value='/css/Generic.css' />" rel="stylesheet">
 	<!-- ****************** js section ****************** -->
 	 
 	<!-- Jquery js -->
