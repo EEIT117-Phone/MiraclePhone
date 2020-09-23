@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.iii.eeit117.project.model.service.EmailService;
 import org.iii.eeit117.project.model.service.FileService;
 import org.iii.eeit117.project.model.service.UserService;
 import org.iii.eeit117.project.model.vo.FileStorageVo;
@@ -44,6 +45,9 @@ public class LoginController {
 	
 	@Autowired
 	private FileService fileService;
+	
+	@Autowired
+	private EmailService emailService;
 	
 	@RequestMapping(value = MAIN_PAGE, method = RequestMethod.GET)
 	public String Main(Model model) {
@@ -157,7 +161,20 @@ public class LoginController {
 		session.removeAttribute("cart");
     	session.removeAttribute("cartItemMap");
 		return "redirect:/";
-	}	
+	}
 	
-
+	@RequestMapping(value = "/userforget", method = RequestMethod.POST)
+	public String forget(HttpServletRequest request) {
+			String account=request.getParameter("checkaccount");
+			UserVo result=userService.findOne(account);
+			if(result!=null) {
+				emailService.sendSimpleMessage(account, "奇機銷售-忘記密碼", "您的密碼是:"+result.getPassword());
+				request.setAttribute("loginstatus", "信件已寄出");
+				return MAIN_PAGE;
+			}
+			else {
+				request.setAttribute("loginstatus", "查無此帳號");
+				return MAIN_PAGE;
+			}
+}
 }

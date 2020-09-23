@@ -18,15 +18,24 @@
          <input type="password" name="userpassword" placeholder="會員密碼" class="form-control"><br/>
          <input type="hidden" id="lastpage" name="lastpage" value=""> 
          <button type="submit" class="btn btn-lg btn-primary btn-block">提交</button><br/>
-         
-       	<label style="color:red" >${loginstatus}</label> 
+         <button class="btn btn-primary "
+   			onclick="javascript:location.href='http://localhost:8080/MiraclePhone/usersignup'">會員註冊
+   		</button>
+   			<label style="color:red" >${loginstatus}</label>
+   			<button type="button" class="btn btn-primary" id="forgetpwd" name="forgetpwd">
+   		忘記密碼
+   		</button> 
         </form:form>
+        
+   		<div class="form-signin" id="forgetpwd_area" >
+   		<form action="/MiraclePhone/userforget" id="forgetpwd_form" method="post">
+   		<input type="text" id="checkaccount" name="checkaccount" placeholder="請輸入電子信箱" >
+   		<input type="submit" class="btn  btn-primary " value="提交">
+   		</form>
+   		</div>
+       
        </div >  	
-       <div class="MakeUser">
-  <button class="btn btn-primary "
-   onclick="javascript:location.href='http://localhost:8080/MiraclePhone/usersignup'">會員註冊
-   </button>
-       </div> 
+      
 <script src="<c:url value='/js/login.js' />"></script> 
 </body>
 
