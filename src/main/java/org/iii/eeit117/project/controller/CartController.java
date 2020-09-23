@@ -36,7 +36,7 @@ public class CartController {
 	public static final String MODULE_NAME = "cart";
 
 	public static final String MAIN_PAGE = MODULE_NAME + "Main";
-
+	
 	public static final String ORDERINFO_PAGE = MODULE_NAME + "OrderInfo";
 
 	public static final String CONFIRM_PAGE = MODULE_NAME + "OrderConfirm";
@@ -46,24 +46,22 @@ public class CartController {
 
 	@Autowired
 	private CartService cartService;
+	
+	@Autowired
+	private ProductService productService;
 
 	@RequestMapping(value = "/item", method = RequestMethod.GET)
 	public String cartItems(HttpSession httpSession, Model model, Integer deleteId) {
 		Set<Integer> productIds = (Set<Integer>) httpSession.getAttribute("cart");
-		productIds.remove(deleteId);
-		if (httpSession.getAttribute("cart") == null) {
+		if (productIds.isEmpty()) {
 			model.addAttribute("message", "購物車目前尚無商品");
 			return MAIN_PAGE;
 		} else {
+			productIds.remove(deleteId);
 			Map<String, CartVo> cartItemMap = cartService.getCartItems(productIds);
-			System.out.println(productIds);
-			System.out.println(cartItemMap.get("admin"));
-			System.out.println(cartItemMap.get("andrew"));
-			System.out.println(cartItemMap.get("ken001@yahoo.com"));
 			httpSession.setAttribute("cartItems", cartItemMap.values());
-
+			return MAIN_PAGE;
 		}
-		return MAIN_PAGE;
 	}
 
 	@ResponseBody
@@ -95,6 +93,14 @@ public class CartController {
 		orderInfo.setAmount(cartService.GetTotalAmount(productIds));
 		UserVo userVo = (UserVo) httpSession.getAttribute("user");
 		orderInfo.setAccount((String) userVo.getAccount());
+		//oneToMany
+		Set<ProductVo> products = new HashSet<>();
+		for (Integer productId : productIds) {
+			ProductVo product = productService.findOne(productId);
+			product.setOrderInfoVO(orderInfo);
+			products.add(product);
+		}
+		orderInfo.setProductVo(products);
 
 		if (StringUtil.isEmpty(orderInfo.getPayInfo()) || StringUtil.isEmpty(orderInfo.getShipInfo())) {
 			orderinfoService.save(orderInfo);
@@ -116,7 +122,7 @@ public class CartController {
 		//cartService.soldOut(productIds);
 		
 		//通知信功能，因目前account非全部為有效Email，會報錯，因此先註解
-		//cartService.sendOrderConfirmMail(productIds);
+		cartService.sendOrderConfirmMail(orderInfo);
 		return CONFIRM_PAGE;
 	}
 }

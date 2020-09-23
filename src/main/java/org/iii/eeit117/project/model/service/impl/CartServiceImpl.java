@@ -18,8 +18,10 @@ import org.iii.eeit117.project.model.service.EmailService;
 import org.iii.eeit117.project.model.service.ProductService;
 import org.iii.eeit117.project.model.service.UserService;
 import org.iii.eeit117.project.model.util.HibernateUtil;
+import org.iii.eeit117.project.model.util.StringUtil;
 import org.iii.eeit117.project.model.vo.CartVo;
 import org.iii.eeit117.project.model.vo.CustomerServiceVo;
+import org.iii.eeit117.project.model.vo.OrderInfoVo;
 import org.iii.eeit117.project.model.vo.ProductVo;
 import org.iii.eeit117.project.model.vo.UserVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,19 +61,18 @@ public class CartServiceImpl implements CartService {
 			if (userVo.getPayInfoRemit() != null) {
 				payInfo.add("匯款");
 
-				cartVo.setAccount(account);
-				//cartVo.setProductVos((List<ProductVo>) productVo);
-				cartVo.setPayInfo(payInfo);
-				cartVo.setShipInfo(shipInfo);
-				
-				if (!cartItems.keySet().contains(cartVo.getAccount())) {
-					List<ProductVo> productVos = new ArrayList<ProductVo>();
-					productVos.add(productVo);
-					cartVo.setProductVos(productVos);
-					cartItems.put(cartVo.getAccount(), cartVo);
-				}else {
-					cartItems.get(account).getProductVos().add(productVo);
-				}
+			}
+			cartVo.setAccount(account);
+			cartVo.setPayInfo(payInfo);
+			cartVo.setShipInfo(shipInfo);
+			
+			if (!cartItems.keySet().contains(cartVo.getAccount())) {
+				List<ProductVo> productVos = new ArrayList<ProductVo>();
+				productVos.add(productVo);
+				cartVo.setProductVos(productVos);
+				cartItems.put(cartVo.getAccount(), cartVo);
+			}else {
+				cartItems.get(account).getProductVos().add(productVo);
 			}
 		}
 		return cartItems;
@@ -88,12 +89,15 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public void sendOrderConfirmMail(Set<Integer> productIds) {
+	public void sendOrderConfirmMail(OrderInfoVo orderInfo){
 		String subject = "訂單已成立";
-		String text = "您的商品已售出，請盡快出貨!";
+		String text = "您的商品已售出，請盡快出貨!" ;
+		if(StringUtil.isNonEmpty(orderInfo.getOrderContext())) {
+			text += "\n客戶留言：" + orderInfo.getOrderContext();
+		}
+		Set<ProductVo> productVos = orderInfo.getProductVo();
 		Set<String> mailSets = new HashSet<>();
-		for (Integer id : productIds) {
-			ProductVo productVo = productService.findOne(id);
+		for (ProductVo productVo : productVos) {
 			mailSets.add(productVo.getAccount());
 		}
 		for(String mail : mailSets) {

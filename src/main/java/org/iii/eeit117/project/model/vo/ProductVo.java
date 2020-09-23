@@ -6,6 +6,7 @@ package org.iii.eeit117.project.model.vo;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
@@ -162,7 +163,7 @@ public class ProductVo {
 	@Column(name = "EXPIRY_DATE")
 	private Date expiry_date;
 
-	@ManyToOne
+	@ManyToOne(cascade={CascadeType.ALL})
     @JoinColumn(name="ORDER_ID")
 	@JsonBackReference
 	private OrderInfoVo orderInfoVO;

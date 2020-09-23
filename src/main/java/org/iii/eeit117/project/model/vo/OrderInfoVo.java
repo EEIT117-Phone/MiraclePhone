@@ -53,7 +53,7 @@ public class OrderInfoVo {
 	@Column(name = "ORDER_CONTEXT")
 	private String orderContext;
 
-	@OneToMany(fetch=FetchType.LAZY,mappedBy="orderInfoVO") 
+	@OneToMany(fetch=FetchType.EAGER,mappedBy="orderInfoVO") 
 	private Set<ProductVo> productVos;
 
 	

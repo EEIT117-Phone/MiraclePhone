@@ -46,15 +46,12 @@ public class BackstageProductManageController {
 		model.addAttribute("searchBean", searchBean);
 		String[] statusList = { "上架中", "暫時下架"};
 		model.addAttribute("statusList",statusList);
-		System.out.println(productId);
 		ProductVo productVo = productService.findOne(productId);
 		String status = productVo.getStatus();
 		if(status.equals("上架中")) {
 			productVo.setStatus("暫時下架");
-			System.out.println("更改暫時下架");
 		}else {
 			productVo.setStatus("上架中");
-			System.out.println("更改上架中");
 		}
 		productService.save(productVo);
 		//backstageService.offShelfMail(productId);

@@ -95,13 +95,13 @@ body {
     border-top: gray 2px solid;
   }
   .cart-summary tbody td:nth-child(1) {
-    width: 75%;
+    width: 73%;
   }
   .cart-summary tbody td:nth-child(2) {
     width: 10%;
   }
   .cart-summary tbody td:nth-child(3) {
-    width: 15%;
+    width: 17%;
   }
     .sum{
   display:none;
