@@ -53,15 +53,15 @@
   								
  							</tr> 
  							</c:forEach>
-							<tr class="ship-payment">
+<%--							<tr class="ship-payment">
 								<td></td>
 								<td>付款方式:</td>
-								<td colspan="3">
+ 								<td colspan="3">
 									<div>
-<%-- 										<c:forEach varStatus="status" var="payInfo" items="${entry.payInfo}"> --%>
-<%-- 										<form:radiobutton class="payInfo-form form-check-inline" path="payInfo" value="${payInfo}" label="${payInfo}"/> --%>
+ 										<c:forEach varStatus="status" var="payInfo" items="${entry.payInfo}"> 
+ 										<form:radiobutton class="payInfo-form form-check-inline" path="payInfo" value="${payInfo}" label="${payInfo}"/> 
 											<form:radiobuttons class="payInfo-form form-check-inline" items="${entry.payInfo}" path="payInfo"/>
-<%-- 										</c:forEach> --%>
+ 										</c:forEach>
 									</div>
 								</td>
 								<td colspan="2">
@@ -71,11 +71,11 @@
 										</div>
 									</div>
 								</td>
-							</tr>
+							</tr>--%>
 							<tr class="ship-method">
 								<td></td>
-								<td>取貨方式:</td>
-								<td colspan="7">
+								<td>寄送方式:</td>
+								<td colspan="5">
 									<c:forEach varStatus="status" var="shipInfo" items="${entry.shipInfo}">
 									<form:radiobutton class="form-check form-check-inline" path="shipInfo" value="${shipInfo}" label="${shipInfo}"/>
 									</c:forEach>
@@ -85,6 +85,15 @@
 											<label for="inputAddress">地址</label>
 											<form:textarea path="shipAddress" rows="1" id="address" class="form-control"/>
 										</div>
+									</div>
+								</td>
+							</tr>
+							<tr class="ship-method">
+								<td></td>
+								<td>留言:</td>
+								<td colspan="5">
+									<div class="form-check form-check-inline row">
+										<form:textarea path="orderContext" cols="80"/>
 									</div>
 								</td>
 							</tr>

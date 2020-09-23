@@ -52,18 +52,10 @@ public class CartServiceImpl implements CartService {
 				shipInfo.add("面交");
 			}
 			if (userVo.getShipInfoPost() != null) {
-				shipInfo.add("郵寄");
+				shipInfo.add("匯款並郵寄");
 			}
-			List<String> payInfo = new LinkedList<>();
-			if (userVo.getPayInfoFace() != null) {
-				payInfo.add("面交");
-			}
-			if (userVo.getPayInfoRemit() != null) {
-				payInfo.add("匯款");
-
-			}
+			
 			cartVo.setAccount(account);
-			cartVo.setPayInfo(payInfo);
 			cartVo.setShipInfo(shipInfo);
 			
 			if (!cartItems.keySet().contains(cartVo.getAccount())) {

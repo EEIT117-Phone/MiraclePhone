@@ -102,17 +102,17 @@ public class CartController {
 		}
 		orderInfo.setProductVo(products);
 
-		if (StringUtil.isEmpty(orderInfo.getPayInfo()) || StringUtil.isEmpty(orderInfo.getShipInfo())) {
+		if (StringUtil.isEmpty(orderInfo.getShipInfo())) {
 			orderinfoService.save(orderInfo);
 		}
 
-		if ("匯款".equals(orderInfo.getPayInfo())) {
+		if ("匯款並郵寄".equals(orderInfo.getShipInfo())) {
 			model.addAttribute("payInfoMsg", "匯款帳號：" + userVo.getBankaccount());
 		} else {
-			model.addAttribute("payInfoMsg", "面交付款");
+			model.addAttribute("payInfoMsg", "面交");
 		}
 
-		if ("郵寄".equals(orderInfo.getShipInfo())) {
+		if ("匯款並郵寄".equals(orderInfo.getShipInfo())) {
 			model.addAttribute("shipInfoMsg", orderInfo.getShipAddress());
 		} else if ("面交".equals(orderInfo.getShipInfo())) {
 			model.addAttribute("shipInfoMsg", "請與賣家確認面交地點");
@@ -122,7 +122,7 @@ public class CartController {
 		//cartService.soldOut(productIds);
 		
 		//通知信功能，因目前account非全部為有效Email，會報錯，因此先註解
-		cartService.sendOrderConfirmMail(orderInfo);
+		//cartService.sendOrderConfirmMail(orderInfo);
 		return CONFIRM_PAGE;
 	}
 }

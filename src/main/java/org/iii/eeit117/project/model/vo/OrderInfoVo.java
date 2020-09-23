@@ -22,7 +22,6 @@ public class OrderInfoVo {
 
 	public static final String ORDER_ID = "orderId";
 	public static final String Date = "date";
-	public static final String PAY_INFO = "payInfo";
 	public static final String SHIP_INFO = "shipInfo";
 	public static final String SHIP_ADDRESS = "shipAddress";
 	public static final String PRODUCT_VO = "productVo";
@@ -37,9 +36,6 @@ public class OrderInfoVo {
 
 	@Column(name = "DATE")
 	private String date;
-
-	@Column(name = "PAY_INFO")
-	private String payInfo;
 
 	@Column(name = "SHIP_INFO")
 	private String shipInfo;
@@ -76,14 +72,6 @@ public class OrderInfoVo {
 
 	public void setDate(String date) {
 		this.date = date;
-	}
-
-	public String getPayInfo() {
-		return payInfo;
-	}
-
-	public void setPayInfo(String payInfo) {
-		this.payInfo = payInfo;
 	}
 
 	public String getShipInfo() {
