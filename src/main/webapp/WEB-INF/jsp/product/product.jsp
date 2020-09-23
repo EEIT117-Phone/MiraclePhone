@@ -140,9 +140,9 @@ div.zipbar input {
 								<div id="twzipcode">
 									交易地點:
 									<div data-role="county" data-name="county" data-value=""
-										data-style="county-style"></div>
+										data-style="county-style" class="zipdiv"></div>
 									<div data-role="district" data-name="district" data-value=""
-										data-style="district-style"></div>
+										data-style="district-style" class="zipdiv"></div>
 									<div class="zipbar" data-role="zipcode" data-name="zipcode"
 										data-value="" data-style="zipcode-style"></div>
 								</div>
