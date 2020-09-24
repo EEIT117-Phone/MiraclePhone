@@ -92,7 +92,7 @@ public class LoginController {
 		String password=request.getParameter("userpassword");//取得輸入密碼
 		
 		String loginStatus=userService.checkLogin(account, password); //驗證取得的帳密是否存在資料庫
-		List<String> list=Arrays.asList("帳號","密碼","姓名","身分證字號","性別","生日","大頭貼","縣市","鄉鎮區","郵遞區號","銀行帳號","賣家權限","年齡");
+		List<String> list=Arrays.asList("帳號","密碼","姓名","身分證字號","性別","使用者權限","生日","大頭貼","縣市","鄉鎮區","郵遞區號","銀行帳號","賣家權限","年齡");
 		
 		if(loginStatus.equals("acc&&pwd are corrected")) {
 			UserVo userVo=userService.findOne(account);
@@ -136,7 +136,7 @@ public class LoginController {
 	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.GET)
 	public String userDirectModification(HttpServletRequest request,HttpSession httpsession,Model model) {
 		UserVo user=(UserVo) httpsession.getAttribute("user");
-		httpsession.setAttribute("user_pic", user.getPic());
+		
 		if(user!=null) {
 			return USERMAIN_PAGE;
 		}
@@ -181,11 +181,20 @@ public class LoginController {
 	@RequestMapping(value = "/userforget", method = RequestMethod.POST)
 	public String forget(HttpServletRequest request) {
 			String account=request.getParameter("checkaccount");
+			String checkidnumber=request.getParameter("checkidnumber");
 			UserVo result=userService.findOne(account);
+			
 			if(result!=null) {
+				String idnumber=result.getIdnumber();
+				if(checkidnumber.equals(idnumber)) {
 				emailService.sendSimpleMessage(account, "奇機銷售-忘記密碼", "您的密碼是:"+result.getPassword());
 				request.setAttribute("loginstatus", "信件已寄出");
 				return MAIN_PAGE;
+				}
+				else {
+					request.setAttribute("loginstatus", "身份證字號錯誤");
+					return MAIN_PAGE;
+				}
 			}
 			else {
 				request.setAttribute("loginstatus", "查無此帳號");

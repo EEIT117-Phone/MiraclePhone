@@ -27,7 +27,7 @@ public String send(String checkaccount) {
 	System.out.println(checkaccount);
 	emailService.sendSimpleMessage(
 		checkaccount, 
-		"驗證信", 
+		"奇機銷售-驗證信", 
 		"請點選連結: http://localhost:8080/MiraclePhone/vertifimail/getmail?checkaccount="+checkaccount
 		);
 		return "vertifyletter has been send";
@@ -40,6 +40,7 @@ public String getmail(HttpSession session,String checkaccount ) {
 	if(check!=null) {
 		check.setStatus("user");
 		userService.save(check);
+		session.setAttribute("user", check);
 		return "indexMain";
 	}
 	session.setAttribute("vertifimail", "user");

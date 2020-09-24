@@ -68,11 +68,7 @@ public class UserVo {
 	@Column(name="bankaccount")
 	private String bankaccount;
 	
-	@Column(name = "PAY_INFO_FACE") //支付方式:面交
-	private String payInfoFace;
-
-	@Column(name = "PAY_INFO_REMIT") //支付方式:匯款
-	private String payInfoRemit;
+	
 
 	@Column(name = "SHIP_INFO_FACE") //商品移交:面交
 	private String shipInfoFace;
@@ -203,13 +199,9 @@ public class UserVo {
 		this.orderInfoVos = orderInfoVo;
 	}
 	
-	public String getPayInfoFace() {
-		return payInfoFace;
-	}
+	
 
-	public void setPayInfoFace(String payInfoFace) {
-		this.payInfoFace = payInfoFace;
-	}
+	
 
 	public String getShipInfoFace() {
 		return shipInfoFace;
@@ -219,13 +211,8 @@ public class UserVo {
 		this.shipInfoFace = shipInfoFace;
 	}
 
-	public String getPayInfoRemit() {
-		return payInfoRemit;
-	}
-
-	public void setPayInfoRemit(String payInfoRemit) {
-		this.payInfoRemit = payInfoRemit;
-	}
+	
+	
 
 	public String getShipInfoPost() {
 		return shipInfoPost;

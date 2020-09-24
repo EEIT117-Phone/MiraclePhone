@@ -74,7 +74,9 @@
                            	<input  type="radio" id="man" name="sex" value="man" ><span id="man_span" >男</span>
 							<input type="radio" id="woman" name="sex"  value="woman"><span id="woman_span" >女</span>
 							<input type="radio" id="other" name="sex"  value="other" ><span id="other_span" >其他</span>
-							<input type="hidden" id="sex_save" name="sex_save" value="${user.sex}">
+							<input type="hidden" id="sex_save" name="sex_save" value="${user.sex}"><br>
+							<label for="status" class="h4 control-label">使用者權限:${user.status}</label>
+							
                           </div>
                       </div>
                       </div>

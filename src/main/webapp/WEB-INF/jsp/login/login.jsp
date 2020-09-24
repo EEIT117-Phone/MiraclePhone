@@ -30,6 +30,7 @@
    		<div class="form-signin" id="forgetpwd_area" >
    		<form action="/MiraclePhone/userforget" id="forgetpwd_form" method="post">
    		<input type="email" id="checkaccount" name="checkaccount" placeholder="請輸入電子信箱" >
+   		<input type="text" id="checkidnumber" name="checkidnumber" placeholder="請輸入身分證字號"> 
    		<input type="submit" class="btn  btn-primary " value="提交">
    		</form>
    		</div>
