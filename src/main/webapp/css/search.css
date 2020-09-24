@@ -78,11 +78,6 @@
 	object-fit: cover;
 }
 
-/* .top-link {
-	width: 35%;
-	height: 15%;
-	object-fit: cover;
-} */
 .card-title {
 	font-size: .9rem;
 	font-weight: bold;
@@ -100,6 +95,11 @@
 	margin: 0.5rem 0.8rem;
 }
 
+.card-result:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
 .card-watch {
 	font-size: 0.2rem;
 }
@@ -114,7 +114,6 @@
 
 .search {
 	width: 100%;
-	/*  	display: flex; */
 	display: inline-block;
 	padding-bottom: 10px;
 }
@@ -123,12 +122,13 @@
 	width: 80%;
 	border: 3px solid #6c757d;
 	padding: 5px;
-	height: 36px;
-	border-radius: 5px 0 0 5px;
+	height: 38px;
+/* 	border-radius: 5px 0 0 5px; */
+	border-radius: 5px;
 	outline: none;
 	color: black;
 	font-size: 1rem;
-	border-right: 0;
+/* 	border-right: 0; */
 }
 
 .searchTerm:focus {
@@ -136,13 +136,14 @@
 }
 
 .searchButton {
-	width: 36px;
-	height: 36px;
+	width: 37px;
+	height: 37px;
 	border: 1px solid #6c757d;
 	background: #6c757d;
 	text-align: center;
 	color: #fff;
-	border-radius: 0 5px 5px 0;
+/* 	border-radius: 0 5px 5px 0; */
+	border-radius: 20%;
 	cursor: pointer;
 	font-size: 20px;
 }
