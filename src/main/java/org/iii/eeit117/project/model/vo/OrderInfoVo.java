@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,6 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.iii.eeit117.project.model.converter.PhoneTypeConverter;
+import org.iii.eeit117.project.model.data.PhoneTypeEnum;
 
 @Entity
 @Table(name = "ORDERINFO")
@@ -28,6 +32,8 @@ public class OrderInfoVo {
 	public static final String ACCOUNT = "account";
 	public static final String ORDER_CONTEXT = "orderContext";
 	public static final String AMOUNT = "amount";
+	public static final String PHONETYPE = "phoneType";///////////
+	public static final String FILE1 = "file1";////////////
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,6 +61,14 @@ public class OrderInfoVo {
 	
 	@Column(name = "AMOUNT")
 	private Integer amount;
+	
+	
+	@Convert(converter = PhoneTypeConverter.class)//
+	private PhoneTypeEnum phoneType;//
+	
+	@Column(name = "PIC1")/////
+	private Integer pic1;/////
+	
 
 	public Integer getOrderId() {
 		return orderId;
@@ -120,6 +134,26 @@ public class OrderInfoVo {
 
 	public void setAmount(Integer amount) {
 		this.amount = amount;
+	}
+
+	public PhoneTypeEnum getPhoneType() {
+		return phoneType;
+	}
+
+	public void setPhoneType(PhoneTypeEnum phoneType) {
+		this.phoneType = phoneType;
+	}
+
+	public Integer getPic1() {
+		return pic1;
+	}
+
+	public void setPic1(Integer pic1) {
+		this.pic1 = pic1;
+	}
+
+	public static String getFile1() {
+		return FILE1;
 	}
 
 }

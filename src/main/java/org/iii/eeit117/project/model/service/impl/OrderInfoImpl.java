@@ -1,5 +1,7 @@
 package org.iii.eeit117.project.model.service.impl;
 
+import java.util.List;
+
 import org.iii.eeit117.project.model.dao.BaseDao;
 import org.iii.eeit117.project.model.dao.OrderInfoDao;
 import org.iii.eeit117.project.model.service.OrderInfoService;
@@ -17,5 +19,11 @@ public class OrderInfoImpl extends BaseServiceImpl<OrderInfoVo, Integer> impleme
 	public BaseDao<OrderInfoVo, Integer> getDao() {
 		return orderInfoDao;
 	}
+
+	@Override
+	public List<OrderInfoVo> findByAccount1(String account) {
+		return orderInfoDao.findByAndCondition("account", account);
+	}
+	
 
 }

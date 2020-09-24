@@ -101,6 +101,11 @@ public class CartController {
 			products.add(product);
 		}
 		orderInfo.setProductVo(products);
+		
+		for(ProductVo eachProduct:products) {
+			orderInfo.setPic1(eachProduct.getPic1());
+			orderInfo.setPhoneType(eachProduct.getPhoneType());
+			}//
 
 		if (StringUtil.isEmpty(orderInfo.getShipInfo())) {
 			orderinfoService.save(orderInfo);
