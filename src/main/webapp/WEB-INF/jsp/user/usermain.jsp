@@ -31,7 +31,7 @@
                 <hr>
                 <form class="form form-horizontal" action="/MiraclePhone/usermodification" method="post" id="registrationForm" onsubmit="return checkform()" enctype="multipart/form-data">
                    <div class="text-center">
-        				<img id="previewImg" name="previewImg" src="<c:url value='/fs/img/${user.pic}' />" class="avatar img-circle img-thumbnail" alt="avatar">
+        				<img id="previewImg" name="previewImg" src="<c:url value='/fs/img/${user.pic}' />" class="avatar img-circle img-thumbnail w-25" alt="avatar">
         				<h6>Upload a different photo...</h6>
         				<input type="file" class="text-center center-block file-upload w-25" id="file" name="file" >
         			</div>
