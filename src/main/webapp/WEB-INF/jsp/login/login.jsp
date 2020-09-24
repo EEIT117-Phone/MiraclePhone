@@ -19,7 +19,7 @@
          <input type="hidden" id="lastpage" name="lastpage" value=""> 
          <button type="submit" class="btn btn-lg btn-primary btn-block">提交</button><br/>
          <button class="btn btn-primary "
-   			onclick="javascript:location.href='http://localhost:8080/MiraclePhone/usersignup'">會員註冊
+   			onclick="javascript:location.href='http://localhost:8080/MiraclePhone/usersignup'" type="button">會員註冊
    		</button>
    			<label style="color:red" >${loginstatus}</label>
    			<button type="button" class="btn btn-primary" id="forgetpwd" name="forgetpwd">
@@ -29,7 +29,7 @@
         
    		<div class="form-signin" id="forgetpwd_area" >
    		<form action="/MiraclePhone/userforget" id="forgetpwd_form" method="post">
-   		<input type="text" id="checkaccount" name="checkaccount" placeholder="請輸入電子信箱" >
+   		<input type="email" id="checkaccount" name="checkaccount" placeholder="請輸入電子信箱" >
    		<input type="submit" class="btn  btn-primary " value="提交">
    		</form>
    		</div>

@@ -105,7 +105,7 @@ public class CartController {
 		for(ProductVo eachProduct:products) {
 			orderInfo.setPic1(eachProduct.getPic1());
 			orderInfo.setPhoneType(eachProduct.getPhoneType());
-			}//
+			}
 
 		if (StringUtil.isEmpty(orderInfo.getShipInfo())) {
 			orderinfoService.save(orderInfo);
@@ -124,10 +124,10 @@ public class CartController {
 		}
 		
 		//商品售出後更改status為"已售出"，因假資料太少，因此先註解
-		//cartService.soldOut(productIds);
+		cartService.soldOut(productIds);
 		
 		//通知信功能，因目前account非全部為有效Email，會報錯，因此先註解
-		//cartService.sendOrderConfirmMail(orderInfo);
+		cartService.sendOrderConfirmMail(orderInfo);
 		return CONFIRM_PAGE;
 	}
 }

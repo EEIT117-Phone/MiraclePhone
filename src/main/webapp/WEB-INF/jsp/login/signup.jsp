@@ -83,9 +83,9 @@
 							<input type="email" class="form-control" id="account"
 								name="account" placeholder="請輸入電子信箱" value="${useraccount}" required>
 							<input type="hidden" id="status" name="status" value="${vertifimail}" > 
-						</div>
-						<div>
-						<button id="vertifyacc" type="button" name="vertifyacc">寄送驗證信</button>
+						</div >
+						<div style="padding-top:5px">
+						<button id="vertifyacc" class="btn btn-primary" type="button" name="vertifyacc">寄送驗證信</button>
 						<label id="surevertify" name="surevertify"></label>
 						</div>
 						
@@ -95,7 +95,7 @@
 					<div class="mb-3">
 						<label for="password">密碼<span class="text-muted">(password)</span></label>
 						<input type="password" class="form-control" id="password"
-							name="password" placeholder="密碼4~16位含數字、特殊符號、大小寫英文" required>
+							name="password" placeholder="密碼3~16位含數字、大小寫英文" required>
 						<span id="pwdsure"></span>
 					</div>
 					<div class="mb-3">

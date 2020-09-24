@@ -2,7 +2,7 @@ $(function () {
 	 $("#password")
         .blur(
             function () { //驗證密碼
-                let pwdrule = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()_+`\-={}\[\]:";'<>?,.\/]).{4,16}$/;
+                let pwdrule = /^(?=.*[a-zA-Z])(?=.*\d).{3,16}$/;
                 
                 let result = pwdrule.test($("#password").val());
                 
@@ -17,7 +17,7 @@ $(function () {
             })
 
 
-$("#account").blur(function(){
+$("#account").blur(function(){ //確認帳號有無重複
 	let account=$("#account").val();
 		$.ajax({
 			url:CONTEXT_PATH + 'useracccheck' ,
@@ -27,13 +27,13 @@ $("#account").blur(function(){
 			checkaccount:account	
 			},
 			success : function(response) {
-				console.log(response);
+				
 				$('#sureaccount').text(response);
 			}
 		});
 	});
 	
-	$("#vertifyacc").click(function(){
+	$("#vertifyacc").click(function(){ //寄送驗證信
 		let account=$("#account").val();
 		$.ajax({
 			url:CONTEXT_PATH + 'vertifimail' ,
@@ -43,7 +43,7 @@ $("#account").blur(function(){
 				checkaccount:account
 			},
 			success : function(response) {
-				console.log(response);
+				
 				$('#surevertify').text(response);
 			}
 		});
@@ -59,7 +59,7 @@ $("#account").blur(function(){
         let tyear = today.getFullYear();
         let uyear = userbirth.split("-")[0]
         document.getElementById("age").value = (tyear - uyear);
-        console.log(document.getElementById("age").value);
+        
 
         if (document.getElementById("age").value < 20) //年齡不滿20歲隱藏當買家資格
         {
@@ -139,8 +139,6 @@ css: ["county form-control", "district form-control"] // 自訂 "城市"、"地�
 
 	
 $("#send").click(function(){
-	console.log($("#pwdsure").val())
-	console.log($("#sureidnumber").val())
 	if($("#pwdsure").val()){
 		if($("#sureidnumber").val()){
 			alert("註冊成功");
@@ -164,16 +162,16 @@ function checkform(){
 	}
 }
 
-console.log($("#shipInfoPost").checked)
+
 $("input[type='radio']").click(function(event){
 	if ($(this).data('waschecked') == true)
     {
-        $(this).prop('checked', false);
+        $(this).attr('checked', false);
         $(this).data('waschecked', false);
     }
     else
     {
-         $(this).prop('checked', true);
+         $(this).attr('checked', true);
          $(this).data('waschecked', true);
     }
 })

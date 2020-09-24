@@ -28,7 +28,7 @@ public String send(String checkaccount) {
 	emailService.sendSimpleMessage(
 		checkaccount, 
 		"驗證信", 
-		"你的驗證碼是 http://localhost:8080/MiraclePhone/vertifimail/getmail?checkaccount="+checkaccount
+		"請點選連結: http://localhost:8080/MiraclePhone/vertifimail/getmail?checkaccount="+checkaccount
 		);
 		return "vertifyletter has been send";
 
