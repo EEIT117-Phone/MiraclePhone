@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.iii.eeit117.project.model.dao.FileStorageDao;
 import org.iii.eeit117.project.model.service.EmailService;
 import org.iii.eeit117.project.model.service.FileService;
 import org.iii.eeit117.project.model.service.UserService;
@@ -87,7 +88,7 @@ public class LoginController {
 	public String checkLogin(HttpServletRequest request,HttpServletResponse response,HttpSession httpsession,Model model) throws IOException {
 		String account=request.getParameter("useraccount"); //取得輸入帳號
 		String password=request.getParameter("userpassword");//取得輸入密碼
-		String lastpageurl=request.getParameter("lastpage");//取得上一頁網址
+		
 		String loginStatus=userService.checkLogin(account, password); //驗證取得的帳密是否存在資料庫
 		List<String> list=Arrays.asList("帳號","密碼","姓名","身分證字號","性別","生日","大頭貼","縣市","鄉鎮區","郵遞區號","銀行帳號","賣家權限","年齡");
 		
@@ -117,7 +118,7 @@ public class LoginController {
 	
 	@RequestMapping(value = SIGNUP_PAGE, method = RequestMethod.POST)
 	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo, MultipartFile file) throws Exception {
-		System.out.println(file);
+		
 		if (file != null) {
 			FileStorageVo fileStorageVo = fileService.upload(file, ProductVo.class);
 			userVo.setPic(fileStorageVo.getFileStorageId());
@@ -144,12 +145,13 @@ public class LoginController {
 	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.POST)
 	public String userModification(HttpServletRequest request,@ModelAttribute("userModification")UserVo userVo,HttpSession httpsession,MultipartFile file) throws Exception {
 		String account=request.getParameter("account"); //取得欲修改的使用者帳號
-		System.out.println(account);
-		System.out.println(file);
+		
+		
 		if (file != null) {
 			FileStorageVo fileStorageVo = fileService.upload(file, ProductVo.class);
 			userVo.setPic(fileStorageVo.getFileStorageId());
 		}
+		
 		userService.save(userVo);
 		httpsession.setAttribute("user", userVo);
 		return USERMAIN_PAGE;

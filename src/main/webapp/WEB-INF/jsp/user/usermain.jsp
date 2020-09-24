@@ -89,8 +89,10 @@
                           <div class="col-xs-6">
                               <label for="password" class="h4 control-label">住址</label>
                           <div class="form-inline">
-                              <select class="form-control w-50" name="county" aria-describedby="form-county" ></select>
-                              <select class="form-control w-50" name="district" aria-describedby="form-district" ></select>
+                          <input type="hidden" id="save_county" name="save_county" value="${user.county}">
+                          <input type="hidden" id="save_district" name="save_district" value="${user.district}">
+                              <select class="form-control w-50" id="county" name="county" aria-describedby="form-county" ></select>
+                              <select class="form-control w-50" id="district" name="district" aria-describedby="form-district" ></select>
                               <input name="zipcode" class="form-control w-100" value="${user.zipcode}" >
                              
                           </div>
