@@ -87,7 +87,7 @@
 		<div class="accordion" id="accordionExample">
 		<div>${ResponseMsg}</div>
 		<c:forEach varStatus="status" var="contact" items="${unResponse}">
-	<form:form servletRelativeAction="/backstage/customerResponse" method="GET" modelAttribute="customerServiceVo">
+	<form:form servletRelativeAction="/customerContact/customerResponse" method="GET" modelAttribute="customerServiceVo">
 		<form:hidden path="selectq1"/>
 		<form:hidden path="selectq2"/>
 		<input type="hidden" name="contactid" value="${contact.contactid}" />

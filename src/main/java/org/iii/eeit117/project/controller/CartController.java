@@ -128,6 +128,9 @@ public class CartController {
 		
 		//通知信功能，因目前account非全部為有效Email，會報錯，因此先註解
 		cartService.sendOrderConfirmMail(orderInfo);
+		model.addAttribute("cartItems", httpSession.getAttribute("cartItems"));
+		httpSession.removeAttribute("cartItems");
+		httpSession.removeAttribute("cart");
 		return CONFIRM_PAGE;
 	}
 }

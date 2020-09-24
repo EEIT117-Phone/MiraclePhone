@@ -50,7 +50,7 @@ public class BackstageCustomerContactController {
 		
 		String selectQ1 = customerServiceVo.getSelectq1();
 		String selectQ2 = customerServiceVo.getSelectq2();
-		String url = UriComponentsBuilder.fromUriString("/backstage/customerContact").queryParam("selectq1", selectQ1)
+		String url = UriComponentsBuilder.fromUriString("/customerContact").queryParam("selectq1", selectQ1)
 				.queryParam("selectq2", selectQ2).build().encode().toUriString();
 		return "redirect:" + url;
 	}

@@ -54,7 +54,7 @@ public class BackstageProductManageController {
 			productVo.setStatus("上架中");
 		}
 		productService.save(productVo);
-		//backstageService.offShelfMail(productId);
+		backstageService.offShelfMail(productId);
 		return productVo.getStatus();
 	}
 

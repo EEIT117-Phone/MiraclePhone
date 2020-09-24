@@ -85,7 +85,7 @@
     <tr>
       <td>身分 ：${result.seller eq "seller" ? "買家／賣家 " : "買家" }</td>
       <td>
-		<input type="button" class="status btn btn-outline-primary" value="${result.status eq "blacklist" ? "恢復權限" :"設為黑名單"}" onclick="javascript: location.href = '<c:url value='/memberManagement/deleteMember?account=${result.account}&status=${result.status eq "blacklist" ? "user" :"blacklist"}' />'"/>
+		<input type="button" class="status btn btn-outline-primary" value='${result.status eq "blacklist" ? "恢復權限" :"設為黑名單"}' onclick="javascript: location.href = '<c:url value='/memberManagement/deleteMember?account=${result.account}&status=${result.status eq "blacklist" ? "user" :"blacklist"}' />'"/>
 		</td>
     </tr>
   </tbody>
