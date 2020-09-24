@@ -4,7 +4,29 @@ $(function () {
 		$("#home").css("display","block");
 	})*/
 
-erTWZipcode();  //地址
+var save_sex=document.getElementById("sex_save").value;
+
+var sex_list=$("input[name='sex']");
+var seller_save=document.getElementById("save_seller").value;
+var seller=document.getElementById("seller");
+
+for(var i=0;i<sex_list.length;i++){
+	if(sex_list[i].value==save_sex){
+		sex_list[i].checked=true;
+	}
+}
+
+if(seller.value==seller_save){
+	seller.checked=true;
+}
+
+$("#twzipcode").twzipcode({
+zipcodeIntoDistrict: true, // 郵遞區號自動顯示在區別選單中
+css: ["city form-control", "town form-control"], // 自訂 "城市"、"地別" class 名稱 
+countyName: "county", // 自訂城市 select 標籤的 name 值
+districtName: "district" // 自訂區別 select 標籤的 name 值
+
+});
 
 
 function countage(){ //計算年齡

@@ -44,6 +44,8 @@ public class LoginController {
 	@Autowired
 	private UserService userService;
 	
+	
+	
 	@Autowired
 	private FileService fileService;
 	
@@ -99,6 +101,7 @@ public class LoginController {
 			httpsession.setAttribute("usercolumn",list);
 			httpsession.setAttribute("user", userVo); //登入成功將session內放入uservo物件
 			
+			
 			if (httpsession.getAttribute(AppProperty.REDIRECT_URL) != null) {
 				return "redirect:/" + httpsession.getAttribute(AppProperty.REDIRECT_URL);
     		} else {
@@ -133,6 +136,7 @@ public class LoginController {
 	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.GET)
 	public String userDirectModification(HttpServletRequest request,HttpSession httpsession,Model model) {
 		UserVo user=(UserVo) httpsession.getAttribute("user");
+		httpsession.setAttribute("user_pic", user.getPic());
 		if(user!=null) {
 			return USERMAIN_PAGE;
 		}
@@ -147,10 +151,19 @@ public class LoginController {
 		String account=request.getParameter("account"); //取得欲修改的使用者帳號
 		
 		
-		if (file != null) {
+		if (file!=null) {
+			System.out.println("走file不等於null");
 			FileStorageVo fileStorageVo = fileService.upload(file, ProductVo.class);
 			userVo.setPic(fileStorageVo.getFileStorageId());
 		}
+//		else {
+//			System.out.println("走file等於null");
+//			UserVo orgin=userService2.findOne(account);
+//			Integer orgin_pic=orgin.getPic();
+//			FileStorageVo fileStorageVo = fileService.download(orgin_pic);
+//			userVo.setPic(fileStorageVo.getFileStorageId());
+//		}
+		
 		
 		userService.save(userVo);
 		httpsession.setAttribute("user", userVo);

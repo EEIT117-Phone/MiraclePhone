@@ -18,6 +18,7 @@
 <script type="text/javascript"></script>
 <script src="<c:url value='/js/er.twzipcode.js' />"></script>
 <script src="<c:url value='/js/er.twzipcode.data.js' />"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.14/jquery.twzipcode.min.js"></script>
 <div class="container bootstrap snippet">
   
     <div class="row">
@@ -33,7 +34,7 @@
                    <div class="text-center">
         				<img id="previewImg" name="previewImg" src="<c:url value='/fs/img/${user.pic}' />" class="avatar img-circle img-thumbnail w-25" alt="avatar">
         				<h6>Upload a different photo...</h6>
-        				<input type="file" class="text-center center-block file-upload w-25" id="file" name="file" >
+        				<input type="file" class="text-center center-block file-upload w-25" id="file" name="file" value="<c:url value='/fs/img/${user.pic}' />" >
         			</div>
       				<hr>
       				<div class="mainAll">
@@ -73,6 +74,7 @@
                            	<input  type="radio" id="man" name="sex" value="man" ><span id="man_span" >男</span>
 							<input type="radio" id="woman" name="sex"  value="woman"><span id="woman_span" >女</span>
 							<input type="radio" id="other" name="sex"  value="other" ><span id="other_span" >其他</span>
+							<input type="hidden" id="sex_save" name="sex_save" value="${user.sex}">
                           </div>
                       </div>
                       </div>
@@ -89,12 +91,27 @@
                           <div class="col-xs-6">
                               <label for="password" class="h4 control-label">住址</label>
                           <div class="form-inline">
-                          <input type="hidden" id="save_county" name="save_county" value="${user.county}">
-                          <input type="hidden" id="save_district" name="save_district" value="${user.district}">
-                              <select class="form-control w-50" id="county" name="county" aria-describedby="form-county" ></select>
-                              <select class="form-control w-50" id="district" name="district" aria-describedby="form-district" ></select>
-                              <input name="zipcode" class="form-control w-100" value="${user.zipcode}" >
-                             
+                         <div id="twzipcode">
+    <div data-role="county"
+         data-name="county"
+         data-value="${user.county}"
+         data-style="form-control w-50"
+         id="county">
+    </div>
+    <div data-role="district"
+         data-name="district"
+         data-value="${user.district}"
+         data-style="form-control w-100"
+         id="district">
+    </div>
+    <div data-role="zipcode"
+         data-name="zipcode"
+         data-value="${user.zipcode}"
+         data-style="form-control w-50"
+         id="zipcode">
+    </div>
+</div>
+                            
                           </div>
                       </div>
                       </div>
@@ -110,6 +127,7 @@
                       <div class="col-xs-6">
                        <label for="seller" class="h4 control-label">賣家權限</label>
                        <input type="radio" id="seller" name="seller" value="seller">
+                       <input type="hidden" id="save_seller" name="save_seller" value="${user.seller}">
                        <span id="seller_word">賣家</span>
                       </div>
                       </div>
