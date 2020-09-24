@@ -165,7 +165,7 @@
 							<div class="card-body search-card-body">
 								<p class="card-title">[${result.phoneSort}]
 									${result.phoneType.label} ${result.storage.label}
-									${result.color.label}色</p>
+									${result.color.label}</p>
 								<p class="card-text mr-2 d-inline-block mb-0">
 									$
 									<fmt:formatNumber value="${result.amount}" type="number" />
