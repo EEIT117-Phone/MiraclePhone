@@ -32,7 +32,7 @@ public enum PhoneColorEnum {
 	, YELLOW("黃色", "黃")
 
 	/* 珊瑚 */
-	, CORAL("珊瑚", "珊瑚")
+	, CORAL("珊瑚色", "珊瑚")
 
 	/* 紅 */
 	, RED("紅色", "紅")

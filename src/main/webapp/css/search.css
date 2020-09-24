@@ -100,8 +100,12 @@
 	margin: 0.5rem 0.8rem;
 }
 
-.card-city {
+.card-watch {
 	font-size: 0.2rem;
+}
+
+.card-city {
+	font-size: 0.9rem;
 }
 
 .search-card-body {

@@ -47,12 +47,13 @@
                 <!--    VIP輪播        -->
                 <p class="ml-3 h3">精選推薦</p>
                 <div class="owl-carousel owl-theme">          
-                    <c:forEach varStatus="status" var="result" items="${results}">
+                    <c:forEach varStatus="status" var="result" items="${vipresults}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
                             <div class="item card card-result element-item">
                                 <img class="card-img" src="<c:url value='/fs/img/${result.pic2}' />" alt="Card image cap">
                                 <div class="card-body search-card-body">
                                 	<span class="card-title new d-none">${result.productId}</span>
+<%--                                 	<span class="card-title new d-none">${result.ad_date}</span> --%>
                                     <span class="card-title">[${result.phoneSort}] </span>
                                     <span class="card-title">${result.phoneType.label} </span>
                                     <span class="card-title">${result.storage.label} </span>
@@ -69,7 +70,7 @@
                 </div>
 
 				<div class="d-inline-block w-100">
-                <p class="h3 float-left ml-3">搜尋結果</p>
+                <p class="h3 float-left ml-3">搜尋結果 (${results.size()})</p>
                 <div class="button-group sort-by-button-group">
               		<button id="amountButton" class="btn btn-primary float-right h-100 my-0 mr-3 ml-2" data-sort-value="amount">價格(低到高)↑</button>
               		<button class="btn btn-primary float-right h-100 my-0 mx-2" data-sort-value="new">上架時間</button>
@@ -78,27 +79,29 @@
                 </div>
               
                 <div class="h-100 mb-5" id="ajaxres">
-                 
+                 	<c:if test="${results.size() == 0}"><p class="h5 ml-3 mt-3">找不到符合的搜尋結果，請重新設定條件</p></c:if>
+                	<c:if test="${results.size() > 0}"><span class="h5 ml-3">以下為${param.searchInput}的搜尋結果</span></c:if>                
                 <form class="w-100 grid" style="border-spacing: 20px;" id="results">
-                    <c:forEach varStatus="status" var="result" items="${results}">
-                        <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
-                            <div class="card card-result element-item">
-                                <img class="card-img" src="<c:url value='/fs/img/${result.pic2}' />" alt="Card image cap">
-                                <div class="card-body search-card-body">
-                                	<span class="card-title new d-none">${result.productId}</span>
-                                    <span class="card-title">[${result.phoneSort}] </span>
-                                    <span class="card-title">${result.phoneType.label} </span>
-                                    <span class="card-title">${result.storage.label} </span>
-                                    <span class="card-title">${result.color.label}</span><br>
-                                    <p class="card-text d-inline-block mb-0">$</p>
-                                    <p class="card-text d-inline-block mb-0 amount"><fmt:formatNumber value="${result.amount}" type="number"/></p>
-                                    <i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i>
-                                    <p class="card-city text-secondary d-inline-block mb-0 watch">${result.watch}</p>
-                                	<p class="card-city mb-0 text-right">${result.county}${result.district}</p>
-                                </div>
-                            </div>
-                        </a>
-                    </c:forEach>
+	                    <c:forEach varStatus="status" var="result" items="${results}">
+	                      	    <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
+	                            <div class="card card-result element-item">
+	                                <img class="card-img" src="<c:url value='/fs/img/${result.pic2}' />" alt="Card image cap">
+	                                <div class="card-body search-card-body">
+	                                	<span class="card-title new d-none">${result.productId}</span>
+<%--                                 	<span class="card-title new d-none">${result.ad_date}</span> --%>
+	                                    <span class="card-title">[${result.phoneSort}] </span>
+	                                    <span class="card-title">${result.phoneType.label} </span>
+	                                    <span class="card-title">${result.storage.label} </span>
+	                                    <span class="card-title">${result.color.label}</span><br>
+	                                    <p class="card-text d-inline-block mb-0">$</p>
+	                                    <p class="card-text d-inline-block mb-0 amount"><fmt:formatNumber value="${result.amount}" type="number"/></p>
+	                                    <i class="fa fa-eye fa-fw text-secondary mr-0" aria-hidden="true"></i>
+	                                    <p class="card-watch text-secondary d-inline-block mb-0 watch">${result.watch}</p>
+	                                	<p class="card-city mb-0 text-right">${result.county}${result.district}</p>
+	                                </div>
+	                            </div>
+	                        </a>
+	                    </c:forEach>
                 </form>
                 
                 </div>
@@ -112,7 +115,7 @@
                     <div class="search">
                         <form:form servletRelativeAction="/search/result" method="get"
                             enctype="application/x-www-form-urlencoded" modelAttribute="searchBean">
-                            <form:input path="searchInput" class="searchTerm" placeholder="請輸入關鍵字搜尋"/>
+                            <form:input path="searchInput" class="searchTerm" name="searchInput" placeholder="請輸入關鍵字搜尋"/>
                             <button type="submit" class="searchButton"><i class="fa fa-search"></i>
                             </button>
                         </form:form>
@@ -124,6 +127,17 @@
                             enctype="application/x-www-form-urlencoded" modelAttribute="searchBean">
 <!--                             <button type="submit" class="searchButton"></button> -->
                 <div class="card">
+                	<article class="card-group-item">
+                        <header class="card-header">
+                            <label class="filter-title">交易地區</label>
+                        </header>
+                        <div class="pl-3 pr-3">
+                        	<div class="card-body">
+                        	<form:checkboxes class="form-check-input" id="countyOption" items="${countyList}" path="checkOption" element="div"/>
+                        	</div>
+                        </div>
+                    </article>
+                
                     <article class="card-group-item">
                         <header class="card-header">
                             <label class="filter-title">機種</label>
@@ -156,42 +170,19 @@
                         	</div>
                         </div>
                     </article>
-
+                    
                     <article class="card-group-item">
                         <header class="card-header">
                             <label class="filter-title">交易方式</label>
                         </header>
-                        <div class="filter-content">
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxDeliveryAll"
-                                            value="DeliveryAll" checked>
-                                        <label class="form-check-label" for="inlineCheckboxDeliveryAll">不限</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxDeliveryFTF"
-                                            value="DeliveryFTF"> <label class="form-check-label"
-                                            for="inlineCheckboxDeliveryFTF">面交</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxDeliveryHome"
-                                            value="DeliveryHome">
-                                        <label class="form-check-label" for="inlineCheckboxDeliveryHome">宅配物流</label>
-                                    </div>
-                                    <br>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckboxPost"
-                                            value="Post"> <label class="form-check-label"
-                                            for="inlineCheckboxPost">中華郵政</label>
-                                    </div>
-                                    <br>
-                                </form>
-                            </div>
+                        <div class="pl-3 pr-3">
+                        	<div class="card-body">
+                        	<form:checkboxes class="form-check-input" items="${face}" path="checkdFaceOption" element="div"/>
+                        	<form:checkboxes class="form-check-input" items="${post}" path="checkdPostOption" element="div"/>
+                        	</div>
                         </div>
                     </article>
+
 
                 </div>
                 </form:form>
