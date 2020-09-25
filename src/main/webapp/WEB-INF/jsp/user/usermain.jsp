@@ -130,15 +130,22 @@
                        <label for="seller" class="h4 control-label">賣家權限</label>
                        <input type="radio" id="seller" name="seller" value="seller">
                        <input type="hidden" id="save_seller" name="save_seller" value="${user.seller}">
-                       <span id="seller_word">賣家</span>
+                       <span id="seller_word">賣家</span><br>
+                  
+					<input type="radio" id="shipInfoFace" name="shipInfoFace" value="商品面交">
+					<input type="hidden" id="save_shipInfoFace" name="save_shipInfoFace" value="${user.shipInfoFace}">
+					<span id="shipInfoFace_word">商品可面交</span><br>
+					 <input type="radio" id="shipInfoPost" name="shipInfoPost" value="商品郵寄匯款" >
+					 <input type="hidden" id="save_shipInfoPost" name="save_shipInfoPost" value="${user.shipInfoPost}">
+					 <span id="shipInfoFace_word">商品可郵寄匯款</span><br>
+					</div>
                       </div>
                       </div>
                       
                       <div class="form-group">
-                          
                           <div class="col-xs-6">
-                            <label for="age" class="h4 control-label">年齡</label>
-                             ${user.age}<input type="hidden" id="age" name="age" value="${user.age}">
+                            <label for="age" class="h4 control-label">年齡:${user.age}</label>
+                             <input type="hidden" id="age" name="age" value="${user.age}">
                              <input id="status" type="hidden" name="status" value="user">
                           </div>
                       </div>

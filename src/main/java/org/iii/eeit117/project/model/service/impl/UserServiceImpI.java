@@ -32,13 +32,13 @@ public class UserServiceImpI extends BaseServiceImpl<UserVo, String> implements 
 			}
 			String checkpwd=dataCheck.getPassword();
 			if(checkpwd.equals(password)) { //若從資料庫有成功撈出同筆帳號，回傳成功字串
-				return "acc&&pwd are corrected";
+				return "帳號密碼正確";
 			}
 			return "密碼錯誤";
 			
 		}catch(Exception e){
 			e.getStackTrace();
-			return "system has error"; //發生錯誤也回傳系統錯誤值
+			return "系統發生錯誤"; //發生錯誤也回傳系統錯誤值
 		}
 		
 		

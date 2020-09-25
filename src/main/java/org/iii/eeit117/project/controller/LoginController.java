@@ -68,18 +68,18 @@ public class LoginController {
 		m = p.matcher(checkacc);
 		UserVo result=userService.findOne(checkacc);
 		if(!m.matches()) { //輸入的帳號格式驗證
-			String checkacc_result="Account Unable to meet email requirements";
+			String checkacc_result="帳號格式發生錯誤或空白";
 			return checkacc_result;
 		}
 		
 		if(result!=null) {
-			String checkacc_result="Account has been used";
+			String checkacc_result="帳號已經被註冊過";
 			
 			return checkacc_result;
 		}
 		else
 		{
-			String checkacc_result="Account can use";
+			String checkacc_result="帳號可以使用";
 			
 			return checkacc_result;
 		}
@@ -92,13 +92,13 @@ public class LoginController {
 		String password=request.getParameter("userpassword");//取得輸入密碼
 		
 		String loginStatus=userService.checkLogin(account, password); //驗證取得的帳密是否存在資料庫
-		List<String> list=Arrays.asList("帳號","密碼","姓名","身分證字號","性別","使用者權限","生日","大頭貼","縣市","鄉鎮區","郵遞區號","銀行帳號","賣家權限","年齡");
 		
-		if(loginStatus.equals("acc&&pwd are corrected")) {
+		
+		if(loginStatus.equals("帳號密碼正確")) {
 			UserVo userVo=userService.findOne(account);
 
 			httpsession=request.getSession();
-			httpsession.setAttribute("usercolumn",list);
+			
 			httpsession.setAttribute("user", userVo); //登入成功將session內放入uservo物件
 			
 			
@@ -110,7 +110,7 @@ public class LoginController {
 
 			
 		}
-		model.addAttribute("loginstatus",loginStatus);
+		model.addAttribute("loginstatus",loginStatus); //將登入狀態傳回去
 		return MAIN_PAGE;
 	}
 	
@@ -127,6 +127,7 @@ public class LoginController {
 			userVo.setPic(fileStorageVo.getFileStorageId());
 		}
 		userService.save(userVo);
+		
 		return MAIN_PAGE;
 	}
 	
@@ -148,22 +149,17 @@ public class LoginController {
 	
 	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.POST)
 	public String userModification(HttpServletRequest request,@ModelAttribute("userModification")UserVo userVo,HttpSession httpsession,MultipartFile file) throws Exception {
-		String account=request.getParameter("account"); //取得欲修改的使用者帳號
-		
-		
-		if (file!=null) {
+		if (file.getSize()!=0) {
 			System.out.println("走file不等於null");
 			FileStorageVo fileStorageVo = fileService.upload(file, ProductVo.class);
 			userVo.setPic(fileStorageVo.getFileStorageId());
 		}
-//		else {
-//			System.out.println("走file等於null");
-//			UserVo orgin=userService2.findOne(account);
-//			Integer orgin_pic=orgin.getPic();
-//			FileStorageVo fileStorageVo = fileService.download(orgin_pic);
-//			userVo.setPic(fileStorageVo.getFileStorageId());
-//		}
-		
+		else {
+			System.out.println("走file等於null");
+			UserVo orgin=(UserVo) httpsession.getAttribute("user");
+			Integer orgin_pic=orgin.getPic();
+			userVo.setPic(orgin_pic);
+		}
 		
 		userService.save(userVo);
 		httpsession.setAttribute("user", userVo);

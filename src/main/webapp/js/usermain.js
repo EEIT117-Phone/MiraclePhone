@@ -87,11 +87,11 @@ $("#password")
 		}
 	if(sum%10!=0){
 	
-	return false 
+	return false;
 	
 	}
 	
-	return true
+	return true;
 	
 	
   }
@@ -136,9 +136,23 @@ function readURL(input){
 var submitbutton=document.getElementById("submit");
 birth.addEventListener("blur",countage);
 
+var save_shipInfoFace=$("#save_shipInfoFace").val();
+var save_shipInfoPost=$("#save_shipInfoPost").val();
+
+var shipInfoFace=document.getElementById("shipInfoFace");
+var shipInfoPost=document.getElementById("shipInfoPost");
 
 
 
+if(save_shipInfoFace=="商品面交"){
+	document.getElementById("shipInfoFace").checked=true;
+}
+
+if(save_shipInfoPost=="郵寄"||save_shipInfoPost=="商品郵寄匯款"){
+	shipInfoPost.checked=true;
+}
+
+console.log(shipInfoFace.ckecked);
 })
 
 
