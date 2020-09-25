@@ -31,7 +31,12 @@ public class UserServiceImpI extends BaseServiceImpl<UserVo, String> implements 
 				return "帳號未註冊";
 			}
 			String checkpwd=dataCheck.getPassword();
+			String checkstatus=dataCheck.getStatus();
+			System.out.println(checkstatus);
 			if(checkpwd.equals(password)) { //若從資料庫有成功撈出同筆帳號，回傳成功字串
+				if(checkstatus.equals("blacklist")) {
+					return "黑名單";
+				}
 				return "帳號密碼正確";
 			}
 			return "密碼錯誤";

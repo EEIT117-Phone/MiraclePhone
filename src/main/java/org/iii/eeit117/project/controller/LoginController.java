@@ -40,11 +40,8 @@ public class LoginController {
 	public static final String USERMAIN_PAGE=MODULE_NAME+"main";
 	public static final String USERMODIFICATION_PAGE=MODULE_NAME+"modification";
 	
-	
 	@Autowired
 	private UserService userService;
-	
-	
 	
 	@Autowired
 	private FileService fileService;
