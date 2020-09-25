@@ -65,8 +65,7 @@ ul.pictureslides li img {
 .cobtainer #inputarea {
 	position: absolute;
 	top: 200px;
-	left: 400px !important;
-	
+	left: 35% !important;
 }
 
 .cobtainer h1 {
