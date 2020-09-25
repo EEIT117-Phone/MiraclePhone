@@ -15,6 +15,7 @@
 
 </head>
 <body>
+<center>
 
 <h2>您已刊登成功</h2>
 
@@ -39,6 +40,6 @@
 			</div>
 
 
-	
+	</center>
 </body>
 </html>
