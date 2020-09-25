@@ -46,7 +46,7 @@
             <div class="main-body">
                 <!--    VIP輪播        -->
                 <p class="ml-3 h3">精選推薦</p>
-                <div class="owl-carousel owl-theme">          
+                <div class="owl-carousel owl-theme ml-4">          
                     <c:forEach varStatus="status" var="result" items="${vipresults}">
                         <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
                             <div class="item card card-result element-item">
@@ -80,9 +80,9 @@
                 </div>
               
                 <div class="h-100 mb-5" id="ajaxres">
-<%--                  	<c:if test="${results.size() == 0}"><p class="h5 ml-3 mt-3">找不到符合的搜尋結果，請重新設定條件</p></c:if> --%>
+                 	<c:if test="${results.size() == 0}"><p class="h5 ml-3 mt-3">很抱歉，沒有搜尋到符合條件的商品，您可以調整搜尋條件試試看。</p></c:if>
 <%--                 	<c:if test="${results.size() > 0}"><span class="h5 ml-3">以下為${param.searchInput}的搜尋結果</span></c:if>                 --%>
-                <form class="w-100 grid" style="border-spacing: 20px;" id="results">
+                <form class="w-100 grid pl-1" id="results">
 	                    <c:forEach varStatus="status" var="result" items="${results}">
 	                      	    <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
 	                            <div class="card card-result element-item">
@@ -168,6 +168,8 @@
                         <div class="pl-3 pr-3">
                         	<div class="card-body">
                         	<form:checkboxes class="form-check-input" items="${amountList}" path="checkAmountOption" element="div"/>
+<%--                         	<form:input class="form-check-input" path="checkLowAmountOption" name="checkLowAmountOption"/> --%>
+<%--                         	<form:input class="form-check-input" path="checkHeightAmountOption" name="checkHeightAmountOption"/> --%>
                         	</div>
                         </div>
                     </article>

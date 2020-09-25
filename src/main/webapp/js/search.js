@@ -11,7 +11,7 @@ $(document).ready(function () {
       url: CONTEXT_PATH + 'search/ajaxresult?' + str,
       method: 'GET',
       success: function (result) {
-        var res = "<form class='w-100 grid pl-1' id='results' > ";
+        var res = "<form class='w-100 grid' id='results' > ";
         
         for (var i = 0; i < result.length; i++) {
           res += "<a target='_blank' href='http://localhost:8080/MiraclePhone/buyer?productId=" + result[i].productId + "'class='text-dark text-decoration-none'>" +
