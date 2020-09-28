@@ -53,7 +53,7 @@ public class CartController {
 	@RequestMapping(value = "/item", method = RequestMethod.GET)
 	public String cartItems(HttpSession httpSession, Model model, Integer deleteId) {
 		Set<Integer> productIds = (Set<Integer>) httpSession.getAttribute("cart");
-		if (productIds.isEmpty()) {
+		if (productIds==null||productIds.isEmpty()) {
 			model.addAttribute("message", "購物車目前尚無商品");
 			return MAIN_PAGE;
 		} else {
