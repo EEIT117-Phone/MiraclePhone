@@ -20,14 +20,19 @@ $(function () {
 $("#account").blur(function(){ //確認帳號有無重複
 	let account=$("#account").val();
 		$.ajax({
+			 headers: {  //可以解決ajax傳回是中文會出現亂碼
+        		Accept : "text/plain; charset=utf-8",
+       		 },
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
 			url:CONTEXT_PATH + 'useracccheck' ,
 			method : 'POST',
 			dataType: "text",
 			data:{
 			checkaccount:account	
 			},
+			
 			success : function(response) {
-				
+			
 				$('#sureaccount').text(response);
 			}
 		});
@@ -36,6 +41,9 @@ $("#account").blur(function(){ //確認帳號有無重複
 	$("#vertifyacc").click(function(){ //寄送驗證信
 		let account=$("#account").val();
 		$.ajax({
+			headers: {
+					Accept: "application/text; charset=utf-8"
+									},
 			url:CONTEXT_PATH + 'vertifimail' ,
 			method : 'GET',
 			dataType: "text",

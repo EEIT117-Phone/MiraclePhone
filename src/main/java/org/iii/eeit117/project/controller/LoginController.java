@@ -1,6 +1,7 @@
 package org.iii.eeit117.project.controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -56,7 +57,9 @@ public class LoginController {
 	
 	@ResponseBody
 	@RequestMapping(value="useracccheck",method=RequestMethod.POST) //驗證帳號是否重複
-	public String checkAcc(String checkaccount) {
+	public String checkAcc(String checkaccount,HttpServletRequest request) throws UnsupportedEncodingException {
+		request.setCharacterEncoding("UTF-8");
+		
 		Pattern p;
 		Matcher m;
 		String checkacc=checkaccount;
@@ -66,6 +69,7 @@ public class LoginController {
 		UserVo result=userService.findOne(checkacc);
 		if(!m.matches()) { //輸入的帳號格式驗證
 			String checkacc_result="帳號格式發生錯誤或空白";
+			
 			return checkacc_result;
 		}
 		

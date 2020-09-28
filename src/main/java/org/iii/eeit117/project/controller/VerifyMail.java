@@ -30,7 +30,7 @@ public String send(String checkaccount) {
 		"奇機銷售-驗證信", 
 		"請點選連結: http://localhost:8080/MiraclePhone/vertifimail/getmail?checkaccount="+checkaccount
 		);
-		return "vertifyletter has been send";
+		return "驗證信已經傳送";
 
 	}
 
