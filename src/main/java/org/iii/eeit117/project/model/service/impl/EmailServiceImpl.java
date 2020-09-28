@@ -5,7 +5,7 @@ import java.io.File;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
-import org.iii.eeit117.project.controller.SpringConfig;
+
 import org.iii.eeit117.project.model.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
@@ -23,7 +23,6 @@ public class EmailServiceImpl implements EmailService {
 	 public SimpleMailMessage sendTestMessage(
 		      String to, String subject, String text) {
 		        SimpleMailMessage message = new SimpleMailMessage(); 
-		        message.setFrom("noreply@baeldung.com");
 		        message.setTo(to); 
 		        message.setSubject(subject); 
 		        message.setText(text);
@@ -36,7 +35,6 @@ public class EmailServiceImpl implements EmailService {
     public void sendSimpleMessage(
       String to, String subject, String text) {
         SimpleMailMessage message = new SimpleMailMessage(); 
-        message.setFrom("digitalken1127@gmail.com");
         message.setTo(to); 
         message.setSubject(subject); 
         message.setText(text);
@@ -48,7 +46,6 @@ public class EmailServiceImpl implements EmailService {
 		 MimeMessage message = emailSender.createMimeMessage();
 	     
 		    MimeMessageHelper helper = new MimeMessageHelper(message, true);
-		    helper.setFrom("digitalken1127@gmail.com");
 		    helper.setTo(to);
 		    helper.setSubject(subject);
 		    helper.setText(text);

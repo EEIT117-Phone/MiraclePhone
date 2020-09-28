@@ -2,18 +2,15 @@ package org.iii.eeit117.project.controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.ServletException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.iii.eeit117.project.model.dao.FileStorageDao;
+
 import org.iii.eeit117.project.model.service.EmailService;
 import org.iii.eeit117.project.model.service.FileService;
 import org.iii.eeit117.project.model.service.UserService;
@@ -31,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sun.mail.iap.Response;
+
 
 @Controller
 public class LoginController {

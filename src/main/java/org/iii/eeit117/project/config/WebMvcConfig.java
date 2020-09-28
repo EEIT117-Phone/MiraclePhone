@@ -1,13 +1,10 @@
 package org.iii.eeit117.project.config;
 
-import java.util.Properties;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -19,7 +16,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = { "org.iii.eeit117.project.controller", "org.iii.eeit117.project.model.service.impl",
-		"org.iii.eeit117.project.model.dao", "org.iii.eeit117.project.property" })
+		"org.iii.eeit117.project.model.dao", "org.iii.eeit117.project.property","org.iii.eeit117.project.config" })
 public class WebMvcConfig implements WebMvcConfigurer {
 
 	@Override
