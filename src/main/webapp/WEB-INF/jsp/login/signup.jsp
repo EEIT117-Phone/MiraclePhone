@@ -167,15 +167,7 @@
 
 	</div>
 
-	<!-- 	<div class="form-writein"> -->
-	<!-- 			大頭照 -->
-	<%-- 			<form id="sendimg" name="sendimg" action="/MiraclePhone/usersignupimg" method="post"  enctype="multipart/form-data" > --%>
-	<!-- 			<input accept="image/jpeg" id="uploadimg" name="uploadimg" type="file"> -->
-	<!-- 			 -->
-	<!--  			<input type="hidden" id="imagename" name="imagename"> 放實際圖片url的地方	 -->
-	<!--  			<input type="submit" id="test" name="test" value="check" > -->
-	<%--  			</form> --%>
-	<!-- 			</div> -->
+	
 	<script type="text/javascript"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>

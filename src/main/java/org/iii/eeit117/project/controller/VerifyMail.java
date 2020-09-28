@@ -24,7 +24,7 @@ public class VerifyMail {
 @ResponseBody
 @RequestMapping(value = "vertifimail", method = RequestMethod.GET)
 public String send(String checkaccount) {
-	System.out.println(checkaccount);
+	
 	emailService.sendSimpleMessage(
 		checkaccount, 
 		"奇機銷售-驗證信", 

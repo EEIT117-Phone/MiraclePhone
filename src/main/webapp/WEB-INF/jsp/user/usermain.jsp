@@ -75,9 +75,14 @@
 							<input type="radio" id="woman" name="sex"  value="woman"><span id="woman_span" >女</span>
 							<input type="radio" id="other" name="sex"  value="other" ><span id="other_span" >其他</span>
 							<input type="hidden" id="sex_save" name="sex_save" value="${user.sex}"><br>
-							<label for="status" class="h4 control-label">使用者權限:${user.status}</label>
+							
 							
                           </div>
+                      </div>
+                      <div class="form-group">
+                      <div class="col-xs-6">
+                      <label for="status" class="h4 control-label">使用者權限:${user.status}</label>
+                      </div>
                       </div>
                       </div>
                       <div class="rightSide float-right">
@@ -85,7 +90,10 @@
                           
                           <div class="col-xs-6">
                               <label for="birth" class="h4 control-label">生日</label>
+                               <span style="font-size:1em;">年齡:${user.age}</span>
                               <input type="date" class="form-control" id="birth" name="birth" value="${user.birth}" >
+                              <input type="hidden" id="age" name="age" value="${user.age}">
+                             <input id="status" type="hidden" name="status" value="${user.status}">
                           </div>
                       </div>
                       <div class="form-group">
@@ -142,12 +150,7 @@
                       </div>
                       </div>
                       
-                      <div class="form-group">
-                          <div class="col-xs-6">
-                            <label for="age" class="h4 control-label">年齡:${user.age}</label>
-                             <input type="hidden" id="age" name="age" value="${user.age}">
-                             <input id="status" type="hidden" name="status" value="user">
-                          </div>
+                   
                       </div>
                       </div>
                       </div>
@@ -167,8 +170,8 @@
               </div>
                
               </div><!--/tab-pane-->
-          </div><!--/tab-content-->
+          
    <hr>
-        </div><!--/col-9-->
+        
    </body>
  </html>                                                     

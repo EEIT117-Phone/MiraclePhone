@@ -118,8 +118,11 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = SIGNUP_PAGE, method = RequestMethod.POST)
-	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo, MultipartFile file) throws Exception {
-		
+	public String userSignUp(@ModelAttribute("userSignUp")UserVo userVo, MultipartFile file,HttpServletRequest request) throws Exception {
+		String status=request.getParameter("status");
+		if(status.equals("")) {
+			userVo.setStatus("Unverified");
+		}
 		if (file != null) {
 			FileStorageVo fileStorageVo = fileService.upload(file, ProductVo.class);
 			userVo.setPic(fileStorageVo.getFileStorageId());
@@ -148,12 +151,12 @@ public class LoginController {
 	@RequestMapping(value=USERMODIFICATION_PAGE,method=RequestMethod.POST)
 	public String userModification(HttpServletRequest request,@ModelAttribute("userModification")UserVo userVo,HttpSession httpsession,MultipartFile file) throws Exception {
 		if (file.getSize()!=0) {
-			System.out.println("走file不等於null");
+			
 			FileStorageVo fileStorageVo = fileService.upload(file, ProductVo.class);
 			userVo.setPic(fileStorageVo.getFileStorageId());
 		}
 		else {
-			System.out.println("走file等於null");
+			
 			UserVo orgin=(UserVo) httpsession.getAttribute("user");
 			Integer orgin_pic=orgin.getPic();
 			userVo.setPic(orgin_pic);

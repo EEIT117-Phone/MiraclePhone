@@ -12,7 +12,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 @Configuration
-@ComponentScan(basePackages = { "org.iii.eeit117.project.config"})
 @PropertySource("classpath:mail.properties")
 public class MailConfig {
 	
