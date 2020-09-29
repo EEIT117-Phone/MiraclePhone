@@ -50,7 +50,7 @@
                     height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
                     focusable="false" role="img" aria-label="Placeholder: 500x500">
                      
-                     <a href="<c:url value='/search/result?indexInput=全新機 VIP' />" class="text-decoration-none">
+                     <a href="<c:url value='/search/result?vip=VIP&phoneSort=全新機' />" class="text-decoration-none">
                      <image xlink:href="<c:url value='/images/iphonenew.jpg' />"
     														width="100%" height="100%"/>
     														</a> 
@@ -73,7 +73,7 @@
                     height="600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
                     focusable="false" role="img" aria-label="Placeholder: 500x500">
                    
-                   	<a href="<c:url value='/search/result?indexInput=二手機 VIP' />" class="text-decoration-none">
+                   	<a href="<c:url value='/search/result?vip=VIP&phoneSort=二手機' />" class="text-decoration-none">
                      <image xlink:href="<c:url value='/images/iphoneSEsecond.jpg' />"
     														width="100%" height="100%"/>
     														</a>
@@ -92,7 +92,7 @@
                 <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
                     height="500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice"
                     focusable="false" role="img" aria-label="Placeholder: 500x500">
-                     <a href="<c:url value='/search/result?indexInput=零件機 VIP' />" class="text-decoration-none">
+                     <a href="<c:url value='/search/result?vip=VIP&phoneSort=零件機' />" class="text-decoration-none">
                      <image xlink:href="<c:url value='/images/iPhoneParts.jpeg' />"
     														width="100%" height="100%"/>
     														</a>

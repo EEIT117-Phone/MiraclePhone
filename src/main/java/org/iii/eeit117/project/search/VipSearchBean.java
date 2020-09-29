@@ -23,7 +23,7 @@ public class VipSearchBean extends BaseSearchBean<ProductVo> {
 		query.select(root);
 		List<Predicate> restrictions = new ArrayList<>();
 
-		restrictions.add(builder.equal(root.get(ProductVo.VIP), "vip"));
+		restrictions.add(builder.equal(root.get(ProductVo.VIP), "VIP"));
 		restrictions.add(builder.equal(root.get(ProductVo.STATUS), "上架中"));
 
 		return query.where(builder.and(restrictions.toArray(new Predicate[] {})));

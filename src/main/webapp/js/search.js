@@ -23,9 +23,9 @@ $(document).ready(function () {
             "<span class='card-title'>" + result[i].phoneType + " </span>" +
             "<span class='card-title'>" + result[i].storage + " </span>" +
             "<span class='card-title'>" + result[i].color + "</span><br>" +
-            "<p class='card-text d-inline-block mb-0'>$</p>" +
-            "<p class='card-text d-inline-block mb-0 amount'>" + result[i].amount + "</p>" +
-            "<i class='fa fa-eye fa-fw text-secondary mr-0' aria-hidden='true'></i>" +
+            "<p class='card-text d-inline-block mb-0 pr-1'>$</p>" +
+            "<p class='card-text d-inline-block mb-0 amount pr-1'>" + result[i].amount + "</p>" +
+            "<i class='fa fa-eye fa-fw text-secondary mr-0 pr-1' aria-hidden='true'></i>" +
             "<p class='card-city text-secondary d-inline-block mb-0 watch'>" + result[i].watch + "</p>" +
             "<p class='card-city mb-0 text-right'>" + result[i].county + result[i].district + "</p>" +
             "</div></div></a>"

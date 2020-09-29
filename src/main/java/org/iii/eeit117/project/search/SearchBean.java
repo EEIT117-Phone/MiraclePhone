@@ -15,13 +15,15 @@ import org.iii.eeit117.project.model.vo.ProductVo;
 
 public class SearchBean extends BaseSearchBean<ProductVo> {
 	private String phoneSort;
+	private String vip;
 	private String searchInput;
 	private String checkOption;
 	private Integer checkAmountOption;
 	private Integer checkdFaceOption;
 	private Integer checkdPostOption;
-	private String indexInput;
 	private String ad_date;
+	private Integer checkLowAmount;
+	private Integer checkHeightAmount;
 
 	@Override
 	public CriteriaQuery<ProductVo> getCriteriaQuery() {
@@ -35,7 +37,12 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 		// 快速找全新/二手/零件
 		if (StringUtil.isNonEmpty(phoneSort)) {
 			restrictions.add(builder.equal(root.get(ProductVo.PHONESORT), phoneSort));
-			System.out.println("phoneSort: " + phoneSort);
+		}
+
+		// 首頁快速搜全新/二手/零件VIP
+		if (StringUtil.isNonEmpty(vip)) {
+			restrictions.add(builder.equal(root.get(ProductVo.VIP), vip));
+			restrictions.add(builder.equal(root.get(ProductVo.PHONESORT), phoneSort));
 		}
 
 		// 進階搜尋功能
@@ -48,23 +55,22 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			List<Predicate> list = new LinkedList<>();
 			for (String oneWord : checkOptionList) {
 				System.out.println("oneWord: " + oneWord);
-				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%" + oneWord + "%");
-				Predicate storage1 = builder.like(root.get(ProductVo.STORAGE).as(String.class), "%" + oneWord + "%");
-				Predicate color1 = builder.like(root.get(ProductVo.COLOR).as(String.class), "%" + oneWord + "%");
-				Predicate phonesort1 = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
-				Predicate phonecondition1 = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
-				Predicate county1 = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
-				Predicate district1 = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
-				Predicate status1 = builder.equal(root.get(ProductVo.STATUS), "上架中");
-				orSearch = builder.or(phonetype1, storage1, color1, phonesort1, phonecondition1, county1, district1);
-				andSearch = builder.and(orSearch, status1);
+				Predicate phonetype = builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%" + oneWord + "%");
+				Predicate storage = builder.like(root.get(ProductVo.STORAGE).as(String.class), "%" + oneWord + "%");
+				Predicate color = builder.like(root.get(ProductVo.COLOR).as(String.class), "%" + oneWord + "%");
+				Predicate phonesort = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
+				Predicate phonecondition = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
+				Predicate county = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
+				Predicate district = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
+				Predicate status = builder.equal(root.get(ProductVo.STATUS), "上架中");
+				orSearch = builder.or(phonetype, storage, color, phonesort, phonecondition, county, district);
+				andSearch = builder.and(orSearch, status);
 				list.add(andSearch);
 			}
 			// 預設價格低到高排序
 			query.orderBy(builder.asc(root.get("amount")));
-			finalSearch = builder.and(list.toArray(new Predicate[0]));
+			finalSearch = builder.and(list.toArray(new Predicate[] {}));
 			restrictions.add(finalSearch);
-//			query.where(finalSearch);
 		} else {
 			// 搜尋框未輸入則全顯示
 			restrictions.add(builder.equal(root.get(ProductVo.STATUS), "上架中"));
@@ -79,13 +85,21 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			query.orderBy(builder.asc(root.get("amount")));
 		}
 
+		// 進階搜尋價格功能-介於輸入金額
+		if (StringUtil.isNonEmpty(checkLowAmount) || StringUtil.isNonEmpty(checkHeightAmount)) {
+			System.out.println("L: " + checkLowAmount);
+			System.out.println("H: " + checkHeightAmount);
+			restrictions.add(builder.between(root.get(ProductVo.AMOUNT), checkLowAmount, checkHeightAmount));
+			query.orderBy(builder.asc(root.get("amount")));
+		}
+
 		// 進階搜尋交易方式功能
 		if (StringUtil.isNonEmpty(checkdFaceOption)) {
 			System.out.println("checkdFaceOption: " + checkdFaceOption);
 			restrictions.add(builder.equal(root.get(ProductVo.FACE), checkdFaceOption));
 			query.orderBy(builder.asc(root.get("face")));
 		}
-		
+
 		if (StringUtil.isNonEmpty(checkdPostOption)) {
 			System.out.println("checkdPostOption: " + checkdPostOption);
 			restrictions.add(builder.equal(root.get(ProductVo.POST), checkdPostOption));
@@ -102,47 +116,28 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			List<Predicate> list = new LinkedList<>();
 			for (String oneWord : searchInputList) {
 				System.out.println("oneWord: " + oneWord);
-				Predicate phonetype1 = builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%" + oneWord + "%");
-				Predicate storage1 = builder.like(root.get(ProductVo.STORAGE).as(String.class), "%" + oneWord + "%");
-				Predicate color1 = builder.like(root.get(ProductVo.COLOR).as(String.class), "%" + oneWord + "%");
-				Predicate phonesort1 = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
-				Predicate phonecondition1 = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
-				Predicate county1 = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
-				Predicate district1 = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
-				Predicate status1 = builder.equal(root.get(ProductVo.STATUS), "上架中");
-				orSearch = builder.or(phonetype1, storage1, color1, phonesort1, phonecondition1, county1, district1);
-				andSearch = builder.and(orSearch, status1);
+				Predicate phonetype = builder.like(root.get(ProductVo.PHONETYPE).as(String.class), "%" + oneWord + "%");
+				Predicate storage = builder.like(root.get(ProductVo.STORAGE).as(String.class), "%" + oneWord + "%");
+				Predicate color = builder.like(root.get(ProductVo.COLOR).as(String.class), "%" + oneWord + "%");
+				Predicate phonesort = builder.like(root.get(ProductVo.PHONESORT), "%" + oneWord + "%");
+				Predicate phonecondition = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
+				Predicate county = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
+				Predicate district = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
+				Predicate amount;
+				try {
+					amount = builder.le(root.get(ProductVo.AMOUNT), Integer.parseInt(oneWord));
+				} catch (NumberFormatException e) {
+					amount = builder.le(root.get(ProductVo.AMOUNT), 0);
+				}
+				Predicate status = builder.equal(root.get(ProductVo.STATUS), "上架中");
+				orSearch = builder.or(phonetype, storage, color, phonesort, phonecondition, county, district, amount);
+				andSearch = builder.and(orSearch, status);
 				list.add(andSearch);
 			}
 			// 預設價格低到高排序
 			query.orderBy(builder.asc(root.get("amount")));
 			finalSearch = builder.and(list.toArray(new Predicate[] {}));
 			restrictions.add(finalSearch);
-		}
-
-		// 首頁精選全新機，二手機，零件機加上VIP
-		if (StringUtil.isNonEmpty(indexInput)) {
-
-			String[] searchInputList = indexInput.split(" ");
-			Predicate orSearch;
-			Predicate andSearch;
-			Predicate finalSearch;
-			List<Predicate> list = new LinkedList<>();
-			for (String oneWord : searchInputList) {
-				System.out.println("oneWord: " + oneWord);
-
-				Predicate phonesort1 = builder.equal(root.get(ProductVo.PHONESORT), oneWord);
-				Predicate viplevel = builder.like(root.get(ProductVo.VIP), "%" + oneWord + "%");
-				Predicate status1 = builder.equal(root.get(ProductVo.STATUS), "上架中");
-				orSearch = builder.or(phonesort1, viplevel);
-				andSearch = builder.and(orSearch, status1);
-				list.add(andSearch);
-			}
-			// 預設價格低到高排序
-			query.orderBy(builder.asc(root.get("amount")));
-			finalSearch = builder.and(list.toArray(new Predicate[] {}));
-			restrictions.add(finalSearch);
-//					query.where(finalSearch);
 		}
 
 		// 搜尋框未輸入則全顯示
@@ -203,20 +198,36 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 		this.phoneSort = phoneSort;
 	}
 
-	public String getIndexInput() {
-		return indexInput;
-	}
-
-	public void setIndexInput(String indexInput) {
-		this.indexInput = indexInput;
-	}
-
 	public String getAd_date() {
 		return ad_date;
 	}
 
 	public void setAd_date(String ad_date) {
 		this.ad_date = ad_date;
+	}
+
+	public String getVip() {
+		return vip;
+	}
+
+	public void setVip(String vip) {
+		this.vip = vip;
+	}
+
+	public Integer getCheckLowAmount() {
+		return checkLowAmount;
+	}
+
+	public void setCheckLowAmount(Integer checkLowAmount) {
+		this.checkLowAmount = checkLowAmount;
+	}
+
+	public Integer getCheckHeightAmount() {
+		return checkHeightAmount;
+	}
+
+	public void setCheckHeightAmount(Integer checkHeightAmount) {
+		this.checkHeightAmount = checkHeightAmount;
 	}
 
 }

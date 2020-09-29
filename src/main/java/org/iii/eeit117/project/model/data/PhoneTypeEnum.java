@@ -16,9 +16,6 @@ public enum PhoneTypeEnum {
 	/* iPhone 6s Plus */
 	, IPHONE_6S_PLUS("iPhone 6s Plus", "iPhone6sPlus")
 
-	/* iPhone SE (第一代) */
-	, IPHONE_SE("iPhone SE", "iPhoneSE")
-
 	/* iPhone 7 */
 	, IPHONE_7("iPhone 7", "iPhone7")
 
@@ -30,6 +27,9 @@ public enum PhoneTypeEnum {
 
 	/* iPhone 8 Plus */
 	, IPHONE_8_PLUS("iPhone 8 Plus", "iPhone8Plus")
+	
+	/* iPhone SE (第一代) */
+	, IPHONE_SE("iPhone SE", "iPhoneSE")
 
 	/* iPhone X */
 	, IPHONE_X("iPhone X", "iPhoneX")
