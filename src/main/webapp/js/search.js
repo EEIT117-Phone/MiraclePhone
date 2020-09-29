@@ -5,6 +5,11 @@ $(document).ready(function () {
 
   //  Filter  不限/其他複選
 
+  var resultnum = $('.cardresult').length;
+    $('#resultnum').text('(' + resultnum + ')');
+    // console.log(resultnum);
+
+
   $("input[type='checkbox']").click(function () {
     var str = $("input:checkbox:checked").serialize();
     $.ajax({
@@ -12,9 +17,9 @@ $(document).ready(function () {
       method: 'GET',
       success: function (result) {
         var res = "<form class='w-100 grid' id='results' > ";
-        
+
         for (var i = 0; i < result.length; i++) {
-          res += "<a target='_blank' href='http://localhost:8080/MiraclePhone/buyer?productId=" + result[i].productId + "'class='text-dark text-decoration-none'>" +
+          res += "<a target='_blank' href='http://localhost:8080/MiraclePhone/buyer?productId=" + result[i].productId + "'class='text-dark text-decoration-none cardresult'>" +
             "<div class='card card-result element-item mb-3'>" +
             "<img class='card-img' src='http://localhost:8080/MiraclePhone/fs/img/" + result[i].pic2 + "'alt='Card image cap'>" +
             "<div class='card-body search-card-body'>" +
@@ -31,50 +36,57 @@ $(document).ready(function () {
             "</div></div></a>"
         }
         res += "</form>";
-        $("#ajaxres").html(res);
+        $('#resultnum').text('(' + Object.keys(result).length + ')');
+
+        if(Object.keys(result).length == 0) {
+          var noresult = "<p class='h5 ml-3 mt-5' id='noresult'>很抱歉，目前沒有符合條件的商品，您可以調整搜尋條件再試試看。</p></form>";
+          $('#ajaxres').html(noresult);
+        }else {
+          $("#ajaxres").html(res);
+        }
       }
 
     });
   });
 
 
-/*  $('.form-check-input').each(function (i) {
-    $('#phoneTypeOption' + (i + 2) + '').click(function () {
+  /*  $('.form-check-input').each(function (i) {
+      $('#phoneTypeOption' + (i + 2) + '').click(function () {
+        if ($(this).is(':checked')) {
+          $('#phoneTypeOption1').removeAttr('checked');
+        } else {
+          $('#phoneTypeOption1').attr('checked', 'checked');
+        }
+      })
+    });
+  
+    $('#phoneTypeOption1').click(function () {
       if ($(this).is(':checked')) {
-        $('#phoneTypeOption1').removeAttr('checked');
-      } else {
+        $('#phoneTypeOption2,#phoneTypeOption3,#phoneTypeOption4,#phoneTypeOption5,#phoneTypeOption6,#phoneTypeOption7,#phoneTypeOption8').removeAttr('checked');
+      }
+      else {
         $('#phoneTypeOption1').attr('checked', 'checked');
       }
-    })
-  });
-
-  $('#phoneTypeOption1').click(function () {
-    if ($(this).is(':checked')) {
-      $('#phoneTypeOption2,#phoneTypeOption3,#phoneTypeOption4,#phoneTypeOption5,#phoneTypeOption6,#phoneTypeOption7,#phoneTypeOption8').removeAttr('checked');
-    }
-    else {
-      $('#phoneTypeOption1').attr('checked', 'checked');
-    }
-  });
-
-  $('.form-check-input').each(function (i) {
-    $('#storageOption' + (i + 2) + '').click(function () {
+    });
+  
+    $('.form-check-input').each(function (i) {
+      $('#storageOption' + (i + 2) + '').click(function () {
+        if ($(this).is(':checked')) {
+          $('#storageOption1').removeAttr('checked');
+        } else {
+          $('#storageOption1').attr('checked', 'checked');
+        }
+      })
+    });
+  
+    $('#storageOption1').click(function () {
       if ($(this).is(':checked')) {
-        $('#storageOption1').removeAttr('checked');
-      } else {
+        $('#storageOption2,#storageOption3,#storageOption4,#storageOption5,#storageOption6').removeAttr('checked');
+      }
+      else {
         $('#storageOption1').attr('checked', 'checked');
       }
-    })
-  });
-
-  $('#storageOption1').click(function () {
-    if ($(this).is(':checked')) {
-      $('#storageOption2,#storageOption3,#storageOption4,#storageOption5,#storageOption6').removeAttr('checked');
-    }
-    else {
-      $('#storageOption1').attr('checked', 'checked');
-    }
-  });*/
+    });*/
 
   //  搜尋結果排序鈕切換
   $('#amountButton').click(function () {

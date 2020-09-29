@@ -71,7 +71,7 @@
 
 				<div class="d-inline-block w-100">
 <%--                 <p class="h3 float-left ml-3">搜尋結果 (${results.size()})</p> --%>
-                <p class="h3 float-left ml-3">搜尋結果</p>
+                <p class="h3 float-left ml-3">搜尋結果</p> <span class="h4 float-left ml-1" id="resultnum"></span>
                 <div class="button-group sort-by-button-group">
               		<button id="amountButton" class="btn btn-primary float-right h-100 my-0 mr-3 ml-2" data-sort-value="amount">價格(低到高)↑</button>
               		<button class="btn btn-primary float-right h-100 my-0 mx-2" data-sort-value="new">上架時間</button>
@@ -80,11 +80,11 @@
                 </div>
               
                 <div class="h-100 mb-5" id="ajaxres">
-                 	<c:if test="${results.size() == 0}"><p class="h5 ml-3 mt-3">很抱歉，目前沒有符合條件的商品，您可以調整搜尋條件再試試看。</p></c:if>
+                 	<c:if test="${results.size() == 0}"><p class="h5 ml-3 mt-5" id="noresult">很抱歉，目前沒有符合條件的商品，您可以調整搜尋條件再試試看。</p></c:if>
 <%--                 	<c:if test="${results.size() > 0}"><span class="h5 ml-3">以下為${param.searchInput}的搜尋結果</span></c:if>                 --%>
                 <form class="w-100 grid pl-1" id="results">
 	                    <c:forEach varStatus="status" var="result" items="${results}">
-	                      	    <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none">
+	                      	    <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none cardresult">
 	                            <div class="card card-result element-item">
 	                                <img class="card-img" src="<c:url value='/fs/img/${result.pic2}' />" alt="Card image cap">
 	                                <div class="card-body search-card-body">
