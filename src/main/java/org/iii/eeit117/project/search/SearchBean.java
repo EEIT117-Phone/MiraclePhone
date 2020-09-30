@@ -62,8 +62,14 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 				Predicate phonecondition = builder.like(root.get(ProductVo.PHONECONDITION), "%" + oneWord + "%");
 				Predicate county = builder.like(root.get(ProductVo.COUNTY), "%" + oneWord + "%");
 				Predicate district = builder.like(root.get(ProductVo.DISTRICT), "%" + oneWord + "%");
+				Predicate amount;
+				try {
+					amount = builder.le(root.get(ProductVo.AMOUNT), Integer.parseInt(oneWord));
+				} catch (NumberFormatException e) {
+					amount = builder.le(root.get(ProductVo.AMOUNT), 0);
+				}
 				Predicate status = builder.equal(root.get(ProductVo.STATUS), "上架中");
-				orSearch = builder.or(phonetype, storage, color, phonesort, phonecondition, county, district);
+				orSearch = builder.or(phonetype, storage, color, phonesort, phonecondition, county, district, amount);
 				andSearch = builder.and(orSearch, status);
 				list.add(andSearch);
 			}
@@ -75,13 +81,6 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			// 搜尋框未輸入則全顯示
 			restrictions.add(builder.equal(root.get(ProductVo.STATUS), "上架中"));
 			// 預設價格低到高排序
-			query.orderBy(builder.asc(root.get("amount")));
-		}
-
-		// 進階搜尋價格功能
-		if (StringUtil.isNonEmpty(checkAmountOption)) {
-			System.out.println("checkAmountOption: " + checkAmountOption);
-			restrictions.add(builder.le(root.get(ProductVo.AMOUNT), checkAmountOption));
 			query.orderBy(builder.asc(root.get("amount")));
 		}
 

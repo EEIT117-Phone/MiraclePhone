@@ -167,7 +167,7 @@
                         </header>
                         <div class="pl-3 pr-3">
                         	<div class="card-body">
-                        	<form:checkboxes class="form-check-input" items="${amountList}" path="checkAmountOption" element="div"/>
+                        	<form:checkboxes class="form-check-input" items="${amountList}" path="checkOption" element="div"/>
 <%--                         	<form:input class="form-check-input" path="checkLowAmount" name="checkLowAmount"/> --%>
 <%--                         	<form:input class="form-check-input" path="checkHeightAmount" name="checkHeightAmount"/> --%>
                         	</div>
