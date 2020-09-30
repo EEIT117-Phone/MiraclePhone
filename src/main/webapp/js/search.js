@@ -16,7 +16,7 @@ $(document).ready(function () {
       url: CONTEXT_PATH + 'search/ajaxresult?' + str,
       method: 'GET',
       success: function (result) {
-        var res = "<form class='w-100 grid' id='results' > ";
+        var res = "<form class='w-100 grid pl-1' id='results' > ";
 
         for (var i = 0; i < result.length; i++) {
           res += "<a target='_blank' href='http://localhost:8080/MiraclePhone/buyer?productId=" + result[i].productId + "'class='text-dark text-decoration-none cardresult'>" +
@@ -29,7 +29,7 @@ $(document).ready(function () {
             "<span class='card-title'>" + result[i].storage + " </span>" +
             "<span class='card-title'>" + result[i].color + "</span><br>" +
             "<p class='card-text d-inline-block mb-0 pr-1'>$</p>" +
-            "<p class='card-text d-inline-block mb-0 amount pr-1'>" + result[i].amount + "</p>" +
+            "<p class='card-text d-inline-block mb-0 amount pr-1'>" + result[i].amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "</p>" +
             "<i class='fa fa-eye fa-fw text-secondary mr-0 pr-1' aria-hidden='true'></i>" +
             "<p class='card-city text-secondary d-inline-block mb-0 watch'>" + result[i].watch + "</p>" +
             "<p class='card-city mb-0 text-right'>" + result[i].county + result[i].district + "</p>" +
