@@ -18,7 +18,7 @@ import org.iii.eeit117.project.property.AppProperty;
 public class AuthencationFilter implements Filter {
 
 	public static final String[] WHILE_LIST = { "/js", "/css", "/images", "/fs/img", "/index", "/user", "/search",
-			"/buyer", "/contact", "/vertifimail", "/cart/item", "/cart/cartAdd","/backstage" };
+			"/buyer", "/contact", "/vertifimail", "/cart/item", "/cart/cartAdd","/backstage","/productPromotionVIP" };
 
 	private String contextPath;
 

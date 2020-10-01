@@ -7,4 +7,10 @@
 <!-- 	 上面的name要對應到controller裡的return MAIN_PAGE -->
         <put-attribute name="body"  value="/WEB-INF/jsp/orderHistory/orderHistory.jsp" />  
     </definition>
+    
+    
+    <definition name="orderDetails" extends="template-def">
+<!-- 	 上面的name要對應到controller裡的return MAIN_PAGE -->
+        <put-attribute name="body"  value="/WEB-INF/jsp/orderHistory/orderDetails.jsp" />  
+    </definition>
 </tiles-definitions>

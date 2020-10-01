@@ -17,29 +17,27 @@
 		<thead>
 			<tr>
 				<th scope="col">圖片</th>
-				<th scope="col">指示</th>
-				<th scope="col">購買日期</th>
-				<th scope="col">訂單編號</th>
+				<th scope="col">手機名稱</th>
+				<th scope="col">手機容量</th>
+				<th scope="col">手機顏色</th>
 
 			</tr>
 		</thead>
 		
-		<c:forEach varStatus="status" var="odif" items="${odif}">
+		<c:forEach varStatus="status" var="product" items="${productSet}">
 			<tbody>
 				<tr>
-					<th scope="row"><a href="<c:url value='/orderHistory/orderDetails/${status.index}' />"> 
+					<th scope="row"><a href="<c:url value='/buyer?productId=${product.productId}' />"> 
 							<img
-							src="<c:url value='/fs/img/${odif.pic1}' />" class="img1"
+							src="<c:url value='/fs/img/${product.pic2}' />" class="img1"
 							id="myImg" width="80" height="70">
 					</a></th>
-					<td>點擊左側圖片查看訂單細節</td>
-					<td>${odif.date}</td>
-					<td>${odif.orderId}</td>
-					
+					<td>${product.phoneType.label}</td>
+					<td>${product.storage.label}</td>
+					<td>${product.color.label}</td>
 				</tr>
 	
 			</tbody>
-			
 		</c:forEach>
 
 	</table>
