@@ -9,9 +9,10 @@
 <title>orderHistory</title>
 <link href="<c:url value='/css/orderHistory.css' />" rel="stylesheet">
 <script src="<c:url value='/js/orderHistory.js' />"></script>
+
 </head>
 <body>
-
+<div id = bigframe>
 	<table class="table table-striped">
 	
 		<thead>
@@ -43,7 +44,7 @@
 	</table>
 	
 	
-
+</div>
 
 </body>
 
