@@ -36,7 +36,7 @@
 					<th scope="row"><input id="normalone" type="radio"
 						name="promotecase" value="normal 30 上架中 普通方案一個月 200"
 						required="required"> 普通方案一個月</th>
-					<td>200</td>
+					<td>$200</td>
 					<td>✘</td>
 					<td>✘</td>
 				</tr>
@@ -44,7 +44,7 @@
 					<th scope="row"><input id="normalthree" type="radio"
 						name="promotecase" value="normal 90 上架中 普通方案三個月 500"
 						required="required">普通方案三個月</th>
-					<td>500</td>
+					<td>$500</td>
 					<td>✘</td>
 					<td>✘</td>
 				</tr>
@@ -52,7 +52,7 @@
 					<th scope="row"><input id="vipone" type="radio"
 						name="promotecase" value="VIP 30 上架中 VIP方案一個月 400"
 						required="required"> VIP方案一個月</th>
-					<td>400</td>
+					<td>$400</td>
 					<td>✔</td>
 					<td>✔</td>
 				</tr>
@@ -60,8 +60,8 @@
 				<tr>
 					<th scope="row"><input id="vipthree" type="radio"
 						name="promotecase" value="VIP 90 上架中 VIP三個月 1000"
-						required="required" CHECKED>VIP方案三個月</th>
-					<td>1000</td>
+						required="required" CHECKED>VIP方案三個月(建議)</th>
+					<td>$1,000</td>
 					<td>✔</td>
 					<td>✔</td>
 				</tr>
