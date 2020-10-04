@@ -30,7 +30,7 @@
 					<th scope="row"><a href="<c:url value='/orderHistory/orderDetails/${status.index}' />"> 
 							<img
 							src="<c:url value='/fs/img/${odif.pic1}' />" class="img1"
-							id="myImg" width="80" height="70">
+							id="myImg" width="70" height="70">
 					</a></th>
 					<td>點擊左側圖片查看訂單細節</td>
 					<td>${odif.date}</td>

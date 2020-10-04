@@ -30,7 +30,7 @@
 					<th scope="row"><a href="<c:url value='/buyer?productId=${product.productId}' />"> 
 							<img
 							src="<c:url value='/fs/img/${product.pic2}' />" class="img1"
-							id="myImg" width="80" height="70">
+							id="myImg" width="70" height="70">
 					</a></th>
 					<td>${product.phoneType.label}</td>
 					<td>${product.storage.label}</td>
