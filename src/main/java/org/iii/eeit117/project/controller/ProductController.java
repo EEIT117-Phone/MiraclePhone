@@ -73,7 +73,7 @@ public class ProductController {
 		// 從session取得user account 填入product account
 		productVo.setAccount(user.getAccount());
 
-		productService.save(productVo);
+//		productService.save(productVo);
 		rd.addFlashAttribute("product", productVo);
 		return "redirect:/" + PRODUCT_PROMOTION_VIP;
 	}
