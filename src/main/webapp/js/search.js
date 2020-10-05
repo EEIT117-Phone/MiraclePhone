@@ -1,13 +1,6 @@
 $(document).ready(function () {
-  //  Filter  預設選取不限
-  //  $('#phoneTypeOption1').attr('checked', 'checked');
-  //  $('#storageOption1').attr('checked', 'checked');
-
-  //  Filter  不限/其他複選
-
   var resultnum = $('.cardresult').length;
     $('#resultnum').text('(' + resultnum + ')');
-    // console.log(resultnum);
 
 
   $("input[type='checkbox']").click(function () {
@@ -19,9 +12,9 @@ $(document).ready(function () {
         var res = "<form class='w-100 grid pl-1' id='results' > ";
 
         for (var i = 0; i < result.length; i++) {
-          res += "<a target='_blank' href='http://localhost:8080/MiraclePhone/buyer?productId=" + result[i].productId + "'class='text-dark text-decoration-none cardresult'>" +
+          res += "<a target='_blank' href='/buyer?productId=" + result[i].productId + "'class='text-dark text-decoration-none cardresult'>" +
             "<div class='card card-result element-item mb-3'>" +
-            "<img class='card-img' src='http://localhost:8080/MiraclePhone/fs/img/" + result[i].pic2 + "'alt='Card image cap'>" +
+            "<img class='card-img' src='/fs/img/" + result[i].pic2 + "'alt='Card image cap'>" +
             "<div class='card-body search-card-body'>" +
             "<span class='card-title new d-none'>" + result[i].productId + "</span>" +
             "<span class='card-title'>[" + result[i].phoneSort + "] </span>" +
@@ -44,6 +37,7 @@ $(document).ready(function () {
         }else {
           $("#ajaxres").html(res);
         }
+
 
   // init Isotope
   var $grid = $('.grid').isotope({
@@ -83,44 +77,6 @@ $(document).ready(function () {
     });
   });
 
-
-  /*  $('.form-check-input').each(function (i) {
-      $('#phoneTypeOption' + (i + 2) + '').click(function () {
-        if ($(this).is(':checked')) {
-          $('#phoneTypeOption1').removeAttr('checked');
-        } else {
-          $('#phoneTypeOption1').attr('checked', 'checked');
-        }
-      })
-    });
-  
-    $('#phoneTypeOption1').click(function () {
-      if ($(this).is(':checked')) {
-        $('#phoneTypeOption2,#phoneTypeOption3,#phoneTypeOption4,#phoneTypeOption5,#phoneTypeOption6,#phoneTypeOption7,#phoneTypeOption8').removeAttr('checked');
-      }
-      else {
-        $('#phoneTypeOption1').attr('checked', 'checked');
-      }
-    });
-  
-    $('.form-check-input').each(function (i) {
-      $('#storageOption' + (i + 2) + '').click(function () {
-        if ($(this).is(':checked')) {
-          $('#storageOption1').removeAttr('checked');
-        } else {
-          $('#storageOption1').attr('checked', 'checked');
-        }
-      })
-    });
-  
-    $('#storageOption1').click(function () {
-      if ($(this).is(':checked')) {
-        $('#storageOption2,#storageOption3,#storageOption4,#storageOption5,#storageOption6').removeAttr('checked');
-      }
-      else {
-        $('#storageOption1').attr('checked', 'checked');
-      }
-    });*/
 
   //  搜尋結果排序鈕切換
   $('#amountButton').click(function () {

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -70,7 +69,6 @@
                 </div>
 
 				<div class="d-inline-block w-100">
-<%--                 <p class="h3 float-left ml-3">搜尋結果 (${results.size()})</p> --%>
                 <p class="h3 float-left ml-3">搜尋結果</p> <span class="h4 float-left ml-1" id="resultnum"></span>
                 <div class="button-group sort-by-button-group">
               		<button id="amountButton" class="btn btn-primary float-right h-100 my-0 mr-3 ml-2" data-sort-value="amount">價格(低到高)↑</button>
@@ -81,7 +79,6 @@
               
                 <div class="h-100 mb-5" id="ajaxres">
                  	<c:if test="${results.size() == 0}"><p class="h5 ml-3 mt-5" id="noresult">很抱歉，目前沒有符合條件的商品，您可以調整搜尋條件再試試看。</p></c:if>
-<%--                 	<c:if test="${results.size() > 0}"><span class="h5 ml-3">以下為${param.searchInput}的搜尋結果</span></c:if>                 --%>
                 <form class="w-100 grid pl-1" id="results">
 	                    <c:forEach varStatus="status" var="result" items="${results}">
 	                      	    <a target="_blank" href="<c:url value='/buyer?productId=${result.productId}' />" class="text-dark text-decoration-none cardresult">
@@ -126,7 +123,6 @@
                 <p class="h3">進階篩選</p>
                 <form:form servletRelativeAction="/search/result" method="get"
                             enctype="application/x-www-form-urlencoded" modelAttribute="searchBean">
-<!--                             <button type="submit" class="searchButton"></button> -->
                 <div class="card">
                 	<article class="card-group-item">
                         <header class="card-header">
