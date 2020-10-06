@@ -46,7 +46,7 @@ $('#btn').click(function() {
             url : CONTEXT_PATH + '/contact/history',
             method : 'GET',
             success : function(jsonArr) {
-                $('#profile-tab-table-tbody').html(jsonArr.map(({selectq1, selectq2, date, question, answer},index)
+                $('#profile-tab-table-tbody').html(jsonArr.map(({selectq1, selectq2, date, question, answer},index)=>
 	                `
 		                <tr>
 		            		<td>${index + 1}</td>
