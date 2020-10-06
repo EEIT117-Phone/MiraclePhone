@@ -21,10 +21,10 @@
 					<div class="list-group" id="list-tab" role="tablist">
 						<a class="list-group-item list-group-item-action active"
 							id="list-home-list" data-toggle="list" href="#list-home"
-							role="tab" aria-controls="home">常見問題</a> <a
+							role="tab" aria-controls="home">客服留言</a> <a
 							class="list-group-item list-group-item-action"
 							id="list-profile-list" data-toggle="list" href="#list-profile"
-							role="tab" aria-controls="profile">客服留言</a> <a
+							role="tab" aria-controls="profile">常見問題</a> <a
 							class="list-group-item list-group-item-action"
 							id="list-settings-list" data-toggle="list" href="#list-settings"
 							role="tab" aria-controls="settings">會員權益聲明</a>
@@ -36,7 +36,76 @@
 							<div class="tab-pane fade show active" id="list-home"
 								role="tabpanel" aria-labelledby="list-home-list">
 
-								<!-- Customer Q&A Start -->
+								<!-- Customer Msg Start -->
+								<ul class="nav nav-tabs" id="myTab" role="tablist">
+									<li class="nav-item" role="presentation"><a
+										class="nav-link active" id="home-tab" data-toggle="tab"
+										href="#home" role="tab" aria-controls="home"
+										aria-selected="true">客服留言</a></li>
+									<li class="nav-item" role="presentation"><a
+										class="nav-link" id="profile-tab" data-toggle="tab"
+										href="#profile" role="tab" aria-controls="profile"
+										aria-selected="false">問答紀錄</a></li>
+								</ul>
+								<div class="tab-content" id="myTabContent">
+									<div class="tab-pane fade show active" id="home"
+										role="tabpanel" aria-labelledby="home-tab">
+										<br> <b>問題類別: </b>
+										<br>
+										<br>
+										<div>
+											<select id="question" name="selectq1"
+												onchange="changequestion(this.selectedIndex)" class="bot"></select>
+											<select id="question-sector" name="selectq2" class="bot"></select>
+										</div>
+										
+										<div>
+				<!-- Customer Msg End -->
+
+											<br>
+
+											<div>
+												<b>問題內容: </b><br> <br>
+												
+												<textarea id="textarea-ckeck" name="question" placeholder="請輸入內容(限500字)" maxlength="500" cols="85" rows="15" class="textarea"></textarea>
+												<br>
+											</div>
+											<br>
+											<div>
+												<form>
+													<button type="submit" class="btn btn-primary" id="btn">送出</button>
+												</form>
+												<br>
+												<br>
+											</div>
+										</div>
+									</div>
+
+									<div class="tab-pane fade" id="profile" role="tabpanel"
+										aria-labelledby="profile-tab">
+										<table class="table table-hover">
+											<thead>
+												<tr>
+													<th scope="col">#</th>
+													<th scope="col">歷史紀錄</th>
+													<th scope="col">日期</th>
+													<th scope="col">問題</th>
+													<th scope="col">回答</th>
+												</tr>
+												
+											</thead>
+											<tbody id="profile-tab-table-tbody">
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							
+							<div class="tab-pane fade" id="list-profile" role="tabpanel"
+								aria-labelledby="list-profile-list" >
+								
+								
+			<!-- Customer Q&A Start -->
 								<div class="accordion" id="accordionExample">
 									<b>常見問題</b>
 									<hr>
@@ -55,7 +124,7 @@
 											<div class="card-body">
 												<b>是否訂購成功</b><br>
 												訂單成立後，系統會發送『訂單確認』電子郵件給您，確認訂單詳細資料，包括訂購明細和收件資訊。<br> <br>
-												<b>如何追蹤訂單進度</b><br> 有關商品的出貨進度，可在『我的帳戶>訂單查詢』中查詢。
+												<b>如何追蹤訂單進度</b><br> 有關商品的出貨進度，可在『會員專區>訂單歷史紀錄』中查詢。
 											</div>
 										</div>
 									</div>
@@ -65,18 +134,35 @@
 												<button class="btn btn-link btn-block text-left collapsed"
 													type="button" data-toggle="collapse"
 													data-target="#collapseTwo" aria-expanded="false"
-													aria-controls="collapseTwo">發票相關問題</button>
+													aria-controls="collapseTwo">客戶隱私權</button>
 											</h2>
 										</div>
 										<div id="collapseTwo" class="collapse"
 											aria-labelledby="headingTwo" data-parent="#accordionExample">
 											<div class="card-body">
-												<b>為何沒有收到發票?</b><br> 根據財政部令 台財資字第 1070001765 號
-												「電子發票實施作業要點」，自 103 年 1 月 1
-												日起，於本網站消費開立之電子發票，無實體紙本發票故不會寄送。本網站會於期限內將開立之電子發票，上傳至財政
-												部電子發票整合服務平台留存。您可利用會員專區>客服中心/常見問題>電子發票歸戶功能，進行會員載具歸戶作
-												業。經歸戶後的中獎發票將由「財政部電子發票整合平台」進行領獎相關通知及作業；未歸戶的中獎發票，將由本網站以電子郵件、推播及簡訊通知您領獎相關通知及作業。(電子發票及會員載具歸戶說明，
-												詳見財政部電子發票整合平台
+												<b>客戶帳號、密碼與安全</b><br><br>
+												一、如客戶透過本網站註冊為會員，會員帳號為信箱帳號，必須詳實填寫。客戶註冊時必須填寫確實之個人資料，若發現有不實登錄時，本公司得暫停或終止您的客戶資格，若有違反中華民國相關法律，亦將依法追究。
+												<br><br>
+												二、客戶應該妥善保管密碼，不可以將密碼洩露或提供給他人知道或使用；以同一個客戶帳號和密碼使用本服務所進行的所有行為，都將被認為是該客戶本人的行為，應由該客戶依法負責。
+												<br><br>
+												三、客戶如果發現或懷疑有第三人使用其客戶帳號或密碼，應該立即通知本公司，本公司於知悉後將立即暫停該帳號所生交易之處理及後續利用。但客戶於通知前依法應負之法律上責任並不因此通知而免除。
+												<br><br>
+												<b>客戶交易</b><br><br>
+												一、商品交易頁面呈現之商品名稱、價格、內容、規格、型號及其他相關資訊，皆為您與本公司締結契約之一部分。
+												<br><br>
+												二、您同意依據本公司所提供之確認商品數量及價格機制進行下單。本公司對於下單內容，得於下單後二個工作日內附正當理由拒絕，但客戶已付款者，視為契約成立。
+												<br><br>
+												三、依據消費者保護法第19條第1、2、3項規定：「Ⅰ．通訊交易或訪問交易之消費者，得於收受商品或接受服務後七日內，以退回商品或書面通知方式解除契約，無須說明理由及負擔任何費用或對價。Ⅱ．但通訊交易有合理例外情事者，不在此限。Ⅲ．前項但書合理例外情事，由行政院定之。」因此契約成立並於您收受商品後，除非政府另有公告優先適用其他法令，原則上您享有前述消費者保護法第19條第1項解除契約之權利，如有退貨需求，請參閱本公司網站我的帳戶內購物小幫手中之「退貨/退款程序說明」。
+												<br><br>
+												四、請注意如您是透過銷售奇機網站之服務所產生之交易行為，買賣或其他合約均僅存在您與各該商家兩造之間。各該商家將就其商品、服務或其他交易標的物之品質、內容、運送、保證事項與瑕疵擔保責任等，向您事先詳細闡釋與說明並履行。您因前述買賣、服務或其他交易行為所產生之爭執，應向各該商家尋求救濟或解決之道。本公司僅提供momo摩天商城之平台供您與商家間進行交易，本公司並非交易之當事人，故絕不介入您與商家間的任何買賣、服務或其他交易行為，對於您所獲得的商品、服務或其他交易標的物亦不負任何擔保責任
+												<br><br>
+												<b>客戶隱私權保障</b><br><br>
+												一、隱私權聲明政策:
+												關於您註冊或使用本服務時所提供之個人資料，本公司將依「客戶隱私權政策 」為利用與保護。
+												<br><br>
+												二、資料記錄有效性:
+												客戶使用本服務時，其使用過程中所有的資料記錄，以本服務資料庫所記錄之資料為準，如有任何糾紛，以本服務資料庫所記錄之電子資料為認定標準，但客戶如能提出其他資料並證明為真實者則不在此限。
+												<br><br>
 											</div>
 										</div>
 									</div>
@@ -108,86 +194,9 @@
 										</div>
 									</div>
 								</div>
-								<!-- Customer Q&A End -->
-
-
-							</div>
-							<div class="tab-pane fade" id="list-profile" role="tabpanel"
-								aria-labelledby="list-profile-list" >
-								<!-- Customer Msg Start -->
-								<ul class="nav nav-tabs" id="myTab" role="tablist">
-									<li class="nav-item" role="presentation"><a
-										class="nav-link active" id="home-tab" data-toggle="tab"
-										href="#home" role="tab" aria-controls="home"
-										aria-selected="true">客服留言</a></li>
-									<li class="nav-item" role="presentation"><a
-										class="nav-link" id="profile-tab" data-toggle="tab"
-										href="#profile" role="tab" aria-controls="profile"
-										aria-selected="false">問答紀錄</a></li>
-								</ul>
-								<div class="tab-content" id="myTabContent">
-									<div class="tab-pane fade show active" id="home"
-										role="tabpanel" aria-labelledby="home-tab">
-										<br> <b>問題類別: </b>
-										<br>
-										<br>
-										<div>
-											<select id="question" name="selectq1"
-												onchange="changequestion(this.selectedIndex)" class="bot">
-											</select>
-											
-											
-											<select id="question-sector" name="selectq2" class="bot"></select>
-										</div>
-
-										<div>
-
-
-											<!-- Customer Msg End -->
-
-											<br>
-
-											<div>
-												<b>問題內容: </b><br> <br>
-												
-												<textarea id="textarea-ckeck" name="question" placeholder="請輸入內容(限500字)" maxlength="500" cols="85" rows="15" class="textarea"></textarea>
-												<br>
-											</div>
-											<br>
-											<div>
-												<form>
-													<button type="submit" class="btn btn-primary" id="btn">送出</button>
-												</form>
-												<br>
-												<br>
-											</div>
-										</div>
-
-
-									</div>
-
-									<div class="tab-pane fade" id="profile" role="tabpanel"
-										aria-labelledby="profile-tab">
-										<table class="table table-hover">
-											<thead>
-												<tr>
-													<th scope="col">#</th>
-													<th scope="col">歷史紀錄</th>
-													<th scope="col">日期</th>
-													<th scope="col">問題</th>
-													<th scope="col">回答</th>
-												</tr>
-												
-											</thead>
-											<tbody id="profile-tab-table-tbody">
-											</tbody>
-										</table>
-									</div>
-
-
-								</div>
-
-
+				<!-- Customer Q&A End -->
+							
+							
 							</div>
 							<div class="tab-pane fade" id="list-settings" role="tabpanel"
 								aria-labelledby="list-settings-list">
@@ -245,7 +254,6 @@
 								因海外連繫較為困難，因此退貨申請後請7天內請與客服連繫，逾期將不予退貨。<br>
 
 							</div>
-
 
 							<div class="tab-pane fade" id="list-messages" role="tabpanel"
 								aria-labelledby="list-messages-list"></div>
