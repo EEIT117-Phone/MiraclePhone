@@ -45,7 +45,7 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			restrictions.add(builder.equal(root.get(ProductVo.PHONESORT), phoneSort));
 		}
 
-		// 進階搜尋功能
+		// 進階篩選功能
 		if (StringUtil.isNonEmpty(checkOption)) {
 			System.out.println("checkOption: " + checkOption);
 			String[] checkOptionList = checkOption.split(",");
@@ -75,7 +75,7 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			}
 			// 預設價格低到高排序
 			query.orderBy(builder.asc(root.get("amount")));
-			finalSearch = builder.and(list.toArray(new Predicate[] {}));
+			finalSearch = builder.or(list.toArray(new Predicate[] {}));
 			restrictions.add(finalSearch);
 		} else {
 			// 搜尋框未輸入則全顯示
