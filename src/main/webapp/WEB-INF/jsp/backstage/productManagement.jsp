@@ -81,7 +81,9 @@
       <td>商品名稱 ：${result.phoneType.label}</td>
       <td>
       	商品狀態 ：<span id = "status${status.count}">${result.status}</span>
+      	<c:if test="${result.status!='已售出'}">
       	<button type="button" name='${result.productId}' value="${result.productId}" class="status btn btn-outline-primary" id="status-control${status.count}"></button>
+      	</c:if>
       </td>
     </tr>
     <tr>

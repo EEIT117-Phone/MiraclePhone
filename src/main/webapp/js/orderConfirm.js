@@ -1,7 +1,7 @@
 
 
 $(document).ready(function () {
-    cartInputPic();
+    
     shipMethod();
     function shipMethod() {
 
@@ -15,10 +15,7 @@ $(document).ready(function () {
             $(".shipMethod").text("請與賣家聊聊，約定取貨地點");
         }
     }
-    function cartInputPic() {
-        $("#pic1").attr("src", "../images/cartPic1.jpg");
-        $("#pic2").attr("src", "../images/cartPic2.jpg");
-    }
+
 
 });
 

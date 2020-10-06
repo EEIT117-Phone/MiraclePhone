@@ -77,7 +77,7 @@
                 <tbody>
                     <tr>
                         <td></td>
-                        <td>${cart.size()}件商品</td>
+                        <td id=totalUnit>件商品</td>
                         <td id=totalAmount>總金額:$</td>
                     </tr>
                 </tbody>

@@ -123,10 +123,9 @@ public class CartController {
 			model.addAttribute("shipInfoMsg", "請與賣家確認面交地點");
 		}
 		
-		//商品售出後更改status為"已售出"，因假資料太少，因此先註解
+		//商品售出後更改status為"已售出"，
 		cartService.soldOut(productIds);
 		
-		//通知信功能，因目前account非全部為有效Email，會報錯，因此先註解
 		cartService.sendOrderConfirmMail(orderInfo);
 		model.addAttribute("cartItems", httpSession.getAttribute("cartItems"));
 		httpSession.removeAttribute("cartItems");
