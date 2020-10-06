@@ -12,9 +12,9 @@ $(document).ready(function () {
         var res = "<form class='w-100 grid pl-1' id='results' > ";
 
         for (var i = 0; i < result.length; i++) {
-          res += "<a target='_blank' href='/buyer?productId=" + result[i].productId + "'class='text-dark text-decoration-none cardresult'>" +
+          res += "<a target='_blank' href='/MiraclePhone/buyer?productId=" + result[i].productId + "'class='text-dark text-decoration-none cardresult'>" +
             "<div class='card card-result element-item mb-3'>" +
-            "<img class='card-img' src='/fs/img/" + result[i].pic2 + "'alt='Card image cap'>" +
+            "<img class='card-img' src='/MiraclePhone/fs/img/" + result[i].pic2 + "'alt='Card image cap'>" +
             "<div class='card-body search-card-body'>" +
             "<span class='card-title new d-none'>" + result[i].productId + "</span>" +
             "<span class='card-title'>[" + result[i].phoneSort + "] </span>" +
