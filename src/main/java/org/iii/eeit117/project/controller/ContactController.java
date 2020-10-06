@@ -31,7 +31,7 @@ public class ContactController {
 		return MAIN_PAGE;
 	}
 
-	@RequestMapping(value = "/customer", method = RequestMethod.GET)
+	@RequestMapping(value = "/customer", method = RequestMethod.POST)
 	public String insert(CustomerServiceVo customerVo, @SessionAttribute("user") UserVo user) {
 
 		Timestamp time = new Timestamp(System.currentTimeMillis());
@@ -43,7 +43,7 @@ public class ContactController {
 
 		customerService.save(customerVo);
 
-		return MAIN_PAGE;
+		return "redirect:/contact";
 	}
 
 	@ResponseBody

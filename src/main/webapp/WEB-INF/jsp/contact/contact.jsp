@@ -13,7 +13,7 @@
 
 <body>
 	<main role="main">
-		<form:form servletRelativeAction="/contact/customer" method="GET"
+		<form:form servletRelativeAction="/contact/customer" method="POST" enctype="application/x-www-form-urlencoded"
 			modelAttribute="customerVo">
 
 			<div class="server-main">
