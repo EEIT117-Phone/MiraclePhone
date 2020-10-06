@@ -172,6 +172,7 @@
 								</p>
 								<i class="fa fa-eye fa-fw text-secondary mr-0"
 									aria-hidden="true"></i>
+									<p class="card-city text-secondary d-inline-block mb-0 watch">${result.watch}</p>
 								<p class="card-city mb-0 text-right">${result.county}${result.district}</p>
 							</div>
 						</div>
