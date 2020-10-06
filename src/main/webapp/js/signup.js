@@ -57,7 +57,7 @@ $("#account").blur(function(){ //確認帳號有無重複
 		});
 	});
 		
-	console.log($("#status").val());
+	
 	
 		
 		
@@ -147,12 +147,12 @@ css: ["county form-control", "district form-control"] // 自訂 "城市"、"地�
 
 	
 $("#send").click(function(){
-	if($("#pwdsure").val()){
-		if($("#sureidnumber").val()){
+	if($("#pwdsure").val()&&$("#sureidnumber").val()){
 			alert("註冊成功");
+			console.log("$('#pwdsure').val()"+$("#pwdsure").val());
+			console.log("$('#sureidnumber').val()"+$("#sureidnumber").val());
 			return true;	
 		}	
-		}
 	else{
 		alert("身分證或密碼格式不符");
 			return false;
