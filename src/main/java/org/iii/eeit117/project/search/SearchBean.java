@@ -75,7 +75,7 @@ public class SearchBean extends BaseSearchBean<ProductVo> {
 			}
 			// 預設價格低到高排序
 			query.orderBy(builder.asc(root.get("amount")));
-			finalSearch = builder.or(list.toArray(new Predicate[] {}));
+			finalSearch = builder.and(list.toArray(new Predicate[] {}));
 			restrictions.add(finalSearch);
 		} else {
 			// 搜尋框未輸入則全顯示
